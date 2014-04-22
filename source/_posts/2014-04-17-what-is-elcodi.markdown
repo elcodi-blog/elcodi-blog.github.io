@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-How many e-commerce solutions are there in the wild?
+How many e-commerce solutions are there out in the wild?
 
 Let me rephrase that: how many usable _developer friendly_ e-commerce solutions are there?
 
