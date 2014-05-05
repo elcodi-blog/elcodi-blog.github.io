@@ -13,9 +13,9 @@ These first few weeks of our journey are as tough as we expected. Releasing an o
 
 ## Who is Elcodi
 
-Elcodi is a project sponsored by Barcelona-based startup accelerator Befactory. At the present day, three of the incubated startup are now real companies, two of them having a business model that pivots on an e-commerce application. In order to meet they crazy time-to-market deadlines that seldom are imposed to accelerated startups, it was essential to build some sort of easy customizable tech. This is how we migrated http://chicplace.com and http://fancybox.com from heavily modified, unmantainable Prestashop installations to Symfony 2 applications sharing a common core.
+Elcodi is a project sponsored by Barcelona-based startup accelerator Befactory. At the present day, three of the incubated startup are now real companies, two of them having a business model that pivots on an e-commerce application. In order to meet they crazy time-to-market deadlines that seldom are imposed to accelerated startups, it was essential to build some sort of easy customizable tech. This is how we migrated http://chicplace.com and http://fancybox.com from heavily modified, unmaintainable Prestashop installations to Symfony 2 applications sharing a common core.
 
-This common core, which is already depolyed as production code that powers real companies, is the direct ancestor of Elcodi code. This is certainly not new or uncommon, thousands of developers usually work with a stable base of reusable code in order to kick-off new projects.  
+This common core, which is already deployed as production code that powers real companies, is the direct ancestor of Elcodi code. This is certainly not new or uncommon, thousands of developers usually work with a stable base of reusable code in order to kick-off new projects.
 
 We started to reflect on the actual value of what we have been building: it fulfilled our own need to kick-start a transactional web application the right way, so maybe it could be useful for others too. Could a B2B solution be built on top of this platform? Maybe, but the corporate software world is a tough beast to tame for a small startup.
 
