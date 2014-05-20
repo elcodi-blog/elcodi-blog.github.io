@@ -10,7 +10,7 @@ categories:
 
 This bundle works with Symfony's ``ExpressionLanguage``
 
-To install it, understand how it works or just get a reference for the syntax of the Expressions you can read the [Official Documnentation](http://symfony.com/doc/current/components/expression_language/index.html)
+To install it, understand how it works or just get a reference for the syntax of the Expressions you can read the [Official Documentation](http://symfony.com/doc/current/components/expression_language/index.html)
 
 ## Our needs
 
