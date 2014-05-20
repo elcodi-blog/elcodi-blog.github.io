@@ -40,7 +40,7 @@ In our case the ``operation()`` method should physically evaluate and resolve th
 
 The ``RuleGroup`` owns a collection of ``Component``, that can be ``Rule`` or ``RuleGroup``. This is the key for correctly mapping those entities to a concrete relational model. Once we do that, we would have forged a _whole-part_ awareness into our Rule model, and we could easily handle complex relations such as ``RuleGroup`` containing ``RuleGroup``. 
 
-[Doctrine inheritance] (http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html) is needed to implement this hierarchy. Either [Single Table Inheritance ](http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html#single-table-inheritance) or [Class Table Inheritance](http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html#class-table-inheritance) can be used. In this example, we will use STI.
+[Doctrine inheritance](http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html) is needed to implement this hierarchy. Either [Single Table Inheritance ](http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html#single-table-inheritance) or [Class Table Inheritance](http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html#class-table-inheritance) can be used. In this example, we will use STI.
 
 
 The ``Rule`` entity is defined as follows:
