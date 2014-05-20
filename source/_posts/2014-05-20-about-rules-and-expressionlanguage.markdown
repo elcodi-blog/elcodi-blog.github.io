@@ -235,7 +235,7 @@ Elcodi\RuleBundle\Entity\Abstracts\AbstractRule:
         ...
 ```
 
-Since we used STI, this mapping will only create a single table with a discriminator column used by Doctrine in order to identify the actual type of the entity stored on a giver row.
+Since we used STI, this mapping will only create a single table with a discriminator column used by Doctrine in order to identify the actual type of the entity stored on a given row.
 
 As for now, we have a working implementation that can be used to create associations between ``AbstractRule`` and other doctrine entities. What we miss is *how* rules are processed, or better, how *expressions* owned by the rules can be evaluated and in which *context*.
 
@@ -285,8 +285,6 @@ $this->assertTrue($language->evaluate(
     )
 ));
 ```
-
-We can differentiate between two types of contexts, the one that responds to a ``Request`` (that's to say, for each ``Request`` global values are set in spite of the execution context) and the one that responds to a 
 
 Evaluation contexts can be passed to the rule engine in two different ways:
 
