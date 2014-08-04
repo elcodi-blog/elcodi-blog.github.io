@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Week 2 - Where we are now - Elcodi blog</title>
+  <meta name="author" content="Elcodi Team">
+
+  
+  <meta name="description" content="There is really a lot of work to do! These first few weeks of our journey are as tough as we expected. Releasing an open source project is a big &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Elcodi blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50003565-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:elcodi-blog.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">
+        <span class="blue_light">
+            Elcodi blog
+        </span>
+       
+           <span class="blue_dark">
+             Symfony2 e-commerce components.
+           </span>
+       
+    </a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Week 2 - Where We Are Now</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-05T10:38:46+02:00" pubdate data-updated="true">May 5<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>There is really a lot of work to do!</p>
+
+<p>These first few weeks of our journey are as tough as we expected. Releasing an open source project is a big challenge, so we would like to explain a little bit more of ourselves.</p>
+
+<h2>Who is Elcodi</h2>
+
+<p>Elcodi is a project sponsored by Barcelona-based startup accelerator Befactory. At the present day, three of the incubated startup are now real companies, two of them having a business model that pivots on an e-commerce application. In order to meet they crazy time-to-market deadlines that seldom are imposed to accelerated startups, it was essential to build some sort of easy customizable tech. This is how we migrated <a href="http://chicplace.com">http://chicplace.com</a> and <a href="http://fancybox.com">http://fancybox.com</a> from heavily modified, unmaintainable Prestashop installations to Symfony 2 applications sharing a common core.</p>
+
+<p>This common core, which is already deployed as production code that powers real companies, is the direct ancestor of Elcodi code. This is certainly not new or uncommon, thousands of developers usually work with a stable base of reusable code in order to kick-off new projects.</p>
+
+<p>We started to reflect on the actual value of what we have been building: it fulfilled our own need to kick-start a transactional web application the right way, so maybe it could be useful for others too. Could a B2B solution be built on top of this platform? Maybe, but the corporate software world is a tough beast to tame for a small startup.</p>
+
+<p>Everything started to look clearer when we began to look at it in the perspective of releasing our work as an open source project: we would immediately be able to see if our work was worth and if something valuable could be built on top of it.</p>
+
+<h2>Community</h2>
+
+<p>The first thing to do is to gain trust from the community: you, as a developer, are the ultimate judge. We would like to share our ideas and commits from the work of last months, once they are polished enough to be displayed in public. We would like Elcodi to be an open forum to publicly discuss best practices in e-commerce development with Symfony 2.</p>
+
+<p>We want and need to hear your opinions.</p>
+
+<h2>Next steps</h2>
+
+<p>During the following weeks we will be mainly focused on:</p>
+
+<ul>
+<li>Releasing of a simple frontend app with Elcodi default model implementation. Seeing is believing, so this is a top priority!</li>
+<li>Writing recipes for extending the default implementation, override Elcodi <code>Services</code> and <code>Model</code> from the containing Symfony 2 app.</li>
+<li>Defining the strategy for reaching a <code>v1.0</code> with a developer-oriented MVP</li>
+<li><code>KISS</code>ing as usual</li>
+</ul>
+
+
+<p>As for now, patience and hard work is what&rsquo;s needed!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aldo Chiecchia <alch@elcodi.io></span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-05T10:38:46+02:00" pubdate data-updated="true">May 5<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/roadmap/'>Roadmap</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/04/17/what-is-elcodi/" title="Previous Post: What is Elcodi?">&laquo; What is Elcodi?</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/05/20/about-rules-and-expressionlanguage/" title="Next Post: About Rules and ExpressionLanguage">About Rules and ExpressionLanguage &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/20/about-rules-and-expressionlanguage/">About Rules and ExpressionLanguage</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/05/week-2-where-we-are-now/">Week 2 - Where we are now</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/17/what-is-elcodi/">What is Elcodi?</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/elcodi">@elcodi</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'elcodi',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Elcodi Team -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Elcodi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

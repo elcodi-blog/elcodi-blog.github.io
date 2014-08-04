@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Elcodi blog]]></title>
+  <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2014-08-04T16:05:53+02:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
+  <author>
+    <name><![CDATA[Elcodi Team]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Un momento para reflexionar]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/"/>
+    <updated>2014-08-04T13:53:28+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar</id>
+    <content type="html"><![CDATA[<p>Algunos de vosotros ya conocéis Elcodi. Una serie de componentes hechos desde 0
+con componentes de Symfony2 y Doctrine2, especialmente diseñados para
+proporcionar el máximo de flexibilidad y de robustez a los proyectos Ecommerce.</p>
+
+<p>Al menos, sobre el papel, es así. Y digo sobre el papel porque este es nuestro
+objetivo desde el principio, y como todos los objetivos, no hay que olvidar que,
+hasta llegar a ellos, hay un camino no menos importante.</p>
+
+<p>Creo que hemos llegado a un punto de inflexión donde es importante detenerse,
+coger aire y reflexionar. Hemos escrito una serie de posts que iremos sacando
+cada día durante los próximos días, con algunas reflexones.</p>
+
+<h1>El camino hasta ahora</h1>
+
+<p>Elcodi empezó hace unos meses en una bonita oficina de Barcelona. Aldo y yo
+empezamos a diseñar el proyecto a principios de año y hasta ahora, y entre unos
+cuantos refáctorings interesantes, llegamos a un punto de equilibrio, en mi
+opinión, bastante bueno, semilla de nuestra dirección actual.</p>
+
+<p>Hasta ahora hemos trabajado sobretodo en funcionalidades básicas de interés
+común en cuanto a ecommerce se refiere.</p>
+
+<h3>ProductBundle, AttributeBundle</h3>
+
+<p>Todo lo referente al Producto, Categoría y Marca. El Bundle tiene definido tanto
+el modelo como una serie de herramientas para trabajar con él. Una de las
+últimas incorporacion ha sido la implementación de multiproducto, muy útil en
+la mayoría de sites ecommerce de hoy en día.</p>
+
+<p>También soporta multicategoría.</p>
+
+<h3>UserBundle</h3>
+
+<p>Modelo y herramientas para trabajar tanto con Customer como con Administradores
+para el Backoffice. También se ha creado una definición básica de autenticación
+y de autentificación utilizando el ya conocido Secure de Symfony.</p>
+
+<h3>CartBundle</h3>
+
+<p>Gestor de Carts y Orders. Una de las partes troncales de todo ecommerce viene
+en un formato bastante sencillo, diseñado para poder ser sobreescrito
+practicamente en su totalidad. Se ha implementado seguimiento de Orders mediante
+histórico de estados, así las herramientas de transformación de Cart a Order.</p>
+
+<h3>CouponBundle</h3>
+
+<p>Definición del modelo de cupón. Este bundle está particularmente desacoplado de
+todos los demás, por lo que solo tiene dependencia con <code>core-bundle</code> y con
+<code>currency-bundle</code>. Si se quiere trabajar con el CartBundle de Elcodi, también
+se ha creado CartCouponBundle, un <strong>nexo</strong> entre ambos modelos que, a partir
+de los eventos del EventDispatcher, se encarga del comportamiento asociado a los
+cupones del cart.</p>
+
+<h3>GeoBundle</h3>
+
+<p>Semilla para toda la definición y gestión de un modelo geográfico completo. Por
+ahora, y dado que no hemos dedicado demasiado tiempo a esta parte, solo tenemos
+Country como entidad, dejando como campos abiertos los demás campos como
+<code>Region</code>, <code>City</code> y <code>Postalcode</code></p>
+
+<p>Otros Bundles más son</p>
+
+<ul>
+<li>BannerBundle</li>
+<li>LanguageBundle</li>
+<li>CurrencyBundle</li>
+<li>MediaBundle</li>
+<li>MenuBundle</li>
+<li>NewsletterBundle</li>
+<li>ReferralProgramBundle</li>
+<li>RuleBundle</li>
+</ul>
+
+
+<h3>BambooStore</h3>
+
+<p>Hemos desarrollado una primera fase de un Store. Por ahora con camisetas muy
+chulas y utilizando el
+<a href="https://github.com/PaymentSuite/FreePaymentBundle">FreePaymentBundle</a> de
+PaymentSuite.</p>
+
+<p>Es una versión muy simple, pero seguro muy útil como punto de partida para
+muchos departamentos técnicos</p>
+
+<h3>BambooAdmin</h3>
+
+<p>Algo nuevo. Hemos estado trabajando el último mes en una base (muy simple y algo
+incompleta) de un administrador. Estará en constrante desarrollo (junto con
+el store y el core, yendo de la mano en cuanto a versiones).</p>
+
+<h3>Implementación</h3>
+
+<p>Sabemos que nuestra implementación no dejará a todo el mundo contento, y la
+verdad no queremos que sea así. Consideramos que dejar a todos el mundo contento
+es algo imposible, y lo que terminas teniendo es un producto sin ningún tipo de
+identidad, por lo que nosotros preferimos definir bien nuestra dirección, y
+desarrollar a pesar de los errores que podamos cometer.</p>
+
+<p>Hemos recibido preguntas muy positivas del porqué estamos acoplándonos al
+framework Symfony y al ORM de Doctrine2. Pues bien, lo hacemos porque nuestro
+objetivo es realmente llegar a ser lo máximo útiles posible, tanto para el
+desarrollador como para el usuario final, y la única forma de que sea así es
+tratar con código mantenible, comprensible, documentado y estructurado.</p>
+
+<p>El hecho de acoplarnos a un framework hace que muchísimo workflow de request
+esté ya documentado muy correctamente, por lo que como proyecto, ya es algo
+ganado. Creemos que es peligroso ir a la vanguardia de la arquitectura para
+lograr algo que en pocas ocasiones ocurre (cambiar el framework), siendo la
+moneda de cambio demasiado alta, como puede ser la complejidad de entender
+patrones como la arquitectura hexagonal así como la imposibilidad, muchas veces
+por culpa de la falta de conocimiento, de su implementación.</p>
+
+<p>En la busca de un tradeoff entre hacer las cosas lo máximo de bien posible, y
+tratar de ser algo diferentes a los demás, hemos consideramos que ambas
+relaciones son y serán buenas para el proyecto, así como para los
+desarrolladores que decidan trabajar sobre él.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[About Rules and ExpressionLanguage]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/05/20/about-rules-and-expressionlanguage/"/>
+    <updated>2014-05-20T16:06:59+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/05/20/about-rules-and-expressionlanguage</id>
+    <content type="html"><![CDATA[<blockquote><p>Puedes leer este post en castellano en <a href="http://mmoreram.com/blog/2014/05/20/about-rules-and-expression-language/">blog de Marc Morera</a></p></blockquote>
+
+<p>This bundle works with Symfony&rsquo;s <code>ExpressionLanguage</code></p>
+
+<p>To install it, understand how it works or just get a reference for the syntax of the Expressions you can read the <a href="http://symfony.com/doc/current/components/expression_language/index.html">Official Documentation</a></p>
+
+<h2>Our needs</h2>
+
+<p>We actually might be facing one of the trickiest problems that any experienced e-commerce developer could encounter: behaviour rules. One of the most significant example on this are coupon codes to be applied during the checkout process. How can we actually model the validation rules for a coupon code? The number of variables to be considered in order to validate (and apply) those rules can be daunting, especially when those rules belong to very specific use cases, so the challenge here is how to generalize the programming logic in coupon rules in a project-agnostic way to promote reusability.</p>
+
+<p>Solving this problem is a major concern for us, since it would iron out a lot of similar scenarios where programmable actions should be applied. We could, for instance, design a flexible <code>eventDispatcher</code> that triggers some events during <code>Request</code> lifecycle when certains conditions (rules) are met.</p>
+
+<h2>Our proposal</h2>
+
+<p><a href="https://github.com/elcodi/RuleBundle">Elcodi RuleBundle</a></p>
+
+<p>As usual, we try to sort the solution out enforcing our <em>single responsibility</em> and <em>loose coupling</em> obsessions. The rule engine must be capable of handling them in spite of the context where those rule should be checked and evaluated, and its only responsibility is to return a <code>true</code> or <code>false</code> value.</p>
+
+<p>We modeled two kinds of such evaluable entities, <code>Rule</code> and <code>RuleGroup</code>. The first one, as simple as it looks, represents a single rule that returns a <code>boolean</code> upon validation. The second entity, <code>RuleGroup</code> represents a <code>Collection</code> of <code>Rule</code> so that we can validate the whole group by acting upon each <code>Rule</code> in the collection. Needles to say that the interface used to validate either <code>Rule</code> or <code>RuleGroup</code> should be homogeneous in terms of client code.</p>
+
+<p>This all smells like a <em>Composite Pattern</em> doesnt it? Be it <code>Rule</code> or <code>RuleGroup</code> we just want to issue those objects, that can now be modeled as a self-referencing entity, one command: <em>evaluate yourself</em>.</p>
+
+<h2>Composite Pattern using Doctrine</h2>
+
+<p>Let&rsquo;s step backwards a bit and skim over the <a href="http://sourcemaking.com/design_patterns/composite">Composite Pattern</a> definition.</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Composite_UML_class_diagram_%28fixed%29.svg/900px-Composite_UML_class_diagram_%28fixed%29.svg.png" alt="Composite pattern" /></p>
+
+<p>In this class diagram we have <code>Leaf</code> and <code>Composite</code> as separate entities. <code>Leaf</code> (called also <code>Primitive</code>) can be see as a <code>Rule</code> and the <code>Composite</code> could be our <code>RuleGroup</code>. Since both extends a common abstract class called <code>Component</code>, it is easy to share common behaviors between the class hierarchy. Thus the <code>Component</code> abstract class defines an <code>operation()</code> method that can be overriden by child classes. Obviously this can also be achieved by using an interface as a Component instead of an abstract class.</p>
+
+<p>In our case the <code>operation()</code> method should physically evaluate and resolve the expressions associated with the <code>Component</code>, be it a single <code>Rule</code> or a <code>RuleGroup</code> or a combination of them. Of course this is done by implementing a concrete <code>operation()</code> method in derived classes.</p>
+
+<p>The <code>RuleGroup</code> owns a collection of <code>Component</code>, that can be <code>Rule</code> or <code>RuleGroup</code>. This is the key for correctly mapping those entities to a concrete relational model. Once we do that, we would have forged a <em>whole-part</em> awareness into our Rule model, and we could easily handle complex relations such as <code>RuleGroup</code> containing <code>RuleGroup</code>.</p>
+
+<p><a href="http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html">Doctrine inheritance</a> is needed to implement this hierarchy. Either <a href="http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html#single-table-inheritance">Single Table Inheritance </a> or <a href="http://docs.doctrine-project.org/en/2.0.x/reference/inheritance-mapping.html#class-table-inheritance">Class Table Inheritance</a> can be used. In this example, we will use STI.</p>
+
+<p>The <code>Rule</code> entity is defined as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * This file is part of the Elcodi package.</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Elcodi\RuleBundle\Entity</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Class Rule</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Rule</span> <span class="k">extends</span> <span class="nx">AbstractRule</span> <span class="k">implements</span> <span class="nx">RuleInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var ExpressionInterface</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Expression</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$expression</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Specific class parameters, getters and setters</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Return all object contained expressions</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return ArrayCollection Collection of expressions</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getExpressionCollection</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nx">ArrayCollection</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getExpression</span><span class="p">()));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is <code>RuleGroup</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * This file is part of the Elcodi package.</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Elcodi\RuleBundle\Entity</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Class RuleGroup</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">RuleGroup</span> <span class="k">extends</span> <span class="nx">AbstractRule</span> <span class="k">implements</span> <span class="nx">RuleGroupInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var Collection</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Rules</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$rules</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Specific class parameters, getters and setters</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Return all object contained expressions</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return ArrayCollection Collection of expressions</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getExpressionCollection</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$expressions</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="sd">/**</span>
+</span><span class='line'><span class="sd">         * @var AbstractRuleInterface $rule</span>
+</span><span class='line'><span class="sd">         */</span>
+</span><span class='line'>        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRules</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$rule</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="nv">$expressions</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span>
+</span><span class='line'>                <span class="nv">$expressions</span><span class="p">,</span>
+</span><span class='line'>                <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">getExpressionCollection</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">()</span>
+</span><span class='line'>            <span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nx">ArrayCollection</span><span class="p">(</span><span class="nv">$expressions</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then the <code>Component</code> abstract class, which is called <code>AbstractRule</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * This file is part of the Elcodi package.</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Elcodi\RuleBundle\Entity\Abstracts</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Class AbstractRule</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbstractRule</span> <span class="k">extends</span> <span class="nx">AbstractEntity</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Specific class parameters, getters and setters</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Return all object contained expressions</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return Collection Collection of expressions</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">getExpressionCollection</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The method <code>getExpressionCollection()</code> can be called to each member of a <code>AbstractRule</code> ArrayCollection and the correct implementation will be invoked according to the actual type of the object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * @var Collection $rules </span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$rules</span> <span class="k">as</span> <span class="nv">$rule</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/** </span>
+</span><span class='line'><span class="sd">     * @var ArrayCollection $expressionCollection </span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="nv">$expressionCollection</span> <span class="o">=</span> <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">getExpressionCollection</span><span class="p">();</span>
+</span><span class='line'>    <span class="o">...</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is how we would map our classes to Doctrine ORM using <a href="http://docs.doctrine-project.org/en/2.0.x/reference/yaml-mapping.html">yaml syntax</a>;</p>
+
+<p>The <code>Rule</code> entity has an <em>unidirectional</em> <code>oneToOne</code> relation with <code>Expression</code>. In UML terms this should be a <a href="http://en.wikipedia.org/wiki/Object_composition#UML_notation">composition association</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">Elcodi\RuleBundle\Entity\Rule</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">entity</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">repositoryClass</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Elcodi\RuleBundle\Repository\RuleRepository</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">table</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rule</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="l-Scalar-Plain">oneToOne</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">expression</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">targetEntity</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Elcodi\RuleBundle\Entity\Expression</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">cascade</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">all</span> <span class="p-Indicator">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>RouleGroup</code> holds a <code>manyToMany</code> <em>unidirectional</em> relation with <code>AbstractRule</code>. We are not interested in accesing the <em>parent</em> for a given <code>AbstractRule</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">Elcodi\RuleBundle\Entity\RuleGroup</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">entity</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">repositoryClass</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Elcodi\RuleBundle\Repository\RuleGroupRepository</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">table</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rule_group</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="l-Scalar-Plain">manyToMany</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">rules</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">targetEntity</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Elcodi\RuleBundle\Entity\Abstracts\AbstractRule</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">joinTable</span><span class="p-Indicator">:</span>
+</span><span class='line'>                <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rule_group_rule</span>
+</span><span class='line'>                <span class="l-Scalar-Plain">joinColumns</span><span class="p-Indicator">:</span>
+</span><span class='line'>                    <span class="l-Scalar-Plain">rule_group_id</span><span class="p-Indicator">:</span>
+</span><span class='line'>                        <span class="l-Scalar-Plain">referencedColumnName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">id</span>
+</span><span class='line'>                <span class="l-Scalar-Plain">inverseJoinColumns</span><span class="p-Indicator">:</span>
+</span><span class='line'>                    <span class="l-Scalar-Plain">rule_id</span><span class="p-Indicator">:</span>
+</span><span class='line'>                        <span class="l-Scalar-Plain">referencedColumnName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">id</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And finally the mapping for the Component interface, the <code>AbstractRule</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">Elcodi\RuleBundle\Entity\Abstracts\AbstractRule</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">entity</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">repositoryClass</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Elcodi\RuleBundle\Repository\AbstractRuleRepository</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">inheritanceType</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">single_table</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">discriminatorColumn</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">discr</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">discriminatorMap</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">rule</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Elcodi\RuleBundle\Entity\Rule</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">rule_group</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Elcodi\RuleBundle\Entity\RuleGroup</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">fields</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Since we used STI, this mapping will only create a single table with a discriminator column used by Doctrine in order to identify the actual type of the entity stored on a given row.</p>
+
+<p>As for now, we have a working implementation that can be used to create associations between <code>AbstractRule</code> and other doctrine entities. What we miss is <em>how</em> rules are processed, or better, how <em>expressions</em> owned by the rules can be evaluated and in which <em>context</em>.</p>
+
+<h2>Context configuration and customization</h2>
+
+<p>We define a <em>rule execution context</em> as a collection of elements that the rule has access to at expression evaluation time.</p>
+
+<p>The natural way of evaluating generic expressions in Symfony is certainly the <a href="http://symfony.com/doc/current/components/expression_language/index.html">ExpressionLanguage</a>, which lies at the heart of our implementation and provides the expression evaluation. We will just use its standard parameter passing syntax to handle our context.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$language</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExpressionLanguage</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Apple</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$variety</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$apple</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Apple</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$apple</span><span class="o">-&gt;</span><span class="na">variety</span> <span class="o">=</span> <span class="s1">&#39;Honeycrisp&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nv">$language</span><span class="o">-&gt;</span><span class="na">evaluate</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;fruit.variety === &quot;Honeycrisp&quot;&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>        <span class="s1">&#39;fruit&#39;</span> <span class="o">=&gt;</span> <span class="nv">$apple</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">)</span>
+</span><span class='line'><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case, as seen in the <a href="http://symfony.com/doc/current/components/expression_language/introduction.html#passing-in-variables">official documentation</a>, the expression <code>fruit.variety</code> is evaluated in a context where <code>fruit</code> is an instance of the <code>Apple</code> class. The <code>assert</code> obviously resolves to <code>true</code>.
+In the next example, the <code>assert</code> will fail.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$language</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExpressionLanguage</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Apple</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$variety</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$apple</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Apple</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$apple</span><span class="o">-&gt;</span><span class="na">variety</span> <span class="o">=</span> <span class="s1">&#39;Arlet&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nv">$language</span><span class="o">-&gt;</span><span class="na">evaluate</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;fruit.variety === &quot;Honeycrisp&quot;&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>        <span class="s1">&#39;fruit&#39;</span> <span class="o">=&gt;</span> <span class="nv">$apple</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">)</span>
+</span><span class='line'><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Evaluation contexts can be passed to the rule engine in two different ways:</p>
+
+<ul>
+<li>The easy way: pass the context to the <code>RuleManager</code> when evaluating a specific rule.</li>
+<li>The complex yet powerful way: by using <strong>Context configurators</strong> (see next paragraph below for details)</li>
+</ul>
+
+
+<p>In the following example we are retrieving the <code>somecode</code> named rule, whose stored expression is <code>customer.id in [1..100]</code>. We evaluate this rule passing <code>array('customer' =&gt; $myCustomer)</code> as the evaluation context.</p>
+
+<p>The expression will be evaluated according to the actual <code>id</code> for <code>$myCustomer</code> passed object being a number between 0 and 100.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Rule with code &quot;somecode&quot; has this expression assigned: </span>
+</span><span class='line'><span class="sd"> * &quot;customer.id in [1..100]&quot;</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="nv">$myCustomer</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$ruleManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;rule_manager&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$ruleManager</span><span class="o">-&gt;</span><span class="na">evaluateByCode</span><span class="p">(</span><span class="s1">&#39;somecode&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;customer&#39;</span>  <span class="o">=&gt;</span>  <span class="nv">$myCustomer</span>
+</span><span class='line'><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Using Context Configurators</h3>
+
+<p>In real scenarios, we would need to access several services from within our expressions in order to lay powerful rules.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Rule with code &quot;somecode&quot; has this expression assigned: </span>
+</span><span class='line'><span class="sd"> * &quot;customer_wrapper.getCustomer().getId() in [1..100]&quot;</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$ruleManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;rule_manager&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$ruleManager</span><span class="o">-&gt;</span><span class="na">evaluateByCode</span><span class="p">(</span><span class="s1">&#39;somecode&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the example above our expression is accessing the <code>customer_wrapper</code> service, which holds the logic necessary to return on instance of the current <code>Customer</code>. If we want to evaluate the rule <strong>without</strong> having to pass the <code>customer_wrapper</code> as a parameter to the execution context in the <code>evaluateByCode()</code> method as seen in the other example we will have to exploit <strong>context configurators</strong>, which are tagged services implementing <code>ContextConfigurationInterface</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * This file is part of the Elcodi package.</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Elcodi\RuleBundle\Configuration</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Doctrine\Common\Persistence\ObjectManager</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Elcodi\RuleBundle\Configuration\Interfaces\ContextConfigurationInterface</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Elcodi\RuleBundle\Services\Interfaces\ContextAwareInterface</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Class ContextConfiguration</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">ContextConfiguration</span> <span class="k">implements</span> <span class="nx">ContextConfigurationInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var ObjectManager</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Object manager</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$objectManager</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Construct method</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param ObjectManager $objectManager Object manager</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">ObjectManager</span> <span class="nv">$objectManager</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectManager</span> <span class="o">=</span> <span class="nv">$objectManager</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @param ContextAwareInterface $contextAware</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureContext</span><span class="p">(</span><span class="nx">ContextAwareInterface</span> <span class="nv">$contextAware</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$contextAware</span><span class="o">-&gt;</span><span class="na">addContextElement</span><span class="p">(</span><span class="s1">&#39;manager&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">objectManager</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The example above shows how we can use a context configurator so that a service like the <code>doctrine.orm.default.entity_manager</code> can be bound to the rule execution context named as <code>manager</code>.
+Whis means that <em>any</em> expression can refer <code>manager</code> and be sure that it refers to the default entity manager. <code>manager.getRepository('ElcodiUserBundle:Customer')</code> would be perfecly valid and will work globally, no need to pass the entity manager at expression evaluation time.</p>
+
+<p>The context configurator must be tagged as follows in order to be collected by <code>RuleBundle</code> compiler passes and passed to the rule engine.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">elcodi.core.rule.configuration.context</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="err">%</span><span class="l-Scalar-Plain">elcodi.core.rule.configuration.context.class%</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">entity_manager</span><span class="p-Indicator">:</span> <span class="err">@</span><span class="l-Scalar-Plain">doctrine.orm.entity_manager</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="nv">elcodi.rule_context_configuration</span> <span class="p-Indicator">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ExpressionLanguage configuration and customization</h2>
+
+<p>We also can exploit a very powerful feature that Symfony <em>ExpressionLannguage</em> deliver us: creating functions. We can create EP functions and inject them to the rule engine, making them available to all our expressions. This is done by defining a service that implement <code>ExpressionLanguageConfigurationInterface</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * This file is part of the Elcodi package.</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Elcodi\RuleBundle\Configuration</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerInterface</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Elcodi\RuleBundle\Configuration\Interfaces\ExpressionLanguageConfigurationInterface</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Elcodi\RuleBundle\Services\Interfaces\ExpressionLanguageAwareInterface</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Class ExpressionLanguageConfiguration</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">ExpressionLanguageConfiguration</span> <span class="k">implements</span> <span class="nx">ExpressionLanguageConfigurationInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var ContainerInterface</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Container</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$container</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Construct method</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param ContainerInterface $container Container</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">ContainerInterface</span> <span class="nv">$container</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span> <span class="o">=</span> <span class="nv">$container</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Configures expression language</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param ExpressionLanguageAwareInterface $expressionLanguageAware Expression Language aware</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureExpressionLanguage</span><span class="p">(</span><span class="nx">ExpressionLanguageAwareInterface</span> <span class="nv">$expressionLanguageAware</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$expressionLanguage</span> <span class="o">=</span> <span class="nv">$expressionLanguageAware</span><span class="o">-&gt;</span><span class="na">getExpressionLanguage</span><span class="p">();</span>
+</span><span class='line'>        <span class="nv">$expressionLanguage</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;service&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;$this-&gt;get(%s)&#39;</span><span class="p">,</span> <span class="nv">$arg</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">},</span> <span class="k">function</span> <span class="p">(</span><span class="k">array</span> <span class="nv">$variables</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$expressionLanguage</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">register</span><span class="p">(</span><span class="s1">&#39;parameter&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;$this-&gt;getParameter(%s)&#39;</span><span class="p">,</span> <span class="nv">$arg</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">},</span> <span class="k">function</span> <span class="p">(</span><span class="k">array</span> <span class="nv">$variables</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">getParameter</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this example we just defined a couple of functions, <code>service()</code> and <code>parameter()</code>. Those are the same functions that get registered when using EL for configuring services in the <code>DependencyInjection</code> component.
+They also need the whole container in order to work properly (yes, normally you shouldn&rsquo;t do that but this is an example and in this case you actually have full control control of what is exposed since <em>you</em> write the expression function).</p>
+
+<p>For this to work, this service also must be tagged. Definition follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">elcodi.core.rule.configuration.expression_language</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="err">%</span><span class="l-Scalar-Plain">elcodi.core.rule.configuration.expression_language.class%</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">service_container</span><span class="p-Indicator">:</span> <span class="err">@</span><span class="l-Scalar-Plain">service_container</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="nv">elcodi.rule_expression_language_configuration</span> <span class="p-Indicator">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will make it possible to execute a rule of the likes <code>service("my_service")-&gt;getValue(parameter("my_value"))</code>. No need to define a context configurator to access <code>my_service</code>.</p>
+
+<p>The <code>RuleManager</code> will silently discard any <code>SyntaxError</code> and return <code>false</code> on such cases. This is because it is not possible to differentiate between real syntax errors and inconsistent use of the object/variables passed to the context. An expression that depends on an outdated version of an object, be it a service or an entity, should not break the evaluation loop.</p>
+
+<h2>Cupons and Rules</h2>
+
+<p>We not have all the ingredients to design a rule based coupon system for our e-commerce site. Let&rsquo;s see how we can bake the cake.</p>
+
+<h3>Prerequisites</h3>
+
+<ul>
+<li>We would model a <code>ManyToMany</code> unidirectional relation between <code>Cupon</code> and <code>AbstractRule</code>.</li>
+<li>We would model a use case for customers who apply a discount to theirs checkouts by inserting a coupon code.</li>
+</ul>
+
+
+<h3>Steps</h3>
+
+<ul>
+<li>Customer enters the coupon.</li>
+<li>The <code>CouponManager</code> tries to apply the Coupon to the customer&rsquo;s cart.</li>
+<li>A <code>PreApplyToCart</code> event is fired.</li>
+<li>An observer for the <code>PreApplyToCart</code> event searches for all Rules associated with the Coupon and evaluates their expressions.</li>
+<li>If one of those expression evaluates to <code>false</code>, the whole evaluation will fail. A specific <code>Exception</code> will be thrown.</li>
+<li>If all expressions evaluates <code>true</code>, the Coupon discount will be applied to current customer&rsquo;s cart.</li>
+</ul>
+
+
+<h2>Conclusion</h2>
+
+<p><code>RuleBundle</code> is a fairly powerful tool that can be used as a seed for more specific needs such as <strong>discount campaigns</strong>, <strong>customer groups</strong>, <strong>cart rules</strong>, <strong>catalog rules</strong> and pretty much everything that is based on chaining expressions.</p>
+
+<p>As always, there is room for improvement. You can help us with that by <a href="https://github.com/elcodi/elcodi/tree/master/src/Elcodi/RuleBundle">contribuiting</a> or just by letting us know your opinions.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Week 2 - Where we are now]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/"/>
+    <updated>2014-05-05T10:38:46+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now</id>
+    <content type="html"><![CDATA[<p>There is really a lot of work to do!</p>
+
+<p>These first few weeks of our journey are as tough as we expected. Releasing an open source project is a big challenge, so we would like to explain a little bit more of ourselves.</p>
+
+<h2>Who is Elcodi</h2>
+
+<p>Elcodi is a project sponsored by Barcelona-based startup accelerator Befactory. At the present day, three of the incubated startup are now real companies, two of them having a business model that pivots on an e-commerce application. In order to meet they crazy time-to-market deadlines that seldom are imposed to accelerated startups, it was essential to build some sort of easy customizable tech. This is how we migrated <a href="http://chicplace.com">http://chicplace.com</a> and <a href="http://fancybox.com">http://fancybox.com</a> from heavily modified, unmaintainable Prestashop installations to Symfony 2 applications sharing a common core.</p>
+
+<p>This common core, which is already deployed as production code that powers real companies, is the direct ancestor of Elcodi code. This is certainly not new or uncommon, thousands of developers usually work with a stable base of reusable code in order to kick-off new projects.</p>
+
+<p>We started to reflect on the actual value of what we have been building: it fulfilled our own need to kick-start a transactional web application the right way, so maybe it could be useful for others too. Could a B2B solution be built on top of this platform? Maybe, but the corporate software world is a tough beast to tame for a small startup.</p>
+
+<p>Everything started to look clearer when we began to look at it in the perspective of releasing our work as an open source project: we would immediately be able to see if our work was worth and if something valuable could be built on top of it.</p>
+
+<h2>Community</h2>
+
+<p>The first thing to do is to gain trust from the community: you, as a developer, are the ultimate judge. We would like to share our ideas and commits from the work of last months, once they are polished enough to be displayed in public. We would like Elcodi to be an open forum to publicly discuss best practices in e-commerce development with Symfony 2.</p>
+
+<p>We want and need to hear your opinions.</p>
+
+<h2>Next steps</h2>
+
+<p>During the following weeks we will be mainly focused on:</p>
+
+<ul>
+<li>Releasing of a simple frontend app with Elcodi default model implementation. Seeing is believing, so this is a top priority!</li>
+<li>Writing recipes for extending the default implementation, override Elcodi <code>Services</code> and <code>Model</code> from the containing Symfony 2 app.</li>
+<li>Defining the strategy for reaching a <code>v1.0</code> with a developer-oriented MVP</li>
+<li><code>KISS</code>ing as usual</li>
+</ul>
+
+
+<p>As for now, patience and hard work is what&rsquo;s needed!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What is Elcodi?]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/"/>
+    <updated>2014-04-17T17:23:39+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi</id>
+    <content type="html"><![CDATA[<p>How many e-commerce solutions are there out in the wild?</p>
+
+<p>Let me rephrase that: how many usable <em>developer friendly</em> e-commerce solutions are there?</p>
+
+<p>Once again. how many development platform are there that won&rsquo;t end with you saying &ldquo;Ok, I&rsquo;ll do it myself&rdquo;</p>
+
+<p>We do not a have definitive answer to this challenging problem. As many of you, we have been asking those questions to ourselves when we needed to start new projects from scratch. Yet those doubts kept on bouncing in our <code>HEAD</code>:</p>
+
+<ul>
+<li>What is the optimal balance between <em>flexibility and development speed</em>?</li>
+<li>What are the basic components that should be there <em>without reinventing the wheel</em>?</li>
+<li>How can we design those components <em>in a generalized way</em>?</li>
+</ul>
+
+
+<p>Symfony developers already got very powerful tools that can be exploited to resolve these doubts. We would like to share with you our path along the search for this holy grail by publishing the internals of the e-commerce applications we&rsquo;ve been developing over the last months.</p>
+
+<p>Meet <a href="http://elcodi.io">Elcodi</a>, a suite of Symfony2 e-commerce bundles that focus on:</p>
+
+<ul>
+<li>Designing loosely coupled components</li>
+<li>Liskov is your friend: using abstract as when defining contracts among components</li>
+<li>Exploiting Symfony2 DependencyInjection component to expose easy customization of behaviours and models</li>
+<li>Using Factory injections in services to that objects are always created in a consistent state</li>
+<li>EventDispatcher FTW: events, events, events. First rule to avoid code entanglement</li>
+<li>Rigorous taxonomy: giving name to things may be an art, but the reward is massive</li>
+</ul>
+
+
+<p>Are you willing to join us in this journey?</p>
+
+<p>Let&rsquo;s talk about it on <a href="https://github.com/elcodi/elcodi">https://github.com/elcodi/elcodi</a></p>
+
+<p>Cheers!</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Roadmap | Elcodi blog]]></title>
+  <link href="http://elcodi-blog.github.io/blog/categories/roadmap/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2014-08-04T16:05:53+02:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
+  <author>
+    <name><![CDATA[Elcodi Team]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Week 2 - Where we are now]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/"/>
+    <updated>2014-05-05T10:38:46+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now</id>
+    <content type="html"><![CDATA[<p>There is really a lot of work to do!</p>
+
+<p>These first few weeks of our journey are as tough as we expected. Releasing an open source project is a big challenge, so we would like to explain a little bit more of ourselves.</p>
+
+<h2>Who is Elcodi</h2>
+
+<p>Elcodi is a project sponsored by Barcelona-based startup accelerator Befactory. At the present day, three of the incubated startup are now real companies, two of them having a business model that pivots on an e-commerce application. In order to meet they crazy time-to-market deadlines that seldom are imposed to accelerated startups, it was essential to build some sort of easy customizable tech. This is how we migrated <a href="http://chicplace.com">http://chicplace.com</a> and <a href="http://fancybox.com">http://fancybox.com</a> from heavily modified, unmaintainable Prestashop installations to Symfony 2 applications sharing a common core.</p>
+
+<p>This common core, which is already deployed as production code that powers real companies, is the direct ancestor of Elcodi code. This is certainly not new or uncommon, thousands of developers usually work with a stable base of reusable code in order to kick-off new projects.</p>
+
+<p>We started to reflect on the actual value of what we have been building: it fulfilled our own need to kick-start a transactional web application the right way, so maybe it could be useful for others too. Could a B2B solution be built on top of this platform? Maybe, but the corporate software world is a tough beast to tame for a small startup.</p>
+
+<p>Everything started to look clearer when we began to look at it in the perspective of releasing our work as an open source project: we would immediately be able to see if our work was worth and if something valuable could be built on top of it.</p>
+
+<h2>Community</h2>
+
+<p>The first thing to do is to gain trust from the community: you, as a developer, are the ultimate judge. We would like to share our ideas and commits from the work of last months, once they are polished enough to be displayed in public. We would like Elcodi to be an open forum to publicly discuss best practices in e-commerce development with Symfony 2.</p>
+
+<p>We want and need to hear your opinions.</p>
+
+<h2>Next steps</h2>
+
+<p>During the following weeks we will be mainly focused on:</p>
+
+<ul>
+<li>Releasing of a simple frontend app with Elcodi default model implementation. Seeing is believing, so this is a top priority!</li>
+<li>Writing recipes for extending the default implementation, override Elcodi <code>Services</code> and <code>Model</code> from the containing Symfony 2 app.</li>
+<li>Defining the strategy for reaching a <code>v1.0</code> with a developer-oriented MVP</li>
+<li><code>KISS</code>ing as usual</li>
+</ul>
+
+
+<p>As for now, patience and hard work is what&rsquo;s needed!</p>
+]]></content>
+  </entry>
+  
+</feed>
