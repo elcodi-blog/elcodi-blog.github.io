@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Nuestro roadmap - Elcodi blog</title>
+  <meta name="author" content="Elcodi Team">
+
+  
+  <meta name="description" content="Este post es la continuación de uno anterior. Podemos decir con orgullos que tenemos proyecto por mucho tiempo. La pregunta es&hellip; ¿y ahora qué? &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Elcodi blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50003565-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:elcodi-blog.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">
+        <span class="blue_light">
+            Elcodi blog
+        </span>
+       
+    </a></li>
+  <li><a href="http://elcodi.io">Website</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Nuestro Roadmap</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-05T12:46:22+02:00" pubdate data-updated="true">Aug 5<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h5>Este post es la continuación de <a href="/blog/2014/08/04/un-momento-para-reflexionar/">uno anterior</a>.</h5>
+
+<p>Podemos decir con orgullos que tenemos proyecto por mucho tiempo.</p>
+
+<p>La pregunta es&hellip; ¿y ahora qué? Pues bueno, ahora solo hemos andado un uno por
+ciento del camino al completo (Creo que la palabra &ldquo;completo&rdquo; es algo
+inexistente en nuestro ámbito&hellip; siempre hay cosas que hacer y mejorar&hellip;).
+Almenos, y mientras nuestra lista de Issues y Features no esté vacía, tenemos
+ganas de mejorar nuestro repositorio. Aquí algunas cosas importantes.</p>
+
+<h3>GeoBundle</h3>
+
+<p>Consideramos que es uno de los problemas más trabajados en todas las empresas
+ecommerce, tener un buen sistema geográfico. Tenerlo implica poder segmentar
+mucho mejor y cotejar los datos, para sacar buenas métricas y así mejorar la
+experiencia de usuario.</p>
+
+<p>Queremos trabajar en un completo sistema relacional de entidades, de tal forma
+que, con comandos simples se puedan customizar y poblar tablas enteras.</p>
+
+<h3>Gestión de Reglas</h3>
+
+<p>Una parte interesante del proyecto es la utilización de reglas en todo el
+modelo. Por ejemplo.</p>
+
+<ul>
+<li>¿Cuando se aplica un cupón automático de cart?</li>
+<li>¿Cuando es posible aplicar un cupón cuando se aplica?</li>
+<li>¿Cuando es posible mezclar dos productos?</li>
+<li>¿Cuando se puede utilizar un Carrier o un método de pago?</li>
+</ul>
+
+
+<p>Podemos solucionar de una forma muy natural y intruitiva todas estas necesidades
+con un buen sistema de reglas.</p>
+
+<h3>Ports and Adapters</h3>
+
+<p>Una de las cosas que mas nos preocupa es el poder trabajar con los componentes
+de forma desacoplada. Creo que estamos enmedio del camino, por lo que queremos
+aprender como hacerlo mejor. Los &ldquo;Ports and Adapters&rdquo; es una forma de trabajar
+con implementaciones propias del componente, implementando adapters para las
+implementaciones externas. De esta forma, podemos decir que un Cart tiene un
+Customer, sin tener la necesidad de trabajar con CustomerBundle.</p>
+
+<p>Trabajaremos en ello. Seguro.</p>
+
+<h3>Tests</h3>
+
+<p>Hemos hecho los deberes a medias, lo reconocemos, y dado que sabemos que parte
+de la confianza de un proyecto open source se genera con la cantidad y,
+importante, la calidad de sus tests, vamos a trabajar para que ambas cosas
+crezcan a la vez, tanto en los bundles de Elcodi como en los proyectos
+BambooStore y BambooAdmin.</p>
+
+<p>Trabajaremos en las baterías de Tests unitarios y funcionales, como hemos hecho
+hasta ahora, incluso incrementando notablemente el nivel, y en las baterias
+de tests de comportamiento en las Bamboo.</p>
+
+<p>No tenemos muy claro que proyectos utilizar para tales fines. Tenemos en mente
+Behat3 y PHPSPec2, así que toda opinión sobre el tema serás más que bienvenida!</p>
+
+<h3>PaymentSuite</h3>
+
+<p>El proyecto <a href="http://github.com/PaymentSuite">PaymentSuite</a> nació dentro de
+Elcodi.</p>
+
+<p>Es un repositorio de pagos implementado en Symfony2, preparado para trabajar
+100% sobre una capa de eventos. Esta capa te permite poder abstraer la
+implementación del Cart o del Order, así como la implementación del método de
+pago, por lo que la activación o desactivación de los métodos de pago se hacen
+triviales, solo activando y configurando.</p>
+
+<p>Desde Elcodi vamos a trabajar en el proyecto.</p>
+
+<h3>ShippingSuite</h3>
+
+<p>Queremos hacer lo mismo que con PaymentSuite. Un proyecto que trabaje sobre la
+capa de eventos de Symfony y abstraiga, tanto el Order como la implementación
+del Carrier.</p>
+
+<p>Con los pagos nos ha funcionado a la perfección, así que seguro que vamos a
+seguir el mismo camino para esta necesidad.</p>
+
+<h3>Documentación</h3>
+
+<p>El diamante que buscar, encontrar, limpiar y tallar. La famosa documentación.
+Consideramos que es la verdadera joya de la corona, como dijo una vez @fabpot,
+la documentación es la parte más complicada del proyecto, y lo sabemos.</p>
+
+<p>Vamos a trabajar para hacer una buena documentación en inglés, así como la
+traducción en el máximo de idiomas posibles.</p>
+
+<ul>
+<li>Documentación de implementación. Estilos que hemos seguido, así como puntos
+importantes a conocer para los contribuidores.</li>
+<li>Documentación de customización. En realidad consistirá más en un conjunto de
+recetas.</li>
+<li>Patrones que hemos utilizado y sus razones de ser</li>
+<li>Documentación por Bundle.</li>
+<li>Modelo</li>
+<li>Capa de eventos (dispatchers y listeners)</li>
+<li>Capa de servicio</li>
+<li>Capa de extensiones de Twig</li>
+<li>Capa de configuración</li>
+<li>Capa de controlador (en el caso de las implementaciones de front y back)</li>
+<li>Documentación de front. Que necesita un frontend para realizar
+implementaciones propias de frontal</li>
+</ul>
+
+
+<p>Sabemos que no será tarea fácil, pero al menos estamos seguros que parte del
+éxito de cualquier proyecto, por pequeño que sea, es la capacidad de documentar
+que pueda llegar a tener, así como lo acogedor que pueda llegar a ser el entorno
+del proyecto.</p>
+
+<h3>Comunidad</h3>
+
+<p>Si la documentación es nuestro diamante, la comunidad es nuestro carburante. Una
+buena comunidad hace el buen proyecto.</p>
+
+<p>Nacimos como un pequeño proyecto en Symfony y sabemos lo complicado y agresivo
+que puede llegar a ser, para una persona no acostumbrada a estar en entornos
+tan estrictos, el hecho de participar y involucrarse en el desarrollo de una
+tecnología.</p>
+
+<p>Pues bien, como lo hemos vivido y sabemos que es, en parte, la clave de nuestro
+éxito, vamos a tratar este punto con especial interés y cariño. Elcodi no es tan
+solo un código en un repositorio, es un conjunto de personas con una idea clara
+en la cabeza y con la ilusión de trabajar juntas para solucionar un problema.</p>
+
+<p>Es por esto que si queremos cuidar el código al máximo, debemos cuidar a las
+personas que hacen posible que el código exista. Tenemos mucho interés en que la
+gente que quiera aprender, lo haga, así que vamos a diseñar sistemas de learning
+y de formación, tanto en Symfony como en Elcodi, para que la gente que quiera
+participar con nosotros, lo pueda hacer con el máximo nivel posible.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Elcodi Team</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-05T12:46:22+02:00" pubdate data-updated="true">Aug 5<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ecommerce/'>ecommerce</a>, <a class='category' href='/blog/categories/elcodi/'>elcodi</a>, <a class='category' href='/blog/categories/symfony/'>symfony</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/08/04/un-momento-para-reflexionar/" title="Previous Post: Un momento para reflexionar">&laquo; Un momento para reflexionar</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/20/about-rules-and-expressionlanguage/">About Rules and ExpressionLanguage</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/05/week-2-where-we-are-now/">Week 2 - Where we are now</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/17/what-is-elcodi/">What is Elcodi?</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/elcodi">@elcodi</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'elcodi',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Elcodi Team -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Elcodi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
