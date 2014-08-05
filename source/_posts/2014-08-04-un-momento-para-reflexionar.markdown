@@ -12,21 +12,24 @@ Algunos de vosotros ya conocéis Elcodi. Una serie de componentes hechos desde 0
 con componentes de Symfony2 y Doctrine2, especialmente diseñados para
 proporcionar el máximo de flexibilidad y de robustez a los proyectos Ecommerce.
 
-Al menos, sobre el papel, es así. Y digo sobre el papel porque este es nuestro
-objetivo desde el principio, y como todos los objetivos, no hay que olvidar que,
-hasta llegar a ellos, hay un camino no menos importante.
+Programar debe ser siempre un placer.
+
+Este es nuestro objetivo desde el principio, y como todos los objetivos, no hay
+eue olvidar que, hasta llegar a ellos, hay un camino no menos importante.
 
 Creo que hemos llegado a un punto de inflexión donde es importante detenerse,
-coger aire y reflexionar. Hemos escrito una serie de posts que iremos sacando
-cada día durante los próximos días, con algunas reflexones.
+así que durante los próximos dias vamos a sacar una serie de posts referentes a
+nuestra reflexiones donde pondremos sobre la mesa temas importantes como lo que
+tenemos hecho hasta ahora, nuestra espectativas, y como vamos a hacer cada
+trozo del proyecto durante los próximos meses.
 
 El camino hasta ahora
 =====================
 
-Elcodi empezó hace unos meses en una bonita oficina de Barcelona. Aldo y yo
-empezamos a diseñar el proyecto a principios de año y hasta ahora, y entre unos
-cuantos refáctorings interesantes, llegamos a un punto de equilibrio, en mi
-opinión, bastante bueno, semilla de nuestra dirección actual.
+Elcodi empezó hace unos meses en una bonita oficina de Barcelona. Nuestro
+departamento técnico empezó a diseñar el proyecto a principios de año y hasta
+ahora, y entre unos cuantos refáctorings interesantes, llegamos a un punto de
+equilibrio, en mi opinión, bastante bueno, semilla de nuestra dirección actual.
 
 Hasta ahora hemos trabajado sobretodo en funcionalidades básicas de interés
 común en cuanto a ecommerce se refiere.
@@ -111,13 +114,10 @@ objetivo es realmente llegar a ser lo máximo útiles posible, tanto para el
 desarrollador como para el usuario final, y la única forma de que sea así es
 tratar con código mantenible, comprensible, documentado y estructurado.
 
-El hecho de acoplarnos a un framework hace que muchísimo workflow de request
-esté ya documentado muy correctamente, por lo que como proyecto, ya es algo
-ganado. Creemos que es peligroso ir a la vanguardia de la arquitectura para
-lograr algo que en pocas ocasiones ocurre (cambiar el framework), siendo la
-moneda de cambio demasiado alta, como puede ser la complejidad de entender
-patrones como la arquitectura hexagonal así como la imposibilidad, muchas veces
-por culpa de la falta de conocimiento, de su implementación.
+En esta fase del proyecto no creemos que valga la pena añadir mas capas de
+indirección para realizar esta desvinculación. El objetivo ahora mismo es
+intentar involucrar la comunidad Symfony y recibir feedback de desarrolladores
+que intenten montar algo con Elcodi.
 
 En la busca de un tradeoff entre hacer las cosas lo máximo de bien posible, y
 tratar de ser algo diferentes a los demás, hemos consideramos que ambas

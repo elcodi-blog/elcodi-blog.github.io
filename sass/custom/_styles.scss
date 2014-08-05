@@ -2,10 +2,6 @@
 // Add styles here to make changes without digging in too much
 
 $border-ep: #E0E0E0;
-html {
-     background: image-url('background.png') repeat-x scroll center top $page-bg;
-  }
-
   #main
   {
   border-left: 1px solid $border-ep;
@@ -75,7 +71,15 @@ html {
   body {
      > div {
        border-bottom: 0px solid $page-border-bottom;
-   }
+     }
+      > nav {
+        padding-top: 12px;
+        padding-bottom: 15px;
+        background-color: #6cc;
+      .blue_dark, .blue_light, a {
 
-
+        text-shadow: none;
+        color: white;
+      }
+  }
 }
