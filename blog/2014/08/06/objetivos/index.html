@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>What is Elcodi? - Elcodi blog</title>
+  <title>Objetivos - Elcodi blog</title>
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="How many e-commerce solutions are there out in the wild? Let me rephrase that: how many usable developer friendly e-commerce solutions are there? &hellip;">
+  <meta name="description" content="Este post es la continuación de dos posts anteriores Un momento para reflexionar.
+Nuestro roadmap. A corto plazo, queremos llegar a una primera &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/">
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/08/06/objetivos/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -76,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">What Is Elcodi?</h1>
+      <h1 class="entry-title">Objetivos</h1>
     
     
       <p class="meta">
@@ -92,47 +93,78 @@
   
 
 
-<time datetime="2014-04-17T17:23:39+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2014</time>
+<time datetime="2014-08-06T12:12:19+02:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>How many e-commerce solutions are there out in the wild?</p>
-
-<p>Let me rephrase that: how many usable <em>developer friendly</em> e-commerce solutions are there?</p>
-
-<p>Once again. how many development platform are there that won&rsquo;t end with you saying &ldquo;Ok, I&rsquo;ll do it myself&rdquo;</p>
-
-<p>We do not a have definitive answer to this challenging problem. As many of you, we have been asking those questions to ourselves when we needed to start new projects from scratch. Yet those doubts kept on bouncing in our <code>HEAD</code>:</p>
+<div class="entry-content"><h2>Este post es la continuación de dos posts anteriores</h2>
 
 <ul>
-<li>What is the optimal balance between <em>flexibility and development speed</em>?</li>
-<li>What are the basic components that should be there <em>without reinventing the wheel</em>?</li>
-<li>How can we design those components <em>in a generalized way</em>?</li>
+<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
+<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
 </ul>
 
 
-<p>Symfony developers already got very powerful tools that can be exploited to resolve these doubts. We would like to share with you our path along the search for this holy grail by publishing the internals of the e-commerce applications we&rsquo;ve been developing over the last months.</p>
+<p>A corto plazo, queremos llegar a una primera versión estable para la comunidad.
+Esta semana hemos puesto la primera piedra de muchas, pero es importante
+establecer reglas y procedimientos cuando pondremos las siguientes.</p>
 
-<p>Meet <a href="http://elcodi.io">Elcodi</a>, a suite of Symfony2 e-commerce bundles that focus on:</p>
+<p>Tenemos un pequeño set de <a href="https://github.com/elcodi/elcodi/milestones">milestones</a>
+para tener una pequeña guía de acción (como veis, esta semana tenemos la release
+de la versión 0.3)</p>
 
-<ul>
-<li>Designing loosely coupled components</li>
-<li>Liskov is your friend: using abstract as when defining contracts among components</li>
-<li>Exploiting Symfony2 DependencyInjection component to expose easy customization of behaviours and models</li>
-<li>Using Factory injections in services to that objects are always created in a consistent state</li>
-<li>EventDispatcher FTW: events, events, events. First rule to avoid code entanglement</li>
-<li>Rigorous taxonomy: giving name to things may be an art, but the reward is massive</li>
-</ul>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Version 0.3
+</span><span class='line'>    - Closed 3 days ago
+</span><span class='line'>    - 100% complete  0 open  11 closed
+</span><span class='line'>
+</span><span class='line'>Version 0.4
+</span><span class='line'>    - Due by August 15, 2014
+</span><span class='line'>    - 0% complete  0 open  0 closed
+</span><span class='line'>
+</span><span class='line'>Version 0.5
+</span><span class='line'>    - Due by August 29, 2014
+</span><span class='line'>    - 17% complete  5 open  1 closed
+</span><span class='line'>
+</span><span class='line'>Version 0.6
+</span><span class='line'>    - Due by September 11, 2014
+</span><span class='line'>    - 0% complete  2 open  0 closed</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Are you willing to join us in this journey?</p>
+<p>Esto significa que vamos a trabajar en mejorar lo que tenemos, sin desarrollar
+más lógica de negocio hasta que no tengamos algo un poco más estable, así como
+la comunicación para que la gente interesada tenga claro los timings y tengan
+más visibilidad a la hora de implementar con Elcodi.</p>
 
-<p>Let&rsquo;s talk about it on <a href="https://github.com/elcodi/elcodi">https://github.com/elcodi/elcodi</a></p>
+<p>Por ahora nos nos vamos a preocupar demasiado de los BC Breaks. Hay una
+<a href="https://github.com/elcodi/elcodi/issues/34">issue</a> abierta para cerrar API,
+pero como bien dice <a href="">@hacfi</a> no es especialmente importante en este intervalo
+tan enfocado al desarrollo de nuevas funcionalidades. Creemos que cumplir con
+un semantic version ahora mismo solo limitaría la arquitectura en muchos
+aspectos.</p>
 
-<p>Cheers!</p>
+<p>Hasta la versión 1.0 no habrá <em>semantic version</em>.</p>
+
+<p>Otro objetivo es, una vez llegado a la primera versión estable, abrir ya el
+market. Dado que a medida que pasa el tiempo la api va cambiando menos, creemos
+que no falta demasiado para poder llegar a este punto.</p>
 </div>
 
 
@@ -155,15 +187,21 @@
   
 
 
-<time datetime="2014-04-17T17:23:39+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2014</time>
+<time datetime="2014-08-06T12:12:19+02:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ecommerce/'>ecommerce</a>, <a class='category' href='/blog/categories/elcodi/'>elcodi</a>, <a class='category' href='/blog/categories/symfony/'>symfony</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/08/06/objetivos/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/08/06/objetivos/" >Tweet</a>
   
   
   
@@ -172,8 +210,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2014/08/05/nuestro-roadmap/" title="Previous Post: Nuestro roadmap">&laquo; Nuestro roadmap</a>
       
-        <a class="basic-alignment right" href="/blog/2014/05/05/week-2-where-we-are-now/" title="Next Post: Week 2 - Where we are now">Week 2 - Where we are now &raquo;</a>
       
     </p>
   </footer>
@@ -268,8 +306,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/';
-        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/';
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/08/06/objetivos/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/08/06/objetivos/';
         var disqus_script = 'embed.js';
       
     (function () {
