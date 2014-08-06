@@ -1,0 +1,7 @@
+---
+layout: post
+title: "Our goals"
+date: 2014-08-06 18:30:38 +0200
+comments: true
+categories: 
+---
