@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-08-06T12:25:19+02:00</updated>
+  <updated>2014-08-08T16:30:02+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[El equipo de Elcodi]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/08/equipo/"/>
+    <updated>2014-08-08T16:23:48+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/08/equipo</id>
+    <content type="html"><![CDATA[<h2>Este post es la continuación de tres posts anteriores</h2>
+
+<ul>
+<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
+<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
+<li><a href="/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
+</ul>
+
+
+<p>Equipo&hellip; Punto interesante.</p>
+
+<p>Desde hoy mismo buscamos dos perfiles que nos ayuden a crecer de forma
+exponencial. Este post no trata de esto, por lo que en su momento ya vamos a
+sacar las ofertas pertinentes, pero solo a nivel informativo, estamos buscando a
+dos seniors de alto nivel para trabajar en nuestras oficinas de Barcelona.</p>
+
+<p>Dado que buscamos perfiles muy concretos, con capacidad para trabajar en un
+proyecto <strong><em>opensource</em></strong>, consideramos que es importante tener un compromiso
+como empresa con la gente que venga con nosotros a formar parte de nuestro
+equipo. Ya nos entendemos :)</p>
+
+<h1>Comunidad</h1>
+
+<p>Finalmente no nos queda más opción que dar las gracias a las personas que hasta
+ahora nos han apoyado y nos han aportado, de alguna forma u otra, y aquellas que
+lo harán en un futuro.</p>
+
+<p>Consideramos que las menciones especiales se dan por supuestas, así que,
+compañeros, muchas gracias.</p>
+
+<p>Esperamos que, y siguiendo de cerca con la problemática que expresaba Javier
+Eguiluz en su
+<a href="http://symfony.es/noticias/2014/07/24/los-errores-de-la-pagina-28/">blog</a>
+podamos llegar a ser útiles para la comunidad, y recibamos el soporte y la ayuda
+para crecer a más velocidad. De esta forma nuestro producto será de calidad más
+rápido y podremos crecer en robustez, fiabilidad y ejecución.</p>
+
+<p>Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
+feliz fín de semana.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Objetivos]]></title>
