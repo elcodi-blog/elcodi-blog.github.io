@@ -1,0 +1,45 @@
+---
+layout: post
+title: "El equipo de Elcodi"
+date: 2014-08-08 16:23:48 +0200
+comments: true
+categories:
+    - elcodi
+    - recruiting
+---
+## Este post es la continuación de tres posts anteriores
+* [Un momento para reflexionar](/blog/2014/08/04/un-momento-para-reflexionar/).
+* [Nuestro roadmap](/blog/2014/08/05/nuestro-roadmap/).
+* [Objetivos](/blog/2014/08/06/objetivos/).
+
+Equipo... Punto interesante.
+
+Desde hoy mismo buscamos dos perfiles que nos ayuden a crecer de forma
+exponencial. Este post no trata de esto, por lo que en su momento ya vamos a
+sacar las ofertas pertinentes, pero solo a nivel informativo, estamos buscando a
+dos seniors de alto nivel para trabajar en nuestras oficinas de Barcelona.
+
+Dado que buscamos perfiles muy concretos, con capacidad para trabajar en un
+proyecto ***opensource***, consideramos que es importante tener un compromiso
+como empresa con la gente que venga con nosotros a formar parte de nuestro
+equipo. Ya nos entendemos :)
+
+Comunidad
+=========
+
+Finalmente no nos queda más opción que dar las gracias a las personas que hasta
+ahora nos han apoyado y nos han aportado, de alguna forma u otra, y aquellas que
+lo harán en un futuro.
+
+Consideramos que las menciones especiales se dan por supuestas, así que,
+compañeros, muchas gracias.
+
+Esperamos que, y siguiendo de cerca con la problemática que expresaba Javier
+Eguiluz en su
+[blog](http://symfony.es/noticias/2014/07/24/los-errores-de-la-pagina-28/)
+podamos llegar a ser útiles para la comunidad, y recibamos el soporte y la ayuda
+para crecer a más velocidad. De esta forma nuestro producto será de calidad más
+rápido y podremos crecer en robustez, fiabilidad y ejecución.
+
+Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
+feliz fín de semana.
