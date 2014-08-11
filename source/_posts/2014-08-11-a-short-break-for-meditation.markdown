@@ -1,12 +1,17 @@
 ---
 layout: post
 title: "A short break for meditation"
-date: 2014-08-06 12:49:38 +0200
+date: 2014-08-11 09:05:38 +0200
 comments: true
 categories:
+    - elcodi
+    - ecommerce
+    - symfony
 ---
 
-Some of you already know about Elcodi, a suite of components built on Symfony2 and Doctrine, aiming to provide maximum flexibility and soundness to e-commerce projects.
+##### Puedes encontrar la versión en castellano de este post [aqui](/blog/2014/08/04/un-momento-para-reflexionar/).
+
+Some of you already know Elcodi, a suite of components built on Symfony2 and Doctrine, aiming to provide maximum flexibility and soundness to e-commerce projects.
 
 We believe that coding should always be entertaining and fun.
 
@@ -27,7 +32,7 @@ Multi-category is also supported for products.
 
 ### UserBundle
 
-Contains the models and tools necessary for working with front-end customers or back-end administrators. A basic authentication & authorization definition was also added, exploiting Symfony Secirity component.
+Contains the models and tools necessary for working with front-end customers or back-end administrators. A basic authentication & authorization definition was also added, exploiting Symfony Security component.
 
 ### CartBundle
 
@@ -62,7 +67,7 @@ Something we just published. An initial release of a [backoffice application](ht
 
 ### Implementation
 
-We know that unfortunatelly, at least at this stage, our design choices and implementation cannot satisfy everyone. Trying to do it would require a massive effort and can lead to a loss of focus and direction. We prefer stick with our vision despite the errors we would make. 
+We know that unfortunately, at least at this stage, our design choices and implementation cannot satisfy everyone. Trying to do it would require a massive effort and can lead to a loss of focus and direction. We prefer stick with our vision despite the errors we would make. 
 
 A question we are frequently asked is why we are coupling with Symfony and Doctrine: this is a trade-off we had to settle for trying to maximize acceptance from both developers and end users by enforcing clean, coherent, structured and documented code.
 

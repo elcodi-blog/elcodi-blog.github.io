@@ -8,6 +8,9 @@ categories:
     - ecommerce
     - symfony
 ---
+
+##### You can find the english version of this post on [A short break for meditation](/blog/2014/08/11/a-short-break-for-meditation/).
+
 Algunos de vosotros ya conocéis Elcodi. Una serie de componentes hechos desde 0
 con componentes de Symfony2 y Doctrine2, especialmente diseñados para
 proporcionar el máximo de flexibilidad y de robustez a los proyectos Ecommerce.
