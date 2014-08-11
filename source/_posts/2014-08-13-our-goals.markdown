@@ -1,0 +1,49 @@
+---
+layout: post
+title: "Our goals"
+date: 2014-08-13 10:26:56 +0200
+comments: true
+published: false
+categories:
+    - elcodi
+    - ecommerce
+    - symfony
+---
+
+##### This is the follow-up of a series of posts
+* [A short break for meditation](blog/2014/08/11/a-short-break-for-meditation/)
+* [Our roadmap](/blog/2014/08/12/our-roadmap/).
+
+In the folowing weeks we would like to get to a first community stable version. Though last week we placed the initial milestone it is important to define a release plan for the following steps.
+
+We set up a list of [milestones](https://github.com/elcodi/elcodi/milestones) to show a proposed roadmap:
+
+```
+Version 0.3
+    - Closed 8 days ago
+    - 100% complete  0 open  11 closed
+
+Version 0.4
+    - Due by August 15, 2014
+    - 0% complete  0 open  0 closed
+
+Version 0.5
+    - Due by August 29, 2014
+    - 17% complete  5 open  1 closed
+
+Version 0.6
+    - Due by September 11, 2014
+    - 0% complete  2 open  0 closed
+```
+
+This means we will be working on better explain our general roadmap and on fix and polish what we have - no new features will be developed until we improve stability - in the hope of clearing things up a bit for developers interested in working with Elcodi foundations.
+
+At this stage, it is possible for new commits to introduce *BC breaks*. There is an open [issue](https://github.com/elcodi/elcodi/issues/34) regarding `@api` tagging in phpdoc, but as [@hacfi](https://github.com/hacfi) suggests, it is not really needed in the absence of a frozen stable release. 
+
+We won't be following strict [semantic versioning](http://semver.org/) until we reach a stable release, though we are using *patch version* for small fixes that ideally do not cause incompatibilities and *minor version* for changes that *could* cause BC.
+
+Of course this will change once we approach `v1.0`, when we will `@api` freeze core components and enforce a true semantic versioning approach.
+
+Reaching the `stable` version also means we will release the *Market*, so that plugins and components can be developed with no fears of major version breaks.
+
+We are on our way there, things look good!
