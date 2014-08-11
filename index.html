@@ -9,9 +9,7 @@
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="Este post es la continuación de tres posts anteriores Un momento para reflexionar.
-Nuestro roadmap.
-Objetivos. Equipo&hellip; Punto interesante. &hellip;">
+  <meta name="description" content="Puedes encontrar la versión en castellano de este post aqui. Some of you already know Elcodi, a suite of components built on Symfony2 and Doctrine, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,7 +79,7 @@ Objetivos. Equipo&hellip; Punto interesante. &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/08/equipo/">El Equipo De Elcodi</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/08/11/a-short-break-for-meditation/">A Short Break for Meditation</a></h1>
     
     
       <p class="meta">
@@ -97,52 +95,80 @@ Objetivos. Equipo&hellip; Punto interesante. &hellip;">
   
 
 
-<time datetime="2014-08-08T16:23:48+02:00" pubdate data-updated="true">Aug 8<span>th</span>, 2014</time>
+<time datetime="2014-08-11T09:05:38+02:00" pubdate data-updated="true">Aug 11<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Este post es la continuación de tres posts anteriores</h2>
+  <div class="entry-content"><h5>Puedes encontrar la versión en castellano de este post <a href="/blog/2014/08/04/un-momento-para-reflexionar/">aqui</a>.</h5>
+
+<p>Some of you already know Elcodi, a suite of components built on Symfony2 and Doctrine, aiming to provide maximum flexibility and soundness to e-commerce projects.</p>
+
+<p>We believe that coding should always be entertaining and fun.</p>
+
+<p>This has been our main mission since the beginning and as every ambitious goal you cannot forget that along the journey you might discover an equally important path.</p>
+
+<p>I think that we reached the point where it is important to take a breath, so that in the following days we will publish some posts regarding our views and what we&rsquo;ve been learning, where we will talk about what we have developed so far, our expectations and how we would like to drive the development of each part of the project in the following months.</p>
+
+<h1>The path so far</h1>
+
+<p>Elcodi was born a few months ago in a nice workplace located in Barcelona, Spain. We started designing the platform at the beginning of the year, developed and refactored the pieces up the present day where in my opinion we reached a fairly good balanced point, which is the growing seed of our natural direction.</p>
+
+<h3>ProductBundle, AttributeBundle</h3>
+
+<p>Those components are the home for everything regarding products, categories, manufacturers. Product attribute and options were added in a separate bundle and are the dimensions for working in the product variants space, which is one of the latest features developed and is a required trait for almost every e-commerce software implementation.</p>
+
+<p>Multi-category is also supported for products.</p>
+
+<h3>UserBundle</h3>
+
+<p>Contains the models and tools necessary for working with front-end customers or back-end administrators. A basic authentication &amp; authorization definition was also added, exploiting Symfony Security component.</p>
+
+<h3>CartBundle</h3>
+
+<p>It handles the purchase process, carts and orders. Undoubtedly one of the core pillars of any e-commerce, it has been designed to be simple to get a grasp of and to be overridden almost completely by custom logic. You can read about its internal in the <a href="http://elcodi.readthedocs.org/en/latest/bundles/CartBundle/index.html">official documentation</a>.
+Point-in-time snapshots of order states or cart to order transitions are examples of what is provided in CartBundle core services default implementation.</p>
+
+<h3>GeoBundle</h3>
+
+<p>Basic building block for a complete hierarchical aggregation of administrative entities. Due to lack of time, at the present day only <code>Country</code> is modeled as a mapped class, leaving <code>State</code>, <code>Province</code> or <code>City</code> as text fields.</p>
+
+<h3>MediaBundle</h3>
+
+<p>Allows the storage-agnostic handling of media files, such as images. It also controls image resizing and consolidates HTTP headers for media files.</p>
+
+<p>Other bundles are:</p>
 
 <ul>
-<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-<li><a href="/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
+<li>BannerBundle</li>
+<li>LanguageBundle</li>
+<li>CurrencyBundle</li>
+<li>MenuBundle</li>
+<li>NewsletterBundle</li>
+<li>ReferralProgramBundle</li>
+<li>RuleBundle</li>
 </ul>
 
 
-<p>Equipo&hellip; Punto interesante.</p>
+<h3>BambooStore</h3>
 
-<p>Desde hoy mismo buscamos dos perfiles que nos ayuden a crecer de forma
-exponencial. Este post no trata de esto, por lo que en su momento ya vamos a
-sacar las ofertas pertinentes, pero solo a nivel informativo, estamos buscando a
-dos seniors de alto nivel para trabajar en nuestras oficinas de Barcelona.</p>
+<p>We developed a prototype of a front-end store, the <a href="http://bamboo.elcodi.com/">Bamboo</a>. It is a showcase of Elcodi core features and uses <a href="https://github.com/PaymentSuite">PaymentSuite</a> <a href="https://github.com/PaymentSuite/FreePaymentBundle">FreePaymentBundle</a> as payment method.</p>
 
-<p>Dado que buscamos perfiles muy concretos, con capacidad para trabajar en un
-proyecto <strong><em>opensource</em></strong>, consideramos que es importante tener un compromiso
-como empresa con la gente que venga con nosotros a formar parte de nuestro
-equipo. Ya nos entendemos :)</p>
+<h3>BambooAdmin</h3>
 
-<h1>Comunidad</h1>
+<p>Something we just published. An initial release of a <a href="https://github.com/elcodi/bamboo-admin">backoffice application</a>, providing basic features yet usable. Likewise Elcodi core and the Bamboo frontend, it will be in constant development. Versions and releases of the three projects will stay synchronized, not to break dependencies.</p>
 
-<p>Finalmente no nos queda más opción que dar las gracias a las personas que hasta
-ahora nos han apoyado y nos han aportado, de alguna forma u otra, y aquellas que
-lo harán en un futuro.</p>
+<h3>Implementation</h3>
 
-<p>Consideramos que las menciones especiales se dan por supuestas, así que,
-compañeros, muchas gracias.</p>
+<p>We know that unfortunately, at least at this stage, our design choices and implementation cannot satisfy everyone. Trying to do it would require a massive effort and can lead to a loss of focus and direction. We prefer stick with our vision despite the errors we would make.</p>
 
-<p>Esperamos que, y siguiendo de cerca con la problemática que expresaba Javier
-Eguiluz en su
-<a href="http://symfony.es/noticias/2014/07/24/los-errores-de-la-pagina-28/">blog</a>
-podamos llegar a ser útiles para la comunidad, y recibamos el soporte y la ayuda
-para crecer a más velocidad. De esta forma nuestro producto será de calidad más
-rápido y podremos crecer en robustez, fiabilidad y ejecución.</p>
+<p>A question we are frequently asked is why we are coupling with Symfony and Doctrine: this is a trade-off we had to settle for trying to maximize acceptance from both developers and end users by enforcing clean, coherent, structured and documented code.</p>
 
-<p>Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
-feliz fín de semana.</p>
+<p>Right now we don&rsquo;t think it is feasable to assemble more layers of indirection to achieve this decoupling. The goal is to involve the Symfony community and work on the feedbacks we will receive from developers who want to build applications with Elcodi. Mind you that Symfony decoupling <em>is</em> possible, since we are trying to follow the <strong>SOLID</strong> path, but the eternal struggle between being different and effective flows to a point of balance that surely will benefit both the project and our users.</p>
+
+<p>Cheers!</p>
 </div>
   
   
@@ -449,7 +475,9 @@ participar con nosotros, lo pueda hacer con el máximo nivel posible.</p>
   </header>
 
 
-  <div class="entry-content"><p>Algunos de vosotros ya conocéis Elcodi. Una serie de componentes hechos desde 0
+  <div class="entry-content"><h5>You can find the english version of this post on <a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a>.</h5>
+
+<p>Algunos de vosotros ya conocéis Elcodi. Una serie de componentes hechos desde 0
 con componentes de Symfony2 y Doctrine2, especialmente diseñados para
 proporcionar el máximo de flexibilidad y de robustez a los proyectos Ecommerce.</p>
 
@@ -1566,7 +1594,7 @@ They also need the whole container in order to work properly (yes, normally you 
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/08/08/equipo/">El equipo de Elcodi</a>
+        <a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a>
       </li>
     
       <li class="post">
