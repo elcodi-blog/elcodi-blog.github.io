@@ -10,7 +10,7 @@ categories:
     - symfony
 ---
 
-##### This is the second part of a [previous post](blog/2014/08/11/a-short-break-for-meditation/)
+##### This is the second part of a [previous post](/blog/2014/08/11/a-short-break-for-meditation/)
 
 We can proudly state we have a lot to do in the following months.
 
