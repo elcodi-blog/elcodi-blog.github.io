@@ -3,7 +3,6 @@ layout: post
 title: "Our roadmap"
 date: 2014-08-12 09:55:48 +0200
 comments: true
-published: false
 categories:
     - elcodi
     - ecommerce
