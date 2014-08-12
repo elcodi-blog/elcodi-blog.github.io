@@ -56,7 +56,7 @@ We would like to follow a similar path as the PaymentSuite: a separated and para
 
 ### Documentation
 
-Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author @fabpot once said, it is the most challenging part of any project.
+Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author [@fabpot](https://twitter.com/fabpot) once said, it is the most challenging part of any project.
 
 We are working on the foundation of an [english documentation](http://elcodi.readthedocs.org), localized and translated version will follow later on. This is a list of topics that we will elaborate further:
 
