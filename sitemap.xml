@@ -2,48 +2,52 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/</loc>
-        <lastmod>2014-08-04T11:55:02+02:00</lastmod>
+        <lastmod>2014-08-11T16:15:35+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/</loc>
-        <lastmod>2014-08-04T11:55:02+02:00</lastmod>
+        <lastmod>2014-08-11T16:15:35+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://elcodi-blog.github.io/blog/2014/05/20/about-rules-and-expressionlanguage/
         </loc>
-        <lastmod>2014-08-04T11:55:02+02:00</lastmod>
+        <lastmod>2014-08-11T16:15:35+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/</loc>
-        <lastmod>2014-08-11T13:11:06+02:00</lastmod>
+        <lastmod>2014-08-11T16:15:35+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/</loc>
-        <lastmod>2014-08-05T12:59:01+02:00</lastmod>
+        <lastmod>2014-08-11T16:15:35+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/blog/2014/08/06/objetivos/</loc>
-        <lastmod>2014-08-06T12:25:05+02:00</lastmod>
+        <lastmod>2014-08-11T16:15:35+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/blog/2014/08/08/equipo/</loc>
-        <lastmod>2014-08-11T13:11:06+02:00</lastmod>
+        <lastmod>2014-08-11T16:16:13+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/</loc>
-        <lastmod>2014-08-11T13:11:06+02:00</lastmod>
+        <lastmod>2014-08-11T16:16:13+02:00</lastmod>
     </url>
     <url>
-        <loc>http://elcodi-blog.github.io/blog/archives/</loc>
-        <lastmod>2014-08-11T13:11:06+02:00</lastmod>
+        <loc>http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/</loc>
+        <lastmod>2014-08-12T09:48:43+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/</loc>
-        <lastmod>2014-08-11T13:11:06+02:00</lastmod>
+        <lastmod>2014-08-12T09:48:43+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://elcodi-blog.github.io/blog/archives/</loc>
+        <lastmod>2014-08-12T09:48:43+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/robots.txt</loc>
-        <lastmod>2014-08-04T11:55:02+02:00</lastmod>
+        <lastmod>2014-08-11T16:15:35+02:00</lastmod>
     </url>
 </urlset>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ecommerce | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/ecommerce/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-08-11T13:11:16+02:00</updated>
+  <updated>2014-08-12T09:57:25+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,98 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Our roadmap]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/"/>
+    <updated>2014-08-12T09:55:48+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap</id>
+    <content type="html"><![CDATA[<h5>This is the second part of a <a href="/blog/2014/08/11/a-short-break-for-meditation/">previous post</a></h5>
+
+<p>We can proudly state we have a lot to do in the following months.</p>
+
+<p>Question is, what now? Maybe we are 1% done along our path, although &ldquo;done&rdquo; in our world sounds a bit odd since there is always room for improvement.
+As long as our issue tracker list gets fed, we will stay hungry for enhance our code.</p>
+
+<h3>GeoBundle</h3>
+
+<p>One of the most recurring challenges in e-commerce development is the modeling of geographic and administrative divisions. We will put our efforts in designing a simple yet extensible set of entities and relations as well as strategies to implement custom tree structures.</p>
+
+<h3>Rule management</h3>
+
+<p>Rule-based decision logic is ubiquitous in e-commerce applications. A few examples:</p>
+
+<ul>
+<li>Which discount coupon can be automatically applied upon entering the checkout process?</li>
+<li>Can a particular discount code be applied?</li>
+<li>Can two specific products be added to the same cart?</li>
+<li>Can a specific product combination trigger a discount, an up-sell or a different offer?</li>
+<li>When is it possible to use a specific carrier or payment method?</li>
+</ul>
+
+
+<p>Elcodi <a href="https://github.com/elcodi/rulebundle">RuleBundle</a> aims at solving these kinds of issue.</p>
+
+<h3>Ports and Adapters</h3>
+
+<p>We surely want to promote high-cohesion, loose-coupled software components. Right now we are halfway, as described in the <a href="/blog/2014/08/06/a-short-break-for-meditation/">previous post</a>, but we want to keep improving. A typical usage of P&amp;A would be to decouple Symfony bundles from other significant objects in the domain, or to be able to use Elcodi Cart component without depending on the CustomerBundle.</p>
+
+<h3>Tests</h3>
+
+<p>A great deal of credibility for an open source project is earned by instilling a thorough and sound test methodology. We assume that we&rsquo;ve been lacking on this specific subject, doing our homeworks halfway. This will be addressed both for Elcodi core repository and web applications (<a href="https://github.com/elcodi/bamboo-store">BambooStore</a> and <a href="https://github.com/elcodi/bamboo-admin">BambooAdmin</a>) by raising the coverage of unit and functional tests and start working with acceptance tests for the web apps.</p>
+
+<p>We have not decided yet which toolset we will be using, surely one between <a href="http://docs.behat.org/">Behat3</a> and <a href="http://www.phpspec.net/">PHPSpec2</a>. As always, suggestions are more than welcome!</p>
+
+<h3>PaymentSuite</h3>
+
+<p>The <a href="http://github.com/PaymentSuite">PaymentSuite</a> was conceived and grown inside Elcodi.</p>
+
+<p>It is a payment processing suite developed in Symfony2 which follows our vision of extensibility using adapters and dispatched events to give maximum flexibility to implementers and to decouple specific <code>Cart</code> or <code>Order</code> implementations. It promotes easy and sensible defaults for configurations.</p>
+
+<p>We will take care of the project and will evolve it as the default payment platform. The <a href="http://bamboo.elcodi.com">BambooStore</a> is already using a dummy <a href="https://github.com/PaymentSuite/FreePaymentBundle">free payment</a> method.</p>
+
+<h3>ShippingSuite</h3>
+
+<p>We would like to follow a similar path as the PaymentSuite: a separated and parallel project that does not depend on Elcodi and that can be easy integrated in web applications. Same vision, same resilience philosophy: work with <code>Order</code> or <code>Carrier</code> as <em>adaptees</em>.</p>
+
+<h3>Documentation</h3>
+
+<p>Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author @fabpot once said, it is the most challenging part of any project.</p>
+
+<p>We are working on the foundation of an <a href="http://elcodi.readthedocs.org">english documentation</a>, localized and translated version will follow later on.</p>
+
+<ul>
+<li>Implementation guidelines. General vision and coding philosophy, style and everything needed for developers wishing to contribute.</li>
+<li>Customizations. Craft a project using only Elcodi core. Architectural constraints to keep in mind. Recipes and examples.</li>
+<li>Core bundles documentation, including
+
+<ul>
+<li>Provisioned Model</li>
+<li>Event system rationale and taxonomies</li>
+<li>Services</li>
+<li>Configuration</li>
+<li>Controllers and extensions, where it may apply</li>
+</ul>
+</li>
+<li><a href="https://github.com/elcodi/bamboo-store">Bamboo</a> <a href="https://github.com/elcodi/bamboo-admin">web applications</a> documentation for Symfony and front-end developers: the starting point to develop your e-commerce site.</li>
+</ul>
+
+
+<p>This is going to be an epic effort and the real main entrance to the project for the community. No matter the size of your codebase is, documentation is a key measure of a project success.</p>
+
+<h2>Community</h2>
+
+<p>If documentation should be our <em>diamond</em>, the community should be our <em>propellant</em>. A good community make a project good.</p>
+
+<p>We started as a small project and we know how demanding it can be to get involved and contribute to the development of an open source based product.</p>
+
+<p>We will take special care of this particular topic, since motivating people to get involved is essential for our vision: Elcodi was never mean to be a mere code repository, it is a group of visionary people with a clear view in their minds, working together to work out a specific problem.</p>
+
+<p>Taking care of the code means caring for the people that make it possible for the code to be crafted. We are especially interested in helping those who want to learn, so we will soon arrange training and learning mechanisms, both for Symfony and Elcodi.</p>
+
+<p>Get ready to be effective!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A short break for meditation]]></title>
