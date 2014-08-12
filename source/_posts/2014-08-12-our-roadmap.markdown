@@ -14,7 +14,7 @@ categories:
 We can proudly state we have a lot to do in the following months.
 
 Question is, what now? Maybe we are 1% done along our path, although "done" in our world sounds a bit odd since there is always room for improvement.
-As long as our issue tracker list gets fed, we will stay hungry for enhance our code. 
+As long as our issue tracker list gets fed, we will stay hungry for enhancing our code.
 
 ### GeoBundle
 
@@ -34,7 +34,7 @@ Elcodi [RuleBundle](https://github.com/elcodi/rulebundle) aims at solving these 
 
 ### Ports and Adapters
 
-We surely want to promote high-cohesion, loose-coupled software components. Right now we are halfway, as described in the [previous post](/blog/2014/08/06/a-short-break-for-meditation/), but we want to keep improving. A typical usage of P&A would be to decouple Symfony bundles from other significant objects in the domain, or to be able to use Elcodi Cart component without depending on the CustomerBundle.
+We surely want to promote high-cohesion, loose-coupled software components. Right now we are halfway, as described in the [previous post](/blog/2014/08/11/a-short-break-for-meditation/), but we want to keep improving. A typical usage of P&A would be to decouple Symfony bundles from other significant objects in the domain, or to be able to use Elcodi Cart component without depending on the CustomerBundle.
 
 ### Tests
 
@@ -58,7 +58,7 @@ We would like to follow a similar path as the PaymentSuite: a separated and para
 
 Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author @fabpot once said, it is the most challenging part of any project.
 
-We are working on the foundation of an [english documentation](http://elcodi.readthedocs.org), localized and translated version will follow later on.
+We are working on the foundation of an [english documentation](http://elcodi.readthedocs.org), localized and translated version will follow later on. This is a list of topics that we will elaborate further:
 
 * Implementation guidelines. General vision and coding philosophy, style and everything needed for developers wishing to contribute.
 * Customizations. Craft a project using only Elcodi core. Architectural constraints to keep in mind. Recipes and examples.
@@ -74,11 +74,11 @@ This is going to be an epic effort and the real main entrance to the project for
 
 ## Community
 
-If documentation should be our *diamond*, the community should be our *propellant*. A good community make a project good.
+If documentation should be our *diamond*, the community should be our *propellant*. A good community makes a project good.
 
 We started as a small project and we know how demanding it can be to get involved and contribute to the development of an open source based product.
 
-We will take special care of this particular topic, since motivating people to get involved is essential for our vision: Elcodi was never mean to be a mere code repository, it is a group of visionary people with a clear view in their minds, working together to work out a specific problem.
+We will take special care of this particular topic, since motivating people and get them involved is essential for our vision: Elcodi was never mean to be a mere code repository, it is a group of visionary people with a clear view in their minds, working together to work out a specific problem.
 
 Taking care of the code means caring for the people that make it possible for the code to be crafted. We are especially interested in helping those who want to learn, so we will soon arrange training and learning mechanisms, both for Symfony and Elcodi. 
 
