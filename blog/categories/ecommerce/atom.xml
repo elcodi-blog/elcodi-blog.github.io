@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ecommerce | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/ecommerce/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-08-12T10:12:13+02:00</updated>
+  <updated>2014-08-12T10:16:21+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -68,7 +68,7 @@ As long as our issue tracker list gets fed, we will stay hungry for enhancing ou
 
 <h3>Documentation</h3>
 
-<p>Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author @fabpot once said, it is the most challenging part of any project.</p>
+<p>Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author <a href="https://twitter.com/fabpot">@fabpot</a> once said, it is the most challenging part of any project.</p>
 
 <p>We are working on the foundation of an <a href="http://elcodi.readthedocs.org">english documentation</a>, localized and translated version will follow later on. This is a list of topics that we will elaborate further:</p>
 
