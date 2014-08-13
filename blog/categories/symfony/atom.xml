@@ -4,7 +4,7 @@
   <title><![CDATA[Category: symfony | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/symfony/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-08-12T10:16:21+02:00</updated>
+  <updated>2014-08-13T10:18:50+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Our goals]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/"/>
+    <updated>2014-08-13T10:26:56+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/13/our-goals</id>
+    <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
+
+<ul>
+<li><a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
+<li><a href="/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
+</ul>
+
+
+<p>In the folowing weeks we would like to get to a first community stable version. Though last week we placed the initial milestone it is important to define a release plan for the following steps.</p>
+
+<p>We set up a list of <a href="https://github.com/elcodi/elcodi/milestones">milestones</a> to show a proposed roadmap:</p>
+
+<p>```
+Version 0.3</p>
+
+<pre><code>- Closed 8 days ago
+- 100% complete  0 open  11 closed
+</code></pre>
+
+<p>Version 0.4</p>
+
+<pre><code>- Due by August 15, 2014
+- 0% complete  0 open  0 closed
+</code></pre>
+
+<p>Version 0.5</p>
+
+<pre><code>- Due by August 29, 2014
+- 17% complete  5 open  1 closed
+</code></pre>
+
+<p>Version 0.6</p>
+
+<pre><code>- Due by September 11, 2014
+- 0% complete  2 open  0 closed
+</code></pre>
+
+<p>```</p>
+
+<p>This means we will be working on fine-tune our general roadmap and on fixing and refining what we have &ndash; no new features will be developed until we improve stability &ndash; in the hope of clearing things up a bit for developers interested in working with Elcodi foundations.</p>
+
+<p>At this stage, it is possible for new commits to introduce <em>BC breaks</em>. There is an open <a href="https://github.com/elcodi/elcodi/issues/34">issue</a> regarding <code>@api</code> tagging in phpdoc but as suggests in the discussion it is not really needed in the absence of a frozen stable release.</p>
+
+<p>We won&rsquo;t be following strict <a href="http://semver.org/">semantic versioning</a> until we reach a stable release, though we are using <em>patch version</em> for small fixes that do not cause incompatibilities and <em>minor version</em> for changes that <em>could</em> cause BC.</p>
+
+<p>Of course this will change once we approach <code>v1.0</code>, when we will <code>@api</code> freeze core components and enforce full semantic versioning.</p>
+
+<p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
+
+<p>We are on our way there, things look good!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Our roadmap]]></title>
@@ -389,132 +447,6 @@ personas que hacen posible que el código exista. Tenemos mucho interés en que 
 gente que quiera aprender, lo haga, así que vamos a diseñar sistemas de learning
 y de formación, tanto en Symfony como en Elcodi, para que la gente que quiera
 participar con nosotros, lo pueda hacer con el máximo nivel posible.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Un momento para reflexionar]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/"/>
-    <updated>2014-08-04T13:53:28+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar</id>
-    <content type="html"><![CDATA[<h5>You can find the english version of this post on <a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a>.</h5>
-
-<p>Algunos de vosotros ya conocéis Elcodi. Una serie de componentes hechos desde 0
-con componentes de Symfony2 y Doctrine2, especialmente diseñados para
-proporcionar el máximo de flexibilidad y de robustez a los proyectos Ecommerce.</p>
-
-<p>Programar debe ser siempre un placer.</p>
-
-<p>Este es nuestro objetivo desde el principio, y como todos los objetivos, no hay
-eue olvidar que, hasta llegar a ellos, hay un camino no menos importante.</p>
-
-<p>Creo que hemos llegado a un punto de inflexión donde es importante detenerse,
-así que durante los próximos dias vamos a sacar una serie de posts referentes a
-nuestra reflexiones donde pondremos sobre la mesa temas importantes como lo que
-tenemos hecho hasta ahora, nuestra espectativas, y como vamos a hacer cada
-trozo del proyecto durante los próximos meses.</p>
-
-<h1>El camino hasta ahora</h1>
-
-<p>Elcodi empezó hace unos meses en una bonita oficina de Barcelona. Nuestro
-departamento técnico empezó a diseñar el proyecto a principios de año y hasta
-ahora, y entre unos cuantos refáctorings interesantes, llegamos a un punto de
-equilibrio, en mi opinión, bastante bueno, semilla de nuestra dirección actual.</p>
-
-<p>Hasta ahora hemos trabajado sobretodo en funcionalidades básicas de interés
-común en cuanto a ecommerce se refiere.</p>
-
-<h3>ProductBundle, AttributeBundle</h3>
-
-<p>Todo lo referente al Producto, Categoría y Marca. El Bundle tiene definido tanto
-el modelo como una serie de herramientas para trabajar con él. Una de las
-últimas incorporacion ha sido la implementación de multiproducto, muy útil en
-la mayoría de sites ecommerce de hoy en día.</p>
-
-<p>También soporta multicategoría.</p>
-
-<h3>UserBundle</h3>
-
-<p>Modelo y herramientas para trabajar tanto con Customer como con Administradores
-para el Backoffice. También se ha creado una definición básica de autenticación
-y de autentificación utilizando el ya conocido Secure de Symfony.</p>
-
-<h3>CartBundle</h3>
-
-<p>Gestor de Carts y Orders. Una de las partes troncales de todo ecommerce viene
-en un formato bastante sencillo, diseñado para poder ser sobreescrito
-practicamente en su totalidad. Se ha implementado seguimiento de Orders mediante
-histórico de estados, así las herramientas de transformación de Cart a Order.</p>
-
-<h3>CouponBundle</h3>
-
-<p>Definición del modelo de cupón. Este bundle está particularmente desacoplado de
-todos los demás, por lo que solo tiene dependencia con <code>core-bundle</code> y con
-<code>currency-bundle</code>. Si se quiere trabajar con el CartBundle de Elcodi, también
-se ha creado CartCouponBundle, un <strong>nexo</strong> entre ambos modelos que, a partir
-de los eventos del EventDispatcher, se encarga del comportamiento asociado a los
-cupones del cart.</p>
-
-<h3>GeoBundle</h3>
-
-<p>Semilla para toda la definición y gestión de un modelo geográfico completo. Por
-ahora, y dado que no hemos dedicado demasiado tiempo a esta parte, solo tenemos
-Country como entidad, dejando como campos abiertos los demás campos como
-<code>Region</code>, <code>City</code> y <code>Postalcode</code></p>
-
-<p>Otros Bundles más son</p>
-
-<ul>
-<li>BannerBundle</li>
-<li>LanguageBundle</li>
-<li>CurrencyBundle</li>
-<li>MediaBundle</li>
-<li>MenuBundle</li>
-<li>NewsletterBundle</li>
-<li>ReferralProgramBundle</li>
-<li>RuleBundle</li>
-</ul>
-
-
-<h3>BambooStore</h3>
-
-<p>Hemos desarrollado una primera fase de un Store. Por ahora con camisetas muy
-chulas y utilizando el
-<a href="https://github.com/PaymentSuite/FreePaymentBundle">FreePaymentBundle</a> de
-PaymentSuite.</p>
-
-<p>Es una versión muy simple, pero seguro muy útil como punto de partida para
-muchos departamentos técnicos</p>
-
-<h3>BambooAdmin</h3>
-
-<p>Algo nuevo. Hemos estado trabajando el último mes en una base (muy simple y algo
-incompleta) de un administrador. Estará en constrante desarrollo (junto con
-el store y el core, yendo de la mano en cuanto a versiones).</p>
-
-<h3>Implementación</h3>
-
-<p>Sabemos que nuestra implementación no dejará a todo el mundo contento, y la
-verdad no queremos que sea así. Consideramos que dejar a todos el mundo contento
-es algo imposible, y lo que terminas teniendo es un producto sin ningún tipo de
-identidad, por lo que nosotros preferimos definir bien nuestra dirección, y
-desarrollar a pesar de los errores que podamos cometer.</p>
-
-<p>Hemos recibido preguntas muy positivas del porqué estamos acoplándonos al
-framework Symfony y al ORM de Doctrine2. Pues bien, lo hacemos porque nuestro
-objetivo es realmente llegar a ser lo máximo útiles posible, tanto para el
-desarrollador como para el usuario final, y la única forma de que sea así es
-tratar con código mantenible, comprensible, documentado y estructurado.</p>
-
-<p>En esta fase del proyecto no creemos que valga la pena añadir mas capas de
-indirección para realizar esta desvinculación. El objetivo ahora mismo es
-intentar involucrar la comunidad Symfony y recibir feedback de desarrolladores
-que intenten montar algo con Elcodi.</p>
-
-<p>En la busca de un tradeoff entre hacer las cosas lo máximo de bien posible, y
-tratar de ser algo diferentes a los demás, hemos consideramos que ambas
-relaciones son y serán buenas para el proyecto, así como para los
-desarrolladores que decidan trabajar sobre él.</p>
 ]]></content>
   </entry>
   

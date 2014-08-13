@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-08-12T10:16:21+02:00</updated>
+  <updated>2014-08-13T10:18:50+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Our goals]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/"/>
+    <updated>2014-08-13T10:26:56+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/13/our-goals</id>
+    <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
+
+<ul>
+<li><a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
+<li><a href="/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
+</ul>
+
+
+<p>In the folowing weeks we would like to get to a first community stable version. Though last week we placed the initial milestone it is important to define a release plan for the following steps.</p>
+
+<p>We set up a list of <a href="https://github.com/elcodi/elcodi/milestones">milestones</a> to show a proposed roadmap:</p>
+
+<p>```
+Version 0.3</p>
+
+<pre><code>- Closed 8 days ago
+- 100% complete  0 open  11 closed
+</code></pre>
+
+<p>Version 0.4</p>
+
+<pre><code>- Due by August 15, 2014
+- 0% complete  0 open  0 closed
+</code></pre>
+
+<p>Version 0.5</p>
+
+<pre><code>- Due by August 29, 2014
+- 17% complete  5 open  1 closed
+</code></pre>
+
+<p>Version 0.6</p>
+
+<pre><code>- Due by September 11, 2014
+- 0% complete  2 open  0 closed
+</code></pre>
+
+<p>```</p>
+
+<p>This means we will be working on fine-tune our general roadmap and on fixing and refining what we have &ndash; no new features will be developed until we improve stability &ndash; in the hope of clearing things up a bit for developers interested in working with Elcodi foundations.</p>
+
+<p>At this stage, it is possible for new commits to introduce <em>BC breaks</em>. There is an open <a href="https://github.com/elcodi/elcodi/issues/34">issue</a> regarding <code>@api</code> tagging in phpdoc but as suggests in the discussion it is not really needed in the absence of a frozen stable release.</p>
+
+<p>We won&rsquo;t be following strict <a href="http://semver.org/">semantic versioning</a> until we reach a stable release, though we are using <em>patch version</em> for small fixes that do not cause incompatibilities and <em>minor version</em> for changes that <em>could</em> cause BC.</p>
+
+<p>Of course this will change once we approach <code>v1.0</code>, when we will <code>@api</code> freeze core components and enforce full semantic versioning.</p>
+
+<p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
+
+<p>We are on our way there, things look good!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Our roadmap]]></title>
@@ -292,150 +350,6 @@ aspectos.</p>
 <p>Otro objetivo es, una vez llegado a la primera versión estable, abrir ya el
 market. Dado que a medida que pasa el tiempo la api va cambiando menos, creemos
 que no falta demasiado para poder llegar a este punto.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Nuestro roadmap]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/"/>
-    <updated>2014-08-05T12:46:22+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap</id>
-    <content type="html"><![CDATA[<h5>Este post es la continuación de <a href="/blog/2014/08/04/un-momento-para-reflexionar/">uno anterior</a>.</h5>
-
-<p>Podemos decir con orgullos que tenemos proyecto por mucho tiempo.</p>
-
-<p>La pregunta es&hellip; ¿y ahora qué? Pues bueno, ahora solo hemos andado un uno por
-ciento del camino al completo (Creo que la palabra &ldquo;completo&rdquo; es algo
-inexistente en nuestro ámbito&hellip; siempre hay cosas que hacer y mejorar&hellip;).
-Almenos, y mientras nuestra lista de Issues y Features no esté vacía, tenemos
-ganas de mejorar nuestro repositorio. Aquí algunas cosas importantes.</p>
-
-<h3>GeoBundle</h3>
-
-<p>Consideramos que es uno de los problemas más trabajados en todas las empresas
-ecommerce, tener un buen sistema geográfico. Tenerlo implica poder segmentar
-mucho mejor y cotejar los datos, para sacar buenas métricas y así mejorar la
-experiencia de usuario.</p>
-
-<p>Queremos trabajar en un completo sistema relacional de entidades, de tal forma
-que, con comandos simples se puedan customizar y poblar tablas enteras.</p>
-
-<h3>Gestión de Reglas</h3>
-
-<p>Una parte interesante del proyecto es la utilización de reglas en todo el
-modelo. Por ejemplo.</p>
-
-<ul>
-<li>¿Cuando se aplica un cupón automático de cart?</li>
-<li>¿Cuando es posible aplicar un cupón cuando se aplica?</li>
-<li>¿Cuando es posible mezclar dos productos?</li>
-<li>¿Cuando se puede utilizar un Carrier o un método de pago?</li>
-</ul>
-
-
-<p>Podemos solucionar de una forma muy natural y intruitiva todas estas necesidades
-con un buen sistema de reglas.</p>
-
-<h3>Ports and Adapters</h3>
-
-<p>Una de las cosas que mas nos preocupa es el poder trabajar con los componentes
-de forma desacoplada. Creo que estamos enmedio del camino, por lo que queremos
-aprender como hacerlo mejor. Los &ldquo;Ports and Adapters&rdquo; es una forma de trabajar
-con implementaciones propias del componente, implementando adapters para las
-implementaciones externas. De esta forma, podemos decir que un Cart tiene un
-Customer, sin tener la necesidad de trabajar con CustomerBundle.</p>
-
-<p>Trabajaremos en ello. Seguro.</p>
-
-<h3>Tests</h3>
-
-<p>Hemos hecho los deberes a medias, lo reconocemos, y dado que sabemos que parte
-de la confianza de un proyecto open source se genera con la cantidad y,
-importante, la calidad de sus tests, vamos a trabajar para que ambas cosas
-crezcan a la vez, tanto en los bundles de Elcodi como en los proyectos
-BambooStore y BambooAdmin.</p>
-
-<p>Trabajaremos en las baterías de Tests unitarios y funcionales, como hemos hecho
-hasta ahora, incluso incrementando notablemente el nivel, y en las baterias
-de tests de comportamiento en las Bamboo.</p>
-
-<p>No tenemos muy claro que proyectos utilizar para tales fines. Tenemos en mente
-Behat3 y PHPSPec2, así que toda opinión sobre el tema serás más que bienvenida!</p>
-
-<h3>PaymentSuite</h3>
-
-<p>El proyecto <a href="http://github.com/PaymentSuite">PaymentSuite</a> nació dentro de
-Elcodi.</p>
-
-<p>Es un repositorio de pagos implementado en Symfony2, preparado para trabajar
-100% sobre una capa de eventos. Esta capa te permite poder abstraer la
-implementación del Cart o del Order, así como la implementación del método de
-pago, por lo que la activación o desactivación de los métodos de pago se hacen
-triviales, solo activando y configurando.</p>
-
-<p>Desde Elcodi vamos a trabajar en el proyecto.</p>
-
-<h3>ShippingSuite</h3>
-
-<p>Queremos hacer lo mismo que con PaymentSuite. Un proyecto que trabaje sobre la
-capa de eventos de Symfony y abstraiga, tanto el Order como la implementación
-del Carrier.</p>
-
-<p>Con los pagos nos ha funcionado a la perfección, así que seguro que vamos a
-seguir el mismo camino para esta necesidad.</p>
-
-<h3>Documentación</h3>
-
-<p>El diamante que buscar, encontrar, limpiar y tallar. La famosa documentación.
-Consideramos que es la verdadera joya de la corona, como dijo una vez @fabpot,
-la documentación es la parte más complicada del proyecto, y lo sabemos.</p>
-
-<p>Vamos a trabajar para hacer una buena documentación en inglés, así como la
-traducción en el máximo de idiomas posibles.</p>
-
-<ul>
-<li>Documentación de implementación. Estilos que hemos seguido, así como puntos
-importantes a conocer para los contribuidores.</li>
-<li>Documentación de customización. En realidad consistirá más en un conjunto de
-recetas.</li>
-<li>Patrones que hemos utilizado y sus razones de ser</li>
-<li>Documentación por Bundle.</li>
-<li>Modelo</li>
-<li>Capa de eventos (dispatchers y listeners)</li>
-<li>Capa de servicio</li>
-<li>Capa de extensiones de Twig</li>
-<li>Capa de configuración</li>
-<li>Capa de controlador (en el caso de las implementaciones de front y back)</li>
-<li>Documentación de front. Que necesita un frontend para realizar
-implementaciones propias de frontal</li>
-</ul>
-
-
-<p>Sabemos que no será tarea fácil, pero al menos estamos seguros que parte del
-éxito de cualquier proyecto, por pequeño que sea, es la capacidad de documentar
-que pueda llegar a tener, así como lo acogedor que pueda llegar a ser el entorno
-del proyecto.</p>
-
-<h3>Comunidad</h3>
-
-<p>Si la documentación es nuestro diamante, la comunidad es nuestro carburante. Una
-buena comunidad hace el buen proyecto.</p>
-
-<p>Nacimos como un pequeño proyecto en Symfony y sabemos lo complicado y agresivo
-que puede llegar a ser, para una persona no acostumbrada a estar en entornos
-tan estrictos, el hecho de participar y involucrarse en el desarrollo de una
-tecnología.</p>
-
-<p>Pues bien, como lo hemos vivido y sabemos que es, en parte, la clave de nuestro
-éxito, vamos a tratar este punto con especial interés y cariño. Elcodi no es tan
-solo un código en un repositorio, es un conjunto de personas con una idea clara
-en la cabeza y con la ilusión de trabajar juntas para solucionar un problema.</p>
-
-<p>Es por esto que si queremos cuidar el código al máximo, debemos cuidar a las
-personas que hacen posible que el código exista. Tenemos mucho interés en que la
-gente que quiera aprender, lo haga, así que vamos a diseñar sistemas de learning
-y de formación, tanto en Symfony como en Elcodi, para que la gente que quiera
-participar con nosotros, lo pueda hacer con el máximo nivel posible.</p>
 ]]></content>
   </entry>
   
