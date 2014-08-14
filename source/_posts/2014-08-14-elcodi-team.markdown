@@ -11,7 +11,7 @@ categories:
 ---
 
 ##### This is the follow-up of a series of posts
-* [A short break for meditation](blog/2014/08/11/a-short-break-for-meditation/)
+* [A short break for meditation](/blog/2014/08/11/a-short-break-for-meditation/)
 * [Our roadmap](/blog/2014/08/12/our-roadmap/).
 * [Our goals](/blog/2014/08/13/our-goals/)
 
