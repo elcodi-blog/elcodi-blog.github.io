@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-08-14T13:19:04+02:00</updated>
+  <updated>2014-08-14T13:21:08+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
 
 <ul>
-<li><a href="blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
+<li><a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
 <li><a href="/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
 <li><a href="/blog/2014/08/13/our-goals/">Our goals</a></li>
 </ul>
