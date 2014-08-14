@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-08-13T10:18:50+02:00</updated>
+  <updated>2014-08-14T13:19:04+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Elcodi team]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/"/>
+    <updated>2014-08-14T10:28:08+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team</id>
+    <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
+
+<ul>
+<li><a href="blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
+<li><a href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
+<li><a href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/">Our goals</a></li>
+</ul>
+
+
+<p>As a final point for what we shared in previous posts, the last but definitely not least element to consider is the <em>team</em>.</p>
+
+<p>Such an ambitious venture needs a committed and visionary crew, and obviously more <em>heads</em> and <em>hands</em>. This is why we are opening job positions for a couple of skilled software artisans willing to join the journey with us. We will soon post the complete description. The company is located in Barcelona, Spain.</p>
+
+<p>We are looking for passionate and inspired artisans that love to craft products to be used by fellow developers and that believe in the potential of a community that grows around an <em>opensource</em> project.</p>
+
+<h2>Community</h2>
+
+<p>The final word is a big <strong>thank you</strong> to all the people that have been supporting us &ndash; by contributing in different forms &ndash; and to whom will do it someday.</p>
+
+<p>We really seek to build something useful for the community and to receive the necessary feedback and support in order to speed up the development and deliver the sound, reliable, flexible product that we have in mind.</p>
+
+<p>As for now, the Elcodi team hopes that you&rsquo;ll get involved with the project and wishes you a great summer break.</p>
+
+<p>Stay tuned!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Our goals]]></title>
