@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Elcodi team - Elcodi blog</title>
+  <title>We have evolved - Elcodi blog</title>
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="This is the follow-up of a series of posts A short break for meditation
-Our roadmap.
-Our goals As a final point for what we shared in previous posts &hellip;">
+  <meta name="description" content="You might say that we&rsquo;ve evolved. An evolution ought to be seen as a positive thing, and ours is no exception.
+At first, we had serious doubts &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ Our goals As a final point for what we shared in previous posts &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/">
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +77,7 @@ Our goals As a final point for what we shared in previous posts &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Elcodi Team</h1>
+      <h1 class="entry-title">We Have Evolved</h1>
     
     
       <p class="meta">
@@ -94,37 +93,54 @@ Our goals As a final point for what we shared in previous posts &hellip;">
   
 
 
-<time datetime="2014-08-14T10:28:08+02:00" pubdate data-updated="true">Aug 14<span>th</span>, 2014</time>
+<time datetime="2014-08-28T11:42:47+02:00" pubdate data-updated="true">Aug 28<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h5>This is the follow-up of a series of posts</h5>
+<div class="entry-content"><p>You might say that we&rsquo;ve evolved.</p>
 
-<ul>
-<li><a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
-<li><a href="/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
-<li><a href="/blog/2014/08/13/our-goals/">Our goals</a></li>
-</ul>
+<p>An evolution ought to be seen as a positive thing, and ours is no exception.
+At first, we had serious doubts about the nature of our project. One of the
+questions we kept asking ourselves was what factors should we consider in
+choosing whether and when to engage external projects or libraries, and we
+believe we made the right decision. In fact, that decision brought us forward in
+a big way toward defining ourselves.</p>
 
+<p>Flexible e-commerce components for Symfony2</p>
 
-<p>As a final point for what we shared in previous posts, the last but definitely not least element to consider is the <em>team</em>.</p>
+<p>Anyway, this phrase is actually very ambiguous, as we could be referring to
+Symfony as a set of PHP components or as the Framework (I&rsquo;ve always wondered
+why they have the same name&hellip; it causes a lot of confusion).</p>
 
-<p>Such an ambitious venture needs a committed and visionary crew, and obviously more <em>heads</em> and <em>hands</em>. This is why we are opening job positions for a couple of skilled software artisans willing to join the journey with us. We will soon post the complete description. The company is located in Barcelona, Spain.</p>
+<p>That&rsquo;s why we wanted to reflect a bit, starting from the code itself. Do we want
+to use the Symfony Framework or the Symfony Components? The answer seemed to
+emerge spontaneously. We want to work with the Symfony components, but we also
+want to propose bundles that use the framework.</p>
 
-<p>We are looking for passionate and inspired artisans that love to craft products to be used by fellow developers and that believe in the potential of a community that grows around an <em>opensource</em> project.</p>
+<p>This was the origin of this commit.</p>
 
-<h2>Community</h2>
+<p><a href="https://github.com/elcodi/elcodi/pull/239">https://github.com/elcodi/elcodi/pull/239</a></p>
 
-<p>The final word is a big <strong>thank you</strong> to all the people that have been supporting us &ndash; by contributing in different forms &ndash; and to whom will do it someday.</p>
+<p>We have only just planted the seed with this refactoring. We have realized, even
+more, the importance of having both functional testing and unit testing (unit
+tests are almost all for the components, while functional tests are for the
+bundles). This needs more work, but at least we have lifted this project to a
+level at which we truly feel comfortable. It&rsquo;s an excellent starting point for
+a long and exciting path ahead.</p>
 
-<p>We really seek to build something useful for the community and to receive the necessary feedback and support in order to speed up the development and deliver the sound, reliable, flexible product that we have in mind.</p>
+<p>This change has resulted in some collateral damage, as it has changed the path
+of our bundles, meaning that the &ldquo;subtree split&rdquo; has resulted in totally new
+repositories beginning with the first commit after refactoring. This means that
+all tags prior to version 0.3.0 have been lost, so we apologize to those who
+have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to version
+~0.3 and check that everything&rsquo;s working.</p>
 
-<p>As for now, the Elcodi team hopes that you&rsquo;ll get involved with the project and wishes you a great summer break.</p>
+<p>We are available for any questions or concerns.</p>
 
-<p>Stay tuned!</p>
+<p>Happy coding!</p>
 </div>
 
 
@@ -147,7 +163,7 @@ Our goals As a final point for what we shared in previous posts &hellip;">
   
 
 
-<time datetime="2014-08-14T10:28:08+02:00" pubdate data-updated="true">Aug 14<span>th</span>, 2014</time>
+<time datetime="2014-08-28T11:42:47+02:00" pubdate data-updated="true">Aug 28<span>th</span>, 2014</time>
       
 
 <span class="categories">
@@ -161,7 +177,7 @@ Our goals As a final point for what we shared in previous posts &hellip;">
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/" >Tweet</a>
   
   
   
@@ -170,10 +186,8 @@ Our goals As a final point for what we shared in previous posts &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/08/13/our-goals/" title="Previous Post: Our goals">&laquo; Our goals</a>
+        <a class="basic-alignment left" href="/blog/2014/08/14/elcodi-team/" title="Previous Post: Elcodi team">&laquo; Elcodi team</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/08/28/we-have-evolved/" title="Next Post: We have evolved">We have evolved &raquo;</a>
       
     </p>
   </footer>
@@ -268,8 +282,8 @@ Our goals As a final point for what we shared in previous posts &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/';
-        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/';
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/';
         var disqus_script = 'embed.js';
       
     (function () {
