@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-08-28T11:45:56+02:00</updated>
+  <updated>2014-10-16T17:09:49+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -14,51 +14,23 @@
 
   
   <entry>
-    <title type="html"><![CDATA[We have evolved]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/"/>
-    <updated>2014-08-28T11:42:47+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved</id>
-    <content type="html"><![CDATA[<p>You might say that we&rsquo;ve evolved.</p>
+    <title type="html"><![CDATA[The family grows]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/"/>
+    <updated>2014-10-16T16:09:40+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny</id>
+    <content type="html"><![CDATA[<p>Today a new friend has join the team, meet Berny Cantos!</p>
 
-<p>An evolution ought to be seen as a positive thing, and ours is no exception.
-At first, we had serious doubts about the nature of our project. One of the
-questions we kept asking ourselves was what factors should we consider in
-choosing whether and when to engage external projects or libraries, and we
-believe we made the right decision. In fact, that decision brought us forward in
-a big way toward defining ourselves.</p>
+<p>Berny is a seasoned web developer and of course a Symfony lover. He is one of those great old-school coders that forged
+their stamina the <em>hard way</em>, out of C/C++ development, before diving into the LAMP world.</p>
 
-<p>Flexible e-commerce components for Symfony2</p>
+<p>He will be helping step up our commitment with the open source community and harden the foundations of our codebase.</p>
 
-<p>Anyway, this phrase is actually very ambiguous, as we could be referring to
-Symfony as a set of PHP components or as the Framework (I&rsquo;ve always wondered
-why they have the same name&hellip; it causes a lot of confusion).</p>
+<p><img src="http://s3-eu-west-1.amazonaws.com/elcodi-static-assets/images/people/berny.jpg" alt="All Right!" /></p>
 
-<p>That&rsquo;s why we wanted to reflect a bit, starting from the code itself. Do we want
-to use the Symfony Framework or the Symfony Components? The answer seemed to
-emerge spontaneously. We want to work with the Symfony components, but we also
-want to propose bundles that use the framework.</p>
+<p>You can reach him on <a href="https://github.com/xphere">GitHub</a>, Twitter at <a href="https://twitter.com/xphere">@xphere</a> and
+<a href="https://www.linkedin.com/in/bernycantos">LinkedIn</a></p>
 
-<p>This was the origin of this commit.</p>
-
-<p><a href="https://github.com/elcodi/elcodi/pull/239">https://github.com/elcodi/elcodi/pull/239</a></p>
-
-<p>We have only just planted the seed with this refactoring. We have realized, even
-more, the importance of having both functional testing and unit testing (unit
-tests are almost all for the components, while functional tests are for the
-bundles). This needs more work, but at least we have lifted this project to a
-level at which we truly feel comfortable. It&rsquo;s an excellent starting point for
-a long and exciting path ahead.</p>
-
-<p>This change has resulted in some collateral damage, as it has changed the path
-of our bundles, meaning that the &ldquo;subtree split&rdquo; has resulted in totally new
-repositories beginning with the first commit after refactoring. This means that
-all tags prior to version 0.3.0 have been lost, so we apologize to those who
-have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to version
-~0.3 and check that everything&rsquo;s working.</p>
-
-<p>We are available for any questions or concerns.</p>
-
-<p>Happy coding!</p>
+<p>Welcome Berny!</p>
 ]]></content>
   </entry>
   
