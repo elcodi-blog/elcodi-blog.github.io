@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: A | Elcodi blog]]></title>
-  <link href="http://elcodi-blog.github.io/blog/categories/a/atom.xml" rel="self"/>
+  <title><![CDATA[Category: A week of Elcodi | Elcodi blog]]></title>
+  <link href="http://elcodi-blog.github.io/blog/categories/a-week-of-elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-04T11:28:16+01:00</updated>
+  <updated>2014-11-04T11:32:27+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
