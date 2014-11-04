@@ -4,7 +4,7 @@ title: "Week 2 - Where we are now"
 date: 2014-05-05 10:38:46 +0200
 comments: true
 categories: Roadmap
-author: Aldo Chiecchia <alch@elcodi.io>
+author: Aldo Chiecchia <alch@elcodi.com>
 ---
 
 There is really a lot of work to do!
