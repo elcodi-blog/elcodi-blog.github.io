@@ -3,7 +3,7 @@ layout: post
 title: "A week of Elcodi #1 (27/10 - 3/11)"
 date: 2014-11-04 09:32:57 +0100
 comments: true
-categories: A week of Elcodi
+categories: [A week of Elcodi]
 author: Aldo Chiecchia <alch@elcodi.com>
 ---
 
