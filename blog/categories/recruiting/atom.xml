@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: recruiting | Elcodi blog]]></title>
-  <link href="http://elcodi-blog.github.io/blog/categories/recruiting/atom.xml" rel="self"/>
-  <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-04T11:32:27+01:00</updated>
-  <id>http://elcodi-blog.github.io/</id>
+  <link href="http://blog.elcodi.io/blog/categories/recruiting/atom.xml" rel="self"/>
+  <link href="http://blog.elcodi.io/"/>
+  <updated>2014-11-11T13:12:40+01:00</updated>
+  <id>http://blog.elcodi.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The family grows]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/"/>
+    <link href="http://blog.elcodi.io/blog/2014/10/16/welcome-berny/"/>
     <updated>2014-10-16T16:09:40+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny</id>
+    <id>http://blog.elcodi.io/blog/2014/10/16/welcome-berny</id>
     <content type="html"><![CDATA[<p>Today a new friend has join the team, meet Berny Cantos!</p>
 
 <p>Berny is a seasoned web developer and of course a Symfony lover. He is one of those great old-school coders that forged
@@ -36,9 +36,9 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
   
   <entry>
     <title type="html"><![CDATA[El equipo de Elcodi]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/08/equipo/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/08/equipo/"/>
     <updated>2014-08-08T16:23:48+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/08/equipo</id>
+    <id>http://blog.elcodi.io/blog/2014/08/08/equipo</id>
     <content type="html"><![CDATA[<h2>Este post es la continuación de tres posts anteriores</h2>
 
 <ul>

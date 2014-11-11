@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Elcodi blog]]></title>
-  <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
-  <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-04T11:32:27+01:00</updated>
-  <id>http://elcodi-blog.github.io/</id>
+  <link href="http://blog.elcodi.io/atom.xml" rel="self"/>
+  <link href="http://blog.elcodi.io/"/>
+  <updated>2014-11-11T13:12:40+01:00</updated>
+  <id>http://blog.elcodi.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
     
@@ -14,10 +14,33 @@
 
   
   <entry>
+    <title type="html"><![CDATA[A week of Elcodi #2 (3/11 - 10/11)]]></title>
+    <link href="http://blog.elcodi.io/blog/2014/11/11/a-week-of-elcodi-number-2/"/>
+    <updated>2014-11-11T12:22:31+01:00</updated>
+    <id>http://blog.elcodi.io/blog/2014/11/11/a-week-of-elcodi-number-2</id>
+    <content type="html"><![CDATA[<p>We&rsquo;ve been putting efforts into making better issues and PRs and closing older ones for a better GitHub experience for our contributors and users.</p>
+
+<p>The PayPal web checkout has been reintegrated into the <a href="https://github.com/elcodi/bamboo-store/pull/56">bamboo store</a> meaning that the frontend store is able to receive real payments, other than integrating a <a href="https://github.com/elcodi/bamboo-store/pull/56">dummy payment module</a> for testing purposes. Next step is to integrate <a href="https://github.com/PaymentSuite/StripeBundle">stripe</a> or <a href="https://github.com/PaymentSuite/PaymillBundle">paymill</a>, which are much more developer-friendly. Stay tuned with the <a href="https://github.com/PaymentSuite">PaymentSuite</a> updates to see what&rsquo;s coming from there too!</p>
+
+<p>Also, there&rsquo;s a <a href="https://github.com/hwi/HWIOAuthBundle/pull/677">new PR in HWI/OAuth</a> from our team to add PayPal login support.</p>
+
+<p>We&rsquo;ve done our first hackaton. We met with some friends to talk about the project, about our implementations and about how to approach the development of our Page Component. It has definitely been the first of many more events like this.</p>
+
+<p>And finally, as you may know, Elcodi will speak at the <a href="http://madrid2014.symfony.com/">SymfonyCon</a> at the end of November. We will talk about some cool things we&rsquo;ve been working on during last months and since we want to celebrate this, part of the team will be walking the <em>330km route</em> between Zaragoza and Madrid. You can read more about this adventure in these posts:</p>
+
+<ul>
+<li><a href="http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid/">Symfony Walk</a></li>
+<li><a href="http://mmoreram.com/blog/2014/08/12/one-section-one-component/">One section, one component</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[A week of Elcodi #1 (27/10 - 3/11)]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1/"/>
+    <link href="http://blog.elcodi.io/blog/2014/11/04/a-week-of-elcodi-number-1/"/>
     <updated>2014-11-04T09:32:57+01:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1</id>
+    <id>http://blog.elcodi.io/blog/2014/11/04/a-week-of-elcodi-number-1</id>
     <content type="html"><![CDATA[<p>It is time to be more vocal about what we are doing and share with the community how we are moving forward along our roadmap and the progress we are making.</p>
 
 <p>Inspired by the <a href="http://symfony.com/blog/category/a-week-of-symfony">famous symfony weekly bulletin</a>, we would like to do something similar: <em>A week of Elcodi</em>, a series of post assembled in turn by each member of the team.</p>
@@ -37,9 +60,9 @@ A thin layer and a new entity <a href="https://github.com/elcodi/bamboo-store/bl
   
   <entry>
     <title type="html"><![CDATA[The family grows]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/"/>
+    <link href="http://blog.elcodi.io/blog/2014/10/16/welcome-berny/"/>
     <updated>2014-10-16T16:09:40+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny</id>
+    <id>http://blog.elcodi.io/blog/2014/10/16/welcome-berny</id>
     <content type="html"><![CDATA[<p>Today a new friend has join the team, meet Berny Cantos!</p>
 
 <p>Berny is a seasoned web developer and of course a Symfony lover. He is one of those great old-school coders that forged
@@ -58,15 +81,15 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
   
   <entry>
     <title type="html"><![CDATA[Elcodi team]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/14/elcodi-team/"/>
     <updated>2014-08-14T10:28:08+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team</id>
+    <id>http://blog.elcodi.io/blog/2014/08/14/elcodi-team</id>
     <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
 
 <ul>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/">Our goals</a></li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/13/our-goals/">Our goals</a></li>
 </ul>
 
 
@@ -90,14 +113,14 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
   
   <entry>
     <title type="html"><![CDATA[Our goals]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/13/our-goals/"/>
     <updated>2014-08-13T10:26:56+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/13/our-goals</id>
+    <id>http://blog.elcodi.io/blog/2014/08/13/our-goals</id>
     <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
 
 <ul>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
 </ul>
 
 
@@ -153,10 +176,10 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
   
   <entry>
     <title type="html"><![CDATA[Our roadmap]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/12/our-roadmap/"/>
     <updated>2014-08-12T09:55:48+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap</id>
-    <content type="html"><![CDATA[<h5>This is the second part of a <a href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/">previous post</a></h5>
+    <id>http://blog.elcodi.io/blog/2014/08/12/our-roadmap</id>
+    <content type="html"><![CDATA[<h5>This is the second part of a <a href="http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation/">previous post</a></h5>
 
 <p>We can proudly state we have a lot to do in the following months.</p>
 
@@ -184,7 +207,7 @@ As long as our issue tracker list gets fed, we will stay hungry for enhancing ou
 
 <h3>Ports and Adapters</h3>
 
-<p>We surely want to promote high-cohesion, loose-coupled software components. Right now we are halfway, as described in the <a href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/">previous post</a>, but we want to keep improving. A typical usage of P&amp;A would be to decouple Symfony bundles from other significant objects in the domain, or to be able to use Elcodi Cart component without depending on the CustomerBundle.</p>
+<p>We surely want to promote high-cohesion, loose-coupled software components. Right now we are halfway, as described in the <a href="http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation/">previous post</a>, but we want to keep improving. A typical usage of P&amp;A would be to decouple Symfony bundles from other significant objects in the domain, or to be able to use Elcodi Cart component without depending on the CustomerBundle.</p>
 
 <h3>Tests</h3>
 
@@ -245,10 +268,10 @@ As long as our issue tracker list gets fed, we will stay hungry for enhancing ou
   
   <entry>
     <title type="html"><![CDATA[A short break for meditation]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation/"/>
     <updated>2014-08-11T09:05:38+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation</id>
-    <content type="html"><![CDATA[<h5>Puedes encontrar la versión en castellano de este post <a href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/">aqui</a>.</h5>
+    <id>http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation</id>
+    <content type="html"><![CDATA[<h5>Puedes encontrar la versión en castellano de este post <a href="http://blog.elcodi.io/blog/2014/08/04/un-momento-para-reflexionar/">aqui</a>.</h5>
 
 <p>Some of you already know Elcodi, a suite of components built on Symfony2 and Doctrine, aiming to provide maximum flexibility and soundness to e-commerce projects.</p>
 
@@ -320,15 +343,15 @@ Point-in-time snapshots of order states or cart to order transitions are example
   
   <entry>
     <title type="html"><![CDATA[El equipo de Elcodi]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/08/equipo/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/08/equipo/"/>
     <updated>2014-08-08T16:23:48+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/08/equipo</id>
+    <id>http://blog.elcodi.io/blog/2014/08/08/equipo</id>
     <content type="html"><![CDATA[<h2>Este post es la continuación de tres posts anteriores</h2>
 
 <ul>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
 </ul>
 
 
@@ -367,14 +390,14 @@ feliz fín de semana.</p>
   
   <entry>
     <title type="html"><![CDATA[Objetivos]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/06/objetivos/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/06/objetivos/"/>
     <updated>2014-08-06T12:12:19+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/06/objetivos</id>
+    <id>http://blog.elcodi.io/blog/2014/08/06/objetivos</id>
     <content type="html"><![CDATA[<h2>Este post es la continuación de dos posts anteriores</h2>
 
 <ul>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
+<li><a href="http://blog.elcodi.io/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
 </ul>
 
 
@@ -440,10 +463,10 @@ que no falta demasiado para poder llegar a este punto.</p>
   
   <entry>
     <title type="html"><![CDATA[Nuestro roadmap]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/05/nuestro-roadmap/"/>
     <updated>2014-08-05T12:46:22+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap</id>
-    <content type="html"><![CDATA[<h5>Este post es la continuación de <a href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/">uno anterior</a>.</h5>
+    <id>http://blog.elcodi.io/blog/2014/08/05/nuestro-roadmap</id>
+    <content type="html"><![CDATA[<h5>Este post es la continuación de <a href="http://blog.elcodi.io/blog/2014/08/04/un-momento-para-reflexionar/">uno anterior</a>.</h5>
 
 <p>Podemos decir con orgullos que tenemos proyecto por mucho tiempo.</p>
 
@@ -584,10 +607,10 @@ participar con nosotros, lo pueda hacer con el máximo nivel posible.</p>
   
   <entry>
     <title type="html"><![CDATA[Un momento para reflexionar]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/"/>
+    <link href="http://blog.elcodi.io/blog/2014/08/04/un-momento-para-reflexionar/"/>
     <updated>2014-08-04T13:53:28+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar</id>
-    <content type="html"><![CDATA[<h5>You can find the english version of this post on <a href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a>.</h5>
+    <id>http://blog.elcodi.io/blog/2014/08/04/un-momento-para-reflexionar</id>
+    <content type="html"><![CDATA[<h5>You can find the english version of this post on <a href="http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a>.</h5>
 
 <p>Algunos de vosotros ya conocéis Elcodi. Una serie de componentes hechos desde 0
 con componentes de Symfony2 y Doctrine2, especialmente diseñados para
@@ -710,9 +733,9 @@ desarrolladores que decidan trabajar sobre él.</p>
   
   <entry>
     <title type="html"><![CDATA[About Rules and ExpressionLanguage]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/05/20/about-rules-and-expressionlanguage/"/>
+    <link href="http://blog.elcodi.io/blog/2014/05/20/about-rules-and-expressionlanguage/"/>
     <updated>2014-05-20T16:06:59+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/05/20/about-rules-and-expressionlanguage</id>
+    <id>http://blog.elcodi.io/blog/2014/05/20/about-rules-and-expressionlanguage</id>
     <content type="html"><![CDATA[<blockquote><p>Puedes leer este post en castellano en <a href="http://mmoreram.com/blog/2014/05/20/about-rules-and-expression-language/">blog de Marc Morera</a></p></blockquote>
 
 <p>This bundle works with Symfony&rsquo;s <code>ExpressionLanguage</code></p>
@@ -1527,9 +1550,9 @@ They also need the whole container in order to work properly (yes, normally you 
   
   <entry>
     <title type="html"><![CDATA[Week 2 - Where we are now]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/"/>
+    <link href="http://blog.elcodi.io/blog/2014/05/05/week-2-where-we-are-now/"/>
     <updated>2014-05-05T10:38:46+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now</id>
+    <id>http://blog.elcodi.io/blog/2014/05/05/week-2-where-we-are-now</id>
     <content type="html"><![CDATA[<p>There is really a lot of work to do!</p>
 
 <p>These first few weeks of our journey are as tough as we expected. Releasing an open source project is a big challenge, so we would like to explain a little bit more of ourselves.</p>
@@ -1568,9 +1591,9 @@ They also need the whole container in order to work properly (yes, normally you 
   
   <entry>
     <title type="html"><![CDATA[What is Elcodi?]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/"/>
+    <link href="http://blog.elcodi.io/blog/2014/04/17/what-is-elcodi/"/>
     <updated>2014-04-17T17:23:39+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi</id>
+    <id>http://blog.elcodi.io/blog/2014/04/17/what-is-elcodi</id>
     <content type="html"><![CDATA[<p>How many e-commerce solutions are there out in the wild?</p>
 
 <p>Let me rephrase that: how many usable <em>developer friendly</em> e-commerce solutions are there?</p>
