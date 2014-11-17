@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://blog.elcodi.io/atom.xml" rel="self"/>
   <link href="http://blog.elcodi.io/"/>
-  <updated>2014-11-11T13:12:40+01:00</updated>
+  <updated>2014-11-17T17:30:44+01:00</updated>
   <id>http://blog.elcodi.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A week of Elcodi #3 (10/11 - 17/11)]]></title>
+    <link href="http://blog.elcodi.io/blog/2014/11/17/a-week-of-elcodi-number-3-10-slash-11-17-slash-11/"/>
+    <updated>2014-11-17T17:25:20+01:00</updated>
+    <id>http://blog.elcodi.io/blog/2014/11/17/a-week-of-elcodi-number-3-10-slash-11-17-slash-11</id>
+    <content type="html"><![CDATA[<p>This last week we were working hard on our next milestone: our presentation at the <a href="http://madrid2014.symfony.com">#SymfonyCon</a> on November 27th. <a href="https://github.com/mmoreram">@mmoreram</a> and <a href="https://github.com/alch">@alch</a> will speak about how we&rsquo;re building a flexible e-commerce library on top of best practices. We&rsquo;ll dig into the guts of <a href="http://elcodi.io">Elcodi</a> and talk about the tecnologies we&rsquo;ve been using to decouple and allow our users to customize everything to suit their business needs.</p>
+
+<p>Also, @mmoream started walking this Sunday what he calls the <a href="http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid">#SymfonyWalk</a>, a road-trip between Zaragoza and Madrid that will last for 10 days. All this on foot! We wish Marc good health and good luck in that journey!</p>
+
+<p>In the more technical side, we&rsquo;ve been integrating <a href="https://github.com/elcodi/elcodi/tree/feature/page-component">our soon-to-be-released Elcodi&rsquo;s <code>PageBundle</code></a> into <code>bamboo-admin</code>, so you can add content pages to your stores. This will appear in the next release for sure, so… stay tuned!</p>
+
+<p>Also, our <a href="https://github.com/hwi/HWIOAuthBundle/pull/677">PR for PayPal authentication</a> finally made it into HWI/OAuthBundle. Nice!</p>
+
+<p>Have fun!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A week of Elcodi #2 (3/11 - 10/11)]]></title>
