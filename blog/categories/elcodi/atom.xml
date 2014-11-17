@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
-  <link href="http://blog.elcodi.io/blog/categories/elcodi/atom.xml" rel="self"/>
-  <link href="http://blog.elcodi.io/"/>
-  <updated>2014-11-17T17:30:44+01:00</updated>
-  <id>http://blog.elcodi.io/</id>
+  <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2014-11-17T18:23:09+01:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Elcodi team]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/08/14/elcodi-team/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/"/>
     <updated>2014-08-14T10:28:08+02:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/08/14/elcodi-team</id>
+    <id>http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team</id>
     <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
 
 <ul>
@@ -47,9 +47,9 @@
   
   <entry>
     <title type="html"><![CDATA[Our goals]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/08/13/our-goals/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/"/>
     <updated>2014-08-13T10:26:56+02:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/08/13/our-goals</id>
+    <id>http://elcodi-blog.github.io/blog/2014/08/13/our-goals</id>
     <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
 
 <ul>
@@ -105,9 +105,9 @@ Version 0.3</p>
   
   <entry>
     <title type="html"><![CDATA[Our roadmap]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/08/12/our-roadmap/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/"/>
     <updated>2014-08-12T09:55:48+02:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/08/12/our-roadmap</id>
+    <id>http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap</id>
     <content type="html"><![CDATA[<h5>This is the second part of a <a href="/blog/2014/08/11/a-short-break-for-meditation/">previous post</a></h5>
 
 <p>We can proudly state we have a lot to do in the following months.</p>
@@ -197,9 +197,9 @@ As long as our issue tracker list gets fed, we will stay hungry for enhancing ou
   
   <entry>
     <title type="html"><![CDATA[A short break for meditation]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/"/>
     <updated>2014-08-11T09:05:38+02:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/08/11/a-short-break-for-meditation</id>
+    <id>http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation</id>
     <content type="html"><![CDATA[<h5>Puedes encontrar la versión en castellano de este post <a href="/blog/2014/08/04/un-momento-para-reflexionar/">aqui</a>.</h5>
 
 <p>Some of you already know Elcodi, a suite of components built on Symfony2 and Doctrine, aiming to provide maximum flexibility and soundness to e-commerce projects.</p>
@@ -272,9 +272,9 @@ Point-in-time snapshots of order states or cart to order transitions are example
   
   <entry>
     <title type="html"><![CDATA[El equipo de Elcodi]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/08/08/equipo/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/08/equipo/"/>
     <updated>2014-08-08T16:23:48+02:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/08/08/equipo</id>
+    <id>http://elcodi-blog.github.io/blog/2014/08/08/equipo</id>
     <content type="html"><![CDATA[<h2>Este post es la continuación de tres posts anteriores</h2>
 
 <ul>

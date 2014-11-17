@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Roadmap | Elcodi blog]]></title>
-  <link href="http://blog.elcodi.io/blog/categories/roadmap/atom.xml" rel="self"/>
-  <link href="http://blog.elcodi.io/"/>
-  <updated>2014-11-17T17:30:44+01:00</updated>
-  <id>http://blog.elcodi.io/</id>
+  <link href="http://elcodi-blog.github.io/blog/categories/roadmap/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2014-11-17T18:23:09+01:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Week 2 - Where we are now]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/05/05/week-2-where-we-are-now/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now/"/>
     <updated>2014-05-05T10:38:46+02:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/05/05/week-2-where-we-are-now</id>
+    <id>http://elcodi-blog.github.io/blog/2014/05/05/week-2-where-we-are-now</id>
     <content type="html"><![CDATA[<p>There is really a lot of work to do!</p>
 
 <p>These first few weeks of our journey are as tough as we expected. Releasing an open source project is a big challenge, so we would like to explain a little bit more of ourselves.</p>

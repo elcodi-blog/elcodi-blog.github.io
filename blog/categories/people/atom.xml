@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: people | Elcodi blog]]></title>
-  <link href="http://blog.elcodi.io/blog/categories/people/atom.xml" rel="self"/>
-  <link href="http://blog.elcodi.io/"/>
-  <updated>2014-11-17T17:30:44+01:00</updated>
-  <id>http://blog.elcodi.io/</id>
+  <link href="http://elcodi-blog.github.io/blog/categories/people/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2014-11-17T18:23:09+01:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The family grows]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/10/16/welcome-berny/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/"/>
     <updated>2014-10-16T16:09:40+02:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/10/16/welcome-berny</id>
+    <id>http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny</id>
     <content type="html"><![CDATA[<p>Today a new friend has join the team, meet Berny Cantos!</p>
 
 <p>Berny is a seasoned web developer and of course a Symfony lover. He is one of those great old-school coders that forged

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: A week of Elcodi | Elcodi blog]]></title>
-  <link href="http://blog.elcodi.io/blog/categories/a-week-of-elcodi/atom.xml" rel="self"/>
-  <link href="http://blog.elcodi.io/"/>
-  <updated>2014-11-17T17:30:44+01:00</updated>
-  <id>http://blog.elcodi.io/</id>
+  <link href="http://elcodi-blog.github.io/blog/categories/a-week-of-elcodi/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2014-11-17T18:23:09+01:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A week of Elcodi #3 (10/11 - 17/11)]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/11/17/a-week-of-elcodi-number-3-10-slash-11-17-slash-11/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/11/17/a-week-of-elcodi-number-3/"/>
     <updated>2014-11-17T17:25:20+01:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/11/17/a-week-of-elcodi-number-3-10-slash-11-17-slash-11</id>
+    <id>http://elcodi-blog.github.io/blog/2014/11/17/a-week-of-elcodi-number-3</id>
     <content type="html"><![CDATA[<p>This last week we were working hard on our next milestone: our presentation at the <a href="http://madrid2014.symfony.com">#SymfonyCon</a> on November 27th. <a href="https://github.com/mmoreram">@mmoreram</a> and <a href="https://github.com/alch">@alch</a> will speak about how we&rsquo;re building a flexible e-commerce library on top of best practices. We&rsquo;ll dig into the guts of <a href="http://elcodi.io">Elcodi</a> and talk about the tecnologies we&rsquo;ve been using to decouple and allow our users to customize everything to suit their business needs.</p>
 
 <p>Also, @mmoream started walking this Sunday what he calls the <a href="http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid">#SymfonyWalk</a>, a road-trip between Zaragoza and Madrid that will last for 10 days. All this on foot! We wish Marc good health and good luck in that journey!</p>
@@ -32,9 +32,9 @@
   
   <entry>
     <title type="html"><![CDATA[A week of Elcodi #2 (3/11 - 10/11)]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/11/11/a-week-of-elcodi-number-2/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/11/11/a-week-of-elcodi-number-2/"/>
     <updated>2014-11-11T12:22:31+01:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/11/11/a-week-of-elcodi-number-2</id>
+    <id>http://elcodi-blog.github.io/blog/2014/11/11/a-week-of-elcodi-number-2</id>
     <content type="html"><![CDATA[<p>We&rsquo;ve been putting efforts into making better issues and PRs and closing older ones for a better GitHub experience for our contributors and users.</p>
 
 <p>The PayPal web checkout has been reintegrated into the <a href="https://github.com/elcodi/bamboo-store/pull/56">bamboo store</a> meaning that the frontend store is able to receive real payments, other than integrating a <a href="https://github.com/elcodi/bamboo-store/pull/56">dummy payment module</a> for testing purposes. Next step is to integrate <a href="https://github.com/PaymentSuite/StripeBundle">stripe</a> or <a href="https://github.com/PaymentSuite/PaymillBundle">paymill</a>, which are much more developer-friendly. Stay tuned with the <a href="https://github.com/PaymentSuite">PaymentSuite</a> updates to see what&rsquo;s coming from there too!</p>
@@ -55,9 +55,9 @@
   
   <entry>
     <title type="html"><![CDATA[A week of Elcodi #1 (27/10 - 3/11)]]></title>
-    <link href="http://blog.elcodi.io/blog/2014/11/04/a-week-of-elcodi-number-1/"/>
+    <link href="http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1/"/>
     <updated>2014-11-04T09:32:57+01:00</updated>
-    <id>http://blog.elcodi.io/blog/2014/11/04/a-week-of-elcodi-number-1</id>
+    <id>http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1</id>
     <content type="html"><![CDATA[<p>It is time to be more vocal about what we are doing and share with the community how we are moving forward along our roadmap and the progress we are making.</p>
 
 <p>Inspired by the <a href="http://symfony.com/blog/category/a-week-of-symfony">famous symfony weekly bulletin</a>, we would like to do something similar: <em>A week of Elcodi</em>, a series of post assembled in turn by each member of the team.</p>
