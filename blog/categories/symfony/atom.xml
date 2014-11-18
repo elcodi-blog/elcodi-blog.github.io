@@ -4,7 +4,7 @@
   <title><![CDATA[Category: symfony | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/symfony/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-17T18:23:09+01:00</updated>
+  <updated>2014-11-18T22:47:07+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -100,6 +100,83 @@ Version 0.3</p>
 <p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
 
 <p>We are on our way there, things look good!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Playing with PHP-NG]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng/"/>
+    <updated>2014-08-12T18:02:14+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng</id>
+    <content type="html"><![CDATA[<p>There is a lot going on on the PHP community after Zeev Suraski published an <a href="http://zsuraski.blogspot.com.br/2014/07/benchmarking-phpng.html">article</a> where he ventured on assembling a performance comparison between <a href="https://wiki.php.net/rfc/phpng">PHPNG</a> and <a href="https://github.com/facebook/hhvm">hhvm</a>. Needles to say that the results are promising and the performace benefits of the soon-to-be next PHP major release look impressive.</p>
+
+<p>For the sake of curiosity, we tried to run Elcodi <a href="https://github.com/elcodi/bamboo-store">frontend store</a> on PHPNG and see how a Symfony applicaction would fare.</p>
+
+<p>The test was made on an Amazon <a href="http://aws.amazon.com/ec2/instance-types/#Compute_Optimized">c3.xlarge</a> EC2 instance (<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html">HVM virtualization</a>) running <strong>Ubuntu Server 14.04 LTS</strong></p>
+
+<h2>Installing PHPNG</h2>
+
+<p>There are several options available for installing PHPNG binaries.</p>
+
+<p>The first way is of course to follow the ninja path and <a href="https://wiki.php.net/phpng">compile it on your own</a>. Mind you that compiling PHPNG on an Ubuntu 14.04 is a source of headaches, since it requires <a href="http://www.gnu.org/software/bison/">Bison 2.7</a> but <code>trusty</code> official repositories provide it at version <code>3.0.2</code>, so you&rsquo;ll need to manually download and build it.</p>
+
+<p>The easiest way is of course to add an <code>apt</code> repository providing the package. For the sake of simpliciy we can stuck with apprentice path, katanas can wait for the next bad guy.</p>
+
+<p>Luckily Zend prepared <a href="http://repos.zend.com/zend-server/early-access/phpng/">an apt repo</a> for the <code>amd64</code> arch:</p>
+
+<p>```bash</p>
+
+<pre><code># Remember to run these commands as root, or use sudo
+$ wget http://repos.zend.com/zend.key -O- 2&gt; /dev/null | apt-key add -
+$ echo "deb [arch=amd64] http://repos.zend.com/zend-server/early-access/phpng/ trusty zend" &gt; /etc/apt/sources.list.d/phpng.list
+$ apt-get update
+$ apt-get install php5
+</code></pre>
+
+<p><code>``
+This wil also install</code>apache2.2<code>and</code>libapache2-mod-php5`.</p>
+
+<p>In order for a Symfony application to work, we will have to add at least the <a href="http://php.net/manual/en/book.intl.php">i18n</a> and the <a href="http://php.net/manual/en/book.mysqlnd.php">mysqlnd</a> extensions.
+Elcodi will also need <a href="http://www.imagemagick.org/">imagemagik</a> as the default image resize adapter for the <a href="https://github.com/elcodi/MediaBundle">MediaBundle</a>. Since we will work with MySQL, we also need <code>mysql-server</code>.</p>
+
+<p><strong>NO</strong> For this test, to speed up things a little, we also need <a href="https://github.com/krakjoe/apcu">APCu</a> since we will configure Doctrine <a href="http://docs.doctrine-project.org/en/2.0.x/reference/caching.html#metadata-cache">metadata</a> <a href="http://symfony.com/doc/current/reference/configuration/doctrine.html#configuration-overview">cache</a></p>
+
+<p>Summing it up:</p>
+
+<p>```bash</p>
+
+<pre><code># As root user:
+$ apt-get install php5-intl php5-mysqlnd mysql-server imagemagik
+</code></pre>
+
+<p>```</p>
+
+<p>Before proceeding, we are making a few assumptions:</p>
+
+<ul>
+<li>we created an apache <code>VirtualHost</code> for <code>test.example.com</code>, or whatever domain we&rsquo;d like to use, in <code>/var/www/bamboo</code></li>
+<li>/var/www/bamboo is <em>writable</em> for user www-data, which is the user running apache in ubuntu</li>
+<li><a href="https://getcomposer.org/download/">composer.phar</a> is available and in PATH</li>
+</ul>
+
+
+<p>Now we can install Elcodi front store as follows:</p>
+
+<p>```bash</p>
+
+<pre><code># Run command as apache user, which in ubuntu is www-data
+# We assume that /var/www/bamboo is *writable* for user www-data
+$ cd /var/www/bamboo
+$ git clone https://github.com/elcodi/bamboo-store.git .
+$ composer.phar install -o --no-dev
+# Follow parameters in app/config/parameters.yml to configure MySQL access
+$ php app/console doctrine:database:create -e=prod
+$ php app/console doctrine:schema:create
+$ php app/console doctrine:fixtures:load --fixtures=vendor/elcodi/bamboo-fixtures/
+$ php app/console assets:install web &amp;&amp; php app/console assetic:dump -e=prod --no-debug
+</code></pre>
+
+<p>```</p>
 ]]></content>
   </entry>
   
@@ -267,74 +344,6 @@ Point-in-time snapshots of order states or cart to order transitions are example
 <p>Right now we don&rsquo;t think it is feasable to assemble more layers of indirection to achieve this decoupling. The goal is to involve the Symfony community and work on the feedbacks we will receive from developers who want to build applications with Elcodi. Mind you that Symfony decoupling <em>is</em> possible, since we are trying to follow the <strong>SOLID</strong> path, but the eternal struggle between being different and effective flows to a point of balance that surely will benefit both the project and our users.</p>
 
 <p>Cheers!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Objetivos]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/06/objetivos/"/>
-    <updated>2014-08-06T12:12:19+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/06/objetivos</id>
-    <content type="html"><![CDATA[<h2>Este post es la continuación de dos posts anteriores</h2>
-
-<ul>
-<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-</ul>
-
-
-<p>A corto plazo, queremos llegar a una primera versión estable para la comunidad.
-Esta semana hemos puesto la primera piedra de muchas, pero es importante
-establecer reglas y procedimientos cuando pondremos las siguientes.</p>
-
-<p>Tenemos un pequeño set de <a href="https://github.com/elcodi/elcodi/milestones">milestones</a>
-para tener una pequeña guía de acción (como veis, esta semana tenemos la release
-de la versión 0.3)</p>
-
-<p>```
-Version 0.3</p>
-
-<pre><code>- Closed 3 days ago
-- 100% complete  0 open  11 closed
-</code></pre>
-
-<p>Version 0.4</p>
-
-<pre><code>- Due by August 15, 2014
-- 0% complete  0 open  0 closed
-</code></pre>
-
-<p>Version 0.5</p>
-
-<pre><code>- Due by August 29, 2014
-- 17% complete  5 open  1 closed
-</code></pre>
-
-<p>Version 0.6</p>
-
-<pre><code>- Due by September 11, 2014
-- 0% complete  2 open  0 closed
-</code></pre>
-
-<p>```</p>
-
-<p>Esto significa que vamos a trabajar en mejorar lo que tenemos, sin desarrollar
-más lógica de negocio hasta que no tengamos algo un poco más estable, así como
-la comunicación para que la gente interesada tenga claro los timings y tengan
-más visibilidad a la hora de implementar con Elcodi.</p>
-
-<p>Por ahora nos nos vamos a preocupar demasiado de los BC Breaks. Hay una
-<a href="https://github.com/elcodi/elcodi/issues/34">issue</a> abierta para cerrar API,
-pero como bien dice <a href="">@hacfi</a> no es especialmente importante en este intervalo
-tan enfocado al desarrollo de nuevas funcionalidades. Creemos que cumplir con
-un semantic version ahora mismo solo limitaría la arquitectura en muchos
-aspectos.</p>
-
-<p>Hasta la versión 1.0 no habrá <em>semantic version</em>.</p>
-
-<p>Otro objetivo es, una vez llegado a la primera versión estable, abrir ya el
-market. Dado que a medida que pasa el tiempo la api va cambiando menos, creemos
-que no falta demasiado para poder llegar a este punto.</p>
 ]]></content>
   </entry>
   

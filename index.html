@@ -9,7 +9,7 @@
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="This last week we were working hard on our next milestone: our presentation at the #SymfonyCon on November 27th. @mmoreram and @alch will speak about &hellip;">
+  <meta name="description" content="As a complement to the #SymfonyWalk we start &ldquo;One section, one component&rdquo;, a series of posts about some of the symfony components. Let& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +73,142 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/11/18/the-routing-component/">The Routing Component</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-18T22:39:54+01:00" pubdate data-updated="true">Nov 18<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As a complement to the <a href="http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid/">#SymfonyWalk</a> we start <a href="http://mmoreram.com/blog/2014/08/12/one-section-one-component/">&ldquo;One section, one component&rdquo;</a>, a series of posts about some of the symfony components. Let&rsquo;s start with routing!</p>
+
+<h2>Description</h2>
+
+<p>As each component does, the <a href="https://github.com/symfony/Routing">Routing component</a> focuses and solves a small problem, in this case, matching urls to routes, so we can extract related information, and vice versa.</p>
+
+<p>Things you can do with this component:
+&ndash; Load your routes from anywhere into a collection.
+&ndash; Check if a request matches any of the routes.
+&ndash; Extract route-specific info from the request.
+&ndash; Generate a url from a route and route specific info.</p>
+
+<h2>Basic classes</h2>
+
+<p>The cast of this component is:
+&ndash; <strong><code>Route</code></strong>: definition of a route, with path, requirements, options and conditionsâ€¦
+&ndash; <strong><code>RouteCollection</code></strong>: this bundles one or more <code>Routes</code> and allows to configure all of them at once.
+&ndash; <strong><code>Matcher</code></strong>: Searches a <code>RouteCollection</code> for a matching uri.
+&ndash; <strong><code>RequestContext</code></strong>: Context from the current request.</p>
+
+<h2>Example of usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$route</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/{name}&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$route</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;GreeterController&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nv">$route</span><span class="o">-&gt;</span><span class="na">setRequirements</span><span class="p">([</span>
+</span><span class='line'>  <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;[a-z]+&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$routes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;greet&#39;</span><span class="p">,</span> <span class="nv">$route</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">addPrefix</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$routes</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$parameters</span> <span class="o">=</span> <span class="nv">$matcher</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;/hello/fabien&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> * $parameters === [</span>
+</span><span class='line'><span class="cm"> *   &#39;_route&#39; =&gt; &#39;greet&#39;,</span>
+</span><span class='line'><span class="cm"> *   &#39;_controller&#39; =&gt; &#39;GreeterController&#39;,</span>
+</span><span class='line'><span class="cm"> *   &#39;name&#39; =&gt; &#39;fabien&#39;,</span>
+</span><span class='line'><span class="cm"> * ]</span>
+</span><span class='line'><span class="cm"> */</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Other classes</h2>
+
+<p>Other supporting actors:
+&ndash; <strong>Loader</strong>: Loads a <code>RouteCollection</code> from a source.
+&ndash; <strong>Generator</strong>: The opposite of <code>Matcher</code>, given a route name and route-specific information, generates the uri.
+&ndash; <strong>Dumper</strong>: The opposite of <code>Loader</code>, dumps a <code>RouteCollection</code> in different formats.
+&ndash; <strong>Router</strong>: basically a <a href="http://en.wikipedia.org/wiki/Facade_pattern">facade</a> to <code>Matcher</code> and <code>Generator</code>.</p>
+
+<h2>In Symfony2 framework</h2>
+
+<p>Symfony2 framework reads routes from routing files with this component, matches the current <code>Request</code> and chooses which <code>Controller</code> and action to run. It also extends the <code>Router</code> so you can use parameter placeholders from <a href="https://github.com/symfony/DependencyInjection"><code>DependencyInjection</code></a> and integrates with the <a href="https://github.com/symfony/Config"><code>Config</code></a> component to allow caching.</p>
+
+<h2>In Elcodi</h2>
+
+<p>In Elcodi, as a library, we try not to couple our very few controllers to a specific route and we leave that responsibility to the layers above. For more complex scenarios, like the <a href="https://github.com/elcodi/MediaBundle"><code>MediaBundle</code></a> and the forthcoming <a href="https://github.com/elcodi/elcodi/tree/ec8fabe99489ae9dd1ef671eefaaa7ac89e24cdb/src/Elcodi/Bundle/PageBundle"><code>PageBundle</code></a>, we implement our own custom <code>Loader</code> so we can route through them.</p>
+
+<h2>Conclusion</h2>
+
+<p>This component deals with the next step just after getting your <a href="http://symfony.com/doc/current/components/http_foundation">HTTP Request</a> and gives you great power and flexibility to split your application into several routes.</p>
+
+<p>I hope you find this component useful!</p>
+
+<h2>Urls</h2>
+
+<ul>
+<li><a href="https://github.com/symfony/Routing">Repository</a></li>
+<li><a href="http://symfony.com/doc/current/components/routing">Documentation</a></li>
+<li><a href="https://packagist.org/packages/symfony/routing">Packagist</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -419,6 +555,121 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/08/12/playing-with-php-ng/">Playing With PHP-NG</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-12T18:02:14+02:00" pubdate data-updated="true">Aug 12<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There is a lot going on on the PHP community after Zeev Suraski published an <a href="http://zsuraski.blogspot.com.br/2014/07/benchmarking-phpng.html">article</a> where he ventured on assembling a performance comparison between <a href="https://wiki.php.net/rfc/phpng">PHPNG</a> and <a href="https://github.com/facebook/hhvm">hhvm</a>. Needles to say that the results are promising and the performace benefits of the soon-to-be next PHP major release look impressive.</p>
+
+<p>For the sake of curiosity, we tried to run Elcodi <a href="https://github.com/elcodi/bamboo-store">frontend store</a> on PHPNG and see how a Symfony applicaction would fare.</p>
+
+<p>The test was made on an Amazon <a href="http://aws.amazon.com/ec2/instance-types/#Compute_Optimized">c3.xlarge</a> EC2 instance (<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html">HVM virtualization</a>) running <strong>Ubuntu Server 14.04 LTS</strong></p>
+
+<h2>Installing PHPNG</h2>
+
+<p>There are several options available for installing PHPNG binaries.</p>
+
+<p>The first way is of course to follow the ninja path and <a href="https://wiki.php.net/phpng">compile it on your own</a>. Mind you that compiling PHPNG on an Ubuntu 14.04 is a source of headaches, since it requires <a href="http://www.gnu.org/software/bison/">Bison 2.7</a> but <code>trusty</code> official repositories provide it at version <code>3.0.2</code>, so you&rsquo;ll need to manually download and build it.</p>
+
+<p>The easiest way is of course to add an <code>apt</code> repository providing the package. For the sake of simpliciy we can stuck with apprentice path, katanas can wait for the next bad guy.</p>
+
+<p>Luckily Zend prepared <a href="http://repos.zend.com/zend-server/early-access/phpng/">an apt repo</a> for the <code>amd64</code> arch:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Remember to run these commands as root, or use sudo</span>
+</span><span class='line'><span class="nv">$ </span>wget http://repos.zend.com/zend.key -O- 2&gt; /dev/null | apt-key add -
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;deb [arch=amd64] http://repos.zend.com/zend-server/early-access/phpng/ trusty zend&quot;</span> &gt; /etc/apt/sources.list.d/phpng.list
+</span><span class='line'><span class="nv">$ </span>apt-get update
+</span><span class='line'><span class="nv">$ </span>apt-get install php5
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This wil also install <code>apache2.2</code> and <code>libapache2-mod-php5</code>.</p>
+
+<p>In order for a Symfony application to work, we will have to add at least the <a href="http://php.net/manual/en/book.intl.php">i18n</a> and the <a href="http://php.net/manual/en/book.mysqlnd.php">mysqlnd</a> extensions.
+Elcodi will also need <a href="http://www.imagemagick.org/">imagemagik</a> as the default image resize adapter for the <a href="https://github.com/elcodi/MediaBundle">MediaBundle</a>. Since we will work with MySQL, we also need <code>mysql-server</code>.</p>
+
+<p><strong>NO</strong> For this test, to speed up things a little, we also need <a href="https://github.com/krakjoe/apcu">APCu</a> since we will configure Doctrine <a href="http://docs.doctrine-project.org/en/2.0.x/reference/caching.html#metadata-cache">metadata</a> <a href="http://symfony.com/doc/current/reference/configuration/doctrine.html#configuration-overview">cache</a></p>
+
+<p>Summing it up:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># As root user:</span>
+</span><span class='line'><span class="nv">$ </span>apt-get install php5-intl php5-mysqlnd mysql-server imagemagik
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Before proceeding, we are making a few assumptions:</p>
+
+<ul>
+<li>we created an apache <code>VirtualHost</code> for <code>test.example.com</code>, or whatever domain we&rsquo;d like to use, in <code>/var/www/bamboo</code></li>
+<li>/var/www/bamboo is <em>writable</em> for user www-data, which is the user running apache in ubuntu</li>
+<li><a href="https://getcomposer.org/download/">composer.phar</a> is available and in PATH</li>
+</ul>
+
+
+<p>Now we can install Elcodi front store as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Run command as apache user, which in ubuntu is www-data</span>
+</span><span class='line'><span class="c"># We assume that /var/www/bamboo is *writable* for user www-data</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /var/www/bamboo
+</span><span class='line'><span class="nv">$ </span>git clone https://github.com/elcodi/bamboo-store.git .
+</span><span class='line'><span class="nv">$ </span>composer.phar install -o --no-dev
+</span><span class='line'><span class="c"># Follow parameters in app/config/parameters.yml to configure MySQL access</span>
+</span><span class='line'><span class="nv">$ </span>php app/console doctrine:database:create -e<span class="o">=</span>prod
+</span><span class='line'><span class="nv">$ </span>php app/console doctrine:schema:create
+</span><span class='line'><span class="nv">$ </span>php app/console doctrine:fixtures:load --fixtures<span class="o">=</span>vendor/elcodi/bamboo-fixtures/
+</span><span class='line'><span class="nv">$ </span>php app/console assets:install web <span class="o">&amp;&amp;</span> php app/console assetic:dump -e<span class="o">=</span>prod --no-debug
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/08/12/our-roadmap/">Our Roadmap</a></h1>
     
     
@@ -635,180 +886,6 @@ Point-in-time snapshots of order states or cart to order transitions are example
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/08/08/equipo/">El Equipo De Elcodi</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-08-08T16:23:48+02:00" pubdate data-updated="true">Aug 8<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Este post es la continuación de tres posts anteriores</h2>
-
-<ul>
-<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-<li><a href="/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
-</ul>
-
-
-<p>Equipo&hellip; Punto interesante.</p>
-
-<p>Desde hoy mismo buscamos dos perfiles que nos ayuden a crecer de forma
-exponencial. Este post no trata de esto, por lo que en su momento ya vamos a
-sacar las ofertas pertinentes, pero solo a nivel informativo, estamos buscando a
-dos seniors de alto nivel para trabajar en nuestras oficinas de Barcelona.</p>
-
-<p>Dado que buscamos perfiles muy concretos, con capacidad para trabajar en un
-proyecto <strong><em>opensource</em></strong>, consideramos que es importante tener un compromiso
-como empresa con la gente que venga con nosotros a formar parte de nuestro
-equipo. Ya nos entendemos :)</p>
-
-<h1>Comunidad</h1>
-
-<p>Finalmente no nos queda más opción que dar las gracias a las personas que hasta
-ahora nos han apoyado y nos han aportado, de alguna forma u otra, y aquellas que
-lo harán en un futuro.</p>
-
-<p>Consideramos que las menciones especiales se dan por supuestas, así que,
-compañeros, muchas gracias.</p>
-
-<p>Esperamos que, y siguiendo de cerca con la problemática que expresaba Javier
-Eguiluz en su
-<a href="http://symfony.es/noticias/2014/07/24/los-errores-de-la-pagina-28/">blog</a>
-podamos llegar a ser útiles para la comunidad, y recibamos el soporte y la ayuda
-para crecer a más velocidad. De esta forma nuestro producto será de calidad más
-rápido y podremos crecer en robustez, fiabilidad y ejecución.</p>
-
-<p>Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
-feliz fín de semana.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/08/06/objetivos/">Objetivos</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-08-06T12:12:19+02:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Este post es la continuación de dos posts anteriores</h2>
-
-<ul>
-<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-</ul>
-
-
-<p>A corto plazo, queremos llegar a una primera versión estable para la comunidad.
-Esta semana hemos puesto la primera piedra de muchas, pero es importante
-establecer reglas y procedimientos cuando pondremos las siguientes.</p>
-
-<p>Tenemos un pequeño set de <a href="https://github.com/elcodi/elcodi/milestones">milestones</a>
-para tener una pequeña guía de acción (como veis, esta semana tenemos la release
-de la versión 0.3)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Version 0.3
-</span><span class='line'>    - Closed 3 days ago
-</span><span class='line'>    - 100% complete  0 open  11 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.4
-</span><span class='line'>    - Due by August 15, 2014
-</span><span class='line'>    - 0% complete  0 open  0 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.5
-</span><span class='line'>    - Due by August 29, 2014
-</span><span class='line'>    - 17% complete  5 open  1 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.6
-</span><span class='line'>    - Due by September 11, 2014
-</span><span class='line'>    - 0% complete  2 open  0 closed</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Esto significa que vamos a trabajar en mejorar lo que tenemos, sin desarrollar
-más lógica de negocio hasta que no tengamos algo un poco más estable, así como
-la comunicación para que la gente interesada tenga claro los timings y tengan
-más visibilidad a la hora de implementar con Elcodi.</p>
-
-<p>Por ahora nos nos vamos a preocupar demasiado de los BC Breaks. Hay una
-<a href="https://github.com/elcodi/elcodi/issues/34">issue</a> abierta para cerrar API,
-pero como bien dice <a href="">@hacfi</a> no es especialmente importante en este intervalo
-tan enfocado al desarrollo de nuevas funcionalidades. Creemos que cumplir con
-un semantic version ahora mismo solo limitaría la arquitectura en muchos
-aspectos.</p>
-
-<p>Hasta la versión 1.0 no habrá <em>semantic version</em>.</p>
-
-<p>Otro objetivo es, una vez llegado a la primera versión estable, abrir ya el
-market. Dado que a medida que pasa el tiempo la api va cambiando menos, creemos
-que no falta demasiado para poder llegar a este punto.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -824,6 +901,10 @@ que no falta demasiado para poder llegar a este punto.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/11/18/the-routing-component/">The Routing Component</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/11/17/a-week-of-elcodi-number-3/">A week of Elcodi #3 (10/11 - 17/11)</a>
       </li>
     
@@ -837,10 +918,6 @@ que no falta demasiado para poder llegar a este punto.</p>
     
       <li class="post">
         <a href="/blog/2014/10/16/welcome-berny/">The family grows</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/08/14/elcodi-team/">Elcodi team</a>
       </li>
     
   </ul>
