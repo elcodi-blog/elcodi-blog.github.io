@@ -113,11 +113,15 @@
 
 <h2>Basic classes</h2>
 
-<p>The cast of this component is:
-&ndash; <strong><code>Route</code></strong>: definition of a route, with path, requirements, options and conditionsâ€¦
-&ndash; <strong><code>RouteCollection</code></strong>: this bundles one or more <code>Routes</code> and allows to configure all of them at once.
-&ndash; <strong><code>Matcher</code></strong>: Searches a <code>RouteCollection</code> for a matching uri.
-&ndash; <strong><code>RequestContext</code></strong>: Context from the current request.</p>
+<p>The cast of this component is:</p>
+
+<ul>
+<li><strong><code>Route</code></strong>: definition of a route, with path, requirements, options and conditions…</li>
+<li><strong><code>RouteCollection</code></strong>: this bundles one or more <code>Routes</code> and allows to configure all of them at once.</li>
+<li><strong><code>Matcher</code></strong>: Searches a <code>RouteCollection</code> for a matching uri.</li>
+<li><strong><code>RequestContext</code></strong>: Context from the current request.</li>
+</ul>
+
 
 <h2>Example of usage</h2>
 
@@ -172,11 +176,15 @@
 
 <h2>Other classes</h2>
 
-<p>Other supporting actors:
-&ndash; <strong>Loader</strong>: Loads a <code>RouteCollection</code> from a source.
-&ndash; <strong>Generator</strong>: The opposite of <code>Matcher</code>, given a route name and route-specific information, generates the uri.
-&ndash; <strong>Dumper</strong>: The opposite of <code>Loader</code>, dumps a <code>RouteCollection</code> in different formats.
-&ndash; <strong>Router</strong>: basically a <a href="http://en.wikipedia.org/wiki/Facade_pattern">facade</a> to <code>Matcher</code> and <code>Generator</code>.</p>
+<p>Other supporting actors:</p>
+
+<ul>
+<li><strong>Loader</strong>: Loads a <code>RouteCollection</code> from a source.</li>
+<li><strong>Generator</strong>: The opposite of <code>Matcher</code>, given a route name and route-specific information, generates the uri.</li>
+<li><strong>Dumper</strong>: The opposite of <code>Loader</code>, dumps a <code>RouteCollection</code> in different formats.</li>
+<li><strong>Router</strong>: basically a <a href="http://en.wikipedia.org/wiki/Facade_pattern">facade</a> to <code>Matcher</code> and <code>Generator</code>.</li>
+</ul>
+
 
 <h2>In Symfony2 framework</h2>
 

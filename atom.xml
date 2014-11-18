@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-18T22:47:07+01:00</updated>
+  <updated>2014-11-18T22:58:03+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -32,11 +32,15 @@
 
 <h2>Basic classes</h2>
 
-<p>The cast of this component is:
-&ndash; <strong><code>Route</code></strong>: definition of a route, with path, requirements, options and conditionsâ€¦
-&ndash; <strong><code>RouteCollection</code></strong>: this bundles one or more <code>Routes</code> and allows to configure all of them at once.
-&ndash; <strong><code>Matcher</code></strong>: Searches a <code>RouteCollection</code> for a matching uri.
-&ndash; <strong><code>RequestContext</code></strong>: Context from the current request.</p>
+<p>The cast of this component is:</p>
+
+<ul>
+<li><strong><code>Route</code></strong>: definition of a route, with path, requirements, options and conditions…</li>
+<li><strong><code>RouteCollection</code></strong>: this bundles one or more <code>Routes</code> and allows to configure all of them at once.</li>
+<li><strong><code>Matcher</code></strong>: Searches a <code>RouteCollection</code> for a matching uri.</li>
+<li><strong><code>RequestContext</code></strong>: Context from the current request.</li>
+</ul>
+
 
 <h2>Example of usage</h2>
 
@@ -91,11 +95,15 @@
 
 <h2>Other classes</h2>
 
-<p>Other supporting actors:
-&ndash; <strong>Loader</strong>: Loads a <code>RouteCollection</code> from a source.
-&ndash; <strong>Generator</strong>: The opposite of <code>Matcher</code>, given a route name and route-specific information, generates the uri.
-&ndash; <strong>Dumper</strong>: The opposite of <code>Loader</code>, dumps a <code>RouteCollection</code> in different formats.
-&ndash; <strong>Router</strong>: basically a <a href="http://en.wikipedia.org/wiki/Facade_pattern">facade</a> to <code>Matcher</code> and <code>Generator</code>.</p>
+<p>Other supporting actors:</p>
+
+<ul>
+<li><strong>Loader</strong>: Loads a <code>RouteCollection</code> from a source.</li>
+<li><strong>Generator</strong>: The opposite of <code>Matcher</code>, given a route name and route-specific information, generates the uri.</li>
+<li><strong>Dumper</strong>: The opposite of <code>Loader</code>, dumps a <code>RouteCollection</code> in different formats.</li>
+<li><strong>Router</strong>: basically a <a href="http://en.wikipedia.org/wiki/Facade_pattern">facade</a> to <code>Matcher</code> and <code>Generator</code>.</li>
+</ul>
+
 
 <h2>In Symfony2 framework</h2>
 
@@ -297,94 +305,6 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
 <p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
 
 <p>We are on our way there, things look good!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Playing with PHP-NG]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng/"/>
-    <updated>2014-08-12T18:02:14+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng</id>
-    <content type="html"><![CDATA[<p>There is a lot going on on the PHP community after Zeev Suraski published an <a href="http://zsuraski.blogspot.com.br/2014/07/benchmarking-phpng.html">article</a> where he ventured on assembling a performance comparison between <a href="https://wiki.php.net/rfc/phpng">PHPNG</a> and <a href="https://github.com/facebook/hhvm">hhvm</a>. Needles to say that the results are promising and the performace benefits of the soon-to-be next PHP major release look impressive.</p>
-
-<p>For the sake of curiosity, we tried to run Elcodi <a href="https://github.com/elcodi/bamboo-store">frontend store</a> on PHPNG and see how a Symfony applicaction would fare.</p>
-
-<p>The test was made on an Amazon <a href="http://aws.amazon.com/ec2/instance-types/#Compute_Optimized">c3.xlarge</a> EC2 instance (<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html">HVM virtualization</a>) running <strong>Ubuntu Server 14.04 LTS</strong></p>
-
-<h2>Installing PHPNG</h2>
-
-<p>There are several options available for installing PHPNG binaries.</p>
-
-<p>The first way is of course to follow the ninja path and <a href="https://wiki.php.net/phpng">compile it on your own</a>. Mind you that compiling PHPNG on an Ubuntu 14.04 is a source of headaches, since it requires <a href="http://www.gnu.org/software/bison/">Bison 2.7</a> but <code>trusty</code> official repositories provide it at version <code>3.0.2</code>, so you&rsquo;ll need to manually download and build it.</p>
-
-<p>The easiest way is of course to add an <code>apt</code> repository providing the package. For the sake of simpliciy we can stuck with apprentice path, katanas can wait for the next bad guy.</p>
-
-<p>Luckily Zend prepared <a href="http://repos.zend.com/zend-server/early-access/phpng/">an apt repo</a> for the <code>amd64</code> arch:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Remember to run these commands as root, or use sudo</span>
-</span><span class='line'><span class="nv">$ </span>wget http://repos.zend.com/zend.key -O- 2&gt; /dev/null | apt-key add -
-</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;deb [arch=amd64] http://repos.zend.com/zend-server/early-access/phpng/ trusty zend&quot;</span> &gt; /etc/apt/sources.list.d/phpng.list
-</span><span class='line'><span class="nv">$ </span>apt-get update
-</span><span class='line'><span class="nv">$ </span>apt-get install php5
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This wil also install <code>apache2.2</code> and <code>libapache2-mod-php5</code>.</p>
-
-<p>In order for a Symfony application to work, we will have to add at least the <a href="http://php.net/manual/en/book.intl.php">i18n</a> and the <a href="http://php.net/manual/en/book.mysqlnd.php">mysqlnd</a> extensions.
-Elcodi will also need <a href="http://www.imagemagick.org/">imagemagik</a> as the default image resize adapter for the <a href="https://github.com/elcodi/MediaBundle">MediaBundle</a>. Since we will work with MySQL, we also need <code>mysql-server</code>.</p>
-
-<p><strong>NO</strong> For this test, to speed up things a little, we also need <a href="https://github.com/krakjoe/apcu">APCu</a> since we will configure Doctrine <a href="http://docs.doctrine-project.org/en/2.0.x/reference/caching.html#metadata-cache">metadata</a> <a href="http://symfony.com/doc/current/reference/configuration/doctrine.html#configuration-overview">cache</a></p>
-
-<p>Summing it up:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># As root user:</span>
-</span><span class='line'><span class="nv">$ </span>apt-get install php5-intl php5-mysqlnd mysql-server imagemagik
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Before proceeding, we are making a few assumptions:</p>
-
-<ul>
-<li>we created an apache <code>VirtualHost</code> for <code>test.example.com</code>, or whatever domain we&rsquo;d like to use, in <code>/var/www/bamboo</code></li>
-<li>/var/www/bamboo is <em>writable</em> for user www-data, which is the user running apache in ubuntu</li>
-<li><a href="https://getcomposer.org/download/">composer.phar</a> is available and in PATH</li>
-</ul>
-
-
-<p>Now we can install Elcodi front store as follows:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Run command as apache user, which in ubuntu is www-data</span>
-</span><span class='line'><span class="c"># We assume that /var/www/bamboo is *writable* for user www-data</span>
-</span><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /var/www/bamboo
-</span><span class='line'><span class="nv">$ </span>git clone https://github.com/elcodi/bamboo-store.git .
-</span><span class='line'><span class="nv">$ </span>composer.phar install -o --no-dev
-</span><span class='line'><span class="c"># Follow parameters in app/config/parameters.yml to configure MySQL access</span>
-</span><span class='line'><span class="nv">$ </span>php app/console doctrine:database:create -e<span class="o">=</span>prod
-</span><span class='line'><span class="nv">$ </span>php app/console doctrine:schema:create
-</span><span class='line'><span class="nv">$ </span>php app/console doctrine:fixtures:load --fixtures<span class="o">=</span>vendor/elcodi/bamboo-fixtures/
-</span><span class='line'><span class="nv">$ </span>php app/console assets:install web <span class="o">&amp;&amp;</span> php app/console assetic:dump -e<span class="o">=</span>prod --no-debug
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
 ]]></content>
   </entry>
   
