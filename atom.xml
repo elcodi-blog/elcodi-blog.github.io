@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-20T00:27:34+01:00</updated>
+  <updated>2014-11-20T11:17:14+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -14,21 +14,114 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Security component]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/11/19/security-component/"/>
+    <updated>2014-11-19T22:39:51+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/11/19/security-component</id>
+    <content type="html"><![CDATA[<p>The next in line in our <a href="http://elcodi-blog.github.io/blog/categories/one-section-one-component/">&ldquo;One section, one component&rdquo;</a> series is the <a href="http://symfony.com/doc/current/components/security"><code>Security component</code></a>. It&rsquo;s a complex one, sure, but we&rsquo;ll take a look just to the nuts and bolts of it. Ready? Set… Go!</p>
+
+<h2>Description</h2>
+
+<p>This component brings authentication and authorization to your applications, with implementations for common use cases, like form login, HTTP or X.509 authentication, authorization by user, roles and ACL systems.</p>
+
+<h2>Basic classes</h2>
+
+<ul>
+<li><strong>Token</strong>: Stores current user credentials.</li>
+<li><strong>Listener</strong>: extract information from the Request by which the user might be authenticated. It should create a valid token and set it into the <strong>SecurityContext</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>.</li>
+<li><strong>FirewallMap</strong>: maps a <a href="https://github.com/symfony/HttpFoundation/blob/master/RequestMatcher.php"><code>RequestMatcher</code></a> to a set of <code>Listener</code>s.</li>
+<li><strong>Firewall</strong>: Integrates the <code>FirewallMap</code> with <code>EventDispatcher</code> and <code>HttpKernel</code> components.</li>
+</ul>
+
+
+<h2>Example of usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$exceptionListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExceptionListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">);</span>
+</span><span class='line'><span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestMatcher</span><span class="p">(</span><span class="s1">&#39;^/admin/&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$listeners</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>  <span class="k">new</span> <span class="nx">AnonymousAuthenticationListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">),</span>
+</span><span class='line'>  <span class="k">new</span> <span class="nx">LogoutListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">),</span>
+</span><span class='line'><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$firewallMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FirewallMap</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$firewallMap</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$matcher</span><span class="p">,</span> <span class="nv">$listeners</span><span class="p">,</span> <span class="nv">$exceptionListener</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$firewall</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firewall</span><span class="p">(</span><span class="nv">$firewallMap</span><span class="p">,</span> <span class="nv">$dispatcher</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Other classes</h2>
+
+<ul>
+<li><strong>UserProvider</strong>: Finds a user given his credentials.</li>
+<li><strong>AutheticationEntryPoint</strong>: When a match is found but no authentication info can be extracted by the request, this has the chance to return a specific response asking for credentials. For example, the <a href="https://github.com/symfony/Security/blob/master/Http/EntryPoint/FormAuthenticationEntryPoint.php">FormAuthenticationEntryPoint</a> redirects to a login form.</li>
+</ul>
+
+
+<h2>In Symfony2 framework</h2>
+
+<p>The <a href="https://github.com/symfony/SecurityBundle"><code>SecurityBundle</code></a> integrates this component into Symfony2, reading configuration from <code>security.yml</code> and adding some sane defaults.</p>
+
+<h2>In Elcodi</h2>
+
+<p><a href="https://github.com/elcodi/User"><code>Elcodi/User</code></a> depends on the <code>Security</code>  component for authentication. The main implementation of the <code>CustomerWrapper</code> extracts the current user from the <code>SecurityContext</code>. Also, in <a href="http://bamboo.elcodi.com/">our example application, Bamboo</a>, we depend on the excelent <a href="https://github.com/hwi/HWIOAuthBundle"><code>hwi/oauth-bundle</code></a>, which is a good example of extending this component, for OAuth authentication.</p>
+
+<h2>Conclusion</h2>
+
+<p>Almost every non-trivial application requires some kind of authentication. The <code>Security</code> component gives you all the power you should need, although it may be hard to use standalone. The integration with the framework makes for a much more enjoyable experience. We&rsquo;re already using this component! And you?</p>
+
+<p>Have fun!</p>
+
+<h2>Urls</h2>
+
+<ul>
+<li><a href="https://github.com/symfony/Security">Repository</a></li>
+<li><a href="http://symfony.com/doc/current/components/security">Documentation</a></li>
+<li><a href="https://packagist.org/packages/symfony/security">Packagist</a></li>
+</ul>
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><a href="http://symfony.com/blog/new-in-symfony-2-6-security-component-improvements"><strong>SecurityContext</strong> is deprecated since Symfony 2.6 in favor of <strong>TokenStorage</strong></a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[The Routing Component]]></title>
     <link href="http://elcodi-blog.github.io/blog/2014/11/18/the-routing-component/"/>
     <updated>2014-11-18T22:39:54+01:00</updated>
     <id>http://elcodi-blog.github.io/blog/2014/11/18/the-routing-component</id>
-    <content type="html"><![CDATA[<p>As a complement to the <a href="http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid/">#SymfonyWalk</a> we start <a href="http://mmoreram.com/blog/2014/08/12/one-section-one-component/">&ldquo;One section, one component&rdquo;</a>, a series of posts about some of the symfony components. Let&rsquo;s start with routing!</p>
+    <content type="html"><![CDATA[<p>As a complement to the <a href="http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid/">#SymfonyWalk</a> we start <a href="http://elcodi-blog.github.io/blog/categories/one-section-one-component/">&ldquo;One section, one component&rdquo;</a>, a series of posts about some of the symfony components. Let&rsquo;s start with routing!</p>
 
 <h2>Description</h2>
 
 <p>As each component does, the <a href="https://github.com/symfony/Routing">Routing component</a> focuses and solves a small problem, in this case, matching urls to routes, so we can extract related information, and vice versa.</p>
 
-<p>Things you can do with this component:
-&ndash; Load your routes from anywhere into a collection.
-&ndash; Check if a request matches any of the routes.
-&ndash; Extract route-specific info from the request.
-&ndash; Generate a url from a route and route specific info.</p>
+<p>Things you can do with this component:</p>
+
+<ul>
+<li>Load your routes from anywhere into a collection.</li>
+<li>Check if a request matches any of the routes.</li>
+<li>Extract route-specific info from the request.</li>
+<li>Generate a url from a route and route specific info.</li>
+</ul>
+
 
 <h2>Basic classes</h2>
 
@@ -305,6 +398,94 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
 <p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
 
 <p>We are on our way there, things look good!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Playing with PHP-NG]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng/"/>
+    <updated>2014-08-12T18:02:14+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng</id>
+    <content type="html"><![CDATA[<p>There is a lot going on on the PHP community after Zeev Suraski published an <a href="http://zsuraski.blogspot.com.br/2014/07/benchmarking-phpng.html">article</a> where he ventured on assembling a performance comparison between <a href="https://wiki.php.net/rfc/phpng">PHPNG</a> and <a href="https://github.com/facebook/hhvm">hhvm</a>. Needles to say that the results are promising and the performace benefits of the soon-to-be next PHP major release look impressive.</p>
+
+<p>For the sake of curiosity, we tried to run Elcodi <a href="https://github.com/elcodi/bamboo-store">frontend store</a> on PHPNG and see how a Symfony applicaction would fare.</p>
+
+<p>The test was made on an Amazon <a href="http://aws.amazon.com/ec2/instance-types/#Compute_Optimized">c3.xlarge</a> EC2 instance (<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html">HVM virtualization</a>) running <strong>Ubuntu Server 14.04 LTS</strong></p>
+
+<h2>Installing PHPNG</h2>
+
+<p>There are several options available for installing PHPNG binaries.</p>
+
+<p>The first way is of course to follow the ninja path and <a href="https://wiki.php.net/phpng">compile it on your own</a>. Mind you that compiling PHPNG on an Ubuntu 14.04 is a source of headaches, since it requires <a href="http://www.gnu.org/software/bison/">Bison 2.7</a> but <code>trusty</code> official repositories provide it at version <code>3.0.2</code>, so you&rsquo;ll need to manually download and build it.</p>
+
+<p>The easiest way is of course to add an <code>apt</code> repository providing the package. For the sake of simpliciy we can stuck with apprentice path, katanas can wait for the next bad guy.</p>
+
+<p>Luckily Zend prepared <a href="http://repos.zend.com/zend-server/early-access/phpng/">an apt repo</a> for the <code>amd64</code> arch:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Remember to run these commands as root, or use sudo</span>
+</span><span class='line'><span class="nv">$ </span>wget http://repos.zend.com/zend.key -O- 2&gt; /dev/null | apt-key add -
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;deb [arch=amd64] http://repos.zend.com/zend-server/early-access/phpng/ trusty zend&quot;</span> &gt; /etc/apt/sources.list.d/phpng.list
+</span><span class='line'><span class="nv">$ </span>apt-get update
+</span><span class='line'><span class="nv">$ </span>apt-get install php5
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This wil also install <code>apache2.2</code> and <code>libapache2-mod-php5</code>.</p>
+
+<p>In order for a Symfony application to work, we will have to add at least the <a href="http://php.net/manual/en/book.intl.php">i18n</a> and the <a href="http://php.net/manual/en/book.mysqlnd.php">mysqlnd</a> extensions.
+Elcodi will also need <a href="http://www.imagemagick.org/">imagemagik</a> as the default image resize adapter for the <a href="https://github.com/elcodi/MediaBundle">MediaBundle</a>. Since we will work with MySQL, we also need <code>mysql-server</code>.</p>
+
+<p><strong>NO</strong> For this test, to speed up things a little, we also need <a href="https://github.com/krakjoe/apcu">APCu</a> since we will configure Doctrine <a href="http://docs.doctrine-project.org/en/2.0.x/reference/caching.html#metadata-cache">metadata</a> <a href="http://symfony.com/doc/current/reference/configuration/doctrine.html#configuration-overview">cache</a></p>
+
+<p>Summing it up:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># As root user:</span>
+</span><span class='line'><span class="nv">$ </span>apt-get install php5-intl php5-mysqlnd mysql-server imagemagik
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Before proceeding, we are making a few assumptions:</p>
+
+<ul>
+<li>we created an apache <code>VirtualHost</code> for <code>test.example.com</code>, or whatever domain we&rsquo;d like to use, in <code>/var/www/bamboo</code></li>
+<li>/var/www/bamboo is <em>writable</em> for user www-data, which is the user running apache in ubuntu</li>
+<li><a href="https://getcomposer.org/download/">composer.phar</a> is available and in PATH</li>
+</ul>
+
+
+<p>Now we can install Elcodi front store as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Run command as apache user, which in ubuntu is www-data</span>
+</span><span class='line'><span class="c"># We assume that /var/www/bamboo is *writable* for user www-data</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /var/www/bamboo
+</span><span class='line'><span class="nv">$ </span>git clone https://github.com/elcodi/bamboo-store.git .
+</span><span class='line'><span class="nv">$ </span>composer.phar install -o --no-dev
+</span><span class='line'><span class="c"># Follow parameters in app/config/parameters.yml to configure MySQL access</span>
+</span><span class='line'><span class="nv">$ </span>php app/console doctrine:database:create -e<span class="o">=</span>prod
+</span><span class='line'><span class="nv">$ </span>php app/console doctrine:schema:create
+</span><span class='line'><span class="nv">$ </span>php app/console doctrine:fixtures:load --fixtures<span class="o">=</span>vendor/elcodi/bamboo-fixtures/
+</span><span class='line'><span class="nv">$ </span>php app/console assets:install web <span class="o">&amp;&amp;</span> php app/console assetic:dump -e<span class="o">=</span>prod --no-debug
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 ]]></content>
   </entry>
   

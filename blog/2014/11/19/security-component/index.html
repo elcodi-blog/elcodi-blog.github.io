@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Security component - Elcodi blog</title>
+  <meta name="author" content="Elcodi Team">
+
+  
+  <meta name="description" content="The next in line in our &ldquo;One section, one component&rdquo; series is the Security component. It&rsquo;s a complex one, sure, but we&rsquo;ll &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/11/19/security-component/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Elcodi blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50003565-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:elcodi-blog.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">
+        <span class="blue_light">
+            Elcodi blog
+        </span>
+       
+    </a></li>
+  <li><a href="http://elcodi.io">Website</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Security Component</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-19T22:39:51+01:00" pubdate data-updated="true">Nov 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The next in line in our <a href="/blog/categories/one-section-one-component/">&ldquo;One section, one component&rdquo;</a> series is the <a href="http://symfony.com/doc/current/components/security"><code>Security component</code></a>. It&rsquo;s a complex one, sure, but we&rsquo;ll take a look just to the nuts and bolts of it. Ready? Set… Go!</p>
+
+<h2>Description</h2>
+
+<p>This component brings authentication and authorization to your applications, with implementations for common use cases, like form login, HTTP or X.509 authentication, authorization by user, roles and ACL systems.</p>
+
+<h2>Basic classes</h2>
+
+<ul>
+<li><strong>Token</strong>: Stores current user credentials.</li>
+<li><strong>Listener</strong>: extract information from the Request by which the user might be authenticated. It should create a valid token and set it into the <strong>SecurityContext</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>.</li>
+<li><strong>FirewallMap</strong>: maps a <a href="https://github.com/symfony/HttpFoundation/blob/master/RequestMatcher.php"><code>RequestMatcher</code></a> to a set of <code>Listener</code>s.</li>
+<li><strong>Firewall</strong>: Integrates the <code>FirewallMap</code> with <code>EventDispatcher</code> and <code>HttpKernel</code> components.</li>
+</ul>
+
+
+<h2>Example of usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$exceptionListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExceptionListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">);</span>
+</span><span class='line'><span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestMatcher</span><span class="p">(</span><span class="s1">&#39;^/admin/&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$listeners</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>  <span class="k">new</span> <span class="nx">AnonymousAuthenticationListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">),</span>
+</span><span class='line'>  <span class="k">new</span> <span class="nx">LogoutListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">),</span>
+</span><span class='line'><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$firewallMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FirewallMap</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$firewallMap</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$matcher</span><span class="p">,</span> <span class="nv">$listeners</span><span class="p">,</span> <span class="nv">$exceptionListener</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$firewall</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firewall</span><span class="p">(</span><span class="nv">$firewallMap</span><span class="p">,</span> <span class="nv">$dispatcher</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Other classes</h2>
+
+<ul>
+<li><strong>UserProvider</strong>: Finds a user given his credentials.</li>
+<li><strong>AutheticationEntryPoint</strong>: When a match is found but no authentication info can be extracted by the request, this has the chance to return a specific response asking for credentials. For example, the <a href="https://github.com/symfony/Security/blob/master/Http/EntryPoint/FormAuthenticationEntryPoint.php">FormAuthenticationEntryPoint</a> redirects to a login form.</li>
+</ul>
+
+
+<h2>In Symfony2 framework</h2>
+
+<p>The <a href="https://github.com/symfony/SecurityBundle"><code>SecurityBundle</code></a> integrates this component into Symfony2, reading configuration from <code>security.yml</code> and adding some sane defaults.</p>
+
+<h2>In Elcodi</h2>
+
+<p><a href="https://github.com/elcodi/User"><code>Elcodi/User</code></a> depends on the <code>Security</code>  component for authentication. The main implementation of the <code>CustomerWrapper</code> extracts the current user from the <code>SecurityContext</code>. Also, in <a href="http://bamboo.elcodi.com/">our example application, Bamboo</a>, we depend on the excelent <a href="https://github.com/hwi/HWIOAuthBundle"><code>hwi/oauth-bundle</code></a>, which is a good example of extending this component, for OAuth authentication.</p>
+
+<h2>Conclusion</h2>
+
+<p>Almost every non-trivial application requires some kind of authentication. The <code>Security</code> component gives you all the power you should need, although it may be hard to use standalone. The integration with the framework makes for a much more enjoyable experience. We&rsquo;re already using this component! And you?</p>
+
+<p>Have fun!</p>
+
+<h2>Urls</h2>
+
+<ul>
+<li><a href="https://github.com/symfony/Security">Repository</a></li>
+<li><a href="http://symfony.com/doc/current/components/security">Documentation</a></li>
+<li><a href="https://packagist.org/packages/symfony/security">Packagist</a></li>
+</ul>
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><a href="http://symfony.com/blog/new-in-symfony-2-6-security-component-improvements"><strong>SecurityContext</strong> is deprecated since Symfony 2.6 in favor of <strong>TokenStorage</strong></a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Berny Cantos <berny@elcodi.com></span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-19T22:39:51+01:00" pubdate data-updated="true">Nov 19<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/one-section-one-component/'>One Section One Component</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/11/19/security-component/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/11/19/security-component/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/11/18/the-routing-component/" title="Previous Post: The Routing Component">&laquo; The Routing Component</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/11/19/security-component/">Security component</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/18/the-routing-component/">The Routing Component</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/17/a-week-of-elcodi-number-3/">A week of Elcodi #3 (10/11 - 17/11)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/11/a-week-of-elcodi-number-2/">A week of Elcodi #2 (3/11 - 10/11)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/04/a-week-of-elcodi-number-1/">A week of Elcodi #1 (27/10 - 3/11)</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/elcodi">@elcodi</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'elcodi',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Elcodi Team -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Elcodi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/11/19/security-component/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/11/19/security-component/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
