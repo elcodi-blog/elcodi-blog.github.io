@@ -3,17 +3,18 @@ layout: post
 title: "The Routing Component"
 date: 2014-11-18 22:39:54 +0100
 comments: true
-categories: [One Section, One Component]
+categories: [One Section One Component]
 author: Berny Cantos <berny@elcodi.com>
 ---
 
-As a complement to the [#SymfonyWalk](http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid/) we start ["One section, one component"](http://mmoreram.com/blog/2014/08/12/one-section-one-component/), a series of posts about some of the symfony components. Let's start with routing!
+As a complement to the [#SymfonyWalk](http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid/) we start ["One section, one component"](/blog/categories/one-section-one-component/), a series of posts about some of the symfony components. Let's start with routing!
 
 ## Description
 
 As each component does, the [Routing component](https://github.com/symfony/Routing) focuses and solves a small problem, in this case, matching urls to routes, so we can extract related information, and vice versa.
 
 Things you can do with this component:
+
 - Load your routes from anywhere into a collection.
 - Check if a request matches any of the routes.
 - Extract route-specific info from the request.
