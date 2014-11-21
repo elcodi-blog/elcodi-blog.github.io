@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>console-component - Elcodi blog</title>
+  <meta name="author" content="Elcodi Team">
+
+  
+  <meta name="description" content="The next post in the series of &ldquo;One section one component&rdquo;, in support of our friend Marc Morera in his #symfonywalk, is about the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/11/21/console-component/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Elcodi blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50003565-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:elcodi-blog.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">
+        <span class="blue_light">
+            Elcodi blog
+        </span>
+       
+    </a></li>
+  <li><a href="http://elcodi.io">Website</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Console-component</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-21T19:02:40+01:00" pubdate data-updated="true">Nov 21<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The next post in the series of <a href="/blog/categories/one-section-one-component/">&ldquo;One section one component&rdquo;</a>, in support of our friend <a href="https://github.com/mmoreram">Marc Morera</a> in his <a href="https://twitter.com/hashtag/symfonywalk?f=realtime">#symfonywalk</a>, is about the <a href="http://symfony.com/doc/current/components/console">Console component</a>. Marc has had some problems early in his journey, so we want to send him energy and courage for the next steps of the walk. Go Marc! You can send him words of encouragement too in his twitter account <a href="https://twitter.com/mmoreram">@mmoreram</a>!</p>
+
+<h2>Description</h2>
+
+<p>The Console component helps you create console applications. It is like <code>HttpRequest</code> + <code>Routing</code>, but for command line. With this component you can:</p>
+
+<ul>
+<li>Create single or multiple commands in an application.</li>
+<li>Define and parse command&rsquo;s arguments and options.</li>
+<li>Execute a command.</li>
+<li>Output information to terminal while processing a command.</li>
+<li>Allow automatic management of <code>--help</code> options.</li>
+</ul>
+
+
+<h2>Basic classes</h2>
+
+<ul>
+<li><strong><code>Command</code></strong>: configuration of a command with name, parameters, options…</li>
+<li><strong><code>InputArgument</code></strong> and <strong><code>InputOption</code></strong>: defines how command-line parameters and options are parsed and passed to a <code>Command</code>.</li>
+<li><strong><code>InputInterface</code></strong>: allows read operations from terminal.</li>
+<li><strong><code>OutputInterface</code></strong>: encapsulate terminal writing.</li>
+<li><strong><code>Application</code></strong>: a group of one or more <code>Command</code>s and <code>Helper</code>s.</li>
+</ul>
+
+
+<h2>Example of usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">WriteCommand</span> <span class="k">extends</span> <span class="nx">Command</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configure</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;write&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setDescription</span><span class="p">(</span><span class="s1">&#39;Writes text to a file&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span>
+</span><span class='line'>                <span class="s1">&#39;filename&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nx">InputArgument</span><span class="o">::</span><span class="na">REQUIRED</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;Which file to write?&#39;</span>
+</span><span class='line'>            <span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">addArgument</span><span class="p">(</span>
+</span><span class='line'>                <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nx">InputArgument</span><span class="o">::</span><span class="na">OPTIONAL</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;Which text to write?&#39;</span>
+</span><span class='line'>            <span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">addOption</span><span class="p">(</span>
+</span><span class='line'>                <span class="s1">&#39;yell&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="k">null</span><span class="p">,</span>
+</span><span class='line'>                <span class="nx">InputOption</span><span class="o">::</span><span class="na">VALUE_NONE</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;If set, text will be upper-cased&#39;</span>
+</span><span class='line'>            <span class="p">)</span>
+</span><span class='line'>        <span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">InputInterface</span> <span class="nv">$input</span><span class="p">,</span> <span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$filename</span> <span class="o">=</span> <span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getArgument</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getArgument</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getOption</span><span class="p">(</span><span class="s1">&#39;yell&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$text</span> <span class="o">=</span> <span class="nx">strtoupper</span><span class="p">(</span><span class="nv">$text</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">false</span> <span class="o">===</span> <span class="nb">file_put_contents</span><span class="p">(</span><span class="nv">$filename</span><span class="p">,</span> <span class="nv">$text</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">RuntimeException</span><span class="p">(</span><span class="s1">&#39;Error writing to file.&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">writeln</span><span class="p">(</span><span class="s1">&#39;File was successfully written.&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$application</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Application</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$application</span><span class="o">-&gt;</span><span class="na">addCommands</span><span class="p">([</span>
+</span><span class='line'>    <span class="k">new</span> <span class="nx">WriteCommand</span><span class="p">(),</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nv">$application</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now on your command line you can type <code>php console.php write path/to/filename "text to write"</code>.</p>
+
+<p>Usually, the <code>Command</code> should behave like a <code>Controller</code>, this is, checking parameters and passing them to one or more services to do the real work.</p>
+
+<p>You can also add a previous step of interaction with the user, so they can provide any missing or ambiguous information. This part is skipped automatically if the <code>--no-interaction</code> (or <code>-n</code>) is used.</p>
+
+<p>For user interaction, you can use <code>OutputInterface</code> directly, but there are many <code>Helpers</code> you can use, being the <code>QuestionHelper</code><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> the most helpful (no pun intended).</p>
+
+<p>Let&rsquo;s see how we can add interaction to our previous example.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">WriteCommand</span> <span class="k">extends</span> <span class="nx">Command</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="err">…</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">interact</span><span class="p">(</span><span class="nx">InputInterface</span> <span class="nv">$input</span><span class="p">,</span> <span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$filename</span> <span class="o">=</span> <span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getArgument</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">null</span> <span class="o">===</span> <span class="nv">$filename</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">whenBaseDirectoryExists</span><span class="p">(</span><span class="nv">$filename</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">confirmDirectoryCreation</span><span class="p">(</span><span class="nv">$filename</span><span class="p">,</span> <span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">whenFileAlreadyExists</span><span class="p">(</span><span class="nv">$filename</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">confirmFileOverwrite</span><span class="p">(</span><span class="nv">$filename</span><span class="p">,</span> <span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">null</span> <span class="o">===</span> <span class="nv">$input</span><span class="o">-&gt;</span><span class="na">getArgument</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">askForText</span><span class="p">(</span><span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">whenBaseDirectoryExists</span><span class="p">(</span><span class="nv">$filename</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">is_dir</span><span class="p">(</span><span class="nb">dirname</span><span class="p">(</span><span class="nv">$filename</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">confirmDirectoryCreation</span><span class="p">(</span><span class="nv">$filename</span><span class="p">,</span> <span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$questionHelper</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHelper</span><span class="p">(</span><span class="s1">&#39;question&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$question</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConfirmationQuestion</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;Base directory for &quot;&#39;</span> <span class="o">.</span> <span class="nv">$filename</span> <span class="o">.</span> <span class="s1">&#39;&quot; does not exist. Create? [y/n] &#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="k">true</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$questionHelper</span><span class="o">-&gt;</span><span class="na">ask</span><span class="p">(</span><span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">,</span> <span class="nv">$question</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">RuntimeException</span><span class="p">(</span><span class="s1">&#39;Base directory does not exist.&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nb">mkdir</span><span class="p">(</span><span class="nb">dirname</span><span class="p">(</span><span class="nv">$filename</span><span class="p">),</span> <span class="mo">0777</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">whenFileAlreadyExists</span><span class="p">(</span><span class="nv">$filename</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">file_exists</span><span class="p">(</span><span class="nv">$filename</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">confirmFileOverwrite</span><span class="p">(</span><span class="nv">$filename</span><span class="p">,</span> <span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$questionHelper</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHelper</span><span class="p">(</span><span class="s1">&#39;question&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$question</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConfirmationQuestion</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;File &quot;&#39;</span> <span class="o">.</span> <span class="nv">$filename</span> <span class="o">.</span> <span class="s1">&#39;&quot; already exists. Overwrite? [y/n] &#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="k">true</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$questionHelper</span><span class="o">-&gt;</span><span class="na">ask</span><span class="p">(</span><span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">,</span> <span class="nv">$question</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">RuntimeException</span><span class="p">(</span><span class="s1">&#39;Can\&#39;t write to file.&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">askForText</span><span class="p">(</span><span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$questionHelper</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getHelper</span><span class="p">(</span><span class="s1">&#39;question&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$question</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Question</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;Please enter the content of the file: &#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$questionHelper</span><span class="o">-&gt;</span><span class="na">ask</span><span class="p">(</span><span class="nv">$input</span><span class="p">,</span> <span class="nv">$output</span><span class="p">,</span> <span class="nv">$question</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$input</span><span class="o">-&gt;</span><span class="na">setArgument</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="nv">$text</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://gist.github.com/xphere/546d5e90d15c1f88d750">See here the full example</a></p>
+
+<p>Now we&rsquo;re being requested for directory creation, file overwriting, and missing text arguments. Nice!</p>
+
+<h2>Other classes</h2>
+
+<ul>
+<li><strong><code>Helpers</code></strong>: Extensions for <code>OutputInterface</code>, to ask questions, show progress bars or tables. You can add your own too, or check the <a href="http://symfony.com/doc/current/components/console/helpers">default ones</a>.</li>
+</ul>
+
+
+<h2>In Symfony2 framework</h2>
+
+<p>Symfony2 detects <code>Command</code> classes in the <code>Command</code> directory of each bundle, and automatically adds them to the console application. As of 2.4, you can also mark services with the tag <code>console.command</code>. You can refer to this great <a href="http://symfony.com/doc/current/cookbook/console/commands_as_services.html">cookbook entry</a>.</p>
+
+<h2>In Elcodi</h2>
+
+<p>In Elcodi we provide commands for things such as <a href="https://github.com/elcodi/Currency/blob/master/Command/CurrencyExchangeRatesPopulateCommand.php">querying currency exchanges</a> or <a href="https://github.com/elcodi/Geo/blob/master/Command/GeoPopulateCommand.php">populating geo entities</a> from third party providers.</p>
+
+<h2>Conclusion</h2>
+
+<p>The <code>Console</code> component brings steroids to your command-line applications at nearly no cost for what you get in return. You can have multiple commands under the same application or <a href="http://symfony.com/doc/current/components/console/single_command_tool.html">just one</a>, you choose. If the <a href="https://getcomposer.org/">current PHP dependency manager</a> uses it, why not you?</p>
+
+<h2>Urls</h2>
+
+<ul>
+<li><a href="https://github.com/symfony/Console">Repository</a></li>
+<li><a href="http://symfony.com/doc/current/components/console">Documentation</a></li>
+<li><a href="https://packagist.org/packages/symfony/console">Packagist</a></li>
+</ul>
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><code>QuestionHelper</code> is available as of Symfony 2.5, for previous versions use the, now deprecated, <a href="http://symfony.com/doc/2.5/components/console/helpers/dialoghelper.html"><code>DialogHelper</code></a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Berny Cantos <berny@elcodi.com></span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-21T19:02:40+01:00" pubdate data-updated="true">Nov 21<span>st</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/one-section-one-component/'>One Section One Component</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/11/21/console-component/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/11/21/console-component/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/11/19/security-component/" title="Previous Post: Security component">&laquo; Security component</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/11/21/console-component/">console-component</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/19/security-component/">Security component</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/18/the-routing-component/">The Routing Component</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/17/a-week-of-elcodi-number-3/">A week of Elcodi #3 (10/11 - 17/11)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/11/a-week-of-elcodi-number-2/">A week of Elcodi #2 (3/11 - 10/11)</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/elcodi">@elcodi</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'elcodi',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Elcodi Team -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Elcodi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/11/21/console-component/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/11/21/console-component/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: One Section One Component | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/one-section-one-component/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-20T11:17:14+01:00</updated>
+  <updated>2014-11-21T20:02:28+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,226 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[console-component]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/11/21/console-component/"/>
+    <updated>2014-11-21T19:02:40+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/11/21/console-component</id>
+    <content type="html"><![CDATA[<p>The next post in the series of <a href="/blog/categories/one-section-one-component/">&ldquo;One section one component&rdquo;</a>, in support of our friend <a href="https://github.com/mmoreram">Marc Morera</a> in his <a href="https://twitter.com/hashtag/symfonywalk?f=realtime">#symfonywalk</a>, is about the <a href="http://symfony.com/doc/current/components/console">Console component</a>. Marc has had some problems early in his journey, so we want to send him energy and courage for the next steps of the walk. Go Marc! You can send him words of encouragement too in his twitter account <a href="https://twitter.com/mmoreram">@mmoreram</a>!</p>
+
+<h2>Description</h2>
+
+<p>The Console component helps you create console applications. It is like <code>HttpRequest</code> + <code>Routing</code>, but for command line. With this component you can:</p>
+
+<ul>
+<li>Create single or multiple commands in an application.</li>
+<li>Define and parse command&rsquo;s arguments and options.</li>
+<li>Execute a command.</li>
+<li>Output information to terminal while processing a command.</li>
+<li>Allow automatic management of <code>--help</code> options.</li>
+</ul>
+
+
+<h2>Basic classes</h2>
+
+<ul>
+<li><strong><code>Command</code></strong>: configuration of a command with name, parameters, options…</li>
+<li><strong><code>InputArgument</code></strong> and <strong><code>InputOption</code></strong>: defines how command-line parameters and options are parsed and passed to a <code>Command</code>.</li>
+<li><strong><code>InputInterface</code></strong>: allows read operations from terminal.</li>
+<li><strong><code>OutputInterface</code></strong>: encapsulate terminal writing.</li>
+<li><strong><code>Application</code></strong>: a group of one or more <code>Command</code>s and <code>Helper</code>s.</li>
+</ul>
+
+
+<h2>Example of usage</h2>
+
+<p>```php
+class WriteCommand extends Command
+{</p>
+
+<pre><code>protected function configure()
+{
+    $this
+        -&gt;setName('write')
+        -&gt;setDescription('Writes text to a file')
+        -&gt;addArgument(
+            'filename',
+            InputArgument::REQUIRED,
+            'Which file to write?'
+        )
+        -&gt;addArgument(
+            'text',
+            InputArgument::OPTIONAL,
+            'Which text to write?'
+        )
+        -&gt;addOption(
+            'yell',
+            null,
+            InputOption::VALUE_NONE,
+            'If set, text will be upper-cased'
+        )
+    ;
+}
+
+protected function execute(InputInterface $input, OutputInterface $output)
+{
+    $filename = $input-&gt;getArgument('filename');
+    $text = $input-&gt;getArgument('text');
+    if ($input-&gt;getOption('yell')) {
+        $text = strtoupper($text);
+    }
+
+    if (false === file_put_contents($filename, $text)) {
+        throw new RuntimeException('Error writing to file.');
+    }
+
+    $output-&gt;writeln('File was successfully written.');
+}
+</code></pre>
+
+<p>}</p>
+
+<p>$application = new Application();
+$application->addCommands([</p>
+
+<pre><code>new WriteCommand(),
+</code></pre>
+
+<p>]);
+$application->run();
+```</p>
+
+<p>Now on your command line you can type <code>php console.php write path/to/filename "text to write"</code>.</p>
+
+<p>Usually, the <code>Command</code> should behave like a <code>Controller</code>, this is, checking parameters and passing them to one or more services to do the real work.</p>
+
+<p>You can also add a previous step of interaction with the user, so they can provide any missing or ambiguous information. This part is skipped automatically if the <code>--no-interaction</code> (or <code>-n</code>) is used.</p>
+
+<p>For user interaction, you can use <code>OutputInterface</code> directly, but there are many <code>Helpers</code> you can use, being the <code>QuestionHelper</code><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> the most helpful (no pun intended).</p>
+
+<p>Let&rsquo;s see how we can add interaction to our previous example.</p>
+
+<p>```php
+class WriteCommand extends Command
+{</p>
+
+<pre><code>…
+
+protected function interact(InputInterface $input, OutputInterface $output)
+{
+    $filename = $input-&gt;getArgument('filename');
+    if (null === $filename) {
+        return;
+    }
+
+    if (!$this-&gt;whenBaseDirectoryExists($filename)) {
+        $this-&gt;confirmDirectoryCreation($filename, $input, $output);
+    }
+
+    if ($this-&gt;whenFileAlreadyExists($filename)) {
+        $this-&gt;confirmFileOverwrite($filename, $input, $output);
+    }
+
+    if (null === $input-&gt;getArgument('text')) {
+        $this-&gt;askForText($input, $output);
+    }
+}
+
+protected function whenBaseDirectoryExists($filename)
+{
+    return is_dir(dirname($filename));
+}
+
+protected function confirmDirectoryCreation($filename, $input, $output)
+{
+    $questionHelper = $this-&gt;getHelper('question');
+    $question = new ConfirmationQuestion(
+        'Base directory for "' . $filename . '" does not exist. Create? [y/n] ',
+        true
+    );
+
+    if (!$questionHelper-&gt;ask($input, $output, $question)) {
+        throw new RuntimeException('Base directory does not exist.');
+    }
+
+    mkdir(dirname($filename), 0777, true);
+}
+
+protected function whenFileAlreadyExists($filename)
+{
+    return file_exists($filename);
+}
+
+protected function confirmFileOverwrite($filename, $input, $output)
+{
+    $questionHelper = $this-&gt;getHelper('question');
+    $question = new ConfirmationQuestion(
+        'File "' . $filename . '" already exists. Overwrite? [y/n] ',
+        true
+    );
+
+    if (!$questionHelper-&gt;ask($input, $output, $question)) {
+        throw new RuntimeException('Can\'t write to file.');
+    }
+}
+
+protected function askForText($input, $output)
+{
+    $questionHelper = $this-&gt;getHelper('question');
+    $question = new Question(
+        'Please enter the content of the file: ',
+        ''
+    );
+
+    $text = $questionHelper-&gt;ask($input, $output, $question);
+    $input-&gt;setArgument('text', $text);
+}
+</code></pre>
+
+<p>}
+```
+<a href="https://gist.github.com/xphere/546d5e90d15c1f88d750">See here the full example</a></p>
+
+<p>Now we&rsquo;re being requested for directory creation, file overwriting, and missing text arguments. Nice!</p>
+
+<h2>Other classes</h2>
+
+<ul>
+<li><strong><code>Helpers</code></strong>: Extensions for <code>OutputInterface</code>, to ask questions, show progress bars or tables. You can add your own too, or check the <a href="http://symfony.com/doc/current/components/console/helpers">default ones</a>.</li>
+</ul>
+
+
+<h2>In Symfony2 framework</h2>
+
+<p>Symfony2 detects <code>Command</code> classes in the <code>Command</code> directory of each bundle, and automatically adds them to the console application. As of 2.4, you can also mark services with the tag <code>console.command</code>. You can refer to this great <a href="http://symfony.com/doc/current/cookbook/console/commands_as_services.html">cookbook entry</a>.</p>
+
+<h2>In Elcodi</h2>
+
+<p>In Elcodi we provide commands for things such as <a href="https://github.com/elcodi/Currency/blob/master/Command/CurrencyExchangeRatesPopulateCommand.php">querying currency exchanges</a> or <a href="https://github.com/elcodi/Geo/blob/master/Command/GeoPopulateCommand.php">populating geo entities</a> from third party providers.</p>
+
+<h2>Conclusion</h2>
+
+<p>The <code>Console</code> component brings steroids to your command-line applications at nearly no cost for what you get in return. You can have multiple commands under the same application or <a href="http://symfony.com/doc/current/components/console/single_command_tool.html">just one</a>, you choose. If the <a href="https://getcomposer.org/">current PHP dependency manager</a> uses it, why not you?</p>
+
+<h2>Urls</h2>
+
+<ul>
+<li><a href="https://github.com/symfony/Console">Repository</a></li>
+<li><a href="http://symfony.com/doc/current/components/console">Documentation</a></li>
+<li><a href="https://packagist.org/packages/symfony/console">Packagist</a></li>
+</ul>
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><code>QuestionHelper</code> is available as of Symfony 2.5, for previous versions use the, now deprecated, <a href="http://symfony.com/doc/2.5/components/console/helpers/dialoghelper.html"><code>DialogHelper</code></a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Security component]]></title>
