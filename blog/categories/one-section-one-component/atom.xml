@@ -4,7 +4,7 @@
   <title><![CDATA[Category: One Section One Component | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/one-section-one-component/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-21T20:17:45+01:00</updated>
+  <updated>2014-11-25T13:07:16+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[The Console Component]]></title>
+    <title type="html"><![CDATA[console-component]]></title>
     <link href="http://elcodi-blog.github.io/blog/2014/11/21/console-component/"/>
     <updated>2014-11-21T19:02:40+01:00</updated>
     <id>http://elcodi-blog.github.io/blog/2014/11/21/console-component</id>
@@ -234,7 +234,7 @@ protected function askForText($input, $output)
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[The Security Component]]></title>
+    <title type="html"><![CDATA[Security component]]></title>
     <link href="http://elcodi-blog.github.io/blog/2014/11/19/security-component/"/>
     <updated>2014-11-19T22:39:51+01:00</updated>
     <id>http://elcodi-blog.github.io/blog/2014/11/19/security-component</id>
