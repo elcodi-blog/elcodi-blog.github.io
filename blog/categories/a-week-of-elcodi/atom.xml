@@ -4,7 +4,7 @@
   <title><![CDATA[Category: A week of Elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/a-week-of-elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-11-25T13:07:16+01:00</updated>
+  <updated>2014-12-12T11:06:14+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Week of Elcodi #5 (24/11 - 08/12)]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/12/11/a-week-of-elcodi-number-5/"/>
+    <updated>2014-12-11T20:15:24+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/12/11/a-week-of-elcodi-number-5</id>
+    <content type="html"><![CDATA[<p>Hi there! These two weeks have been full of work, with our talk in <a href="http://madrid2014.symfony.com">SymfonyCon</a> being the highlight. We&rsquo;re working on a post explaining the experience but, in short, it was amazing to present Elcodi to the people in the Symfony community. Stay tuned!</p>
+
+<p>Meanwhile, on this side of the keyboard, we&rsquo;ve been doing some things also, such as resume the implementation of our <code>StateTransitionMachine</code>, previously known as <code>StateMachine</code>, and polishing some details.</p>
+
+<p>Besides, we wanted to implement an entity translator completely decoupled of our entities, because we think that the most important part of an e-commerce project is the model. So we worked on it for a while and now the <a href="https://github.com/elcodi/elcodi/pull/382">Translator component</a> is born. You&rsquo;re welcome to comment and collaborate on the implementation.</p>
+
+<p>To persist the settings for each shop, we are working on a <a href="https://github.com/elcodi/elcodi/pull/383">dynamic configuration component</a> useful for storing simple values. As usual, it comes with adapters so that any backend storage can be supported.</p>
+
+<p>From the viewpoint of desing, we want a more agile, easy and intuitive admin experience, so we&rsquo;re checking and improving the UX of Elcodi Admin&rsquo;s interface. First adjustments include some improvements about navigation, and an early approach to the first-time experience, something that we will look in depth in the next week.</p>
+
+<p>Also we&rsquo;re putting together our <a href="https://github.com/elcodi/elcodi/pull/378">new Page component</a> to be as generic as possible, but user-friendly too. This includes developers: we are making great efforts to provide a better DX (Developer eXperience), so feel free to drop by our <a href="https://gitter.im/elcodi/elcodi">gitter</a> and ask your own questions. We&rsquo;ll be glad to help you. ;)</p>
+
+<p>See you next week!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A week of Elcodi #4 (17/11 - 24/11)]]></title>
