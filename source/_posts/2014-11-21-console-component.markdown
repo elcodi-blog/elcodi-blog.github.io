@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "console-component"
+title: "The Console Component"
 date: 2014-11-21 19:02:40 +0100
 comments: true
 categories: [One Section One Component] 

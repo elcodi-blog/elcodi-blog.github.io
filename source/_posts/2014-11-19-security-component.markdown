@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Security component"
+title: "The Security Component"
 date: 2014-11-19 22:39:51 +0100
 comments: true
 categories: [One Section One Component]
