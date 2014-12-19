@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-12-12T12:16:21+01:00</updated>
+  <updated>2014-12-19T13:01:19+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.4 is out!]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out/"/>
+    <updated>2014-12-19T13:00:00+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out</id>
+    <content type="html"><![CDATA[<p>Hi all! It&rsquo;s new minor version time in Elcodi!
+We did some work here, with some help from our community, which gets bigger every day. Proud! Thank you!</p>
+
+<p>Here&rsquo;s what we got for you:</p>
+
+<ul>
+<li><a href="https://github.com/elcodi/elcodi/pull/378">#378</a> Pages</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/382">#382</a> Translator</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/383">#383</a> Configuration</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/384">#384</a> Fixed abstract extension</li>
+</ul>
+
+
+<p>See the sections below for a description of each pull request.</p>
+
+<h2>Pages</h2>
+
+<p>With the new <code>Page</code> component you will be able to store content in database and serve it from any url you want, allowing you from static pages like &ldquo;ToS&rdquo; and &ldquo;About Us&rdquo; to a blog post. Manage your pages and add new content to your store.</p>
+
+<h2>Translator</h2>
+
+<p>The <code>Translator</code> will raise your entities to a whole new world of internazionalization with the ability to add translations for its fields. This component provides a solution fully decoupled from your model, so you don&rsquo;t have to mess up with it. Good enough? Also, it&rsquo;s integrated in the bamboo-backend so you can add new languages and translation with ease. Hola mundo!</p>
+
+<h2>Configuration</h2>
+
+<p>Many things should be configurable by your merchants, so we&rsquo;ve come up with the <code>Configuration</code> component. It is a key-value manager so you can save and retrieve your settings easily: Shop name, main logo, tracking keysâ€¦ you name it. And I mean it! Just give the setting a name and you&rsquo;ll be able to manage its value from the backend. Plain easy.</p>
+
+<h2>Fixed abstract extension</h2>
+
+<p>Also we made a full rework of <code>AbstractExtension</code> and <code>AbstractConfiguration</code> in the Core. See below for a detailed changelog to update to 0.4</p>
+
+<ul>
+<li><code>Core/AbstractExtension</code>:
+
+<ul>
+<li>The only mandatory method you need to implement is <code>getAlias</code> and return a unique string. As this is a well known practice, we expect the impact of this change to be minimal.</li>
+<li>If you want to add custom configuration to your extension, implement <code>getConfigurationInstance</code> and return a <code>Configuration</code> object. If you extend it from <code>AbstractConfiguration</code>, remember to pass <code>getAlias()</code> as a parameter on construction.</li>
+</ul>
+</li>
+<li><code>Core/AbstractConfiguration</code>:
+
+<ul>
+<li>Now the method <code>getConfigTreeBuilder</code> is defined for your convinience, so there&rsquo;s no need for your configurations to provide it. You only have to implement <code>setupTree</code>, which receives the <code>rootNode</code> with its name from <code>getAlias</code>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Other changes</h2>
+
+<p>In the &ldquo;Don&rsquo;t Repeat Yourself&rdquo; side, all parameters for repository classes were removed and now you only have to supply the classname in your mapping files.
+Also, the old long service names are not used anymore, in favor of short alias.</p>
+
+<p>Hope you find this changes useful!
+Let&rsquo;s talk about it and share opinions on <a href="https://gitter.im/elcodi/elcodi">gitter</a>.</p>
+
+<p>Cheers!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Week of Elcodi #5 (24/11 - 08/12)]]></title>
@@ -2182,48 +2247,6 @@ They also need the whole container in order to work properly (yes, normally you 
 
 
 <p>As for now, patience and hard work is what&rsquo;s needed!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[What is Elcodi?]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi/"/>
-    <updated>2014-04-17T17:23:39+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/04/17/what-is-elcodi</id>
-    <content type="html"><![CDATA[<p>How many e-commerce solutions are there out in the wild?</p>
-
-<p>Let me rephrase that: how many usable <em>developer friendly</em> e-commerce solutions are there?</p>
-
-<p>Once again. how many development platform are there that won&rsquo;t end with you saying &ldquo;Ok, I&rsquo;ll do it myself&rdquo;</p>
-
-<p>We do not a have definitive answer to this challenging problem. As many of you, we have been asking those questions to ourselves when we needed to start new projects from scratch. Yet those doubts kept on bouncing in our <code>HEAD</code>:</p>
-
-<ul>
-<li>What is the optimal balance between <em>flexibility and development speed</em>?</li>
-<li>What are the basic components that should be there <em>without reinventing the wheel</em>?</li>
-<li>How can we design those components <em>in a generalized way</em>?</li>
-</ul>
-
-
-<p>Symfony developers already got very powerful tools that can be exploited to resolve these doubts. We would like to share with you our path along the search for this holy grail by publishing the internals of the e-commerce applications we&rsquo;ve been developing over the last months.</p>
-
-<p>Meet <a href="http://elcodi.io">Elcodi</a>, a suite of Symfony2 e-commerce bundles that focus on:</p>
-
-<ul>
-<li>Designing loosely coupled components</li>
-<li>Liskov is your friend: using abstract as when defining contracts among components</li>
-<li>Exploiting Symfony2 DependencyInjection component to expose easy customization of behaviours and models</li>
-<li>Using Factory injections in services to that objects are always created in a consistent state</li>
-<li>EventDispatcher FTW: events, events, events. First rule to avoid code entanglement</li>
-<li>Rigorous taxonomy: giving name to things may be an art, but the reward is massive</li>
-</ul>
-
-
-<p>Are you willing to join us in this journey?</p>
-
-<p>Let&rsquo;s talk about it on <a href="https://github.com/elcodi/elcodi">https://github.com/elcodi/elcodi</a></p>
-
-<p>Cheers!</p>
 ]]></content>
   </entry>
   

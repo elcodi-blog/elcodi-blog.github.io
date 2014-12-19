@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>The family grows - Elcodi blog</title>
+  <title>0.4 is out! - Elcodi blog</title>
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="Today a new friend has join the team, meet Berny Cantos! Berny is a seasoned web developer and of course a Symfony lover. He is one of those great &hellip;">
+  <meta name="description" content="Hi all! It&rsquo;s new minor version time in Elcodi!
+We did some work here, with some help from our community, which gets bigger every day. Proud! &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/">
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -76,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">The Family Grows</h1>
+      <h1 class="entry-title">0.4 Is Out!</h1>
     
     
       <p class="meta">
@@ -92,26 +93,70 @@
   
 
 
-<time datetime="2014-10-16T16:09:40+02:00" pubdate data-updated="true">Oct 16<span>th</span>, 2014</time>
+<time datetime="2014-12-19T13:00:00+01:00" pubdate data-updated="true">Dec 19<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Today a new friend has join the team, meet Berny Cantos!</p>
+<div class="entry-content"><p>Hi all! It&rsquo;s new minor version time in Elcodi!
+We did some work here, with some help from our community, which gets bigger every day. Proud! Thank you!</p>
 
-<p>Berny is a seasoned web developer and of course a Symfony lover. He is one of those great old-school coders that forged
-their stamina the <em>hard way</em>, out of C/C++ development, before diving into the LAMP world.</p>
+<p>Here&rsquo;s what we got for you:</p>
 
-<p>He will be helping step up our commitment with the open source community and harden the foundations of our codebase.</p>
+<ul>
+<li><a href="https://github.com/elcodi/elcodi/pull/378">#378</a> Pages</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/382">#382</a> Translator</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/383">#383</a> Configuration</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/384">#384</a> Fixed abstract extension</li>
+</ul>
 
-<p><img src="http://s3-eu-west-1.amazonaws.com/elcodi-static-assets/images/people/berny.jpg" alt="All Right!" /></p>
 
-<p>You can reach him on <a href="https://github.com/xphere">GitHub</a>, Twitter at <a href="https://twitter.com/xphere">@xphere</a> and
-<a href="https://www.linkedin.com/in/bernycantos">LinkedIn</a></p>
+<p>See the sections below for a description of each pull request.</p>
 
-<p>Welcome Berny!</p>
+<h2>Pages</h2>
+
+<p>With the new <code>Page</code> component you will be able to store content in database and serve it from any url you want, allowing you from static pages like &ldquo;ToS&rdquo; and &ldquo;About Us&rdquo; to a blog post. Manage your pages and add new content to your store.</p>
+
+<h2>Translator</h2>
+
+<p>The <code>Translator</code> will raise your entities to a whole new world of internazionalization with the ability to add translations for its fields. This component provides a solution fully decoupled from your model, so you don&rsquo;t have to mess up with it. Good enough? Also, it&rsquo;s integrated in the bamboo-backend so you can add new languages and translation with ease. Hola mundo!</p>
+
+<h2>Configuration</h2>
+
+<p>Many things should be configurable by your merchants, so we&rsquo;ve come up with the <code>Configuration</code> component. It is a key-value manager so you can save and retrieve your settings easily: Shop name, main logo, tracking keysâ€¦ you name it. And I mean it! Just give the setting a name and you&rsquo;ll be able to manage its value from the backend. Plain easy.</p>
+
+<h2>Fixed abstract extension</h2>
+
+<p>Also we made a full rework of <code>AbstractExtension</code> and <code>AbstractConfiguration</code> in the Core. See below for a detailed changelog to update to 0.4</p>
+
+<ul>
+<li><code>Core/AbstractExtension</code>:
+
+<ul>
+<li>The only mandatory method you need to implement is <code>getAlias</code> and return a unique string. As this is a well known practice, we expect the impact of this change to be minimal.</li>
+<li>If you want to add custom configuration to your extension, implement <code>getConfigurationInstance</code> and return a <code>Configuration</code> object. If you extend it from <code>AbstractConfiguration</code>, remember to pass <code>getAlias()</code> as a parameter on construction.</li>
+</ul>
+</li>
+<li><code>Core/AbstractConfiguration</code>:
+
+<ul>
+<li>Now the method <code>getConfigTreeBuilder</code> is defined for your convinience, so there&rsquo;s no need for your configurations to provide it. You only have to implement <code>setupTree</code>, which receives the <code>rootNode</code> with its name from <code>getAlias</code>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Other changes</h2>
+
+<p>In the &ldquo;Don&rsquo;t Repeat Yourself&rdquo; side, all parameters for repository classes were removed and now you only have to supply the classname in your mapping files.
+Also, the old long service names are not used anymore, in favor of short alias.</p>
+
+<p>Hope you find this changes useful!
+Let&rsquo;s talk about it and share opinions on <a href="https://gitter.im/elcodi/elcodi">gitter</a>.</p>
+
+<p>Cheers!</p>
 </div>
 
 
@@ -120,7 +165,7 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Elcodi Team</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Berny Cantos <berny@elcodi.com></span></span>
 
       
 
@@ -134,12 +179,12 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
   
 
 
-<time datetime="2014-10-16T16:09:40+02:00" pubdate data-updated="true">Oct 16<span>th</span>, 2014</time>
+<time datetime="2014-12-19T13:00:00+01:00" pubdate data-updated="true">Dec 19<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/people/'>people</a>, <a class='category' href='/blog/categories/recruiting/'>recruiting</a>, <a class='category' href='/blog/categories/team/'>team</a>
+    <a class='category' href='/blog/categories/elcodi/'>elcodi</a>, <a class='category' href='/blog/categories/release/'>release</a>, <a class='category' href='/blog/categories/v0-dot-4/'>v0.4</a>
   
 </span>
 
@@ -148,7 +193,7 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out/" >Tweet</a>
   
   
   
@@ -157,10 +202,8 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/08/14/elcodi-team/" title="Previous Post: Elcodi team">&laquo; Elcodi team</a>
+        <a class="basic-alignment left" href="/blog/2014/12/11/a-week-of-elcodi-number-5/" title="Previous Post: A Week of Elcodi #5 (24/11 - 08/12)">&laquo; A Week of Elcodi #5 (24/11 - 08/12)</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/11/04/a-week-of-elcodi-number-1/" title="Next Post: A week of Elcodi #1 (27/10 - 3/11)">A week of Elcodi #1 (27/10 - 3/11) &raquo;</a>
       
     </p>
   </footer>
@@ -255,8 +298,8 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/';
-        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/10/16/welcome-berny/';
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out/';
         var disqus_script = 'embed.js';
       
     (function () {

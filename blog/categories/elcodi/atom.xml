@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2014-12-12T12:16:21+01:00</updated>
+  <updated>2014-12-19T13:01:19+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.4 is out!]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out/"/>
+    <updated>2014-12-19T13:00:00+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/12/19/v0.4.0-is-out</id>
+    <content type="html"><![CDATA[<p>Hi all! It&rsquo;s new minor version time in Elcodi!
+We did some work here, with some help from our community, which gets bigger every day. Proud! Thank you!</p>
+
+<p>Here&rsquo;s what we got for you:</p>
+
+<ul>
+<li><a href="https://github.com/elcodi/elcodi/pull/378">#378</a> Pages</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/382">#382</a> Translator</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/383">#383</a> Configuration</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/384">#384</a> Fixed abstract extension</li>
+</ul>
+
+
+<p>See the sections below for a description of each pull request.</p>
+
+<h2>Pages</h2>
+
+<p>With the new <code>Page</code> component you will be able to store content in database and serve it from any url you want, allowing you from static pages like &ldquo;ToS&rdquo; and &ldquo;About Us&rdquo; to a blog post. Manage your pages and add new content to your store.</p>
+
+<h2>Translator</h2>
+
+<p>The <code>Translator</code> will raise your entities to a whole new world of internazionalization with the ability to add translations for its fields. This component provides a solution fully decoupled from your model, so you don&rsquo;t have to mess up with it. Good enough? Also, it&rsquo;s integrated in the bamboo-backend so you can add new languages and translation with ease. Hola mundo!</p>
+
+<h2>Configuration</h2>
+
+<p>Many things should be configurable by your merchants, so we&rsquo;ve come up with the <code>Configuration</code> component. It is a key-value manager so you can save and retrieve your settings easily: Shop name, main logo, tracking keysâ€¦ you name it. And I mean it! Just give the setting a name and you&rsquo;ll be able to manage its value from the backend. Plain easy.</p>
+
+<h2>Fixed abstract extension</h2>
+
+<p>Also we made a full rework of <code>AbstractExtension</code> and <code>AbstractConfiguration</code> in the Core. See below for a detailed changelog to update to 0.4</p>
+
+<ul>
+<li><code>Core/AbstractExtension</code>:
+
+<ul>
+<li>The only mandatory method you need to implement is <code>getAlias</code> and return a unique string. As this is a well known practice, we expect the impact of this change to be minimal.</li>
+<li>If you want to add custom configuration to your extension, implement <code>getConfigurationInstance</code> and return a <code>Configuration</code> object. If you extend it from <code>AbstractConfiguration</code>, remember to pass <code>getAlias()</code> as a parameter on construction.</li>
+</ul>
+</li>
+<li><code>Core/AbstractConfiguration</code>:
+
+<ul>
+<li>Now the method <code>getConfigTreeBuilder</code> is defined for your convinience, so there&rsquo;s no need for your configurations to provide it. You only have to implement <code>setupTree</code>, which receives the <code>rootNode</code> with its name from <code>getAlias</code>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Other changes</h2>
+
+<p>In the &ldquo;Don&rsquo;t Repeat Yourself&rdquo; side, all parameters for repository classes were removed and now you only have to supply the classname in your mapping files.
+Also, the old long service names are not used anymore, in favor of short alias.</p>
+
+<p>Hope you find this changes useful!
+Let&rsquo;s talk about it and share opinions on <a href="https://gitter.im/elcodi/elcodi">gitter</a>.</p>
+
+<p>Cheers!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Elcodi team]]></title>
@@ -267,53 +332,6 @@ Point-in-time snapshots of order states or cart to order transitions are example
 <p>Right now we don&rsquo;t think it is feasable to assemble more layers of indirection to achieve this decoupling. The goal is to involve the Symfony community and work on the feedbacks we will receive from developers who want to build applications with Elcodi. Mind you that Symfony decoupling <em>is</em> possible, since we are trying to follow the <strong>SOLID</strong> path, but the eternal struggle between being different and effective flows to a point of balance that surely will benefit both the project and our users.</p>
 
 <p>Cheers!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[El equipo de Elcodi]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/08/equipo/"/>
-    <updated>2014-08-08T16:23:48+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/08/equipo</id>
-    <content type="html"><![CDATA[<h2>Este post es la continuación de tres posts anteriores</h2>
-
-<ul>
-<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-<li><a href="/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
-</ul>
-
-
-<p>Equipo&hellip; Punto interesante.</p>
-
-<p>Desde hoy mismo buscamos dos perfiles que nos ayuden a crecer de forma
-exponencial. Este post no trata de esto, por lo que en su momento ya vamos a
-sacar las ofertas pertinentes, pero solo a nivel informativo, estamos buscando a
-dos seniors de alto nivel para trabajar en nuestras oficinas de Barcelona.</p>
-
-<p>Dado que buscamos perfiles muy concretos, con capacidad para trabajar en un
-proyecto <strong><em>opensource</em></strong>, consideramos que es importante tener un compromiso
-como empresa con la gente que venga con nosotros a formar parte de nuestro
-equipo. Ya nos entendemos :)</p>
-
-<h1>Comunidad</h1>
-
-<p>Finalmente no nos queda más opción que dar las gracias a las personas que hasta
-ahora nos han apoyado y nos han aportado, de alguna forma u otra, y aquellas que
-lo harán en un futuro.</p>
-
-<p>Consideramos que las menciones especiales se dan por supuestas, así que,
-compañeros, muchas gracias.</p>
-
-<p>Esperamos que, y siguiendo de cerca con la problemática que expresaba Javier
-Eguiluz en su
-<a href="http://symfony.es/noticias/2014/07/24/los-errores-de-la-pagina-28/">blog</a>
-podamos llegar a ser útiles para la comunidad, y recibamos el soporte y la ayuda
-para crecer a más velocidad. De esta forma nuestro producto será de calidad más
-rápido y podremos crecer en robustez, fiabilidad y ejecución.</p>
-
-<p>Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
-feliz fín de semana.</p>
 ]]></content>
   </entry>
   

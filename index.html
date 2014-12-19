@@ -9,7 +9,8 @@
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="Hi there! These two weeks have been full of work, with our talk in SymfonyCon being the highlight. We&rsquo;re working on a post explaining the &hellip;">
+  <meta name="description" content="Hi all! It&rsquo;s new minor version time in Elcodi!
+We did some work here, with some help from our community, which gets bigger every day. Proud! &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +74,98 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/19/v0.4.0-is-out/">0.4 Is Out!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-19T13:00:00+01:00" pubdate data-updated="true">Dec 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hi all! It&rsquo;s new minor version time in Elcodi!
+We did some work here, with some help from our community, which gets bigger every day. Proud! Thank you!</p>
+
+<p>Here&rsquo;s what we got for you:</p>
+
+<ul>
+<li><a href="https://github.com/elcodi/elcodi/pull/378">#378</a> Pages</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/382">#382</a> Translator</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/383">#383</a> Configuration</li>
+<li><a href="https://github.com/elcodi/elcodi/pull/384">#384</a> Fixed abstract extension</li>
+</ul>
+
+
+<p>See the sections below for a description of each pull request.</p>
+
+<h2>Pages</h2>
+
+<p>With the new <code>Page</code> component you will be able to store content in database and serve it from any url you want, allowing you from static pages like &ldquo;ToS&rdquo; and &ldquo;About Us&rdquo; to a blog post. Manage your pages and add new content to your store.</p>
+
+<h2>Translator</h2>
+
+<p>The <code>Translator</code> will raise your entities to a whole new world of internazionalization with the ability to add translations for its fields. This component provides a solution fully decoupled from your model, so you don&rsquo;t have to mess up with it. Good enough? Also, it&rsquo;s integrated in the bamboo-backend so you can add new languages and translation with ease. Hola mundo!</p>
+
+<h2>Configuration</h2>
+
+<p>Many things should be configurable by your merchants, so we&rsquo;ve come up with the <code>Configuration</code> component. It is a key-value manager so you can save and retrieve your settings easily: Shop name, main logo, tracking keysâ€¦ you name it. And I mean it! Just give the setting a name and you&rsquo;ll be able to manage its value from the backend. Plain easy.</p>
+
+<h2>Fixed abstract extension</h2>
+
+<p>Also we made a full rework of <code>AbstractExtension</code> and <code>AbstractConfiguration</code> in the Core. See below for a detailed changelog to update to 0.4</p>
+
+<ul>
+<li><code>Core/AbstractExtension</code>:
+
+<ul>
+<li>The only mandatory method you need to implement is <code>getAlias</code> and return a unique string. As this is a well known practice, we expect the impact of this change to be minimal.</li>
+<li>If you want to add custom configuration to your extension, implement <code>getConfigurationInstance</code> and return a <code>Configuration</code> object. If you extend it from <code>AbstractConfiguration</code>, remember to pass <code>getAlias()</code> as a parameter on construction.</li>
+</ul>
+</li>
+<li><code>Core/AbstractConfiguration</code>:
+
+<ul>
+<li>Now the method <code>getConfigTreeBuilder</code> is defined for your convinience, so there&rsquo;s no need for your configurations to provide it. You only have to implement <code>setupTree</code>, which receives the <code>rootNode</code> with its name from <code>getAlias</code>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Other changes</h2>
+
+<p>In the &ldquo;Don&rsquo;t Repeat Yourself&rdquo; side, all parameters for repository classes were removed and now you only have to supply the classname in your mapping files.
+Also, the old long service names are not used anymore, in favor of short alias.</p>
+
+<p>Hope you find this changes useful!
+Let&rsquo;s talk about it and share opinions on <a href="https://gitter.im/elcodi/elcodi">gitter</a>.</p>
+
+<p>Cheers!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -979,65 +1072,6 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/08/14/elcodi-team/">Elcodi Team</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-08-14T10:28:08+02:00" pubdate data-updated="true">Aug 14<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h5>This is the follow-up of a series of posts</h5>
-
-<ul>
-<li><a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
-<li><a href="/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
-<li><a href="/blog/2014/08/13/our-goals/">Our goals</a></li>
-</ul>
-
-
-<p>As a final point for what we shared in previous posts, the last but definitely not least element to consider is the <em>team</em>.</p>
-
-<p>Such an ambitious venture needs a committed and visionary crew, and obviously more <em>heads</em> and <em>hands</em>. This is why we are opening job positions for a couple of skilled software artisans willing to join the journey with us. We will soon post the complete description. The company is located in Barcelona, Spain.</p>
-
-<p>We are looking for passionate and inspired artisans that love to craft products to be used by fellow developers and that believe in the potential of a community that grows around an <em>opensource</em> project.</p>
-
-<h2>Community</h2>
-
-<p>The final word is a big <strong>thank you</strong> to all the people that have been supporting us &ndash; by contributing in different forms &ndash; and to whom will do it someday.</p>
-
-<p>We really seek to build something useful for the community and to receive the necessary feedback and support in order to speed up the development and deliver the sound, reliable, flexible product that we have in mind.</p>
-
-<p>As for now, the Elcodi team hopes that you&rsquo;ll get involved with the project and wishes you a great summer break.</p>
-
-<p>Stay tuned!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1053,6 +1087,10 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/12/19/v0.4.0-is-out/">0.4 is out!</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/12/11/a-week-of-elcodi-number-5/">A Week of Elcodi #5 (24/11 - 08/12)</a>
       </li>
     
@@ -1066,10 +1104,6 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
     
       <li class="post">
         <a href="/blog/2014/11/19/security-component/">The Security Component</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/11/18/the-routing-component/">The Routing Component</a>
       </li>
     
   </ul>
