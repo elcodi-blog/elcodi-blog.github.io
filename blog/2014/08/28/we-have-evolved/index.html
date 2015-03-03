@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>El equipo de Elcodi - Elcodi blog</title>
+  <title>We have evolved - Elcodi blog</title>
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="Este post es la continuación de tres posts anteriores Un momento para reflexionar.
-Nuestro roadmap.
-Objetivos. Equipo&hellip; Punto interesante. &hellip;">
+  <meta name="description" content="You might say that we&rsquo;ve evolved. An evolution ought to be seen as a positive thing, and ours is no exception.
+At first, we had serious doubts &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ Objetivos. Equipo&hellip; Punto interesante. &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/08/08/equipo/">
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +77,7 @@ Objetivos. Equipo&hellip; Punto interesante. &hellip;">
   
   <header>
     
-      <h1 class="entry-title">El Equipo De Elcodi</h1>
+      <h1 class="entry-title">We Have Evolved</h1>
     
     
       <p class="meta">
@@ -94,52 +93,54 @@ Objetivos. Equipo&hellip; Punto interesante. &hellip;">
   
 
 
-<time datetime="2014-08-08T16:23:48+02:00" pubdate data-updated="true">Aug 8<span>th</span>, 2014</time>
+<time datetime="2014-08-28T11:42:47+02:00" pubdate data-updated="true">Aug 28<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2>Este post es la continuación de tres posts anteriores</h2>
+<div class="entry-content"><p>You might say that we&rsquo;ve evolved.</p>
 
-<ul>
-<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-<li><a href="/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
-</ul>
+<p>An evolution ought to be seen as a positive thing, and ours is no exception.
+At first, we had serious doubts about the nature of our project. One of the
+questions we kept asking ourselves was what factors should we consider in
+choosing whether and when to engage external projects or libraries, and we
+believe we made the right decision. In fact, that decision brought us forward in
+a big way toward defining ourselves.</p>
 
+<p>Flexible e-commerce components for Symfony2</p>
 
-<p>Equipo&hellip; Punto interesante.</p>
+<p>Anyway, this phrase is actually very ambiguous, as we could be referring to
+Symfony as a set of PHP components or as the Framework (I&rsquo;ve always wondered
+why they have the same name&hellip; it causes a lot of confusion).</p>
 
-<p>Desde hoy mismo buscamos dos perfiles que nos ayuden a crecer de forma
-exponencial. Este post no trata de esto, por lo que en su momento ya vamos a
-sacar las ofertas pertinentes, pero solo a nivel informativo, estamos buscando a
-dos seniors de alto nivel para trabajar en nuestras oficinas de Barcelona.</p>
+<p>That&rsquo;s why we wanted to reflect a bit, starting from the code itself. Do we want
+to use the Symfony Framework or the Symfony Components? The answer seemed to
+emerge spontaneously. We want to work with the Symfony components, but we also
+want to propose bundles that use the framework.</p>
 
-<p>Dado que buscamos perfiles muy concretos, con capacidad para trabajar en un
-proyecto <strong><em>opensource</em></strong>, consideramos que es importante tener un compromiso
-como empresa con la gente que venga con nosotros a formar parte de nuestro
-equipo. Ya nos entendemos :)</p>
+<p>This was the origin of this commit.</p>
 
-<h1>Comunidad</h1>
+<p><a href="https://github.com/elcodi/elcodi/pull/239">https://github.com/elcodi/elcodi/pull/239</a></p>
 
-<p>Finalmente no nos queda más opción que dar las gracias a las personas que hasta
-ahora nos han apoyado y nos han aportado, de alguna forma u otra, y aquellas que
-lo harán en un futuro.</p>
+<p>We have only just planted the seed with this refactoring. We have realized, even
+more, the importance of having both functional testing and unit testing (unit
+tests are almost all for the components, while functional tests are for the
+bundles). This needs more work, but at least we have lifted this project to a
+level at which we truly feel comfortable. It&rsquo;s an excellent starting point for
+a long and exciting path ahead.</p>
 
-<p>Consideramos que las menciones especiales se dan por supuestas, así que,
-compañeros, muchas gracias.</p>
+<p>This change has resulted in some collateral damage, as it has changed the path
+of our bundles, meaning that the &ldquo;subtree split&rdquo; has resulted in totally new
+repositories beginning with the first commit after refactoring. This means that
+all tags prior to version 0.3.0 have been lost, so we apologize to those who
+have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to version
+~0.3 and check that everything&rsquo;s working.</p>
 
-<p>Esperamos que, y siguiendo de cerca con la problemática que expresaba Javier
-Eguiluz en su
-<a href="http://symfony.es/noticias/2014/07/24/los-errores-de-la-pagina-28/">blog</a>
-podamos llegar a ser útiles para la comunidad, y recibamos el soporte y la ayuda
-para crecer a más velocidad. De esta forma nuestro producto será de calidad más
-rápido y podremos crecer en robustez, fiabilidad y ejecución.</p>
+<p>We are available for any questions or concerns.</p>
 
-<p>Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
-feliz fín de semana.</p>
+<p>Happy coding!</p>
 </div>
 
 
@@ -162,12 +163,12 @@ feliz fín de semana.</p>
   
 
 
-<time datetime="2014-08-08T16:23:48+02:00" pubdate data-updated="true">Aug 8<span>th</span>, 2014</time>
+<time datetime="2014-08-28T11:42:47+02:00" pubdate data-updated="true">Aug 28<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/elcodi/'>elcodi</a>, <a class='category' href='/blog/categories/recruiting/'>recruiting</a>
+    <a class='category' href='/blog/categories/ecommerce/'>ecommerce</a>, <a class='category' href='/blog/categories/elcodi/'>elcodi</a>, <a class='category' href='/blog/categories/symfony/'>symfony</a>
   
 </span>
 
@@ -176,7 +177,7 @@ feliz fín de semana.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/08/08/equipo/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/08/08/equipo/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/" >Tweet</a>
   
   
   
@@ -185,10 +186,10 @@ feliz fín de semana.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/08/06/objetivos/" title="Previous Post: Objetivos">&laquo; Objetivos</a>
+        <a class="basic-alignment left" href="/blog/2014/08/14/elcodi-team/" title="Previous Post: Elcodi team">&laquo; Elcodi team</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/08/11/a-short-break-for-meditation/" title="Next Post: A short break for meditation">A short break for meditation &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/10/16/welcome-berny/" title="Next Post: The family grows">The family grows &raquo;</a>
       
     </p>
   </footer>
@@ -283,8 +284,8 @@ feliz fín de semana.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/08/08/equipo/';
-        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/08/08/equipo/';
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/';
         var disqus_script = 'embed.js';
       
     (function () {

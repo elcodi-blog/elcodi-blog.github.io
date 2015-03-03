@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: bug | Elcodi blog]]></title>
+  <link href="http://elcodi-blog.github.io/blog/categories/bug/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2015-03-03T16:25:52+01:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
+  <author>
+    <name><![CDATA[Elcodi Team]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Elcodi Bug Hunting]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/03/03/elcodi-bug-hunting/"/>
+    <updated>2015-03-03T16:19:05+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/03/03/elcodi-bug-hunting</id>
+    <content type="html"><![CDATA[<p>Hi everyone!</p>
+
+<p>It&rsquo;s been a long time since our last meeting! We&rsquo;ve been very busy here in
+Elcodi HQ this months, focusing on the following events. And here we are to tell
+you!</p>
+
+<h2>New members</h2>
+
+<p>Our team has grown, and we&rsquo;ll be proud to introduce our two new members properly
+to you soon. For now, welcome <a href="//twitter.com/tonipinel">@tonipinel</a> and
+<a href="//twitter.com/rogergros">@rogergros</a>!</p>
+
+<h2>It&rsquo;s beta time!</h2>
+
+<p>These last weeks have been awesome here! After a lot of working hours, coffees
+and pizzas (and some beers), we&rsquo;re proud and happy to announce we&rsquo;ve reached
+<strong>beta status in Elcodi</strong>.</p>
+
+<p>This is working. This is really working! Now it&rsquo;s time to test it, massively.</p>
+
+<h2>Elcodi Bug Hunting</h2>
+
+<p>In order to make the community participant, we&rsquo;ll arrange something really
+amazing: <strong>A contest!</strong>. We have named it <em>Elcodi Bug Hunting</em> and will be
+available during March 2015.</p>
+
+<p>Let us explain what&rsquo;s this all about!</p>
+
+<h3>The contest</h3>
+
+<p><img src="https://cloud.githubusercontent.com/assets/170968/6443700/f152ea5e-c0f8-11e4-9acb-63c5f817b7a8.jpg" alt="bugs-everywhere" /></p>
+
+<p>Our goal is to find and fix as many bugs as possible during the beta period, and
+to grow more as a community.</p>
+
+<h3>The prices</h3>
+
+<ul>
+<li>Apple Macbook Pro 2014 Retina 13â€</li>
+<li>Apple Ipad Air 16Gb</li>
+</ul>
+
+
+<h3>Scoring</h3>
+
+<ul>
+<li>Earn points by participating in <em>Elcodi Bug Hunting</em>.</li>
+<li>Earn 5 points or more to access the <strong>Macbook Pro</strong> raffle.</li>
+<li>The more points you have, the more chances to win the raffle.</li>
+<li>Get the highest score and win an <strong>Ipad Air</strong>!</li>
+</ul>
+
+
+<h4>The easypick</h4>
+
+<p>Social interaction is important to us, because that&rsquo;s the way we&rsquo;re reaching and
+hearing from you. And we want <strong>you</strong> to be part of this!</p>
+
+<p>That&rsquo;s why we&rsquo;ll reward you for:</p>
+
+<ul>
+<li>Star on Github (<a href="//github.com/elcodi/elcodi">elcodi/elcodi</a>) &ndash; <em>1 point</em></li>
+<li>Star on Github (<a href="//github.com/elcodi/bamboo">elcodi/bamboo</a>) &ndash; <em>1 point</em></li>
+<li>Follow on Twitter (<a href="//twitter.com/elcodi_dev">@elcodi_dev</a>) &ndash; <em>1 point</em></li>
+<li>Twitter mention &ndash; <em>1 point (max 1)</em></li>
+</ul>
+
+
+<h4>The collaborator</h4>
+
+<p>The more eyes looking at our code, the better chance to improve! Collaboration
+is vital for an OpenSource project like this, and we&rsquo;re open for suggestions and
+contributions. We want Elcodi to be helpful to you.</p>
+
+<p>Give a try and clone <a href="//github.com/elcodi/elcodi">Elcodi project</a> or
+<a href="//github.com/elcodi/bamboo">our store Bamboo</a>, enter
+<a href="//gitter.com/elcodi/elcodi">Elcodi at Gitter</a>, discuss with us and participate.
+That&rsquo;s OpenSource at it&rsquo;s finest!</p>
+
+<p>We will appreciate:</p>
+
+<ul>
+<li>Open Github issue &ndash; <em>2 points</em></li>
+<li>Creating a Pull Request &ndash; <em>2 points</em></li>
+<li>Accepted Pull Request &ndash; <em>5 points</em></li>
+<li>Contributors up to present day &ndash; <em>10 points</em></li>
+</ul>
+
+
+<h4>The Best of the best</h4>
+
+<p>We encourage those who work hard. That&rsquo;s why we&rsquo;ll distribute some points
+discretely based on:</p>
+
+<ul>
+<li>Best 5 pull requests &ndash; <em>5 points</em></li>
+<li>Best 3 tweets &ndash; <em>15, 10, 5 points</em></li>
+<li>Best 3 troll-tweets &ndash; <em>15, 10, 5 points</em></li>
+</ul>
+
+
+<h3>The jury</h3>
+
+<ul>
+<li>Marc Morera (<a href="//twitter.com/mmoreram">@mmoreram</a>)</li>
+<li>Aldo Chiecchia (<a href="//twitter.com/alch">@alch</a>)</li>
+<li>Berny Cantos (<a href="//twitter.com/xphere">@xphere</a>)</li>
+<li>Toni Pinel (<a href="//twitter.com/tonipinel">@tonipinel</a>)</li>
+<li>Roger Gros (<a href="//twitter.com/rogergros">@rogergros</a>)</li>
+</ul>
+
+
+<h2>Let&rsquo;s <del>Go</del> PHP!!</h2>
+
+<p>Feel free to try the platform, test it and find security vulnerabilities and
+bugs. During this month we will improve current features and we will focus on
+the quality of the code, with small refactors and more (and more) tests.</p>
+
+<p>We will work as well with the documentation, so feel free to help us on that
+task :)</p>
+
+<p>Don&rsquo;t hesitate to get in touch with us and enjoy Elcodi! :)</p>
+]]></content>
+  </entry>
+  
+</feed>
