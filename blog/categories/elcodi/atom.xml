@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-03-03T16:25:52+01:00</updated>
+  <updated>2015-03-03T16:26:31+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -283,79 +283,94 @@ Version 0.3</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Playing with PHP-NG]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng/"/>
-    <updated>2014-08-12T18:02:14+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng</id>
-    <content type="html"><![CDATA[<p>There is a lot going on on the PHP community after Zeev Suraski published an <a href="http://zsuraski.blogspot.com.br/2014/07/benchmarking-phpng.html">article</a> where he ventured on assembling a performance comparison between <a href="https://wiki.php.net/rfc/phpng">PHPNG</a> and <a href="https://github.com/facebook/hhvm">hhvm</a>. Needles to say that the results are promising and the performace benefits of the soon-to-be next PHP major release look impressive.</p>
+    <title type="html"><![CDATA[Our roadmap]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/"/>
+    <updated>2014-08-12T09:55:48+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap</id>
+    <content type="html"><![CDATA[<h5>This is the second part of a <a href="/blog/2014/08/11/a-short-break-for-meditation/">previous post</a></h5>
 
-<p>For the sake of curiosity, we tried to run Elcodi <a href="https://github.com/elcodi/bamboo-store">frontend store</a> on PHPNG and see how a Symfony applicaction would fare.</p>
+<p>We can proudly state we have a lot to do in the following months.</p>
 
-<p>The test was made on an Amazon <a href="http://aws.amazon.com/ec2/instance-types/#Compute_Optimized">c3.xlarge</a> EC2 instance (<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html">HVM virtualization</a>) running <strong>Ubuntu Server 14.04 LTS</strong></p>
+<p>Question is, what now? Maybe we are 1% done along our path, although &ldquo;done&rdquo; in our world sounds a bit odd since there is always room for improvement.
+As long as our issue tracker list gets fed, we will stay hungry for enhancing our code.</p>
 
-<h2>Installing PHPNG</h2>
+<h3>GeoBundle</h3>
 
-<p>There are several options available for installing PHPNG binaries.</p>
+<p>One of the most recurring challenges in e-commerce development is the modeling of geographic and administrative divisions. We will put our efforts in designing a simple yet extensible set of entities and relations as well as strategies to implement custom tree structures.</p>
 
-<p>The first way is of course to follow the ninja path and <a href="https://wiki.php.net/phpng">compile it on your own</a>. Mind you that compiling PHPNG on an Ubuntu 14.04 is a source of headaches, since it requires <a href="http://www.gnu.org/software/bison/">Bison 2.7</a> but <code>trusty</code> official repositories provide it at version <code>3.0.2</code>, so you&rsquo;ll need to manually download and build it.</p>
+<h3>Rule management</h3>
 
-<p>The easiest way is of course to add an <code>apt</code> repository providing the package. For the sake of simpliciy we can stuck with apprentice path, katanas can wait for the next bad guy.</p>
-
-<p>Luckily Zend prepared <a href="http://repos.zend.com/zend-server/early-access/phpng/">an apt repo</a> for the <code>amd64</code> arch:</p>
-
-<p>```bash</p>
-
-<pre><code># Remember to run these commands as root, or use sudo
-$ wget http://repos.zend.com/zend.key -O- 2&gt; /dev/null | apt-key add -
-$ echo "deb [arch=amd64] http://repos.zend.com/zend-server/early-access/phpng/ trusty zend" &gt; /etc/apt/sources.list.d/phpng.list
-$ apt-get update
-$ apt-get install php5
-</code></pre>
-
-<p><code>``
-This wil also install</code>apache2.2<code>and</code>libapache2-mod-php5`.</p>
-
-<p>In order for a Symfony application to work, we will have to add at least the <a href="http://php.net/manual/en/book.intl.php">i18n</a> and the <a href="http://php.net/manual/en/book.mysqlnd.php">mysqlnd</a> extensions.
-Elcodi will also need <a href="http://www.imagemagick.org/">imagemagik</a> as the default image resize adapter for the <a href="https://github.com/elcodi/MediaBundle">MediaBundle</a>. Since we will work with MySQL, we also need <code>mysql-server</code>.</p>
-
-<p><strong>NO</strong> For this test, to speed up things a little, we also need <a href="https://github.com/krakjoe/apcu">APCu</a> since we will configure Doctrine <a href="http://docs.doctrine-project.org/en/2.0.x/reference/caching.html#metadata-cache">metadata</a> <a href="http://symfony.com/doc/current/reference/configuration/doctrine.html#configuration-overview">cache</a></p>
-
-<p>Summing it up:</p>
-
-<p>```bash</p>
-
-<pre><code># As root user:
-$ apt-get install php5-intl php5-mysqlnd mysql-server imagemagik
-</code></pre>
-
-<p>```</p>
-
-<p>Before proceeding, we are making a few assumptions:</p>
+<p>Rule-based decision logic is ubiquitous in e-commerce applications. A few examples:</p>
 
 <ul>
-<li>we created an apache <code>VirtualHost</code> for <code>test.example.com</code>, or whatever domain we&rsquo;d like to use, in <code>/var/www/bamboo</code></li>
-<li>/var/www/bamboo is <em>writable</em> for user www-data, which is the user running apache in ubuntu</li>
-<li><a href="https://getcomposer.org/download/">composer.phar</a> is available and in PATH</li>
+<li>Which discount coupon can be automatically applied upon entering the checkout process?</li>
+<li>Can a particular discount code be applied?</li>
+<li>Can two specific products be added to the same cart?</li>
+<li>Can a specific product combination trigger a discount, an up-sell or a different offer?</li>
+<li>When is it possible to use a specific carrier or payment method?</li>
 </ul>
 
 
-<p>Now we can install Elcodi front store as follows:</p>
+<p>Elcodi <a href="https://github.com/elcodi/rulebundle">RuleBundle</a> aims at solving these kinds of issue.</p>
 
-<p>```bash</p>
+<h3>Ports and Adapters</h3>
 
-<pre><code># Run command as apache user, which in ubuntu is www-data
-# We assume that /var/www/bamboo is *writable* for user www-data
-$ cd /var/www/bamboo
-$ git clone https://github.com/elcodi/bamboo-store.git .
-$ composer.phar install -o --no-dev
-# Follow parameters in app/config/parameters.yml to configure MySQL access
-$ php app/console doctrine:database:create -e=prod
-$ php app/console doctrine:schema:create
-$ php app/console doctrine:fixtures:load --fixtures=vendor/elcodi/bamboo-fixtures/
-$ php app/console assets:install web &amp;&amp; php app/console assetic:dump -e=prod --no-debug
-</code></pre>
+<p>We surely want to promote high-cohesion, loose-coupled software components. Right now we are halfway, as described in the <a href="/blog/2014/08/11/a-short-break-for-meditation/">previous post</a>, but we want to keep improving. A typical usage of P&amp;A would be to decouple Symfony bundles from other significant objects in the domain, or to be able to use Elcodi Cart component without depending on the CustomerBundle.</p>
 
-<p>```</p>
+<h3>Tests</h3>
+
+<p>A great deal of credibility for an open source project is earned by instilling a thorough and sound test methodology. We assume that we&rsquo;ve been lacking on this specific subject, doing our homeworks halfway. This will be addressed both for Elcodi core repository and web applications (<a href="https://github.com/elcodi/bamboo-store">BambooStore</a> and <a href="https://github.com/elcodi/bamboo-admin">BambooAdmin</a>) by raising the coverage of unit and functional tests and start working with acceptance tests for the web apps.</p>
+
+<p>We have not decided yet which toolset we will be using, surely one between <a href="http://docs.behat.org/">Behat3</a> and <a href="http://www.phpspec.net/">PHPSpec2</a>. As always, suggestions are more than welcome!</p>
+
+<h3>PaymentSuite</h3>
+
+<p>The <a href="http://github.com/PaymentSuite">PaymentSuite</a> was conceived and grown inside Elcodi.</p>
+
+<p>It is a payment processing suite developed in Symfony2 which follows our vision of extensibility using adapters and dispatched events to give maximum flexibility to implementers and to decouple specific <code>Cart</code> or <code>Order</code> implementations. It promotes easy and sensible defaults for configurations.</p>
+
+<p>We will take care of the project and will evolve it as the default payment platform. The <a href="http://bamboo.elcodi.com">BambooStore</a> is already using a dummy <a href="https://github.com/PaymentSuite/FreePaymentBundle">free payment</a> method.</p>
+
+<h3>ShippingSuite</h3>
+
+<p>We would like to follow a similar path as the PaymentSuite: a separated and parallel project that does not depend on Elcodi and that can be easy integrated in web applications. Same vision, same resilience philosophy: work with <code>Order</code> or <code>Carrier</code> as <em>adaptees</em>.</p>
+
+<h3>Documentation</h3>
+
+<p>Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author <a href="https://twitter.com/fabpot">@fabpot</a> once said, it is the most challenging part of any project.</p>
+
+<p>We are working on the foundation of an <a href="http://elcodi.readthedocs.org">english documentation</a>, localized and translated version will follow later on. This is a list of topics that we will elaborate further:</p>
+
+<ul>
+<li>Implementation guidelines. General vision and coding philosophy, style and everything needed for developers wishing to contribute.</li>
+<li>Customizations. Craft a project using only Elcodi core. Architectural constraints to keep in mind. Recipes and examples.</li>
+<li>Core bundles documentation, including
+
+<ul>
+<li>Provisioned Model</li>
+<li>Event system rationale and taxonomies</li>
+<li>Services</li>
+<li>Configuration</li>
+<li>Controllers and extensions, where it may apply</li>
+</ul>
+</li>
+<li><a href="https://github.com/elcodi/bamboo-store">Bamboo</a> <a href="https://github.com/elcodi/bamboo-admin">web applications</a> documentation for Symfony and front-end developers: the starting point to develop your e-commerce site.</li>
+</ul>
+
+
+<p>This is going to be an epic effort and the real main entrance to the project for the community. No matter the size of your codebase is, documentation is a key measure of a project success.</p>
+
+<h2>Community</h2>
+
+<p>If documentation should be our <em>diamond</em>, the community should be our <em>propellant</em>. A good community makes a project good.</p>
+
+<p>We started as a small project and we know how demanding it can be to get involved and contribute to the development of an open source based product.</p>
+
+<p>We will take special care of this particular topic, since motivating people and get them involved is essential for our vision: Elcodi was never mean to be a mere code repository, it is a group of visionary people with a clear view in their minds, working together to work out a specific problem.</p>
+
+<p>Taking care of the code means caring for the people that make it possible for the code to be crafted. We are especially interested in helping those who want to learn, so we will soon arrange training and learning mechanisms, both for Symfony and Elcodi.</p>
+
+<p>Get ready to be effective!</p>
 ]]></content>
   </entry>
   

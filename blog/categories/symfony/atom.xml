@@ -4,7 +4,7 @@
   <title><![CDATA[Category: symfony | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/symfony/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-03-03T16:25:52+01:00</updated>
+  <updated>2015-03-03T16:26:31+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -153,83 +153,6 @@ Version 0.3</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Playing with PHP-NG]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng/"/>
-    <updated>2014-08-12T18:02:14+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/12/playing-with-php-ng</id>
-    <content type="html"><![CDATA[<p>There is a lot going on on the PHP community after Zeev Suraski published an <a href="http://zsuraski.blogspot.com.br/2014/07/benchmarking-phpng.html">article</a> where he ventured on assembling a performance comparison between <a href="https://wiki.php.net/rfc/phpng">PHPNG</a> and <a href="https://github.com/facebook/hhvm">hhvm</a>. Needles to say that the results are promising and the performace benefits of the soon-to-be next PHP major release look impressive.</p>
-
-<p>For the sake of curiosity, we tried to run Elcodi <a href="https://github.com/elcodi/bamboo-store">frontend store</a> on PHPNG and see how a Symfony applicaction would fare.</p>
-
-<p>The test was made on an Amazon <a href="http://aws.amazon.com/ec2/instance-types/#Compute_Optimized">c3.xlarge</a> EC2 instance (<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html">HVM virtualization</a>) running <strong>Ubuntu Server 14.04 LTS</strong></p>
-
-<h2>Installing PHPNG</h2>
-
-<p>There are several options available for installing PHPNG binaries.</p>
-
-<p>The first way is of course to follow the ninja path and <a href="https://wiki.php.net/phpng">compile it on your own</a>. Mind you that compiling PHPNG on an Ubuntu 14.04 is a source of headaches, since it requires <a href="http://www.gnu.org/software/bison/">Bison 2.7</a> but <code>trusty</code> official repositories provide it at version <code>3.0.2</code>, so you&rsquo;ll need to manually download and build it.</p>
-
-<p>The easiest way is of course to add an <code>apt</code> repository providing the package. For the sake of simpliciy we can stuck with apprentice path, katanas can wait for the next bad guy.</p>
-
-<p>Luckily Zend prepared <a href="http://repos.zend.com/zend-server/early-access/phpng/">an apt repo</a> for the <code>amd64</code> arch:</p>
-
-<p>```bash</p>
-
-<pre><code># Remember to run these commands as root, or use sudo
-$ wget http://repos.zend.com/zend.key -O- 2&gt; /dev/null | apt-key add -
-$ echo "deb [arch=amd64] http://repos.zend.com/zend-server/early-access/phpng/ trusty zend" &gt; /etc/apt/sources.list.d/phpng.list
-$ apt-get update
-$ apt-get install php5
-</code></pre>
-
-<p><code>``
-This wil also install</code>apache2.2<code>and</code>libapache2-mod-php5`.</p>
-
-<p>In order for a Symfony application to work, we will have to add at least the <a href="http://php.net/manual/en/book.intl.php">i18n</a> and the <a href="http://php.net/manual/en/book.mysqlnd.php">mysqlnd</a> extensions.
-Elcodi will also need <a href="http://www.imagemagick.org/">imagemagik</a> as the default image resize adapter for the <a href="https://github.com/elcodi/MediaBundle">MediaBundle</a>. Since we will work with MySQL, we also need <code>mysql-server</code>.</p>
-
-<p><strong>NO</strong> For this test, to speed up things a little, we also need <a href="https://github.com/krakjoe/apcu">APCu</a> since we will configure Doctrine <a href="http://docs.doctrine-project.org/en/2.0.x/reference/caching.html#metadata-cache">metadata</a> <a href="http://symfony.com/doc/current/reference/configuration/doctrine.html#configuration-overview">cache</a></p>
-
-<p>Summing it up:</p>
-
-<p>```bash</p>
-
-<pre><code># As root user:
-$ apt-get install php5-intl php5-mysqlnd mysql-server imagemagik
-</code></pre>
-
-<p>```</p>
-
-<p>Before proceeding, we are making a few assumptions:</p>
-
-<ul>
-<li>we created an apache <code>VirtualHost</code> for <code>test.example.com</code>, or whatever domain we&rsquo;d like to use, in <code>/var/www/bamboo</code></li>
-<li>/var/www/bamboo is <em>writable</em> for user www-data, which is the user running apache in ubuntu</li>
-<li><a href="https://getcomposer.org/download/">composer.phar</a> is available and in PATH</li>
-</ul>
-
-
-<p>Now we can install Elcodi front store as follows:</p>
-
-<p>```bash</p>
-
-<pre><code># Run command as apache user, which in ubuntu is www-data
-# We assume that /var/www/bamboo is *writable* for user www-data
-$ cd /var/www/bamboo
-$ git clone https://github.com/elcodi/bamboo-store.git .
-$ composer.phar install -o --no-dev
-# Follow parameters in app/config/parameters.yml to configure MySQL access
-$ php app/console doctrine:database:create -e=prod
-$ php app/console doctrine:schema:create
-$ php app/console doctrine:fixtures:load --fixtures=vendor/elcodi/bamboo-fixtures/
-$ php app/console assets:install web &amp;&amp; php app/console assetic:dump -e=prod --no-debug
-</code></pre>
-
-<p>```</p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Our roadmap]]></title>
     <link href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/"/>
     <updated>2014-08-12T09:55:48+02:00</updated>
@@ -318,6 +241,81 @@ As long as our issue tracker list gets fed, we will stay hungry for enhancing ou
 <p>Taking care of the code means caring for the people that make it possible for the code to be crafted. We are especially interested in helping those who want to learn, so we will soon arrange training and learning mechanisms, both for Symfony and Elcodi.</p>
 
 <p>Get ready to be effective!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A short break for meditation]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/"/>
+    <updated>2014-08-11T09:05:38+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation</id>
+    <content type="html"><![CDATA[<h5>Puedes encontrar la versión en castellano de este post <a href="/blog/2014/08/04/un-momento-para-reflexionar/">aqui</a>.</h5>
+
+<p>Some of you already know Elcodi, a suite of components built on Symfony2 and Doctrine, aiming to provide maximum flexibility and soundness to e-commerce projects.</p>
+
+<p>We believe that coding should always be entertaining and fun.</p>
+
+<p>This has been our main mission since the beginning and as every ambitious goal you cannot forget that along the journey you might discover an equally important path.</p>
+
+<p>I think that we reached the point where it is important to take a breath, so that in the following days we will publish some posts regarding our views and what we&rsquo;ve been learning, where we will talk about what we have developed so far, our expectations and how we would like to drive the development of each part of the project in the following months.</p>
+
+<h1>The path so far</h1>
+
+<p>Elcodi was born a few months ago in a nice workplace located in Barcelona, Spain. We started designing the platform at the beginning of the year, developed and refactored the pieces up the present day where in my opinion we reached a fairly good balanced point, which is the growing seed of our natural direction.</p>
+
+<h3>ProductBundle, AttributeBundle</h3>
+
+<p>Those components are the home for everything regarding products, categories, manufacturers. Product attribute and options were added in a separate bundle and are the dimensions for working in the product variants space, which is one of the latest features developed and is a required trait for almost every e-commerce software implementation.</p>
+
+<p>Multi-category is also supported for products.</p>
+
+<h3>UserBundle</h3>
+
+<p>Contains the models and tools necessary for working with front-end customers or back-end administrators. A basic authentication &amp; authorization definition was also added, exploiting Symfony Security component.</p>
+
+<h3>CartBundle</h3>
+
+<p>It handles the purchase process, carts and orders. Undoubtedly one of the core pillars of any e-commerce, it has been designed to be simple to get a grasp of and to be overridden almost completely by custom logic. You can read about its internal in the <a href="http://elcodi.readthedocs.org/en/latest/bundles/CartBundle/index.html">official documentation</a>.
+Point-in-time snapshots of order states or cart to order transitions are examples of what is provided in CartBundle core services default implementation.</p>
+
+<h3>GeoBundle</h3>
+
+<p>Basic building block for a complete hierarchical aggregation of administrative entities. Due to lack of time, at the present day only <code>Country</code> is modeled as a mapped class, leaving <code>State</code>, <code>Province</code> or <code>City</code> as text fields.</p>
+
+<h3>MediaBundle</h3>
+
+<p>Allows the storage-agnostic handling of media files, such as images. It also controls image resizing and consolidates HTTP headers for media files.</p>
+
+<p>Other bundles are:</p>
+
+<ul>
+<li>BannerBundle</li>
+<li>LanguageBundle</li>
+<li>CurrencyBundle</li>
+<li>MenuBundle</li>
+<li>NewsletterBundle</li>
+<li>ReferralProgramBundle</li>
+<li>RuleBundle</li>
+</ul>
+
+
+<h3>BambooStore</h3>
+
+<p>We developed a prototype of a front-end store, the <a href="http://bamboo.elcodi.com/">Bamboo</a>. It is a showcase of Elcodi core features and uses <a href="https://github.com/PaymentSuite">PaymentSuite</a> <a href="https://github.com/PaymentSuite/FreePaymentBundle">FreePaymentBundle</a> as payment method.</p>
+
+<h3>BambooAdmin</h3>
+
+<p>Something we just published. An initial release of a <a href="https://github.com/elcodi/bamboo-admin">backoffice application</a>, providing basic features yet usable. Likewise Elcodi core and the Bamboo frontend, it will be in constant development. Versions and releases of the three projects will stay synchronized, not to break dependencies.</p>
+
+<h3>Implementation</h3>
+
+<p>We know that unfortunately, at least at this stage, our design choices and implementation cannot satisfy everyone. Trying to do it would require a massive effort and can lead to a loss of focus and direction. We prefer stick with our vision despite the errors we would make.</p>
+
+<p>A question we are frequently asked is why we are coupling with Symfony and Doctrine: this is a trade-off we had to settle for trying to maximize acceptance from both developers and end users by enforcing clean, coherent, structured and documented code.</p>
+
+<p>Right now we don&rsquo;t think it is feasable to assemble more layers of indirection to achieve this decoupling. The goal is to involve the Symfony community and work on the feedbacks we will receive from developers who want to build applications with Elcodi. Mind you that Symfony decoupling <em>is</em> possible, since we are trying to follow the <strong>SOLID</strong> path, but the eternal struggle between being different and effective flows to a point of balance that surely will benefit both the project and our users.</p>
+
+<p>Cheers!</p>
 ]]></content>
   </entry>
   
