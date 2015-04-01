@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A week of Elcodi #1 (27/10 - 3/11) - Elcodi blog</title>
+  <title>Elcodi changes its technology - Elcodi blog</title>
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="It is time to be more vocal about what we are doing and share with the community how we are moving forward along our roadmap and the progress we are &hellip;">
+  <meta name="description" content="This is an official statement from Elcodi Team. After some nice months using Symfony in our project Elcodi, and after many
+reflections on how to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1/">
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2015/04/01/elcodi-changes-its-technology/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -76,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">A Week of Elcodi #1 (27/10 - 3/11)</h1>
+      <h1 class="entry-title">Elcodi Changes Its Technology</h1>
     
     
       <p class="meta">
@@ -92,27 +93,25 @@
   
 
 
-<time datetime="2014-11-04T09:32:57+01:00" pubdate data-updated="true">Nov 4<span>th</span>, 2014</time>
+<time datetime="2015-04-01T16:45:38+02:00" pubdate data-updated="true">Apr 1<span>st</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>It is time to be more vocal about what we are doing and share with the community how we are moving forward along our roadmap and the progress we are making.</p>
+<div class="entry-content"><p>This is an official statement from Elcodi Team.</p>
 
-<p>Inspired by the <a href="http://symfony.com/blog/category/a-week-of-symfony">famous symfony weekly bulletin</a>, we would like to do something similar: <em>A week of Elcodi</em>, a series of post assembled in turn by each member of the team.</p>
+<p>After some nice months using Symfony in our project Elcodi, and after many
+reflections on how to increase the project quality, we&rsquo;re proud to announce that
+we are moving to Ruby on Rails.</p>
 
-<p>This week we&rsquo;ve been working on <a href="https://github.com/elcodi/bamboo-store/issues/44">social connectivity for our bamboo store</a>, allowing our users to log in from a variety of OAuth services through integration of <a href="https://github.com/hwi/HWIOAuthBundle">HWI/OAuthBundle</a> in our project.
-A thin layer and a new entity <a href="https://github.com/elcodi/bamboo-store/blob/2134302656ae13768ab8e82e54053d01f105d861/src/Elcodi/StoreConnectBundle/Entity/Authorization.php#L31"><code>Authorization</code></a> stores and retrieves links between our <a href="https://github.com/elcodi/elcodi/blob/master/src/Elcodi/Component/User/Entity/Interfaces/CustomerInterface.php"><code>CustomerInterface</code></a> and the OAuth token. And voilà! You can login with your GitHub account in two clicks!</p>
+<p>Until version <code>v0.6.*</code> we will evolve our code for these people who is actually
+using Elcodi in their projects, but after that, we will move all our code to
+Ruby.</p>
 
-<p>Sticking with our bamboo store, we prepared a feature branch with PayPal <a href="https://developer.paypal.com/docs/integration/web/web-checkout/">web checkout</a> integration. It has been developed on top of the <a href="https://github.com/PaymentSuite">PaymentSuite</a> project. You can check out the changes <a href="https://github.com/elcodi/bamboo-store/compare/features/paypal-payment?expand=1">here</a>.</p>
-
-<p>We have also been working on a <em>Finite-state machine</em>. Until now we were managing <a href="https://github.com/elcodi/elcodi/blob/master/src/Elcodi/Component/Cart/Entity/Order.php#L38"><code>Order</code></a> and <a href="https://github.com/elcodi/elcodi/blob/master/src/Elcodi/Component/Cart/Entity/OrderLine.php#L34"><code>OrderLine</code></a> state changes using an <a href="https://github.com/elcodi/elcodi/blob/master/src/Elcodi/Component/Cart/Services/OrderStateManager.php#L28">hardwired implementation</a> which was very specific to the <code>Cart</code> component, while any logic implementing a FSM should be reusable. While waiting for Symfony to implement its own state machine in the near futire, we wrote a very simple and useful component that can be used in any project. You can check and review the <a href="https://github.com/elcodi/elcodi/pull/354">pull request</a></p>
-
-<p>In terms of specific e-commerce features, we just merged some improvements to the Shipping component and Bundle. See the <a href="https://github.com/elcodi/elcodi/pull/309">Pull Request</a>.</p>
-
-<p>Stay tuned!</p>
+<p>If you need some information, feel free to keep in touch with us in our
+<a href="https://gitter.im/elcodi/elcodi">Gitter account</a></p>
 </div>
 
 
@@ -121,7 +120,7 @@ A thin layer and a new entity <a href="https://github.com/elcodi/bamboo-store/bl
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Aldo Chiecchia <alch@elcodi.com></span></span>
+<span class="byline author vcard">Posted by <span class="fn">Marc Morera</span></span>
 
       
 
@@ -135,12 +134,12 @@ A thin layer and a new entity <a href="https://github.com/elcodi/bamboo-store/bl
   
 
 
-<time datetime="2014-11-04T09:32:57+01:00" pubdate data-updated="true">Nov 4<span>th</span>, 2014</time>
+<time datetime="2015-04-01T16:45:38+02:00" pubdate data-updated="true">Apr 1<span>st</span>, 2015</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/a-week-of-elcodi/'>A week of Elcodi</a>
+    <a class='category' href='/blog/categories/ecommerce/'>ecommerce</a>, <a class='category' href='/blog/categories/elcodi/'>elcodi</a>
   
 </span>
 
@@ -149,7 +148,7 @@ A thin layer and a new entity <a href="https://github.com/elcodi/bamboo-store/bl
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2015/04/01/elcodi-changes-its-technology/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2015/04/01/elcodi-changes-its-technology/" >Tweet</a>
   
   
   
@@ -158,10 +157,8 @@ A thin layer and a new entity <a href="https://github.com/elcodi/bamboo-store/bl
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/10/16/welcome-berny/" title="Previous Post: The family grows">&laquo; The family grows</a>
+        <a class="basic-alignment left" href="/blog/2015/03/03/elcodi-bug-hunting/" title="Previous Post: Elcodi Bug Hunting">&laquo; Elcodi Bug Hunting</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/11/11/a-week-of-elcodi-number-2/" title="Next Post: A week of Elcodi #2 (3/11 - 10/11)">A week of Elcodi #2 (3/11 - 10/11) &raquo;</a>
       
     </p>
   </footer>
@@ -256,8 +253,8 @@ A thin layer and a new entity <a href="https://github.com/elcodi/bamboo-store/bl
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1/';
-        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/11/04/a-week-of-elcodi-number-1/';
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2015/04/01/elcodi-changes-its-technology/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2015/04/01/elcodi-changes-its-technology/';
         var disqus_script = 'embed.js';
       
     (function () {

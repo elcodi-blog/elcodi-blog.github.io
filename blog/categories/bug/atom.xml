@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bug | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/bug/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-03-03T20:03:33+01:00</updated>
+  <updated>2015-04-01T17:15:22+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -43,6 +43,10 @@ and pizzas (and some beers), we&rsquo;re proud and happy to announce we&rsquo;ve
 <p>In order to make the community participant, we&rsquo;ll arrange something really
 amazing: <strong>A contest!</strong>. We have named it <em>Elcodi Bug Hunting</em> and will be
 available during March 2015.</p>
+
+<blockquote><p>Edit: This contest will be opened until June 1st, the day of our first
+release. It makes sense to increase the contest interval in order to get more
+changes and more competition :)</p></blockquote>
 
 <p>Let us explain what&rsquo;s this all about!</p>
 
