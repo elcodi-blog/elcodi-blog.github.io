@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-04-01T17:20:31+02:00</updated>
+  <updated>2015-04-04T20:38:42+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,104 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First stable release]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/"/>
+    <updated>2015-04-04T19:51:28+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release</id>
+    <content type="html"><![CDATA[<p>Hi there everyone.</p>
+
+<p>The Elcodi core team is glad to announce that next June 1st, we will tag the
+first stable release of the project (Elcodi will be still based on Symfony, you
+know how much we like Symfony and its community&hellip;)</p>
+
+<h3>Elcodi v1.0</h3>
+
+<ul>
+<li>Until this day, we&rsquo;ll finish stabilization of all packages</li>
+<li>We will work so hard to finish a documentation for all of you</li>
+<li>All available features will be covered by unit, functional and behavioral
+tests, using PHPUnit and Behat 3.0</li>
+<li>After <code>v1.0</code> we will start working on <code>v3.0</code>. This new version will be
+released next November in order to be compatible with Symfony <code>v3.*</code>. It means
+as well that this new version will introduce some BC Break, of course.</li>
+</ul>
+
+
+<p>So, we have less than 2 months to stabilize Elcodi package, and we need your
+help.</p>
+
+<p>Some days ago, we announced the
+<a href="http://blog.elcodi.io/blog/2015/03/03/elcodi-bug-hunting/">Elcodi Bug Hunting</a>,
+remember? Well, initially this contest was during this past March, but we have
+decided to enlarge the period of the contest until June 1st, the day of the
+release.</p>
+
+<p>Until now, we have received some help from some people. Special thanks for them.</p>
+
+<ul>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Acordoval">cordoval</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ajaviereguiluz">javiereguiluz</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ahacfi">hacfi</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Amickaelandrieu">mickaelandrieu</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed">And many more</a></li>
+</ul>
+
+
+<p>But we need some extra help in order to accomplish our goal.</p>
+
+<h3>Win the MacBookPro</h3>
+
+<p>Easy and super-fast. Do you want to win the MacBookPro? Easy, just help us with
+some fast actions and you will be able to win the
+<strong>Apple Macbook Pro 2014 Retina</strong> (of course, with an Android/Ubuntu/Windows
+alternative or any geeky stuff with same price)</p>
+
+<ul>
+<li>Follow us on twitter (@elcodi_dev)</li>
+<li>Give <a href="http://github.com/elcodi/elcodi">Elcodi repository</a> a star</li>
+<li>Give <a href="http://github.com/elcodi/bamboo">Bamboo repository</a> a star</li>
+<li>Give <a href="http://github.com/elcodi/docs">Elcodi docs repository</a> a star</li>
+<li>Make a funny tweet about it, for example, sharing this post or trolling us
+a little bit :)</li>
+</ul>
+
+
+<p>After that you will have 5 points, enough to access to the MacBookPro raffle.</p>
+
+<h3>A little bit more&hellip;</h3>
+
+<p>Are you interested in E-commerce and do you like Symfony? Well, there are some
+extra things you can do to help. You can win the battle and win the
+<strong>Ipad Air</strong></p>
+
+<ul>
+<li>[Download, install and try Bamboo)[<a href="http://elcodi.io/docs/quick-start.html">http://elcodi.io/docs/quick-start.html</a>)</li>
+<li>If you find any kind of issue, please open an Issue in our repository and
+report it to us.</li>
+<li>Oh, you know how to fix it? That&rsquo;s wonderful! Create a Pull Request and be a
+collaborator of the project!</li>
+<li>We are elaborating a documentation&hellip; maybe you could help us looking for some
+typo issues or creating new content&hellip;</li>
+<li>Have you tried Elcodi and you want to express the world how much excited you
+are? Great! Do a post in your blog and explain us what did you create with
+Elcodi!</li>
+<li>Elcodi is an international project, so we are looking for people able to
+translate Bamboo to all languages (even in Klingon and Esperanto!). Are you
+proud of your language? Well, help other people of your country for using this
+project :)</li>
+</ul>
+
+
+<p>All this actions will give you some extra points.</p>
+
+<p>Of course, if you need help, all Elcodi Core team will gladly help you. Just
+enter <a href="https://gitter.im/elcodi/elcodi">Elcodi Gitter room</a> and say hello :)</p>
+
+<p>Have a nice day!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Elcodi changes its technology]]></title>
@@ -82,7 +180,7 @@ to grow more as a community.</p>
 <h3>The prices</h3>
 
 <ul>
-<li>Apple Macbook Pro 2014 Retina 13â€</li>
+<li>Apple Macbook Pro 2014 Retina 13"</li>
 <li>Apple Ipad Air 16Gb</li>
 </ul>
 
@@ -108,7 +206,7 @@ hearing from you. And we want <strong>you</strong> to be part of this!</p>
 <li>Star on Github (<a href="//github.com/elcodi/elcodi">elcodi/elcodi</a>) &ndash; <em>1 point</em></li>
 <li>Star on Github (<a href="//github.com/elcodi/bamboo">elcodi/bamboo</a>) &ndash; <em>1 point</em></li>
 <li>Follow on Twitter (<a href="//twitter.com/elcodi_dev">@elcodi_dev</a>) &ndash; <em>1 point</em></li>
-<li>Twitter mention &ndash; <em>1 point (max 1)</em></li>
+<li>Twitter mention &ndash; <em>1 point (max 2)</em></li>
 </ul>
 
 
@@ -247,64 +345,6 @@ have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to v
 <p>As for now, the Elcodi team hopes that you&rsquo;ll get involved with the project and wishes you a great summer break.</p>
 
 <p>Stay tuned!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Our goals]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/"/>
-    <updated>2014-08-13T10:26:56+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/13/our-goals</id>
-    <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
-
-<ul>
-<li><a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
-<li><a href="/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
-</ul>
-
-
-<p>In the folowing weeks we would like to get to a first community stable version. Though last week we placed the initial milestone it is important to define a release plan for the following steps.</p>
-
-<p>We set up a list of <a href="https://github.com/elcodi/elcodi/milestones">milestones</a> to show a proposed roadmap:</p>
-
-<p>```
-Version 0.3</p>
-
-<pre><code>- Closed 8 days ago
-- 100% complete  0 open  11 closed
-</code></pre>
-
-<p>Version 0.4</p>
-
-<pre><code>- Due by August 15, 2014
-- 0% complete  0 open  0 closed
-</code></pre>
-
-<p>Version 0.5</p>
-
-<pre><code>- Due by August 29, 2014
-- 17% complete  5 open  1 closed
-</code></pre>
-
-<p>Version 0.6</p>
-
-<pre><code>- Due by September 11, 2014
-- 0% complete  2 open  0 closed
-</code></pre>
-
-<p>```</p>
-
-<p>This means we will be working on fine-tune our general roadmap and on fixing and refining what we have &ndash; no new features will be developed until we improve stability &ndash; in the hope of clearing things up a bit for developers interested in working with Elcodi foundations.</p>
-
-<p>At this stage, it is possible for new commits to introduce <em>BC breaks</em>. There is an open <a href="https://github.com/elcodi/elcodi/issues/34">issue</a> regarding <code>@api</code> tagging in phpdoc but as suggests in the discussion it is not really needed in the absence of a frozen stable release.</p>
-
-<p>We won&rsquo;t be following strict <a href="http://semver.org/">semantic versioning</a> until we reach a stable release, though we are using <em>patch version</em> for small fixes that do not cause incompatibilities and <em>minor version</em> for changes that <em>could</em> cause BC.</p>
-
-<p>Of course this will change once we approach <code>v1.0</code>, when we will <code>@api</code> freeze core components and enforce full semantic versioning.</p>
-
-<p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
-
-<p>We are on our way there, things look good!</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ecommerce | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/ecommerce/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-04-01T17:20:31+02:00</updated>
+  <updated>2015-04-04T20:38:42+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,104 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First stable release]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/"/>
+    <updated>2015-04-04T19:51:28+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release</id>
+    <content type="html"><![CDATA[<p>Hi there everyone.</p>
+
+<p>The Elcodi core team is glad to announce that next June 1st, we will tag the
+first stable release of the project (Elcodi will be still based on Symfony, you
+know how much we like Symfony and its community&hellip;)</p>
+
+<h3>Elcodi v1.0</h3>
+
+<ul>
+<li>Until this day, we&rsquo;ll finish stabilization of all packages</li>
+<li>We will work so hard to finish a documentation for all of you</li>
+<li>All available features will be covered by unit, functional and behavioral
+tests, using PHPUnit and Behat 3.0</li>
+<li>After <code>v1.0</code> we will start working on <code>v3.0</code>. This new version will be
+released next November in order to be compatible with Symfony <code>v3.*</code>. It means
+as well that this new version will introduce some BC Break, of course.</li>
+</ul>
+
+
+<p>So, we have less than 2 months to stabilize Elcodi package, and we need your
+help.</p>
+
+<p>Some days ago, we announced the
+<a href="http://blog.elcodi.io/blog/2015/03/03/elcodi-bug-hunting/">Elcodi Bug Hunting</a>,
+remember? Well, initially this contest was during this past March, but we have
+decided to enlarge the period of the contest until June 1st, the day of the
+release.</p>
+
+<p>Until now, we have received some help from some people. Special thanks for them.</p>
+
+<ul>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Acordoval">cordoval</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ajaviereguiluz">javiereguiluz</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ahacfi">hacfi</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Amickaelandrieu">mickaelandrieu</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed">And many more</a></li>
+</ul>
+
+
+<p>But we need some extra help in order to accomplish our goal.</p>
+
+<h3>Win the MacBookPro</h3>
+
+<p>Easy and super-fast. Do you want to win the MacBookPro? Easy, just help us with
+some fast actions and you will be able to win the
+<strong>Apple Macbook Pro 2014 Retina</strong> (of course, with an Android/Ubuntu/Windows
+alternative or any geeky stuff with same price)</p>
+
+<ul>
+<li>Follow us on twitter (@elcodi_dev)</li>
+<li>Give <a href="http://github.com/elcodi/elcodi">Elcodi repository</a> a star</li>
+<li>Give <a href="http://github.com/elcodi/bamboo">Bamboo repository</a> a star</li>
+<li>Give <a href="http://github.com/elcodi/docs">Elcodi docs repository</a> a star</li>
+<li>Make a funny tweet about it, for example, sharing this post or trolling us
+a little bit :)</li>
+</ul>
+
+
+<p>After that you will have 5 points, enough to access to the MacBookPro raffle.</p>
+
+<h3>A little bit more&hellip;</h3>
+
+<p>Are you interested in E-commerce and do you like Symfony? Well, there are some
+extra things you can do to help. You can win the battle and win the
+<strong>Ipad Air</strong></p>
+
+<ul>
+<li>[Download, install and try Bamboo)[<a href="http://elcodi.io/docs/quick-start.html">http://elcodi.io/docs/quick-start.html</a>)</li>
+<li>If you find any kind of issue, please open an Issue in our repository and
+report it to us.</li>
+<li>Oh, you know how to fix it? That&rsquo;s wonderful! Create a Pull Request and be a
+collaborator of the project!</li>
+<li>We are elaborating a documentation&hellip; maybe you could help us looking for some
+typo issues or creating new content&hellip;</li>
+<li>Have you tried Elcodi and you want to express the world how much excited you
+are? Great! Do a post in your blog and explain us what did you create with
+Elcodi!</li>
+<li>Elcodi is an international project, so we are looking for people able to
+translate Bamboo to all languages (even in Klingon and Esperanto!). Are you
+proud of your language? Well, help other people of your country for using this
+project :)</li>
+</ul>
+
+
+<p>All this actions will give you some extra points.</p>
+
+<p>Of course, if you need help, all Elcodi Core team will gladly help you. Just
+enter <a href="https://gitter.im/elcodi/elcodi">Elcodi Gitter room</a> and say hello :)</p>
+
+<p>Have a nice day!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Elcodi changes its technology]]></title>
@@ -171,98 +269,6 @@ Version 0.3</p>
 <p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
 
 <p>We are on our way there, things look good!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Our roadmap]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/"/>
-    <updated>2014-08-12T09:55:48+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap</id>
-    <content type="html"><![CDATA[<h5>This is the second part of a <a href="/blog/2014/08/11/a-short-break-for-meditation/">previous post</a></h5>
-
-<p>We can proudly state we have a lot to do in the following months.</p>
-
-<p>Question is, what now? Maybe we are 1% done along our path, although &ldquo;done&rdquo; in our world sounds a bit odd since there is always room for improvement.
-As long as our issue tracker list gets fed, we will stay hungry for enhancing our code.</p>
-
-<h3>GeoBundle</h3>
-
-<p>One of the most recurring challenges in e-commerce development is the modeling of geographic and administrative divisions. We will put our efforts in designing a simple yet extensible set of entities and relations as well as strategies to implement custom tree structures.</p>
-
-<h3>Rule management</h3>
-
-<p>Rule-based decision logic is ubiquitous in e-commerce applications. A few examples:</p>
-
-<ul>
-<li>Which discount coupon can be automatically applied upon entering the checkout process?</li>
-<li>Can a particular discount code be applied?</li>
-<li>Can two specific products be added to the same cart?</li>
-<li>Can a specific product combination trigger a discount, an up-sell or a different offer?</li>
-<li>When is it possible to use a specific carrier or payment method?</li>
-</ul>
-
-
-<p>Elcodi <a href="https://github.com/elcodi/rulebundle">RuleBundle</a> aims at solving these kinds of issue.</p>
-
-<h3>Ports and Adapters</h3>
-
-<p>We surely want to promote high-cohesion, loose-coupled software components. Right now we are halfway, as described in the <a href="/blog/2014/08/11/a-short-break-for-meditation/">previous post</a>, but we want to keep improving. A typical usage of P&amp;A would be to decouple Symfony bundles from other significant objects in the domain, or to be able to use Elcodi Cart component without depending on the CustomerBundle.</p>
-
-<h3>Tests</h3>
-
-<p>A great deal of credibility for an open source project is earned by instilling a thorough and sound test methodology. We assume that we&rsquo;ve been lacking on this specific subject, doing our homeworks halfway. This will be addressed both for Elcodi core repository and web applications (<a href="https://github.com/elcodi/bamboo-store">BambooStore</a> and <a href="https://github.com/elcodi/bamboo-admin">BambooAdmin</a>) by raising the coverage of unit and functional tests and start working with acceptance tests for the web apps.</p>
-
-<p>We have not decided yet which toolset we will be using, surely one between <a href="http://docs.behat.org/">Behat3</a> and <a href="http://www.phpspec.net/">PHPSpec2</a>. As always, suggestions are more than welcome!</p>
-
-<h3>PaymentSuite</h3>
-
-<p>The <a href="http://github.com/PaymentSuite">PaymentSuite</a> was conceived and grown inside Elcodi.</p>
-
-<p>It is a payment processing suite developed in Symfony2 which follows our vision of extensibility using adapters and dispatched events to give maximum flexibility to implementers and to decouple specific <code>Cart</code> or <code>Order</code> implementations. It promotes easy and sensible defaults for configurations.</p>
-
-<p>We will take care of the project and will evolve it as the default payment platform. The <a href="http://bamboo.elcodi.com">BambooStore</a> is already using a dummy <a href="https://github.com/PaymentSuite/FreePaymentBundle">free payment</a> method.</p>
-
-<h3>ShippingSuite</h3>
-
-<p>We would like to follow a similar path as the PaymentSuite: a separated and parallel project that does not depend on Elcodi and that can be easy integrated in web applications. Same vision, same resilience philosophy: work with <code>Order</code> or <code>Carrier</code> as <em>adaptees</em>.</p>
-
-<h3>Documentation</h3>
-
-<p>Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author <a href="https://twitter.com/fabpot">@fabpot</a> once said, it is the most challenging part of any project.</p>
-
-<p>We are working on the foundation of an <a href="http://elcodi.readthedocs.org">english documentation</a>, localized and translated version will follow later on. This is a list of topics that we will elaborate further:</p>
-
-<ul>
-<li>Implementation guidelines. General vision and coding philosophy, style and everything needed for developers wishing to contribute.</li>
-<li>Customizations. Craft a project using only Elcodi core. Architectural constraints to keep in mind. Recipes and examples.</li>
-<li>Core bundles documentation, including
-
-<ul>
-<li>Provisioned Model</li>
-<li>Event system rationale and taxonomies</li>
-<li>Services</li>
-<li>Configuration</li>
-<li>Controllers and extensions, where it may apply</li>
-</ul>
-</li>
-<li><a href="https://github.com/elcodi/bamboo-store">Bamboo</a> <a href="https://github.com/elcodi/bamboo-admin">web applications</a> documentation for Symfony and front-end developers: the starting point to develop your e-commerce site.</li>
-</ul>
-
-
-<p>This is going to be an epic effort and the real main entrance to the project for the community. No matter the size of your codebase is, documentation is a key measure of a project success.</p>
-
-<h2>Community</h2>
-
-<p>If documentation should be our <em>diamond</em>, the community should be our <em>propellant</em>. A good community makes a project good.</p>
-
-<p>We started as a small project and we know how demanding it can be to get involved and contribute to the development of an open source based product.</p>
-
-<p>We will take special care of this particular topic, since motivating people and get them involved is essential for our vision: Elcodi was never mean to be a mere code repository, it is a group of visionary people with a clear view in their minds, working together to work out a specific problem.</p>
-
-<p>Taking care of the code means caring for the people that make it possible for the code to be crafted. We are especially interested in helping those who want to learn, so we will soon arrange training and learning mechanisms, both for Symfony and Elcodi.</p>
-
-<p>Get ready to be effective!</p>
 ]]></content>
   </entry>
   

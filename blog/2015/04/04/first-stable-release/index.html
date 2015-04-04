@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>We have evolved - Elcodi blog</title>
+  <title>First stable release - Elcodi blog</title>
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="You might say that we&rsquo;ve evolved. An evolution ought to be seen as a positive thing, and ours is no exception.
-At first, we had serious doubts &hellip;">
+  <meta name="description" content="Hi there everyone. The Elcodi core team is glad to announce that next June 1st, we will tag the
+first stable release of the project (Elcodi will be &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ At first, we had serious doubts &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/">
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@ At first, we had serious doubts &hellip;">
   
   <header>
     
-      <h1 class="entry-title">We Have Evolved</h1>
+      <h1 class="entry-title">First Stable Release</h1>
     
     
       <p class="meta">
@@ -93,54 +93,103 @@ At first, we had serious doubts &hellip;">
   
 
 
-<time datetime="2014-08-28T11:42:47+02:00" pubdate data-updated="true">Aug 28<span>th</span>, 2014</time>
+<time datetime="2015-04-04T19:51:28+02:00" pubdate data-updated="true">Apr 4<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>You might say that we&rsquo;ve evolved.</p>
+<div class="entry-content"><p>Hi there everyone.</p>
 
-<p>An evolution ought to be seen as a positive thing, and ours is no exception.
-At first, we had serious doubts about the nature of our project. One of the
-questions we kept asking ourselves was what factors should we consider in
-choosing whether and when to engage external projects or libraries, and we
-believe we made the right decision. In fact, that decision brought us forward in
-a big way toward defining ourselves.</p>
+<p>The Elcodi core team is glad to announce that next June 1st, we will tag the
+first stable release of the project (Elcodi will be still based on Symfony, you
+know how much we like Symfony and its community&hellip;)</p>
 
-<p>Flexible e-commerce components for Symfony2</p>
+<h3>Elcodi v1.0</h3>
 
-<p>Anyway, this phrase is actually very ambiguous, as we could be referring to
-Symfony as a set of PHP components or as the Framework (I&rsquo;ve always wondered
-why they have the same name&hellip; it causes a lot of confusion).</p>
+<ul>
+<li>Until this day, we&rsquo;ll finish stabilization of all packages</li>
+<li>We will work so hard to finish a documentation for all of you</li>
+<li>All available features will be covered by unit, functional and behavioral
+tests, using PHPUnit and Behat 3.0</li>
+<li>After <code>v1.0</code> we will start working on <code>v3.0</code>. This new version will be
+released next November in order to be compatible with Symfony <code>v3.*</code>. It means
+as well that this new version will introduce some BC Break, of course.</li>
+</ul>
 
-<p>That&rsquo;s why we wanted to reflect a bit, starting from the code itself. Do we want
-to use the Symfony Framework or the Symfony Components? The answer seemed to
-emerge spontaneously. We want to work with the Symfony components, but we also
-want to propose bundles that use the framework.</p>
 
-<p>This was the origin of this commit.</p>
+<p>So, we have less than 2 months to stabilize Elcodi package, and we need your
+help.</p>
 
-<p><a href="https://github.com/elcodi/elcodi/pull/239">https://github.com/elcodi/elcodi/pull/239</a></p>
+<p>Some days ago, we announced the
+<a href="http://blog.elcodi.io/blog/2015/03/03/elcodi-bug-hunting/">Elcodi Bug Hunting</a>,
+remember? Well, initially this contest was during this past March, but we have
+decided to enlarge the period of the contest until June 1st, the day of the
+release.</p>
 
-<p>We have only just planted the seed with this refactoring. We have realized, even
-more, the importance of having both functional testing and unit testing (unit
-tests are almost all for the components, while functional tests are for the
-bundles). This needs more work, but at least we have lifted this project to a
-level at which we truly feel comfortable. It&rsquo;s an excellent starting point for
-a long and exciting path ahead.</p>
+<p>Until now, we have received some help from some people. Special thanks for them.</p>
 
-<p>This change has resulted in some collateral damage, as it has changed the path
-of our bundles, meaning that the &ldquo;subtree split&rdquo; has resulted in totally new
-repositories beginning with the first commit after refactoring. This means that
-all tags prior to version 0.3.0 have been lost, so we apologize to those who
-have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to version
-~0.3 and check that everything&rsquo;s working.</p>
+<ul>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Acordoval">cordoval</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ajaviereguiluz">javiereguiluz</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ahacfi">hacfi</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Amickaelandrieu">mickaelandrieu</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed">And many more</a></li>
+</ul>
 
-<p>We are available for any questions or concerns.</p>
 
-<p>Happy coding!</p>
+<p>But we need some extra help in order to accomplish our goal.</p>
+
+<h3>Win the MacBookPro</h3>
+
+<p>Easy and super-fast. Do you want to win the MacBookPro? Easy, just help us with
+some fast actions and you will be able to win the
+<strong>Apple Macbook Pro 2014 Retina</strong> (of course, with an Android/Ubuntu/Windows
+alternative or any geeky stuff with same price)</p>
+
+<ul>
+<li>Follow us on twitter (@elcodi_dev)</li>
+<li>Give <a href="http://github.com/elcodi/elcodi">Elcodi repository</a> a star</li>
+<li>Give <a href="http://github.com/elcodi/bamboo">Bamboo repository</a> a star</li>
+<li>Give <a href="http://github.com/elcodi/docs">Elcodi docs repository</a> a star</li>
+<li>Make a funny tweet about it, for example, sharing this post or trolling us
+a little bit :)</li>
+</ul>
+
+
+<p>After that you will have 5 points, enough to access to the MacBookPro raffle.</p>
+
+<h3>A little bit more&hellip;</h3>
+
+<p>Are you interested in E-commerce and do you like Symfony? Well, there are some
+extra things you can do to help. You can win the battle and win the
+<strong>Ipad Air</strong></p>
+
+<ul>
+<li>[Download, install and try Bamboo)[<a href="http://elcodi.io/docs/quick-start.html">http://elcodi.io/docs/quick-start.html</a>)</li>
+<li>If you find any kind of issue, please open an Issue in our repository and
+report it to us.</li>
+<li>Oh, you know how to fix it? That&rsquo;s wonderful! Create a Pull Request and be a
+collaborator of the project!</li>
+<li>We are elaborating a documentation&hellip; maybe you could help us looking for some
+typo issues or creating new content&hellip;</li>
+<li>Have you tried Elcodi and you want to express the world how much excited you
+are? Great! Do a post in your blog and explain us what did you create with
+Elcodi!</li>
+<li>Elcodi is an international project, so we are looking for people able to
+translate Bamboo to all languages (even in Klingon and Esperanto!). Are you
+proud of your language? Well, help other people of your country for using this
+project :)</li>
+</ul>
+
+
+<p>All this actions will give you some extra points.</p>
+
+<p>Of course, if you need help, all Elcodi Core team will gladly help you. Just
+enter <a href="https://gitter.im/elcodi/elcodi">Elcodi Gitter room</a> and say hello :)</p>
+
+<p>Have a nice day!</p>
 </div>
 
 
@@ -149,7 +198,7 @@ have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to v
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Elcodi Team</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Marc Morera</span></span>
 
       
 
@@ -163,12 +212,12 @@ have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to v
   
 
 
-<time datetime="2014-08-28T11:42:47+02:00" pubdate data-updated="true">Aug 28<span>th</span>, 2014</time>
+<time datetime="2015-04-04T19:51:28+02:00" pubdate data-updated="true">Apr 4<span>th</span>, 2015</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ecommerce/'>ecommerce</a>, <a class='category' href='/blog/categories/elcodi/'>elcodi</a>, <a class='category' href='/blog/categories/symfony/'>symfony</a>
+    <a class='category' href='/blog/categories/bamboo/'>bamboo</a>, <a class='category' href='/blog/categories/ecommerce/'>ecommerce</a>, <a class='category' href='/blog/categories/elcodi/'>elcodi</a>, <a class='category' href='/blog/categories/release/'>release</a>, <a class='category' href='/blog/categories/symfony/'>symfony</a>
   
 </span>
 
@@ -177,7 +226,7 @@ have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to v
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/" >Tweet</a>
   
   
   
@@ -186,10 +235,8 @@ have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to v
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/08/14/elcodi-team/" title="Previous Post: Elcodi team">&laquo; Elcodi team</a>
+        <a class="basic-alignment left" href="/blog/2015/04/01/elcodi-changes-its-technology/" title="Previous Post: Elcodi changes its technology">&laquo; Elcodi changes its technology</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/10/16/welcome-berny/" title="Next Post: The family grows">The family grows &raquo;</a>
       
     </p>
   </footer>
@@ -284,8 +331,8 @@ have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to v
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/';
-        var disqus_url = 'http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/';
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/';
         var disqus_script = 'embed.js';
       
     (function () {
