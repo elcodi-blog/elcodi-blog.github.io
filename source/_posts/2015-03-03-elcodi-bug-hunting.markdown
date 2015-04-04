@@ -49,7 +49,7 @@ to grow more as a community.
 
 ### The prices
 
-- Apple Macbook Pro 2014 Retina 13â€
+- Apple Macbook Pro 2014 Retina 13"
 - Apple Ipad Air 16Gb
 
 ### Scoring
@@ -69,7 +69,7 @@ That's why we'll reward you for:
 - Star on Github ([elcodi/elcodi](//github.com/elcodi/elcodi)) - *1 point*
 - Star on Github ([elcodi/bamboo](//github.com/elcodi/bamboo)) - *1 point*
 - Follow on Twitter ([@elcodi_dev](//twitter.com/elcodi_dev)) - *1 point*
-- Twitter mention - *1 point (max 1)*
+- Twitter mention - *1 point (max 2)*
 
 #### The collaborator
 
