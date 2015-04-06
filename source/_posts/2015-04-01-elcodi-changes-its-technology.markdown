@@ -11,6 +11,9 @@ categories:
 ---
 This is an official statement from Elcodi Team.
 
+> This post was an April Fools joke. Elcodi will be based on Symfony for a long
+> time. We love Symfony.
+
 After some nice months using Symfony in our project Elcodi, and after many
 reflections on how to increase the project quality, we're proud to announce that
 we are moving to Ruby on Rails.
