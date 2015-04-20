@@ -4,7 +4,7 @@
   <title><![CDATA[Category: director | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/director/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-04-20T15:39:55+02:00</updated>
+  <updated>2015-04-20T16:13:02+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -127,7 +127,7 @@ public function loadCart($user)
 ```</p>
 
 <p>As you can see, this services needs 3 dependencies, and would be difficult to
-reduce this number in order to reduce the complexity if the class. This service
+reduce this number in order to reduce the complexity of the class. This service
 is intended to do one single thing.</p>
 
 <p>What is the strategy here? Do you know what the <em>Facade pattern</em> is, right?
