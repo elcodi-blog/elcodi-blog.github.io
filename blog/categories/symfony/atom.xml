@@ -4,7 +4,7 @@
   <title><![CDATA[Category: symfony | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/symfony/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-04-06T20:58:06+02:00</updated>
+  <updated>2015-04-20T15:09:19+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,492 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing the Directors in Symfony]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/04/20/introducing-the-directors-in-symfony/"/>
+    <updated>2015-04-20T12:36:03+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/04/20/introducing-the-directors-in-symfony</id>
+    <content type="html"><![CDATA[<p>Have you ever worked with Entity Managers, Repositories or Factories in Symfony?
+Yes, for sure you&rsquo;ve done that. Indeed, if you work with entities in your
+project, these type of objects will be your daily, so we want to introduce you a
+new concept, born in <a href="http://github.com/elcodi/elcodi">Elcodi project</a> and
+created in order to simplify the management of an entity inside a service,
+fixture or functional test.</p>
+
+<p>Please, welcome the Director class.</p>
+
+<h3>Director</h3>
+
+<p>Imagine you have a service called <code>CartWrapper</code>. This service is meant to be a
+wrapper of a cart, and its behavior is that easy.</p>
+
+<ul>
+<li>If you require an existing user&rsquo;s cart, retrieve it from database and return
+it</li>
+<li>Otherwise, create a new Cart, save it and return it.</li>
+</ul>
+
+
+<p>Let&rsquo;s se a small implementation of such service.</p>
+
+<p>``` php
+/<em>*
+ * CartWrapper
+ </em>/
+class cartWrapper
+{</p>
+
+<pre><code>/**
+ * @var EntityManager
+ *
+ * Cart entity manager
+ */
+protected $entityManager;
+
+/**
+ * @var CartFactory
+ *
+ * Cart factory
+ */
+protected $cartFactory;
+
+/**
+ * @var CartRepository
+ *
+ * Cart repository
+ */
+protected $cartRepository;
+
+/**
+ * Construct
+ *
+ * @param EntityManager  $entityManager  Entity manager
+ * @param CartFactory    $cartFactory    Cart factory
+ * @param CartRepository $cartRepository Cart repository
+ */
+public function __construct(
+    EntityManager $entityManager,
+    CartFactory $cartFactory,
+    CartRepository $cartRepository
+)
+{
+    $this-&gt;entityManager = $entityManager;
+    $this-&gt;cartFactory = $cartFactory;
+    $this-&gt;cartRepository = $cartRepository;
+}
+
+/**
+ * Load cart
+ *
+ * @param UserInterface $user User
+ *
+ * @return CartInterface
+ */
+public function loadCart($user)
+{
+    $userCart = $this
+        -&gt;cartRepository
+        -&gt;findOneBy([
+            'user' =&gt; $user
+        ]);
+
+    if (!($userCart instanceof CartInterface)) {
+
+        $newCart = $this
+            -&gt;cartFactory
+            -&gt;create($user);
+
+        $this
+            -&gt;entityManager
+            -&gt;persist($newCart);
+
+        $this
+            -&gt;entityManager
+            -&gt;flush($newCart);
+
+        $userCart = $newCart;
+    }
+
+    return $userCart;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>As you can see, this services needs 3 dependencies, and would be difficult to
+reduce this number in order to reduce the complexity if the class. This service
+is intended to do one single thing.</p>
+
+<p>What is the strategy here? Do you know what the <em>Facade pattern</em> is, right?
+Well, the way for solving this amount of classes is creating a new facade called
+Director, intended to provide a small set of usable methods simplifying the
+management of the entities.</p>
+
+<p>Let&rsquo;s see the implementation of this class. You can find the real implementation
+in <a href="https://github.com/elcodi/elcodi">elcodi/core</a>.</p>
+
+<p>``` php
+namespace Elcodi\Component\Core\Services;</p>
+
+<p>use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Persistence\ObjectRepository;
+use UnexpectedValueException;</p>
+
+<p>use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;</p>
+
+<p>/<em>*
+ * Class ObjectDirector
+ *
+ * This object is a facade for these different persistence-related elements
+ *
+ * * Object Manager
+ * * Repository
+ * * Factory
+ *
+ * Allows final user to manage in a simple way an entity or a set of entities.
+ * Provides a reduced (but useful) set of methods.
+ </em>/
+class ObjectDirector
+{</p>
+
+<pre><code>/**
+ * @var ObjectManager
+ *
+ * Manager
+ */
+protected $manager;
+
+/**
+ * @var ObjectRepository
+ *
+ * Repository
+ */
+protected $repository;
+
+/**
+ * @var AbstractFactory
+ *
+ * Factory
+ */
+protected $factory;
+
+/**
+ * Construct
+ *
+ * @param ObjectManager    $manager    Manager
+ * @param ObjectRepository $repository Repository
+ * @param AbstractFactory  $factory    Factory
+ */
+public function __construct(
+    ObjectManager $manager,
+    ObjectRepository $repository,
+    AbstractFactory $factory
+) {
+    $this-&gt;manager = $manager;
+    $this-&gt;repository = $repository;
+    $this-&gt;factory = $factory;
+}
+
+/**
+ * Finds an object by its primary key / identifier.
+ *
+ * @param mixed $id The identifier.
+ *
+ * @return object|null Fetched object
+ */
+public function find($id)
+{
+    return $this
+        -&gt;repository
+        -&gt;find($id);
+}
+
+/**
+ * Finds all objects in the repository.
+ *
+ * @return array Set of fetched objects
+ */
+public function findAll()
+{
+    return $this
+        -&gt;repository
+        -&gt;findAll();
+}
+
+/**
+ * Finds objects by a set of criteria.
+ *
+ * Optionally sorting and limiting details can be passed. An implementation may throw
+ * an UnexpectedValueException if certain values of the sorting or limiting details are
+ * not supported.
+ *
+ * @param array        $criteria
+ * @param array|null   $orderBy
+ * @param integer|null $limit
+ * @param integer|null $offset
+ *
+ * @return array Set of fetched objects
+ *
+ * @throws UnexpectedValueException
+ */
+public function findBy(
+    array $criteria,
+    array $orderBy = null,
+    $limit = null,
+    $offset = null)
+{
+    return $this
+        -&gt;repository
+        -&gt;findBy(
+            $criteria,
+            $orderBy,
+            $limit,
+            $offset
+        );
+}
+
+/**
+ * Finds a single object given a criteria.
+ *
+ * @param array $criteria The criteria.
+ *
+ * @return object|null Fetched object
+ */
+public function findOneBy(array $criteria)
+{
+    return $this
+        -&gt;repository
+        -&gt;findOneBy(
+            $criteria
+        );
+}
+
+/**
+ * Create a new entity instance, result of the factory creation method
+ *
+ * @return Object new Instance
+ */
+public function create()
+{
+    return $this
+        -&gt;factory
+        -&gt;create();
+}
+
+/**
+ * Save the instance into database. Given data can be a single object or
+ * an array of objects.
+ *
+ * This method will persist and flush given object/array of objects
+ *
+ * @param object|array $data Data to save into database
+ *
+ * @return object|array Saved data
+ */
+public function save($data)
+{
+    if (is_array($data)) {
+        foreach ($data as $entity) {
+            $this
+                -&gt;manager
+                -&gt;persist($entity);
+        }
+    } else {
+        $this
+            -&gt;manager
+            -&gt;persist($data);
+    }
+
+    $this
+        -&gt;manager
+        -&gt;flush($data);
+
+    return $data;
+}
+
+/**
+ * Remove the instance from the database. Given data can be a single object or
+ * an array of objects.
+ *
+ * This method will remove and flush given object/array of objects
+ *
+ * @param object|array $data Data to remove from database
+ *
+ * @return object|array Removed data
+ */
+public function remove($data)
+{
+    if (is_array($data)) {
+        foreach ($data as $entity) {
+            $this
+                -&gt;manager
+                -&gt;remove($entity);
+        }
+    } else {
+        $this
+            -&gt;manager
+            -&gt;remove($data);
+    }
+
+    $this
+        -&gt;manager
+        -&gt;flush($data);
+
+    return $data;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This implementation provides us a simple set of actions for our entities (maybe
+the most used).</p>
+
+<ul>
+<li>find(&hellip;)</li>
+<li>findAll()</li>
+<li>findBy(&hellip;)</li>
+<li>findOneBy(&hellip;)</li>
+<li>create()</li>
+<li>save()</li>
+<li>remove()</li>
+</ul>
+
+
+<p>This implementation is so useful for many scenarios, but in our case what we
+found is that using Directors, our tests are reduced in many ways (less lines of
+code, less complexity, more effectiveness), and the fixtures are totally
+improved, focusing on the most important thing: our business logic.</p>
+
+<h3>Directors as a service</h3>
+
+<p>To use a Director as a service you need to define your repository as a service
+as well, assuming that your factory is already a service called <code>cart_factory</code>
+and assuming as well that we will work with the default entity manager
+<code>doctrine.orm.default_entity_manager</code> (not a good practice, but let&rsquo;s suppose it
+is in this example).</p>
+
+<p>Let&rsquo;s see how to define your repository as a service.</p>
+
+<p>``` yml
+services:</p>
+
+<pre><code>#
+# Doctrine Repository
+#
+cart_repository:
+    class: Doctrine\Common\Persistence\ObjectRepository
+    factory:
+        - @elcodi.provider.repository
+        - getRepositoryByEntityNamespace
+    arguments:
+        - My\Cart\Namespace
+</code></pre>
+
+<p>```</p>
+
+<p>You will find the service <code>elcodi.provider.repository</code> inside the Bundle
+<code>elcodi/core-bundle</code>. This bundle is not coupled to any Elcodi functionality so
+you can use it in your own projects as a set of isolated features.</p>
+
+<p>Finally, let&rsquo;s create the Director definition by using the factory pattern.</p>
+
+<p>``` yml
+services:</p>
+
+<pre><code>#
+# Directors
+#
+elcodi.director.cart:
+    class: Elcodi\Component\Core\Services\ObjectDirector
+    arguments:
+        - @doctrine.orm.default_entity_manager
+        - @cart_repository
+        - @cart_factory
+</code></pre>
+
+<p>```</p>
+
+<p>Take in account that each entity will have it&rsquo;s own Director instance, so this
+is why we use the factory pattern here.</p>
+
+<p>How can we use the new Director service in our first <code>CartWrapper</code>
+implementation by changing and improving the services dependencies? Let&rsquo;s do
+that!</p>
+
+<p>``` php
+/<em>*
+ * CartWrapper
+ </em>/
+class cartWrapper
+{</p>
+
+<pre><code>/**
+ * @var ObjectDirector
+ *
+ * Cart director
+ */
+protected $cartDirector;
+
+/**
+ * Construct
+ *
+ * @param ObjectDirector $cartDirector Cart Director
+ */
+public function __construct(ObjectDirector $cartDirector)
+{
+    $this-&gt;cartDirector = $cartDirector;
+}
+
+/**
+ * Load cart
+ *
+ * @param UserInterface $user User
+ *
+ * @return CartInterface
+ */
+public function loadCart($user)
+{
+    $userCart = $this
+        -&gt;cartDirector
+        -&gt;findOneBy([
+            'user' =&gt; $user
+        ]);
+
+    if (!($userCart instanceof CartInterface)) {
+
+        $newCart = $this
+            -&gt;cartDirector
+            -&gt;create($user);
+
+        $this
+            -&gt;cartDirector
+            -&gt;save($newCart);
+
+        $userCart = $newCart;
+    }
+
+    return $userCart;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p><a href="http://github.com/elcodi/elcodi">Elcodi</a> is fully based on the usage of
+Directors. This does <strong>not</strong> mean that we must use Directors everywhere.
+Sometimes you need to use only one of the wrapped objects, and in that case you
+must inject them one by one, so please, before using this new object think about
+it, think about the pros and the contras and be responsible about your
+implementation.</p>
+
+<p>Don&rsquo;t hesitate to comment about what do you think about this feature.</p>
+
+<p>Have a nice day!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[First stable release]]></title>
@@ -247,98 +733,6 @@ Version 0.3</p>
 <p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
 
 <p>We are on our way there, things look good!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Our roadmap]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/"/>
-    <updated>2014-08-12T09:55:48+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap</id>
-    <content type="html"><![CDATA[<h5>This is the second part of a <a href="/blog/2014/08/11/a-short-break-for-meditation/">previous post</a></h5>
-
-<p>We can proudly state we have a lot to do in the following months.</p>
-
-<p>Question is, what now? Maybe we are 1% done along our path, although &ldquo;done&rdquo; in our world sounds a bit odd since there is always room for improvement.
-As long as our issue tracker list gets fed, we will stay hungry for enhancing our code.</p>
-
-<h3>GeoBundle</h3>
-
-<p>One of the most recurring challenges in e-commerce development is the modeling of geographic and administrative divisions. We will put our efforts in designing a simple yet extensible set of entities and relations as well as strategies to implement custom tree structures.</p>
-
-<h3>Rule management</h3>
-
-<p>Rule-based decision logic is ubiquitous in e-commerce applications. A few examples:</p>
-
-<ul>
-<li>Which discount coupon can be automatically applied upon entering the checkout process?</li>
-<li>Can a particular discount code be applied?</li>
-<li>Can two specific products be added to the same cart?</li>
-<li>Can a specific product combination trigger a discount, an up-sell or a different offer?</li>
-<li>When is it possible to use a specific carrier or payment method?</li>
-</ul>
-
-
-<p>Elcodi <a href="https://github.com/elcodi/rulebundle">RuleBundle</a> aims at solving these kinds of issue.</p>
-
-<h3>Ports and Adapters</h3>
-
-<p>We surely want to promote high-cohesion, loose-coupled software components. Right now we are halfway, as described in the <a href="/blog/2014/08/11/a-short-break-for-meditation/">previous post</a>, but we want to keep improving. A typical usage of P&amp;A would be to decouple Symfony bundles from other significant objects in the domain, or to be able to use Elcodi Cart component without depending on the CustomerBundle.</p>
-
-<h3>Tests</h3>
-
-<p>A great deal of credibility for an open source project is earned by instilling a thorough and sound test methodology. We assume that we&rsquo;ve been lacking on this specific subject, doing our homeworks halfway. This will be addressed both for Elcodi core repository and web applications (<a href="https://github.com/elcodi/bamboo-store">BambooStore</a> and <a href="https://github.com/elcodi/bamboo-admin">BambooAdmin</a>) by raising the coverage of unit and functional tests and start working with acceptance tests for the web apps.</p>
-
-<p>We have not decided yet which toolset we will be using, surely one between <a href="http://docs.behat.org/">Behat3</a> and <a href="http://www.phpspec.net/">PHPSpec2</a>. As always, suggestions are more than welcome!</p>
-
-<h3>PaymentSuite</h3>
-
-<p>The <a href="http://github.com/PaymentSuite">PaymentSuite</a> was conceived and grown inside Elcodi.</p>
-
-<p>It is a payment processing suite developed in Symfony2 which follows our vision of extensibility using adapters and dispatched events to give maximum flexibility to implementers and to decouple specific <code>Cart</code> or <code>Order</code> implementations. It promotes easy and sensible defaults for configurations.</p>
-
-<p>We will take care of the project and will evolve it as the default payment platform. The <a href="http://bamboo.elcodi.com">BambooStore</a> is already using a dummy <a href="https://github.com/PaymentSuite/FreePaymentBundle">free payment</a> method.</p>
-
-<h3>ShippingSuite</h3>
-
-<p>We would like to follow a similar path as the PaymentSuite: a separated and parallel project that does not depend on Elcodi and that can be easy integrated in web applications. Same vision, same resilience philosophy: work with <code>Order</code> or <code>Carrier</code> as <em>adaptees</em>.</p>
-
-<h3>Documentation</h3>
-
-<p>Akin to the phisolophers' stone, sibling of the Holy Grail, the documentation is the most precious gemstone that an open source project should strive to shape. As Symfony2 author <a href="https://twitter.com/fabpot">@fabpot</a> once said, it is the most challenging part of any project.</p>
-
-<p>We are working on the foundation of an <a href="http://elcodi.readthedocs.org">english documentation</a>, localized and translated version will follow later on. This is a list of topics that we will elaborate further:</p>
-
-<ul>
-<li>Implementation guidelines. General vision and coding philosophy, style and everything needed for developers wishing to contribute.</li>
-<li>Customizations. Craft a project using only Elcodi core. Architectural constraints to keep in mind. Recipes and examples.</li>
-<li>Core bundles documentation, including
-
-<ul>
-<li>Provisioned Model</li>
-<li>Event system rationale and taxonomies</li>
-<li>Services</li>
-<li>Configuration</li>
-<li>Controllers and extensions, where it may apply</li>
-</ul>
-</li>
-<li><a href="https://github.com/elcodi/bamboo-store">Bamboo</a> <a href="https://github.com/elcodi/bamboo-admin">web applications</a> documentation for Symfony and front-end developers: the starting point to develop your e-commerce site.</li>
-</ul>
-
-
-<p>This is going to be an epic effort and the real main entrance to the project for the community. No matter the size of your codebase is, documentation is a key measure of a project success.</p>
-
-<h2>Community</h2>
-
-<p>If documentation should be our <em>diamond</em>, the community should be our <em>propellant</em>. A good community makes a project good.</p>
-
-<p>We started as a small project and we know how demanding it can be to get involved and contribute to the development of an open source based product.</p>
-
-<p>We will take special care of this particular topic, since motivating people and get them involved is essential for our vision: Elcodi was never mean to be a mere code repository, it is a group of visionary people with a clear view in their minds, working together to work out a specific problem.</p>
-
-<p>Taking care of the code means caring for the people that make it possible for the code to be crafted. We are especially interested in helping those who want to learn, so we will soon arrange training and learning mechanisms, both for Symfony and Elcodi.</p>
-
-<p>Get ready to be effective!</p>
 ]]></content>
   </entry>
   

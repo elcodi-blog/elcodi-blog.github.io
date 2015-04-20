@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-04-06T20:58:06+02:00</updated>
+  <updated>2015-04-20T15:09:19+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,842 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing the Directors in Symfony]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/04/20/introducing-the-directors-in-symfony/"/>
+    <updated>2015-04-20T12:36:03+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/04/20/introducing-the-directors-in-symfony</id>
+    <content type="html"><![CDATA[<p>Have you ever worked with Entity Managers, Repositories or Factories in Symfony?
+Yes, for sure you&rsquo;ve done that. Indeed, if you work with entities in your
+project, these type of objects will be your daily, so we want to introduce you a
+new concept, born in <a href="http://github.com/elcodi/elcodi">Elcodi project</a> and
+created in order to simplify the management of an entity inside a service,
+fixture or functional test.</p>
+
+<p>Please, welcome the Director class.</p>
+
+<h3>Director</h3>
+
+<p>Imagine you have a service called <code>CartWrapper</code>. This service is meant to be a
+wrapper of a cart, and its behavior is that easy.</p>
+
+<ul>
+<li>If you require an existing user&rsquo;s cart, retrieve it from database and return
+it</li>
+<li>Otherwise, create a new Cart, save it and return it.</li>
+</ul>
+
+
+<p>Let&rsquo;s se a small implementation of such service.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * CartWrapper</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">cartWrapper</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var EntityManager</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Cart entity manager</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$entityManager</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var CartFactory</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Cart factory</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$cartFactory</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var CartRepository</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Cart repository</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$cartRepository</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Construct</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param EntityManager  $entityManager  Entity manager</span>
+</span><span class='line'><span class="sd">     * @param CartFactory    $cartFactory    Cart factory</span>
+</span><span class='line'><span class="sd">     * @param CartRepository $cartRepository Cart repository</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span>
+</span><span class='line'>        <span class="nx">EntityManager</span> <span class="nv">$entityManager</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">CartFactory</span> <span class="nv">$cartFactory</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">CartRepository</span> <span class="nv">$cartRepository</span>
+</span><span class='line'>    <span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">entityManager</span> <span class="o">=</span> <span class="nv">$entityManager</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cartFactory</span> <span class="o">=</span> <span class="nv">$cartFactory</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cartRepository</span> <span class="o">=</span> <span class="nv">$cartRepository</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Load cart</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param UserInterface $user User</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return CartInterface</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">loadCart</span><span class="p">(</span><span class="nv">$user</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$userCart</span> <span class="o">=</span> <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">cartRepository</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">findOneBy</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nv">$userCart</span> <span class="nx">instanceof</span> <span class="nx">CartInterface</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="nv">$newCart</span> <span class="o">=</span> <span class="nv">$this</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">cartFactory</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="nv">$this</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">entityManager</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$newCart</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="nv">$this</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">entityManager</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">flush</span><span class="p">(</span><span class="nv">$newCart</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="nv">$userCart</span> <span class="o">=</span> <span class="nv">$newCart</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$userCart</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, this services needs 3 dependencies, and would be difficult to
+reduce this number in order to reduce the complexity if the class. This service
+is intended to do one single thing.</p>
+
+<p>What is the strategy here? Do you know what the <em>Facade pattern</em> is, right?
+Well, the way for solving this amount of classes is creating a new facade called
+Director, intended to provide a small set of usable methods simplifying the
+management of the entities.</p>
+
+<p>Let&rsquo;s see the implementation of this class. You can find the real implementation
+in <a href="https://github.com/elcodi/elcodi">elcodi/core</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+<span class='line-number'>193</span>
+<span class='line-number'>194</span>
+<span class='line-number'>195</span>
+<span class='line-number'>196</span>
+<span class='line-number'>197</span>
+<span class='line-number'>198</span>
+<span class='line-number'>199</span>
+<span class='line-number'>200</span>
+<span class='line-number'>201</span>
+<span class='line-number'>202</span>
+<span class='line-number'>203</span>
+<span class='line-number'>204</span>
+<span class='line-number'>205</span>
+<span class='line-number'>206</span>
+<span class='line-number'>207</span>
+<span class='line-number'>208</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">namespace</span> <span class="nx">Elcodi\Component\Core\Services</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Doctrine\Common\Persistence\ObjectManager</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Doctrine\Common\Persistence\ObjectRepository</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">UnexpectedValueException</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Elcodi\Component\Core\Factory\Abstracts\AbstractFactory</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Class ObjectDirector</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * This object is a facade for these different persistence-related elements</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * * Object Manager</span>
+</span><span class='line'><span class="sd"> * * Repository</span>
+</span><span class='line'><span class="sd"> * * Factory</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * Allows final user to manage in a simple way an entity or a set of entities.</span>
+</span><span class='line'><span class="sd"> * Provides a reduced (but useful) set of methods.</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">ObjectDirector</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var ObjectManager</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Manager</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$manager</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var ObjectRepository</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Repository</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$repository</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var AbstractFactory</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Factory</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$factory</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Construct</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param ObjectManager    $manager    Manager</span>
+</span><span class='line'><span class="sd">     * @param ObjectRepository $repository Repository</span>
+</span><span class='line'><span class="sd">     * @param AbstractFactory  $factory    Factory</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span>
+</span><span class='line'>        <span class="nx">ObjectManager</span> <span class="nv">$manager</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">ObjectRepository</span> <span class="nv">$repository</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">AbstractFactory</span> <span class="nv">$factory</span>
+</span><span class='line'>    <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">manager</span> <span class="o">=</span> <span class="nv">$manager</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repository</span> <span class="o">=</span> <span class="nv">$repository</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">factory</span> <span class="o">=</span> <span class="nv">$factory</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Finds an object by its primary key / identifier.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param mixed $id The identifier.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return object|null Fetched object</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">repository</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Finds all objects in the repository.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return array Set of fetched objects</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">repository</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Finds objects by a set of criteria.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Optionally sorting and limiting details can be passed. An implementation may throw</span>
+</span><span class='line'><span class="sd">     * an UnexpectedValueException if certain values of the sorting or limiting details are</span>
+</span><span class='line'><span class="sd">     * not supported.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param array        $criteria</span>
+</span><span class='line'><span class="sd">     * @param array|null   $orderBy</span>
+</span><span class='line'><span class="sd">     * @param integer|null $limit</span>
+</span><span class='line'><span class="sd">     * @param integer|null $offset</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return array Set of fetched objects</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @throws UnexpectedValueException</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findBy</span><span class="p">(</span>
+</span><span class='line'>        <span class="k">array</span> <span class="nv">$criteria</span><span class="p">,</span>
+</span><span class='line'>        <span class="k">array</span> <span class="nv">$orderBy</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+</span><span class='line'>        <span class="nv">$limit</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+</span><span class='line'>        <span class="nv">$offset</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">repository</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">findBy</span><span class="p">(</span>
+</span><span class='line'>                <span class="nv">$criteria</span><span class="p">,</span>
+</span><span class='line'>                <span class="nv">$orderBy</span><span class="p">,</span>
+</span><span class='line'>                <span class="nv">$limit</span><span class="p">,</span>
+</span><span class='line'>                <span class="nv">$offset</span>
+</span><span class='line'>            <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Finds a single object given a criteria.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param array $criteria The criteria.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return object|null Fetched object</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findOneBy</span><span class="p">(</span><span class="k">array</span> <span class="nv">$criteria</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">repository</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">findOneBy</span><span class="p">(</span>
+</span><span class='line'>                <span class="nv">$criteria</span>
+</span><span class='line'>            <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Create a new entity instance, result of the factory creation method</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return Object new Instance</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">factory</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Save the instance into database. Given data can be a single object or</span>
+</span><span class='line'><span class="sd">     * an array of objects.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * This method will persist and flush given object/array of objects</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param object|array $data Data to save into database</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return object|array Saved data</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$data</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$data</span> <span class="k">as</span> <span class="nv">$entity</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nv">$this</span>
+</span><span class='line'>                    <span class="o">-&gt;</span><span class="na">manager</span>
+</span><span class='line'>                    <span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">manager</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">manager</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">flush</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Remove the instance from the database. Given data can be a single object or</span>
+</span><span class='line'><span class="sd">     * an array of objects.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * This method will remove and flush given object/array of objects</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param object|array $data Data to remove from database</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return object|array Removed data</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$data</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$data</span> <span class="k">as</span> <span class="nv">$entity</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nv">$this</span>
+</span><span class='line'>                    <span class="o">-&gt;</span><span class="na">manager</span>
+</span><span class='line'>                    <span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">manager</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">manager</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">flush</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This implementation provides us a simple set of actions for our entities (maybe
+the most used).</p>
+
+<ul>
+<li>find(&hellip;)</li>
+<li>findAll()</li>
+<li>findBy(&hellip;)</li>
+<li>findOneBy(&hellip;)</li>
+<li>create()</li>
+<li>save()</li>
+<li>remove()</li>
+</ul>
+
+
+<p>This implementation is so useful for many scenarios, but in our case what we
+found is that using Directors, our tests are reduced in many ways (less lines of
+code, less complexity, more effectiveness), and the fixtures are totally
+improved, focusing on the most important thing: our business logic.</p>
+
+<h3>Directors as a service</h3>
+
+<p>To use a Director as a service you need to define your repository as a service
+as well, assuming that your factory is already a service called <code>cart_factory</code>
+and assuming as well that we will work with the default entity manager
+<code>doctrine.orm.default_entity_manager</code> (not a good practice, but let&rsquo;s suppose it
+is in this example).</p>
+
+<p>Let&rsquo;s see how to define your repository as a service.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#</span>
+</span><span class='line'>    <span class="c1"># Doctrine Repository</span>
+</span><span class='line'>    <span class="c1">#</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">cart_repository</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Doctrine\Common\Persistence\ObjectRepository</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">factory</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="err">@</span><span class="l-Scalar-Plain">elcodi.provider.repository</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">getRepositoryByEntityNamespace</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">My\Cart\Namespace</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You will find the service <code>elcodi.provider.repository</code> inside the Bundle
+<code>elcodi/core-bundle</code>. This bundle is not coupled to any Elcodi functionality so
+you can use it in your own projects as a set of isolated features.</p>
+
+<p>Finally, let&rsquo;s create the Director definition by using the factory pattern.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#</span>
+</span><span class='line'>    <span class="c1"># Directors</span>
+</span><span class='line'>    <span class="c1">#</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">elcodi.director.cart</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Elcodi\Component\Core\Services\ObjectDirector</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="err">@</span><span class="l-Scalar-Plain">doctrine.orm.default_entity_manager</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="err">@</span><span class="l-Scalar-Plain">cart_repository</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="err">@</span><span class="l-Scalar-Plain">cart_factory</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Take in account that each entity will have it&rsquo;s own Director instance, so this
+is why we use the factory pattern here.</p>
+
+<p>How can we use the new Director service in our first <code>CartWrapper</code>
+implementation by changing and improving the services dependencies? Let&rsquo;s do
+that!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * CartWrapper</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">cartWrapper</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @var ObjectDirector</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * Cart director</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$cartDirector</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Construct</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param ObjectDirector $cartDirector Cart Director</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">ObjectDirector</span> <span class="nv">$cartDirector</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cartDirector</span> <span class="o">=</span> <span class="nv">$cartDirector</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Load cart</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param UserInterface $user User</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return CartInterface</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">loadCart</span><span class="p">(</span><span class="nv">$user</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$userCart</span> <span class="o">=</span> <span class="nv">$this</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">cartDirector</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">findOneBy</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nv">$userCart</span> <span class="nx">instanceof</span> <span class="nx">CartInterface</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="nv">$newCart</span> <span class="o">=</span> <span class="nv">$this</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">cartDirector</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="nv">$this</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">cartDirector</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$newCart</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="nv">$userCart</span> <span class="o">=</span> <span class="nv">$newCart</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$userCart</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://github.com/elcodi/elcodi">Elcodi</a> is fully based on the usage of
+Directors. This does <strong>not</strong> mean that we must use Directors everywhere.
+Sometimes you need to use only one of the wrapped objects, and in that case you
+must inject them one by one, so please, before using this new object think about
+it, think about the pros and the contras and be responsible about your
+implementation.</p>
+
+<p>Don&rsquo;t hesitate to comment about what do you think about this feature.</p>
+
+<p>Have a nice day!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[First stable release]]></title>
@@ -1360,150 +2196,6 @@ aspectos.</p>
 <p>Otro objetivo es, una vez llegado a la primera versión estable, abrir ya el
 market. Dado que a medida que pasa el tiempo la api va cambiando menos, creemos
 que no falta demasiado para poder llegar a este punto.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Nuestro roadmap]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/"/>
-    <updated>2014-08-05T12:46:22+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap</id>
-    <content type="html"><![CDATA[<h5>Este post es la continuación de <a href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/">uno anterior</a>.</h5>
-
-<p>Podemos decir con orgullos que tenemos proyecto por mucho tiempo.</p>
-
-<p>La pregunta es&hellip; ¿y ahora qué? Pues bueno, ahora solo hemos andado un uno por
-ciento del camino al completo (Creo que la palabra &ldquo;completo&rdquo; es algo
-inexistente en nuestro ámbito&hellip; siempre hay cosas que hacer y mejorar&hellip;).
-Almenos, y mientras nuestra lista de Issues y Features no esté vacía, tenemos
-ganas de mejorar nuestro repositorio. Aquí algunas cosas importantes.</p>
-
-<h3>GeoBundle</h3>
-
-<p>Consideramos que es uno de los problemas más trabajados en todas las empresas
-ecommerce, tener un buen sistema geográfico. Tenerlo implica poder segmentar
-mucho mejor y cotejar los datos, para sacar buenas métricas y así mejorar la
-experiencia de usuario.</p>
-
-<p>Queremos trabajar en un completo sistema relacional de entidades, de tal forma
-que, con comandos simples se puedan customizar y poblar tablas enteras.</p>
-
-<h3>Gestión de Reglas</h3>
-
-<p>Una parte interesante del proyecto es la utilización de reglas en todo el
-modelo. Por ejemplo.</p>
-
-<ul>
-<li>¿Cuando se aplica un cupón automático de cart?</li>
-<li>¿Cuando es posible aplicar un cupón cuando se aplica?</li>
-<li>¿Cuando es posible mezclar dos productos?</li>
-<li>¿Cuando se puede utilizar un Carrier o un método de pago?</li>
-</ul>
-
-
-<p>Podemos solucionar de una forma muy natural y intruitiva todas estas necesidades
-con un buen sistema de reglas.</p>
-
-<h3>Ports and Adapters</h3>
-
-<p>Una de las cosas que mas nos preocupa es el poder trabajar con los componentes
-de forma desacoplada. Creo que estamos enmedio del camino, por lo que queremos
-aprender como hacerlo mejor. Los &ldquo;Ports and Adapters&rdquo; es una forma de trabajar
-con implementaciones propias del componente, implementando adapters para las
-implementaciones externas. De esta forma, podemos decir que un Cart tiene un
-Customer, sin tener la necesidad de trabajar con CustomerBundle.</p>
-
-<p>Trabajaremos en ello. Seguro.</p>
-
-<h3>Tests</h3>
-
-<p>Hemos hecho los deberes a medias, lo reconocemos, y dado que sabemos que parte
-de la confianza de un proyecto open source se genera con la cantidad y,
-importante, la calidad de sus tests, vamos a trabajar para que ambas cosas
-crezcan a la vez, tanto en los bundles de Elcodi como en los proyectos
-BambooStore y BambooAdmin.</p>
-
-<p>Trabajaremos en las baterías de Tests unitarios y funcionales, como hemos hecho
-hasta ahora, incluso incrementando notablemente el nivel, y en las baterias
-de tests de comportamiento en las Bamboo.</p>
-
-<p>No tenemos muy claro que proyectos utilizar para tales fines. Tenemos en mente
-Behat3 y PHPSPec2, así que toda opinión sobre el tema serás más que bienvenida!</p>
-
-<h3>PaymentSuite</h3>
-
-<p>El proyecto <a href="http://github.com/PaymentSuite">PaymentSuite</a> nació dentro de
-Elcodi.</p>
-
-<p>Es un repositorio de pagos implementado en Symfony2, preparado para trabajar
-100% sobre una capa de eventos. Esta capa te permite poder abstraer la
-implementación del Cart o del Order, así como la implementación del método de
-pago, por lo que la activación o desactivación de los métodos de pago se hacen
-triviales, solo activando y configurando.</p>
-
-<p>Desde Elcodi vamos a trabajar en el proyecto.</p>
-
-<h3>ShippingSuite</h3>
-
-<p>Queremos hacer lo mismo que con PaymentSuite. Un proyecto que trabaje sobre la
-capa de eventos de Symfony y abstraiga, tanto el Order como la implementación
-del Carrier.</p>
-
-<p>Con los pagos nos ha funcionado a la perfección, así que seguro que vamos a
-seguir el mismo camino para esta necesidad.</p>
-
-<h3>Documentación</h3>
-
-<p>El diamante que buscar, encontrar, limpiar y tallar. La famosa documentación.
-Consideramos que es la verdadera joya de la corona, como dijo una vez @fabpot,
-la documentación es la parte más complicada del proyecto, y lo sabemos.</p>
-
-<p>Vamos a trabajar para hacer una buena documentación en inglés, así como la
-traducción en el máximo de idiomas posibles.</p>
-
-<ul>
-<li>Documentación de implementación. Estilos que hemos seguido, así como puntos
-importantes a conocer para los contribuidores.</li>
-<li>Documentación de customización. En realidad consistirá más en un conjunto de
-recetas.</li>
-<li>Patrones que hemos utilizado y sus razones de ser</li>
-<li>Documentación por Bundle.</li>
-<li>Modelo</li>
-<li>Capa de eventos (dispatchers y listeners)</li>
-<li>Capa de servicio</li>
-<li>Capa de extensiones de Twig</li>
-<li>Capa de configuración</li>
-<li>Capa de controlador (en el caso de las implementaciones de front y back)</li>
-<li>Documentación de front. Que necesita un frontend para realizar
-implementaciones propias de frontal</li>
-</ul>
-
-
-<p>Sabemos que no será tarea fácil, pero al menos estamos seguros que parte del
-éxito de cualquier proyecto, por pequeño que sea, es la capacidad de documentar
-que pueda llegar a tener, así como lo acogedor que pueda llegar a ser el entorno
-del proyecto.</p>
-
-<h3>Comunidad</h3>
-
-<p>Si la documentación es nuestro diamante, la comunidad es nuestro carburante. Una
-buena comunidad hace el buen proyecto.</p>
-
-<p>Nacimos como un pequeño proyecto en Symfony y sabemos lo complicado y agresivo
-que puede llegar a ser, para una persona no acostumbrada a estar en entornos
-tan estrictos, el hecho de participar y involucrarse en el desarrollo de una
-tecnología.</p>
-
-<p>Pues bien, como lo hemos vivido y sabemos que es, en parte, la clave de nuestro
-éxito, vamos a tratar este punto con especial interés y cariño. Elcodi no es tan
-solo un código en un repositorio, es un conjunto de personas con una idea clara
-en la cabeza y con la ilusión de trabajar juntas para solucionar un problema.</p>
-
-<p>Es por esto que si queremos cuidar el código al máximo, debemos cuidar a las
-personas que hacen posible que el código exista. Tenemos mucho interés en que la
-gente que quiera aprender, lo haga, así que vamos a diseñar sistemas de learning
-y de formación, tanto en Symfony como en Elcodi, para que la gente que quiera
-participar con nosotros, lo pueda hacer con el máximo nivel posible.</p>
 ]]></content>
   </entry>
   

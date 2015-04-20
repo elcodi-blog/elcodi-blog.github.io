@@ -99,12 +99,18 @@
         <lastmod>2015-04-04T20:37:46+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://elcodi-blog.github.io/blog/2015/04/20/introducing-the-directors-in-symfony/
+        </loc>
+        <lastmod>2015-04-20T15:08:50+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://elcodi-blog.github.io/blog/archives/</loc>
-        <lastmod>2015-04-06T20:57:43+02:00</lastmod>
+        <lastmod>2015-04-20T15:08:50+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/</loc>
-        <lastmod>2015-04-06T20:57:43+02:00</lastmod>
+        <lastmod>2015-04-20T15:08:50+02:00</lastmod>
     </url>
     <url>
         <loc>http://elcodi-blog.github.io/robots.txt</loc>
