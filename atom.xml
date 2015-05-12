@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-04-20T16:13:02+02:00</updated>
+  <updated>2015-05-12T11:29:35+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Translating Elcodi]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/05/12/translating-elcodi/"/>
+    <updated>2015-05-12T11:01:20+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/05/12/translating-elcodi</id>
+    <content type="html"><![CDATA[<p>Hi everyone.</p>
+
+<p>This is a call to the multi language fairy. Our project is still learning some
+new and nice languages. Bamboo talks English, Spanish, Catalan and some French,
+but we want to be a project for everyone in this world, no matter where you
+live, no matter what you talk.</p>
+
+<p>We are looking for some contributors to maintain some other interesting
+translations. Indeed, all of them!</p>
+
+<ul>
+<li>Euskal</li>
+<li>Galego</li>
+<li>Deutsch</li>
+<li>Italiano</li>
+<li>Português</li>
+<li>Nederlands</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>We are looking for smaller translations, for those shops that want to provide
+specific and local languages.</p>
+
+<ul>
+<li>Irish</li>
+<li>Andalúz</li>
+<li>Sardu</li>
+<li>Esperanto</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>Finally we are looking for some popular and fictitious languages. We want to be
+for everyone, remember?</p>
+
+<ul>
+<li>Klingon</li>
+<li>Elvish</li>
+<li>Dwarf language</li>
+<li>Lorem Ipsum</li>
+<li>Random language</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>If you have any interest in translate the application here, please tell us
+something nice <a href="https://github.com/elcodi/bamboo/issues/450">here</a> or keep in
+touch with us at <a href="http://gitter.im/elcodi/elcodi">gitter</a>.</p>
+
+<p>Enjoy your week :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Introducing the Directors in Symfony]]></title>
@@ -2123,79 +2182,6 @@ rápido y podremos crecer en robustez, fiabilidad y ejecución.</p>
 
 <p>Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
 feliz fín de semana.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Objetivos]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/06/objetivos/"/>
-    <updated>2014-08-06T12:12:19+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/06/objetivos</id>
-    <content type="html"><![CDATA[<h2>Este post es la continuación de dos posts anteriores</h2>
-
-<ul>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-</ul>
-
-
-<p>A corto plazo, queremos llegar a una primera versión estable para la comunidad.
-Esta semana hemos puesto la primera piedra de muchas, pero es importante
-establecer reglas y procedimientos cuando pondremos las siguientes.</p>
-
-<p>Tenemos un pequeño set de <a href="https://github.com/elcodi/elcodi/milestones">milestones</a>
-para tener una pequeña guía de acción (como veis, esta semana tenemos la release
-de la versión 0.3)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Version 0.3
-</span><span class='line'>    - Closed 3 days ago
-</span><span class='line'>    - 100% complete  0 open  11 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.4
-</span><span class='line'>    - Due by August 15, 2014
-</span><span class='line'>    - 0% complete  0 open  0 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.5
-</span><span class='line'>    - Due by August 29, 2014
-</span><span class='line'>    - 17% complete  5 open  1 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.6
-</span><span class='line'>    - Due by September 11, 2014
-</span><span class='line'>    - 0% complete  2 open  0 closed</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Esto significa que vamos a trabajar en mejorar lo que tenemos, sin desarrollar
-más lógica de negocio hasta que no tengamos algo un poco más estable, así como
-la comunicación para que la gente interesada tenga claro los timings y tengan
-más visibilidad a la hora de implementar con Elcodi.</p>
-
-<p>Por ahora nos nos vamos a preocupar demasiado de los BC Breaks. Hay una
-<a href="https://github.com/elcodi/elcodi/issues/34">issue</a> abierta para cerrar API,
-pero como bien dice <a href="">@hacfi</a> no es especialmente importante en este intervalo
-tan enfocado al desarrollo de nuevas funcionalidades. Creemos que cumplir con
-un semantic version ahora mismo solo limitaría la arquitectura en muchos
-aspectos.</p>
-
-<p>Hasta la versión 1.0 no habrá <em>semantic version</em>.</p>
-
-<p>Otro objetivo es, una vez llegado a la primera versión estable, abrir ya el
-market. Dado que a medida que pasa el tiempo la api va cambiando menos, creemos
-que no falta demasiado para poder llegar a este punto.</p>
 ]]></content>
   </entry>
   
