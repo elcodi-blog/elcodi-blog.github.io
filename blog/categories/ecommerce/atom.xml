@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ecommerce | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/ecommerce/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-05-12T11:29:35+02:00</updated>
+  <updated>2015-06-19T11:16:04+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,182 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Elcodi beta is here]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/06/18/elcodi-beta-is-here/"/>
+    <updated>2015-06-18T13:42:16+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/06/18/elcodi-beta-is-here</id>
+    <content type="html"><![CDATA[<p>&hellip; and we did it.</p>
+
+<p>It is something really amazing. We&rsquo;ve finally reached our first Beta stage.
+After more than 1 year of hard and non-stop work, we have tagged our first beta
+version in order to provide some stability to all Elcodi installations.</p>
+
+<h2>What means Beta</h2>
+
+<p>If you read some literature about software versions, you&rsquo;ll find that there is
+always a set of pre-defined steps based on the stability of the project</p>
+
+<ul>
+<li>v1.0.0-alpha1: Hey developer! We&rsquo;re building it but we&rsquo;re not ready to be used
+in production. Possible big BC breaks, incremental set of features and less
+communication. Careful!</li>
+<li>v1.0.0-beta1: Hey developer! Well, we think that we&rsquo;re done. We think that
+we&rsquo;re done with features so we aim to stabilize the version. Testing and
+documentation is part of the development here. C'mon!</li>
+<li>v1.0.0-RC1: Hey developer! Tested enough, so&hellip; how about make this package
+stable? Lets purpose a set of BC promises and let&rsquo;s make possible the usage of
+<code>^1.0</code> in composer.</li>
+<li>v1.0.0: Hey everyone! We&rsquo;re here! This package is stable. We think that we&rsquo;ve
+no many issues here, so don&rsquo;t hesitate to using us in your projects.</li>
+</ul>
+
+
+<p>Of course, some people or projects will understand these steps in a different
+way, but in Elcodi, this is the idea.</p>
+
+<h2>Communication</h2>
+
+<p>For the last months, we have been focused on developing.</p>
+
+<ul>
+<li>elcodi/elcodi
+
+<ul>
+<li>1.616 commits</li>
+<li>239 Issues closed</li>
+<li>586 PR accepted</li>
+<li>21 Contributors</li>
+</ul>
+</li>
+<li>elcodi/bamboo
+
+<ul>
+<li>1.763 commits</li>
+<li>49 Issues closed</li>
+<li>450 PR accepted</li>
+<li>21 Contributors</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Of course, developing have been our priority and we&rsquo;ve lost the opportunity of
+showing the world our great work. Our communication has been poor and
+insufficient because of our lack of time. And we know that this aspect of the
+project need to change.</p>
+
+<p>Since today, we&rsquo;ll return with our &ldquo;A week of Elcodi&rdquo;. Each week we will
+document all our work. Each project using Elcodi will have a lot of feedback.
+Each change affecting the BC compatibility will be announced in a properly way
+and since today, we will take care about all projects by creating and promoting
+our own community events and User Groups around the world.</p>
+
+<p>Remember all the core team is in <a href="https://gitter.im/elcodi/elcodi">Gitter</a> so if
+you have doubts and you want to talk about any aspect of the project, don&rsquo;t
+hesitate to talk with us :)</p>
+
+<h2>Reaching RC</h2>
+
+<p>We&rsquo;re done with features. We have developed a nice Plugin infrastructure that
+will be documented as soon as possible, in order to externalize all extra
+implementations. Our maximum priority right now is to finish what we begin
+one year ago.</p>
+
+<p>The project is pretty stable, being used in some projects in production, selling
+and working properly. For example <a href="http://deliberry.com">deliberry.com</a>, a
+company based in Barcelona that is actually growing day by day, based in Elcodi.</p>
+
+<p>We&rsquo;re proud!</p>
+
+<blockquote><p>We&rsquo;ll have soon a great directory with projects based on Elcodi, so if your
+company is Elcodi based, please, show us your case :)</p></blockquote>
+
+<p>So, for the next 2 months, we will support all projects based on Elcodi, with
+a big testing layer with more Unit, Functional, Behavioral and Response testing.</p>
+
+<p>We will add tons of documentation showing how to do every single thing inside
+the Elcodi world and finally, as soon Elcodi is stable enough, then we will
+tag the first RC version.</p>
+
+<h2>Test us!</h2>
+
+<p>We are Open Source, and supporting us will never mean paying us. Elcodi is free
+because is born from and for the community, so the best way to promote Elcodi is
+talking about it.</p>
+
+<p>Elcodi is not only E-commerce and Symfony, is about developing, sharing,
+enjoying and improving. Each member of the community is important and we will
+demonstrate this not only with words but with a strong layer of support.</p>
+
+<p>As soon as the community will grow, we will lead the creation of user groups
+around the world. We will show how we work and what using Elcodi is not only an
+experience but a way of understanding the E-commerce development.</p>
+
+<p><a href="http://elcodi.io/docs/quick-start/">Test us now</a> and share your thoughts, your
+non-valuable feedback, or <a href="https://gitter.im/elcodi/elcodi">just say hello</a> :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Translating Elcodi]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/05/12/translating-elcodi/"/>
+    <updated>2015-05-12T11:01:20+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/05/12/translating-elcodi</id>
+    <content type="html"><![CDATA[<p>Hi everyone.</p>
+
+<p>This is a call to the multi language fairy. Our project is still learning some
+new and nice languages. Bamboo talks English, Spanish, Catalan and some French,
+but we want to be a project for everyone in this world, no matter where you
+live, no matter what you talk.</p>
+
+<p>We are looking for some contributors to maintain some other interesting
+translations. Indeed, all of them!</p>
+
+<ul>
+<li>Euskal</li>
+<li>Galego</li>
+<li>Deutsch</li>
+<li>Italiano</li>
+<li>Português</li>
+<li>Nederlands</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>We are looking for smaller translations, for those shops that want to provide
+specific and local languages.</p>
+
+<ul>
+<li>Irish</li>
+<li>Andalúz</li>
+<li>Sardu</li>
+<li>Esperanto</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>Finally we are looking for some popular and fictitious languages. We want to be
+for everyone, remember?</p>
+
+<ul>
+<li>Klingon</li>
+<li>Elvish</li>
+<li>Dwarf language</li>
+<li>Lorem Ipsum</li>
+<li>Random language</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>If you have any interest in translate the application here, please tell us
+something nice <a href="https://github.com/elcodi/bamboo/issues/450">here</a> or keep in
+touch with us at <a href="http://gitter.im/elcodi/elcodi">gitter</a>.</p>
+
+<p>Enjoy your week :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[First stable release]]></title>
@@ -182,96 +358,6 @@ have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to v
 <p>We are available for any questions or concerns.</p>
 
 <p>Happy coding!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Elcodi team]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team/"/>
-    <updated>2014-08-14T10:28:08+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/14/elcodi-team</id>
-    <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
-
-<ul>
-<li><a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
-<li><a href="/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
-<li><a href="/blog/2014/08/13/our-goals/">Our goals</a></li>
-</ul>
-
-
-<p>As a final point for what we shared in previous posts, the last but definitely not least element to consider is the <em>team</em>.</p>
-
-<p>Such an ambitious venture needs a committed and visionary crew, and obviously more <em>heads</em> and <em>hands</em>. This is why we are opening job positions for a couple of skilled software artisans willing to join the journey with us. We will soon post the complete description. The company is located in Barcelona, Spain.</p>
-
-<p>We are looking for passionate and inspired artisans that love to craft products to be used by fellow developers and that believe in the potential of a community that grows around an <em>opensource</em> project.</p>
-
-<h2>Community</h2>
-
-<p>The final word is a big <strong>thank you</strong> to all the people that have been supporting us &ndash; by contributing in different forms &ndash; and to whom will do it someday.</p>
-
-<p>We really seek to build something useful for the community and to receive the necessary feedback and support in order to speed up the development and deliver the sound, reliable, flexible product that we have in mind.</p>
-
-<p>As for now, the Elcodi team hopes that you&rsquo;ll get involved with the project and wishes you a great summer break.</p>
-
-<p>Stay tuned!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Our goals]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/"/>
-    <updated>2014-08-13T10:26:56+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/13/our-goals</id>
-    <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
-
-<ul>
-<li><a href="/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
-<li><a href="/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
-</ul>
-
-
-<p>In the folowing weeks we would like to get to a first community stable version. Though last week we placed the initial milestone it is important to define a release plan for the following steps.</p>
-
-<p>We set up a list of <a href="https://github.com/elcodi/elcodi/milestones">milestones</a> to show a proposed roadmap:</p>
-
-<p>```
-Version 0.3</p>
-
-<pre><code>- Closed 8 days ago
-- 100% complete  0 open  11 closed
-</code></pre>
-
-<p>Version 0.4</p>
-
-<pre><code>- Due by August 15, 2014
-- 0% complete  0 open  0 closed
-</code></pre>
-
-<p>Version 0.5</p>
-
-<pre><code>- Due by August 29, 2014
-- 17% complete  5 open  1 closed
-</code></pre>
-
-<p>Version 0.6</p>
-
-<pre><code>- Due by September 11, 2014
-- 0% complete  2 open  0 closed
-</code></pre>
-
-<p>```</p>
-
-<p>This means we will be working on fine-tune our general roadmap and on fixing and refining what we have &ndash; no new features will be developed until we improve stability &ndash; in the hope of clearing things up a bit for developers interested in working with Elcodi foundations.</p>
-
-<p>At this stage, it is possible for new commits to introduce <em>BC breaks</em>. There is an open <a href="https://github.com/elcodi/elcodi/issues/34">issue</a> regarding <code>@api</code> tagging in phpdoc but as suggests in the discussion it is not really needed in the absence of a frozen stable release.</p>
-
-<p>We won&rsquo;t be following strict <a href="http://semver.org/">semantic versioning</a> until we reach a stable release, though we are using <em>patch version</em> for small fixes that do not cause incompatibilities and <em>minor version</em> for changes that <em>could</em> cause BC.</p>
-
-<p>Of course this will change once we approach <code>v1.0</code>, when we will <code>@api</code> freeze core components and enforce full semantic versioning.</p>
-
-<p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
-
-<p>We are on our way there, things look good!</p>
 ]]></content>
   </entry>
   

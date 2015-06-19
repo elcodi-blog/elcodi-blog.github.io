@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-05-12T11:29:35+02:00</updated>
+  <updated>2015-06-19T11:16:04+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,123 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Elcodi beta is here]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/06/18/elcodi-beta-is-here/"/>
+    <updated>2015-06-18T13:42:16+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/06/18/elcodi-beta-is-here</id>
+    <content type="html"><![CDATA[<p>&hellip; and we did it.</p>
+
+<p>It is something really amazing. We&rsquo;ve finally reached our first Beta stage.
+After more than 1 year of hard and non-stop work, we have tagged our first beta
+version in order to provide some stability to all Elcodi installations.</p>
+
+<h2>What means Beta</h2>
+
+<p>If you read some literature about software versions, you&rsquo;ll find that there is
+always a set of pre-defined steps based on the stability of the project</p>
+
+<ul>
+<li>v1.0.0-alpha1: Hey developer! We&rsquo;re building it but we&rsquo;re not ready to be used
+in production. Possible big BC breaks, incremental set of features and less
+communication. Careful!</li>
+<li>v1.0.0-beta1: Hey developer! Well, we think that we&rsquo;re done. We think that
+we&rsquo;re done with features so we aim to stabilize the version. Testing and
+documentation is part of the development here. C&#8217;mon!</li>
+<li>v1.0.0-RC1: Hey developer! Tested enough, so&hellip; how about make this package
+stable? Lets purpose a set of BC promises and let&rsquo;s make possible the usage of
+<code>^1.0</code> in composer.</li>
+<li>v1.0.0: Hey everyone! We&rsquo;re here! This package is stable. We think that we&rsquo;ve
+no many issues here, so don&rsquo;t hesitate to using us in your projects.</li>
+</ul>
+
+
+<p>Of course, some people or projects will understand these steps in a different
+way, but in Elcodi, this is the idea.</p>
+
+<h2>Communication</h2>
+
+<p>For the last months, we have been focused on developing.</p>
+
+<ul>
+<li>elcodi/elcodi
+
+<ul>
+<li>1.616 commits</li>
+<li>239 Issues closed</li>
+<li>586 PR accepted</li>
+<li>21 Contributors</li>
+</ul>
+</li>
+<li>elcodi/bamboo
+
+<ul>
+<li>1.763 commits</li>
+<li>49 Issues closed</li>
+<li>450 PR accepted</li>
+<li>21 Contributors</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Of course, developing have been our priority and we&rsquo;ve lost the opportunity of
+showing the world our great work. Our communication has been poor and
+insufficient because of our lack of time. And we know that this aspect of the
+project need to change.</p>
+
+<p>Since today, we&rsquo;ll return with our &ldquo;A week of Elcodi&rdquo;. Each week we will
+document all our work. Each project using Elcodi will have a lot of feedback.
+Each change affecting the BC compatibility will be announced in a properly way
+and since today, we will take care about all projects by creating and promoting
+our own community events and User Groups around the world.</p>
+
+<p>Remember all the core team is in <a href="https://gitter.im/elcodi/elcodi">Gitter</a> so if
+you have doubts and you want to talk about any aspect of the project, don&rsquo;t
+hesitate to talk with us :)</p>
+
+<h2>Reaching RC</h2>
+
+<p>We&rsquo;re done with features. We have developed a nice Plugin infrastructure that
+will be documented as soon as possible, in order to externalize all extra
+implementations. Our maximum priority right now is to finish what we begin
+one year ago.</p>
+
+<p>The project is pretty stable, being used in some projects in production, selling
+and working properly. For example <a href="http://deliberry.com">deliberry.com</a>, a
+company based in Barcelona that is actually growing day by day, based in Elcodi.</p>
+
+<p>We&rsquo;re proud!</p>
+
+<blockquote><p>We&rsquo;ll have soon a great directory with projects based on Elcodi, so if your
+company is Elcodi based, please, show us your case :)</p></blockquote>
+
+<p>So, for the next 2 months, we will support all projects based on Elcodi, with
+a big testing layer with more Unit, Functional, Behavioral and Response testing.</p>
+
+<p>We will add tons of documentation showing how to do every single thing inside
+the Elcodi world and finally, as soon Elcodi is stable enough, then we will
+tag the first RC version.</p>
+
+<h2>Test us!</h2>
+
+<p>We are Open Source, and supporting us will never mean paying us. Elcodi is free
+because is born from and for the community, so the best way to promote Elcodi is
+talking about it.</p>
+
+<p>Elcodi is not only E-commerce and Symfony, is about developing, sharing,
+enjoying and improving. Each member of the community is important and we will
+demonstrate this not only with words but with a strong layer of support.</p>
+
+<p>As soon as the community will grow, we will lead the creation of user groups
+around the world. We will show how we work and what using Elcodi is not only an
+experience but a way of understanding the E-commerce development.</p>
+
+<p><a href="http://elcodi.io/docs/quick-start/">Test us now</a> and share your thoughts, your
+non-valuable feedback, or <a href="https://gitter.im/elcodi/elcodi">just say hello</a> :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Translating Elcodi]]></title>
@@ -2135,53 +2252,6 @@ Point-in-time snapshots of order states or cart to order transitions are example
 <p>Right now we don&rsquo;t think it is feasable to assemble more layers of indirection to achieve this decoupling. The goal is to involve the Symfony community and work on the feedbacks we will receive from developers who want to build applications with Elcodi. Mind you that Symfony decoupling <em>is</em> possible, since we are trying to follow the <strong>SOLID</strong> path, but the eternal struggle between being different and effective flows to a point of balance that surely will benefit both the project and our users.</p>
 
 <p>Cheers!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[El equipo de Elcodi]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/08/equipo/"/>
-    <updated>2014-08-08T16:23:48+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/08/equipo</id>
-    <content type="html"><![CDATA[<h2>Este post es la continuación de tres posts anteriores</h2>
-
-<ul>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
-</ul>
-
-
-<p>Equipo&hellip; Punto interesante.</p>
-
-<p>Desde hoy mismo buscamos dos perfiles que nos ayuden a crecer de forma
-exponencial. Este post no trata de esto, por lo que en su momento ya vamos a
-sacar las ofertas pertinentes, pero solo a nivel informativo, estamos buscando a
-dos seniors de alto nivel para trabajar en nuestras oficinas de Barcelona.</p>
-
-<p>Dado que buscamos perfiles muy concretos, con capacidad para trabajar en un
-proyecto <strong><em>opensource</em></strong>, consideramos que es importante tener un compromiso
-como empresa con la gente que venga con nosotros a formar parte de nuestro
-equipo. Ya nos entendemos :)</p>
-
-<h1>Comunidad</h1>
-
-<p>Finalmente no nos queda más opción que dar las gracias a las personas que hasta
-ahora nos han apoyado y nos han aportado, de alguna forma u otra, y aquellas que
-lo harán en un futuro.</p>
-
-<p>Consideramos que las menciones especiales se dan por supuestas, así que,
-compañeros, muchas gracias.</p>
-
-<p>Esperamos que, y siguiendo de cerca con la problemática que expresaba Javier
-Eguiluz en su
-<a href="http://symfony.es/noticias/2014/07/24/los-errores-de-la-pagina-28/">blog</a>
-podamos llegar a ser útiles para la comunidad, y recibamos el soporte y la ayuda
-para crecer a más velocidad. De esta forma nuestro producto será de calidad más
-rápido y podremos crecer en robustez, fiabilidad y ejecución.</p>
-
-<p>Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
-feliz fín de semana.</p>
 ]]></content>
   </entry>
   

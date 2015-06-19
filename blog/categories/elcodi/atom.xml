@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-05-12T11:29:35+02:00</updated>
+  <updated>2015-06-19T11:16:04+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,182 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Elcodi beta is here]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/06/18/elcodi-beta-is-here/"/>
+    <updated>2015-06-18T13:42:16+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/06/18/elcodi-beta-is-here</id>
+    <content type="html"><![CDATA[<p>&hellip; and we did it.</p>
+
+<p>It is something really amazing. We&rsquo;ve finally reached our first Beta stage.
+After more than 1 year of hard and non-stop work, we have tagged our first beta
+version in order to provide some stability to all Elcodi installations.</p>
+
+<h2>What means Beta</h2>
+
+<p>If you read some literature about software versions, you&rsquo;ll find that there is
+always a set of pre-defined steps based on the stability of the project</p>
+
+<ul>
+<li>v1.0.0-alpha1: Hey developer! We&rsquo;re building it but we&rsquo;re not ready to be used
+in production. Possible big BC breaks, incremental set of features and less
+communication. Careful!</li>
+<li>v1.0.0-beta1: Hey developer! Well, we think that we&rsquo;re done. We think that
+we&rsquo;re done with features so we aim to stabilize the version. Testing and
+documentation is part of the development here. C'mon!</li>
+<li>v1.0.0-RC1: Hey developer! Tested enough, so&hellip; how about make this package
+stable? Lets purpose a set of BC promises and let&rsquo;s make possible the usage of
+<code>^1.0</code> in composer.</li>
+<li>v1.0.0: Hey everyone! We&rsquo;re here! This package is stable. We think that we&rsquo;ve
+no many issues here, so don&rsquo;t hesitate to using us in your projects.</li>
+</ul>
+
+
+<p>Of course, some people or projects will understand these steps in a different
+way, but in Elcodi, this is the idea.</p>
+
+<h2>Communication</h2>
+
+<p>For the last months, we have been focused on developing.</p>
+
+<ul>
+<li>elcodi/elcodi
+
+<ul>
+<li>1.616 commits</li>
+<li>239 Issues closed</li>
+<li>586 PR accepted</li>
+<li>21 Contributors</li>
+</ul>
+</li>
+<li>elcodi/bamboo
+
+<ul>
+<li>1.763 commits</li>
+<li>49 Issues closed</li>
+<li>450 PR accepted</li>
+<li>21 Contributors</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Of course, developing have been our priority and we&rsquo;ve lost the opportunity of
+showing the world our great work. Our communication has been poor and
+insufficient because of our lack of time. And we know that this aspect of the
+project need to change.</p>
+
+<p>Since today, we&rsquo;ll return with our &ldquo;A week of Elcodi&rdquo;. Each week we will
+document all our work. Each project using Elcodi will have a lot of feedback.
+Each change affecting the BC compatibility will be announced in a properly way
+and since today, we will take care about all projects by creating and promoting
+our own community events and User Groups around the world.</p>
+
+<p>Remember all the core team is in <a href="https://gitter.im/elcodi/elcodi">Gitter</a> so if
+you have doubts and you want to talk about any aspect of the project, don&rsquo;t
+hesitate to talk with us :)</p>
+
+<h2>Reaching RC</h2>
+
+<p>We&rsquo;re done with features. We have developed a nice Plugin infrastructure that
+will be documented as soon as possible, in order to externalize all extra
+implementations. Our maximum priority right now is to finish what we begin
+one year ago.</p>
+
+<p>The project is pretty stable, being used in some projects in production, selling
+and working properly. For example <a href="http://deliberry.com">deliberry.com</a>, a
+company based in Barcelona that is actually growing day by day, based in Elcodi.</p>
+
+<p>We&rsquo;re proud!</p>
+
+<blockquote><p>We&rsquo;ll have soon a great directory with projects based on Elcodi, so if your
+company is Elcodi based, please, show us your case :)</p></blockquote>
+
+<p>So, for the next 2 months, we will support all projects based on Elcodi, with
+a big testing layer with more Unit, Functional, Behavioral and Response testing.</p>
+
+<p>We will add tons of documentation showing how to do every single thing inside
+the Elcodi world and finally, as soon Elcodi is stable enough, then we will
+tag the first RC version.</p>
+
+<h2>Test us!</h2>
+
+<p>We are Open Source, and supporting us will never mean paying us. Elcodi is free
+because is born from and for the community, so the best way to promote Elcodi is
+talking about it.</p>
+
+<p>Elcodi is not only E-commerce and Symfony, is about developing, sharing,
+enjoying and improving. Each member of the community is important and we will
+demonstrate this not only with words but with a strong layer of support.</p>
+
+<p>As soon as the community will grow, we will lead the creation of user groups
+around the world. We will show how we work and what using Elcodi is not only an
+experience but a way of understanding the E-commerce development.</p>
+
+<p><a href="http://elcodi.io/docs/quick-start/">Test us now</a> and share your thoughts, your
+non-valuable feedback, or <a href="https://gitter.im/elcodi/elcodi">just say hello</a> :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Translating Elcodi]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/05/12/translating-elcodi/"/>
+    <updated>2015-05-12T11:01:20+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/05/12/translating-elcodi</id>
+    <content type="html"><![CDATA[<p>Hi everyone.</p>
+
+<p>This is a call to the multi language fairy. Our project is still learning some
+new and nice languages. Bamboo talks English, Spanish, Catalan and some French,
+but we want to be a project for everyone in this world, no matter where you
+live, no matter what you talk.</p>
+
+<p>We are looking for some contributors to maintain some other interesting
+translations. Indeed, all of them!</p>
+
+<ul>
+<li>Euskal</li>
+<li>Galego</li>
+<li>Deutsch</li>
+<li>Italiano</li>
+<li>Português</li>
+<li>Nederlands</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>We are looking for smaller translations, for those shops that want to provide
+specific and local languages.</p>
+
+<ul>
+<li>Irish</li>
+<li>Andalúz</li>
+<li>Sardu</li>
+<li>Esperanto</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>Finally we are looking for some popular and fictitious languages. We want to be
+for everyone, remember?</p>
+
+<ul>
+<li>Klingon</li>
+<li>Elvish</li>
+<li>Dwarf language</li>
+<li>Lorem Ipsum</li>
+<li>Random language</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>If you have any interest in translate the application here, please tell us
+something nice <a href="https://github.com/elcodi/bamboo/issues/450">here</a> or keep in
+touch with us at <a href="http://gitter.im/elcodi/elcodi">gitter</a>.</p>
+
+<p>Enjoy your week :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Introducing the Directors in Symfony]]></title>
@@ -619,189 +795,6 @@ our code to Ruby.</p>
 
 <p>If you need some information, feel free to keep in touch with us in our
 <a href="https://gitter.im/elcodi/elcodi">Gitter account</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Elcodi Bug Hunting]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2015/03/03/elcodi-bug-hunting/"/>
-    <updated>2015-03-03T16:19:05+01:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2015/03/03/elcodi-bug-hunting</id>
-    <content type="html"><![CDATA[<p>Hi everyone!</p>
-
-<p>It&rsquo;s been a long time since our last meeting! We&rsquo;ve been very busy here in
-Elcodi HQ this months, focusing on the following events. And here we are to tell
-you!</p>
-
-<h2>New members</h2>
-
-<p>Our team has grown, and we&rsquo;ll be proud to introduce our two new members properly
-to you soon. For now, welcome <a href="//twitter.com/tonipinel">@tonipinel</a> and
-<a href="//twitter.com/rogergros">@rogergros</a>!</p>
-
-<h2>It&rsquo;s beta time!</h2>
-
-<p>These last weeks have been awesome here! After a lot of working hours, coffees
-and pizzas (and some beers), we&rsquo;re proud and happy to announce we&rsquo;ve reached
-<strong>beta status in Elcodi</strong> and new version: <strong>v0.5.0</strong>.</p>
-
-<p>This is working. This is really working! Now it&rsquo;s time to test it, massively.</p>
-
-<h2>Elcodi Bug Hunting</h2>
-
-<p>In order to make the community participant, we&rsquo;ll arrange something really
-amazing: <strong>A contest!</strong>. We have named it <em>Elcodi Bug Hunting</em> and will be
-available during March 2015.</p>
-
-<blockquote><p>Edit: This contest will be opened until June 1st, the day of our first
-release. It makes sense to increase the contest interval in order to get more
-changes and more competition :)</p></blockquote>
-
-<p>Let us explain what&rsquo;s this all about!</p>
-
-<h3>The contest</h3>
-
-<p><img src="https://cloud.githubusercontent.com/assets/170968/6443700/f152ea5e-c0f8-11e4-9acb-63c5f817b7a8.jpg" alt="bugs-everywhere" /></p>
-
-<p>Our goal is to find and fix as many bugs as possible during the beta period, and
-to grow more as a community.</p>
-
-<h3>The prices</h3>
-
-<ul>
-<li>Apple Macbook Pro 2014 Retina 13"</li>
-<li>Apple Ipad Air 16Gb</li>
-</ul>
-
-
-<h3>Scoring</h3>
-
-<ul>
-<li>Earn points by participating in <em>Elcodi Bug Hunting</em>.</li>
-<li>Earn 5 points or more to access the <strong>Macbook Pro</strong> raffle.</li>
-<li>The more points you have, the more chances to win the raffle.</li>
-<li>Get the highest score and win an <strong>Ipad Air</strong>!</li>
-</ul>
-
-
-<h4>The easypick</h4>
-
-<p>Social interaction is important to us, because that&rsquo;s the way we&rsquo;re reaching and
-hearing from you. And we want <strong>you</strong> to be part of this!</p>
-
-<p>That&rsquo;s why we&rsquo;ll reward you for:</p>
-
-<ul>
-<li>Star on Github (<a href="//github.com/elcodi/elcodi">elcodi/elcodi</a>) &ndash; <em>1 point</em></li>
-<li>Star on Github (<a href="//github.com/elcodi/bamboo">elcodi/bamboo</a>) &ndash; <em>1 point</em></li>
-<li>Follow on Twitter (<a href="//twitter.com/elcodi_dev">@elcodi_dev</a>) &ndash; <em>1 point</em></li>
-<li>Twitter mention &ndash; <em>1 point (max 2)</em></li>
-</ul>
-
-
-<h4>The collaborator</h4>
-
-<p>The more eyes looking at our code, the better chance to improve! Collaboration
-is vital for an OpenSource project like this, and we&rsquo;re open for suggestions and
-contributions. We want Elcodi to be helpful to you.</p>
-
-<p>Give a try and clone <a href="//github.com/elcodi/elcodi">Elcodi project</a> or
-<a href="//github.com/elcodi/bamboo">our store Bamboo</a>, enter
-<a href="//gitter.im/elcodi/elcodi">Elcodi at Gitter</a>, discuss with us and participate.
-That&rsquo;s OpenSource at it&rsquo;s finest!</p>
-
-<p>We will appreciate:</p>
-
-<ul>
-<li>Open Github issue &ndash; <em>2 points</em></li>
-<li>Creating a Pull Request &ndash; <em>2 points</em></li>
-<li>Accepted Pull Request &ndash; <em>5 points</em></li>
-<li>Contributors up to present day &ndash; <em>10 points</em></li>
-</ul>
-
-
-<h4>The Best of the best</h4>
-
-<p>We encourage those who work hard. That&rsquo;s why we&rsquo;ll distribute some points
-discretely based on:</p>
-
-<ul>
-<li>Best 5 pull requests &ndash; <em>5 points</em></li>
-<li>Best 3 tweets &ndash; <em>15, 10, 5 points</em></li>
-<li>Best 3 troll-tweets &ndash; <em>15, 10, 5 points</em></li>
-</ul>
-
-
-<h3>The jury</h3>
-
-<ul>
-<li>Marc Morera (<a href="//twitter.com/mmoreram">@mmoreram</a>)</li>
-<li>Aldo Chiecchia (<a href="//twitter.com/alch">@alch</a>)</li>
-<li>Berny Cantos (<a href="//twitter.com/xphere">@xphere</a>)</li>
-<li>Toni Pinel (<a href="//twitter.com/tonipinel">@tonipinel</a>)</li>
-<li>Roger Gros (<a href="//twitter.com/rogergros">@rogergros</a>)</li>
-</ul>
-
-
-<h2>Let&rsquo;s <del>Go</del> PHP!!</h2>
-
-<p>Feel free to try the platform, test it and find security vulnerabilities and
-bugs. During this month we will improve current features and we will focus on
-the quality of the code, with small refactors and more (and more) tests.</p>
-
-<p>We will work as well with the documentation, so feel free to help us on that
-task :)</p>
-
-<p>Don&rsquo;t hesitate to get in touch with us and enjoy Elcodi! :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[We have evolved]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/"/>
-    <updated>2014-08-28T11:42:47+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved</id>
-    <content type="html"><![CDATA[<p>You might say that we&rsquo;ve evolved.</p>
-
-<p>An evolution ought to be seen as a positive thing, and ours is no exception.
-At first, we had serious doubts about the nature of our project. One of the
-questions we kept asking ourselves was what factors should we consider in
-choosing whether and when to engage external projects or libraries, and we
-believe we made the right decision. In fact, that decision brought us forward in
-a big way toward defining ourselves.</p>
-
-<p>Flexible e-commerce components for Symfony2</p>
-
-<p>Anyway, this phrase is actually very ambiguous, as we could be referring to
-Symfony as a set of PHP components or as the Framework (I&rsquo;ve always wondered
-why they have the same name&hellip; it causes a lot of confusion).</p>
-
-<p>That&rsquo;s why we wanted to reflect a bit, starting from the code itself. Do we want
-to use the Symfony Framework or the Symfony Components? The answer seemed to
-emerge spontaneously. We want to work with the Symfony components, but we also
-want to propose bundles that use the framework.</p>
-
-<p>This was the origin of this commit.</p>
-
-<p><a href="https://github.com/elcodi/elcodi/pull/239">https://github.com/elcodi/elcodi/pull/239</a></p>
-
-<p>We have only just planted the seed with this refactoring. We have realized, even
-more, the importance of having both functional testing and unit testing (unit
-tests are almost all for the components, while functional tests are for the
-bundles). This needs more work, but at least we have lifted this project to a
-level at which we truly feel comfortable. It&rsquo;s an excellent starting point for
-a long and exciting path ahead.</p>
-
-<p>This change has resulted in some collateral damage, as it has changed the path
-of our bundles, meaning that the &ldquo;subtree split&rdquo; has resulted in totally new
-repositories beginning with the first commit after refactoring. This means that
-all tags prior to version 0.3.0 have been lost, so we apologize to those who
-have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to version
-~0.3 and check that everything&rsquo;s working.</p>
-
-<p>We are available for any questions or concerns.</p>
-
-<p>Happy coding!</p>
 ]]></content>
   </entry>
   

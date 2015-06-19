@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: translations | Elcodi blog]]></title>
+  <link href="http://elcodi-blog.github.io/blog/categories/translations/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2015-06-19T11:16:04+02:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
+  <author>
+    <name><![CDATA[Elcodi Team]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Translating Elcodi]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/05/12/translating-elcodi/"/>
+    <updated>2015-05-12T11:01:20+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/05/12/translating-elcodi</id>
+    <content type="html"><![CDATA[<p>Hi everyone.</p>
+
+<p>This is a call to the multi language fairy. Our project is still learning some
+new and nice languages. Bamboo talks English, Spanish, Catalan and some French,
+but we want to be a project for everyone in this world, no matter where you
+live, no matter what you talk.</p>
+
+<p>We are looking for some contributors to maintain some other interesting
+translations. Indeed, all of them!</p>
+
+<ul>
+<li>Euskal</li>
+<li>Galego</li>
+<li>Deutsch</li>
+<li>Italiano</li>
+<li>Português</li>
+<li>Nederlands</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>We are looking for smaller translations, for those shops that want to provide
+specific and local languages.</p>
+
+<ul>
+<li>Irish</li>
+<li>Andalúz</li>
+<li>Sardu</li>
+<li>Esperanto</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>Finally we are looking for some popular and fictitious languages. We want to be
+for everyone, remember?</p>
+
+<ul>
+<li>Klingon</li>
+<li>Elvish</li>
+<li>Dwarf language</li>
+<li>Lorem Ipsum</li>
+<li>Random language</li>
+<li>&hellip;</li>
+</ul>
+
+
+<p>If you have any interest in translate the application here, please tell us
+something nice <a href="https://github.com/elcodi/bamboo/issues/450">here</a> or keep in
+touch with us at <a href="http://gitter.im/elcodi/elcodi">gitter</a>.</p>
+
+<p>Enjoy your week :)</p>
+]]></content>
+  </entry>
+  
+</feed>

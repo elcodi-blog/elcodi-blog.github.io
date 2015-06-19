@@ -9,7 +9,7 @@
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="This last week we were working hard on our next milestone: our presentation at the #SymfonyCon on November 27th. @mmoreram and @alch will speak about &hellip;">
+  <meta name="description" content="As a complement to the #SymfonyWalk we start &ldquo;One section, one component&rdquo;, a series of posts about some of the symfony components. Let& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +73,154 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/11/18/the-routing-component/">The Routing Component</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-18T22:39:54+01:00" pubdate data-updated="true">Nov 18<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As a complement to the <a href="http://mmoreram.com/blog/2014/08/07/symfony-walk-zaragoza-madrid/">#SymfonyWalk</a> we start <a href="/blog/categories/one-section-one-component/">&ldquo;One section, one component&rdquo;</a>, a series of posts about some of the symfony components. Let&rsquo;s start with routing!</p>
+
+<h2>Description</h2>
+
+<p>As each component does, the <a href="https://github.com/symfony/Routing">Routing component</a> focuses and solves a small problem, in this case, matching urls to routes, so we can extract related information, and vice versa.</p>
+
+<p>Things you can do with this component:</p>
+
+<ul>
+<li>Load your routes from anywhere into a collection.</li>
+<li>Check if a request matches any of the routes.</li>
+<li>Extract route-specific info from the request.</li>
+<li>Generate a url from a route and route specific info.</li>
+</ul>
+
+
+<h2>Basic classes</h2>
+
+<p>The cast of this component is:</p>
+
+<ul>
+<li><strong><code>Route</code></strong>: definition of a route, with path, requirements, options and conditions…</li>
+<li><strong><code>RouteCollection</code></strong>: this bundles one or more <code>Routes</code> and allows to configure all of them at once.</li>
+<li><strong><code>Matcher</code></strong>: Searches a <code>RouteCollection</code> for a matching uri.</li>
+<li><strong><code>RequestContext</code></strong>: Context from the current request.</li>
+</ul>
+
+
+<h2>Example of usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$route</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">&#39;/{name}&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$route</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;_controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;GreeterController&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nv">$route</span><span class="o">-&gt;</span><span class="na">setRequirements</span><span class="p">([</span>
+</span><span class='line'>  <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;[a-z]+&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$routes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteCollection</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;greet&#39;</span><span class="p">,</span> <span class="nv">$route</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">addPrefix</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$routes</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$parameters</span> <span class="o">=</span> <span class="nv">$matcher</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;/hello/fabien&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> * $parameters === [</span>
+</span><span class='line'><span class="cm"> *   &#39;_route&#39; =&gt; &#39;greet&#39;,</span>
+</span><span class='line'><span class="cm"> *   &#39;_controller&#39; =&gt; &#39;GreeterController&#39;,</span>
+</span><span class='line'><span class="cm"> *   &#39;name&#39; =&gt; &#39;fabien&#39;,</span>
+</span><span class='line'><span class="cm"> * ]</span>
+</span><span class='line'><span class="cm"> */</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Other classes</h2>
+
+<p>Other supporting actors:</p>
+
+<ul>
+<li><strong>Loader</strong>: Loads a <code>RouteCollection</code> from a source.</li>
+<li><strong>Generator</strong>: The opposite of <code>Matcher</code>, given a route name and route-specific information, generates the uri.</li>
+<li><strong>Dumper</strong>: The opposite of <code>Loader</code>, dumps a <code>RouteCollection</code> in different formats.</li>
+<li><strong>Router</strong>: basically a <a href="http://en.wikipedia.org/wiki/Facade_pattern">facade</a> to <code>Matcher</code> and <code>Generator</code>.</li>
+</ul>
+
+
+<h2>In Symfony2 framework</h2>
+
+<p>Symfony2 framework reads routes from routing files with this component, matches the current <code>Request</code> and chooses which <code>Controller</code> and action to run. It also extends the <code>Router</code> so you can use parameter placeholders from <a href="https://github.com/symfony/DependencyInjection"><code>DependencyInjection</code></a> and integrates with the <a href="https://github.com/symfony/Config"><code>Config</code></a> component to allow caching.</p>
+
+<h2>In Elcodi</h2>
+
+<p>In Elcodi, as a library, we try not to couple our very few controllers to a specific route and we leave that responsibility to the layers above. For more complex scenarios, like the <a href="https://github.com/elcodi/MediaBundle"><code>MediaBundle</code></a> and the forthcoming <a href="https://github.com/elcodi/elcodi/tree/ec8fabe99489ae9dd1ef671eefaaa7ac89e24cdb/src/Elcodi/Bundle/PageBundle"><code>PageBundle</code></a>, we implement our own custom <code>Loader</code> so we can route through them.</p>
+
+<h2>Conclusion</h2>
+
+<p>This component deals with the next step just after getting your <a href="http://symfony.com/doc/current/components/http_foundation">HTTP Request</a> and gives you great power and flexibility to split your application into several routes.</p>
+
+<p>I hope you find this component useful!</p>
+
+<h2>Urls</h2>
+
+<ul>
+<li><a href="https://github.com/symfony/Routing">Repository</a></li>
+<li><a href="http://symfony.com/doc/current/components/routing">Documentation</a></li>
+<li><a href="https://packagist.org/packages/symfony/routing">Packagist</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -711,80 +859,6 @@ Point-in-time snapshots of order states or cart to order transitions are example
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/08/08/equipo/">El Equipo De Elcodi</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-08-08T16:23:48+02:00" pubdate data-updated="true">Aug 8<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Este post es la continuación de tres posts anteriores</h2>
-
-<ul>
-<li><a href="/blog/2014/08/04/un-momento-para-reflexionar/">Un momento para reflexionar</a>.</li>
-<li><a href="/blog/2014/08/05/nuestro-roadmap/">Nuestro roadmap</a>.</li>
-<li><a href="/blog/2014/08/06/objetivos/">Objetivos</a>.</li>
-</ul>
-
-
-<p>Equipo&hellip; Punto interesante.</p>
-
-<p>Desde hoy mismo buscamos dos perfiles que nos ayuden a crecer de forma
-exponencial. Este post no trata de esto, por lo que en su momento ya vamos a
-sacar las ofertas pertinentes, pero solo a nivel informativo, estamos buscando a
-dos seniors de alto nivel para trabajar en nuestras oficinas de Barcelona.</p>
-
-<p>Dado que buscamos perfiles muy concretos, con capacidad para trabajar en un
-proyecto <strong><em>opensource</em></strong>, consideramos que es importante tener un compromiso
-como empresa con la gente que venga con nosotros a formar parte de nuestro
-equipo. Ya nos entendemos :)</p>
-
-<h1>Comunidad</h1>
-
-<p>Finalmente no nos queda más opción que dar las gracias a las personas que hasta
-ahora nos han apoyado y nos han aportado, de alguna forma u otra, y aquellas que
-lo harán en un futuro.</p>
-
-<p>Consideramos que las menciones especiales se dan por supuestas, así que,
-compañeros, muchas gracias.</p>
-
-<p>Esperamos que, y siguiendo de cerca con la problemática que expresaba Javier
-Eguiluz en su
-<a href="http://symfony.es/noticias/2014/07/24/los-errores-de-la-pagina-28/">blog</a>
-podamos llegar a ser útiles para la comunidad, y recibamos el soporte y la ayuda
-para crecer a más velocidad. De esta forma nuestro producto será de calidad más
-rápido y podremos crecer en robustez, fiabilidad y ejecución.</p>
-
-<p>Dicho esto, el equipo de Elcodi os manda un saludo a todos desde y os desea un
-feliz fín de semana.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -802,6 +876,10 @@ feliz fín de semana.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/18/elcodi-beta-is-here/">Elcodi beta is here</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/05/12/translating-elcodi/">Translating Elcodi</a>
       </li>
     
@@ -815,10 +893,6 @@ feliz fín de semana.</p>
     
       <li class="post">
         <a href="/blog/2015/04/01/elcodi-changes-its-technology/">Elcodi changes its technology</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/03/elcodi-bug-hunting/">Elcodi Bug Hunting</a>
       </li>
     
   </ul>
