@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ecommerce | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/ecommerce/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-06-19T11:18:58+02:00</updated>
+  <updated>2015-07-10T14:56:11+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Install Elcodi]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/07/07/install-elcodi/"/>
+    <updated>2015-07-07T12:59:39+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/07/07/install-elcodi</id>
+    <content type="html"><![CDATA[<p>In order to decrease the time of installation of Elcodi, and with our new Beta
+release</p>
+
+<p><a href="https://github.com/elcodi/bamboo/blob/master/CHANGELOG-1.0.md#v100-beta3-10-07-2015">Bamboo v1.0.0-beta3</a><br/>
+<a href="https://github.com/elcodi/elcodi/blob/master/CHANGELOG-1.0.md#v100-beta3-10-07-2015">Elcodi v1.0.0-beta3</a></p>
+
+<p>we&rsquo;ve been working on how fast you can create a new shop in your localhost and
+start tuning it. It is important right?</p>
+
+<h2>New elcodi:install command</h2>
+
+<p>Elcodi is Symfony based. This means that to make it work you need to execute
+some commands in order to do some common actions (create database, update
+schema, populate fixtures&hellip;)</p>
+
+<p>To improve this step, we have created a new console command in order to decrease
+this installation time and the number of steps required to play with your
+localhost.</p>
+
+<p>4 steps to rule them all, and less than 3 minutes to start with Elcodi.</p>
+
+<p><code>bash
+$ curl -s http://getcomposer.org/installer | php
+$ php composer.phar create-project elcodi/bamboo bamboo -sdev
+$ cd bamboo/
+$ php app/console elcodi:install
+</code></p>
+
+<p>As soon as Bamboo is installed, you can create a temporary server by using the
+PHP built-in server</p>
+
+<p><code>bash
+$ php app/console server:run
+</code></p>
+
+<p>And check your Bamboo installation in your browser by accessing to
+<code>http://localhost:8000</code>.</p>
+
+<h2>GD instead of ImageMagick</h2>
+
+<p>Because we have implemented some needs using adapters, we have implemented a new
+image resize adapter based on the PHP GD engine. The good thing is that GD is
+already installed in all standard PHP versions, so you don&rsquo;t really need to
+install any extra library.</p>
+
+<p>This new adapter has been proposed and accepted as the default one, and of
+course, ImageMagick adapter can be still used by changing the configuration
+value.</p>
+
+<p>``` yml
+elcodi_media:</p>
+
+<pre><code>images:
+    resize:
+        adapter: elcodi.media_resize.imagemagick
+</code></pre>
+
+<p>```</p>
+
+<h2>Location repository</h2>
+
+<p>In Elcodi you can populate new countries. With this new installation command,
+and by using <code>--country</code> option, you can add already generated countries in
+seconds. You can see available pregenerated countries in our
+<a href="https://github.com/elcodi/LocationDumps">LocationDumps</a> repository. We will
+generate all countries over time.</p>
+
+<blockquote><p>If you want to use the demo application, make sure you install Spain. All
+already built addresses are from Spain. Otherwise, feel free to build your
+Location database as you need.</p></blockquote>
+
+<p>Imagine you want to install France and Italy. Well, you should do that</p>
+
+<p><code>bash
+$ php app/console elcodi:install --country=FR --country=IT
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Elcodi beta is here]]></title>
@@ -311,55 +395,6 @@ our code to Ruby.</p>
 
 <p>If you need some information, feel free to keep in touch with us in our
 <a href="https://gitter.im/elcodi/elcodi">Gitter account</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[We have evolved]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/"/>
-    <updated>2014-08-28T11:42:47+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved</id>
-    <content type="html"><![CDATA[<p>You might say that we&rsquo;ve evolved.</p>
-
-<p>An evolution ought to be seen as a positive thing, and ours is no exception.
-At first, we had serious doubts about the nature of our project. One of the
-questions we kept asking ourselves was what factors should we consider in
-choosing whether and when to engage external projects or libraries, and we
-believe we made the right decision. In fact, that decision brought us forward in
-a big way toward defining ourselves.</p>
-
-<p>Flexible e-commerce components for Symfony2</p>
-
-<p>Anyway, this phrase is actually very ambiguous, as we could be referring to
-Symfony as a set of PHP components or as the Framework (I&rsquo;ve always wondered
-why they have the same name&hellip; it causes a lot of confusion).</p>
-
-<p>That&rsquo;s why we wanted to reflect a bit, starting from the code itself. Do we want
-to use the Symfony Framework or the Symfony Components? The answer seemed to
-emerge spontaneously. We want to work with the Symfony components, but we also
-want to propose bundles that use the framework.</p>
-
-<p>This was the origin of this commit.</p>
-
-<p><a href="https://github.com/elcodi/elcodi/pull/239">https://github.com/elcodi/elcodi/pull/239</a></p>
-
-<p>We have only just planted the seed with this refactoring. We have realized, even
-more, the importance of having both functional testing and unit testing (unit
-tests are almost all for the components, while functional tests are for the
-bundles). This needs more work, but at least we have lifted this project to a
-level at which we truly feel comfortable. It&rsquo;s an excellent starting point for
-a long and exciting path ahead.</p>
-
-<p>This change has resulted in some collateral damage, as it has changed the path
-of our bundles, meaning that the &ldquo;subtree split&rdquo; has resulted in totally new
-repositories beginning with the first commit after refactoring. This means that
-all tags prior to version 0.3.0 have been lost, so we apologize to those who
-have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to version
-~0.3 and check that everything&rsquo;s working.</p>
-
-<p>We are available for any questions or concerns.</p>
-
-<p>Happy coding!</p>
 ]]></content>
   </entry>
   

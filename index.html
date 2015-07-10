@@ -9,8 +9,9 @@
   <meta name="author" content="Elcodi Team">
 
   
-  <meta name="description" content="&hellip; and we did it. It is something really amazing. We&rsquo;ve finally reached our first Beta stage.
-After more than 1 year of hard and non-stop &hellip;">
+  <meta name="description" content="In order to decrease the time of installation of Elcodi, and with our new Beta
+release Bamboo v1.0.0-beta3
+Elcodi v1.0.0-beta3 we&rsquo;ve been &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +75,124 @@ After more than 1 year of hard and non-stop &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/07/07/install-elcodi/">Install Elcodi</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-07-07T12:59:39+02:00" pubdate data-updated="true">Jul 7<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In order to decrease the time of installation of Elcodi, and with our new Beta
+release</p>
+
+<p><a href="https://github.com/elcodi/bamboo/blob/master/CHANGELOG-1.0.md#v100-beta3-10-07-2015">Bamboo v1.0.0-beta3</a><br/>
+<a href="https://github.com/elcodi/elcodi/blob/master/CHANGELOG-1.0.md#v100-beta3-10-07-2015">Elcodi v1.0.0-beta3</a></p>
+
+<p>we&rsquo;ve been working on how fast you can create a new shop in your localhost and
+start tuning it. It is important right?</p>
+
+<h2>New elcodi:install command</h2>
+
+<p>Elcodi is Symfony based. This means that to make it work you need to execute
+some commands in order to do some common actions (create database, update
+schema, populate fixtures&hellip;)</p>
+
+<p>To improve this step, we have created a new console command in order to decrease
+this installation time and the number of steps required to play with your
+localhost.</p>
+
+<p>4 steps to rule them all, and less than 3 minutes to start with Elcodi.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>curl -s http://getcomposer.org/installer | php
+</span><span class='line'><span class="nv">$ </span>php composer.phar create-project elcodi/bamboo bamboo -sdev
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>bamboo/
+</span><span class='line'><span class="nv">$ </span>php app/console elcodi:install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As soon as Bamboo is installed, you can create a temporary server by using the
+PHP built-in server</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>php app/console server:run
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And check your Bamboo installation in your browser by accessing to
+<code>http://localhost:8000</code>.</p>
+
+<h2>GD instead of ImageMagick</h2>
+
+<p>Because we have implemented some needs using adapters, we have implemented a new
+image resize adapter based on the PHP GD engine. The good thing is that GD is
+already installed in all standard PHP versions, so you don&rsquo;t really need to
+install any extra library.</p>
+
+<p>This new adapter has been proposed and accepted as the default one, and of
+course, ImageMagick adapter can be still used by changing the configuration
+value.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">elcodi_media</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">images</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">resize</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">elcodi.media_resize.imagemagick</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Location repository</h2>
+
+<p>In Elcodi you can populate new countries. With this new installation command,
+and by using <code>--country</code> option, you can add already generated countries in
+seconds. You can see available pregenerated countries in our
+<a href="https://github.com/elcodi/LocationDumps">LocationDumps</a> repository. We will
+generate all countries over time.</p>
+
+<blockquote><p>If you want to use the demo application, make sure you install Spain. All
+already built addresses are from Spain. Otherwise, feel free to build your
+Location database as you need.</p></blockquote>
+
+<p>Imagine you want to install France and Italy. Well, you should do that</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>php app/console elcodi:install --country<span class="o">=</span>FR --country<span class="o">=</span>IT
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1958,122 +2077,6 @@ task :)</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/11/19/security-component/">The Security Component</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-11-19T22:39:51+01:00" pubdate data-updated="true">Nov 19<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The next in line in our <a href="/blog/categories/one-section-one-component/">&ldquo;One section, one component&rdquo;</a> series is the <a href="http://symfony.com/doc/current/components/security"><code>Security component</code></a>. It&rsquo;s a complex one, sure, but we&rsquo;ll take a look just to the nuts and bolts of it. Ready? Set… Go!</p>
-
-<h2>Description</h2>
-
-<p>This component brings authentication and authorization to your applications, with implementations for common use cases, like form login, HTTP or X.509 authentication, authorization by user, roles and ACL systems.</p>
-
-<h2>Basic classes</h2>
-
-<ul>
-<li><strong>Token</strong>: Stores current user credentials.</li>
-<li><strong>Listener</strong>: extract information from the Request by which the user might be authenticated. It should create a valid token and set it into the <strong>SecurityContext</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>.</li>
-<li><strong>FirewallMap</strong>: maps a <a href="https://github.com/symfony/HttpFoundation/blob/master/RequestMatcher.php"><code>RequestMatcher</code></a> to a set of <code>Listener</code>s.</li>
-<li><strong>Firewall</strong>: Integrates the <code>FirewallMap</code> with <code>EventDispatcher</code> and <code>HttpKernel</code> components.</li>
-</ul>
-
-
-<h2>Example of usage</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$exceptionListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExceptionListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">);</span>
-</span><span class='line'><span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RequestMatcher</span><span class="p">(</span><span class="s1">&#39;^/admin/&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$listeners</span> <span class="o">=</span> <span class="p">[</span>
-</span><span class='line'>  <span class="k">new</span> <span class="nx">AnonymousAuthenticationListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">),</span>
-</span><span class='line'>  <span class="k">new</span> <span class="nx">LogoutListener</span><span class="p">(</span> <span class="err">…</span> <span class="p">),</span>
-</span><span class='line'><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$firewallMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FirewallMap</span><span class="p">();</span>
-</span><span class='line'><span class="nv">$firewallMap</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$matcher</span><span class="p">,</span> <span class="nv">$listeners</span><span class="p">,</span> <span class="nv">$exceptionListener</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$firewall</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firewall</span><span class="p">(</span><span class="nv">$firewallMap</span><span class="p">,</span> <span class="nv">$dispatcher</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Other classes</h2>
-
-<ul>
-<li><strong>UserProvider</strong>: Finds a user given his credentials.</li>
-<li><strong>AutheticationEntryPoint</strong>: When a match is found but no authentication info can be extracted by the request, this has the chance to return a specific response asking for credentials. For example, the <a href="https://github.com/symfony/Security/blob/master/Http/EntryPoint/FormAuthenticationEntryPoint.php">FormAuthenticationEntryPoint</a> redirects to a login form.</li>
-</ul>
-
-
-<h2>In Symfony2 framework</h2>
-
-<p>The <a href="https://github.com/symfony/SecurityBundle"><code>SecurityBundle</code></a> integrates this component into Symfony2, reading configuration from <code>security.yml</code> and adding some sane defaults.</p>
-
-<h2>In Elcodi</h2>
-
-<p><a href="https://github.com/elcodi/User"><code>Elcodi/User</code></a> depends on the <code>Security</code>  component for authentication. The main implementation of the <code>CustomerWrapper</code> extracts the current user from the <code>SecurityContext</code>. Also, in <a href="http://bamboo.elcodi.com/">our example application, Bamboo</a>, we depend on the excelent <a href="https://github.com/hwi/HWIOAuthBundle"><code>hwi/oauth-bundle</code></a>, which is a good example of extending this component, for OAuth authentication.</p>
-
-<h2>Conclusion</h2>
-
-<p>Almost every non-trivial application requires some kind of authentication. The <code>Security</code> component gives you all the power you should need, although it may be hard to use standalone. The integration with the framework makes for a much more enjoyable experience. We&rsquo;re already using this component! And you?</p>
-
-<p>Have fun!</p>
-
-<h2>Urls</h2>
-
-<ul>
-<li><a href="https://github.com/symfony/Security">Repository</a></li>
-<li><a href="http://symfony.com/doc/current/components/security">Documentation</a></li>
-<li><a href="https://packagist.org/packages/symfony/security">Packagist</a></li>
-</ul>
-
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p><a href="http://symfony.com/blog/new-in-symfony-2-6-security-component-improvements"><strong>SecurityContext</strong> is deprecated since Symfony 2.6 in favor of <strong>TokenStorage</strong></a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -2089,6 +2092,10 @@ task :)</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/07/07/install-elcodi/">Install Elcodi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/06/18/elcodi-beta-is-here/">Elcodi beta is here</a>
       </li>
     
@@ -2102,10 +2109,6 @@ task :)</p>
     
       <li class="post">
         <a href="/blog/2015/04/04/first-stable-release/">First stable release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/04/01/elcodi-changes-its-technology/">Elcodi changes its technology</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-06-19T11:18:58+02:00</updated>
+  <updated>2015-07-10T14:56:11+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Install Elcodi]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/07/07/install-elcodi/"/>
+    <updated>2015-07-07T12:59:39+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/07/07/install-elcodi</id>
+    <content type="html"><![CDATA[<p>In order to decrease the time of installation of Elcodi, and with our new Beta
+release</p>
+
+<p><a href="https://github.com/elcodi/bamboo/blob/master/CHANGELOG-1.0.md#v100-beta3-10-07-2015">Bamboo v1.0.0-beta3</a><br/>
+<a href="https://github.com/elcodi/elcodi/blob/master/CHANGELOG-1.0.md#v100-beta3-10-07-2015">Elcodi v1.0.0-beta3</a></p>
+
+<p>we&rsquo;ve been working on how fast you can create a new shop in your localhost and
+start tuning it. It is important right?</p>
+
+<h2>New elcodi:install command</h2>
+
+<p>Elcodi is Symfony based. This means that to make it work you need to execute
+some commands in order to do some common actions (create database, update
+schema, populate fixtures&hellip;)</p>
+
+<p>To improve this step, we have created a new console command in order to decrease
+this installation time and the number of steps required to play with your
+localhost.</p>
+
+<p>4 steps to rule them all, and less than 3 minutes to start with Elcodi.</p>
+
+<p><code>bash
+$ curl -s http://getcomposer.org/installer | php
+$ php composer.phar create-project elcodi/bamboo bamboo -sdev
+$ cd bamboo/
+$ php app/console elcodi:install
+</code></p>
+
+<p>As soon as Bamboo is installed, you can create a temporary server by using the
+PHP built-in server</p>
+
+<p><code>bash
+$ php app/console server:run
+</code></p>
+
+<p>And check your Bamboo installation in your browser by accessing to
+<code>http://localhost:8000</code>.</p>
+
+<h2>GD instead of ImageMagick</h2>
+
+<p>Because we have implemented some needs using adapters, we have implemented a new
+image resize adapter based on the PHP GD engine. The good thing is that GD is
+already installed in all standard PHP versions, so you don&rsquo;t really need to
+install any extra library.</p>
+
+<p>This new adapter has been proposed and accepted as the default one, and of
+course, ImageMagick adapter can be still used by changing the configuration
+value.</p>
+
+<p>``` yml
+elcodi_media:</p>
+
+<pre><code>images:
+    resize:
+        adapter: elcodi.media_resize.imagemagick
+</code></pre>
+
+<p>```</p>
+
+<h2>Location repository</h2>
+
+<p>In Elcodi you can populate new countries. With this new installation command,
+and by using <code>--country</code> option, you can add already generated countries in
+seconds. You can see available pregenerated countries in our
+<a href="https://github.com/elcodi/LocationDumps">LocationDumps</a> repository. We will
+generate all countries over time.</p>
+
+<blockquote><p>If you want to use the demo application, make sure you install Spain. All
+already built addresses are from Spain. Otherwise, feel free to build your
+Location database as you need.</p></blockquote>
+
+<p>Imagine you want to install France and Italy. Well, you should do that</p>
+
+<p><code>bash
+$ php app/console elcodi:install --country=FR --country=IT
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Elcodi beta is here]]></title>
@@ -772,31 +856,6 @@ project :)</li>
 enter <a href="https://gitter.im/elcodi/elcodi">Elcodi Gitter room</a> and say hello :)</p>
 
 <p>Have a nice day!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Elcodi changes its technology]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2015/04/01/elcodi-changes-its-technology/"/>
-    <updated>2015-04-01T16:45:38+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2015/04/01/elcodi-changes-its-technology</id>
-    <content type="html"><![CDATA[<p>This is an official statement from Elcodi Team.</p>
-
-<blockquote><p>This post was an April Fools joke. Elcodi will be based on Symfony for a long
-time. We love Symfony.</p></blockquote>
-
-<p>After some nice months using Symfony in our project Elcodi, and after many
-reflections on how to increase the project quality, we&rsquo;re proud to announce that
-we are moving to Ruby on Rails.</p>
-
-<p>Until version <code>v0.6.*</code> we will continue evolving our code for these people who
-is nowadays using Elcodi in their projects, but after that, we will move all
-our code to Ruby.</p>
-
-<p><img src="http://planetargon.com/images/rails-love.png" alt="We love rails" /></p>
-
-<p>If you need some information, feel free to keep in touch with us in our
-<a href="https://gitter.im/elcodi/elcodi">Gitter account</a></p>
 ]]></content>
   </entry>
   
