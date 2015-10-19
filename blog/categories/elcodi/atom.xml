@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elcodi | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/elcodi/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-07-10T14:56:11+02:00</updated>
+  <updated>2015-10-19T18:28:33+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Meet Deliberry]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/10/19/meet-deliberry/"/>
+    <updated>2015-10-19T17:53:22+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/10/19/meet-deliberry</id>
+    <content type="html"><![CDATA[<p>As an open source project, whenever a project touches success using our
+technology, our pride feelings are indescribable. Each project based on Elcodi
+means a different and unique story for us. Each one as much important as the
+best.</p>
+
+<p>But in this case, we want to talk about one of our first projects using Elcodi
+as the main technology. And we want to do that because we really love this
+company, and the way they want to really change the world. Like we want.</p>
+
+<p>The name of the project is <a href="http://deliberry.com">Deliberry</a>, and they are
+placed in Barcelona.</p>
+
+<p><img src="http://elcodi.io/img/showcase/deliberry.png" alt="Deliberry" /></p>
+
+<p>They deliver your supermarket purchases in less than one hour. This is great,
+right? They used Elcodi components as the main technology, and our Bamboo
+project as the basis for their front engine and their admin site.</p>
+
+<p>They started using Elcodi some months ago, when we were working on version
+<code>v0.5.0</code>. These days, Elcodi was very unstable, so day after day, we introduced
+new changes, affecting strongly the BC standard. Even with that scenario,
+Deliberry has been always our first tester for new versions, working side by
+side with us, and reporting us as many issues as possible.</p>
+
+<p>And believe us&hellip; For a new open source project&hellip; this is the best gift we&rsquo;ve
+had.</p>
+
+<h2>Changing the world with us</h2>
+
+<p>One of the biggest things that makes this project really awesome, is that they
+are really changing the world.</p>
+
+<p>We are very used of thinking that, for a company than simply delivers food,
+changing the world means delivering it faster and better. Of course, this is
+great, but your are only changing part of the world, and probably, the part than
+less need a change.</p>
+
+<p>Deliberry works side by side with an organization name
+<a href="http://www.caritas.es/">Cáritas</a>. This organization helps people suffering of
+social exclusion (yes, in Spain we have a lot of this, sadly). People without
+many resources, that cannot enjoy whether the purchase is fast or not: they
+cannot even buy anything.</p>
+
+<p>Deliberry help this organization by hiring people from this organization for
+buying people&rsquo;s food, or delivering it. And everything, in less than one hour.</p>
+
+<p>Isn&rsquo;t it fantastic?</p>
+
+<p><a href="http://www.youtube.com/watch?v=6sXPaFB93is" title="Deliberry TV1"><img src="http://img.youtube.com/vi/6sXPaFB93is/0.jpg" alt="Deliberry TV1" /></a></p>
+
+<p>Deliberry is our hero. Thanks for being part of the Elcodi history, and keep
+changing the world, we will try to do the same :)</p>
+
+<h2>Change the world too</h2>
+
+<p>We are looking for projects that want to change the world, somehow, somewhere.
+If you have in mind one of them, consider the usage of Elcodi. Our biggest
+effort goes to providing happiness and joy between E-commerce developers,
+mastering amazing projects full of creativity and innovation.</p>
+
+<p>Only this scenario turns on the best projects ever, and only the best projects
+ever can change this world.</p>
+
+<p>So&hellip; we are looking for you.<br/>
+<a href="http://elcodi.io">Join us!</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Roadmap for 2015]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/08/06/roadmap-for-2015/"/>
+    <updated>2015-08-06T11:58:10+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/08/06/roadmap-for-2015</id>
+    <content type="html"><![CDATA[<p>Open Source is hard. We strongly recommend people to start an Open Source
+project by itself. You will push the limits of your Software skills, you will
+gain an extra piece of humility and, for sure, you will find a new way of
+evolving as an engineer and as a human.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Install Elcodi]]></title>
@@ -272,590 +357,6 @@ something nice <a href="https://github.com/elcodi/bamboo/issues/450">here</a> or
 touch with us at <a href="http://gitter.im/elcodi/elcodi">gitter</a>.</p>
 
 <p>Enjoy your week :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Introducing the Directors in Symfony]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2015/04/20/introducing-the-directors-in-symfony/"/>
-    <updated>2015-04-20T12:36:03+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2015/04/20/introducing-the-directors-in-symfony</id>
-    <content type="html"><![CDATA[<p>Have you ever worked with Entity Managers, Repositories or Factories in Symfony?
-Yes, for sure you&rsquo;ve done that. Indeed, if you work with entities in your
-project, these type of objects will be your daily, so we want to introduce you a
-new concept, born in <a href="http://github.com/elcodi/elcodi">Elcodi project</a> and
-created in order to simplify the management of an entity inside a service,
-fixture or functional test.</p>
-
-<p>Please, welcome the Director class.</p>
-
-<h3>Director</h3>
-
-<p>Imagine you have a service called <code>CartWrapper</code>. This service is meant to be a
-wrapper of a cart, and its behavior is that easy.</p>
-
-<ul>
-<li>If you require an existing user&rsquo;s cart, retrieve it from database and return
-it</li>
-<li>Otherwise, create a new Cart, save it and return it.</li>
-</ul>
-
-
-<p>Let&rsquo;s see a small implementation of such service.</p>
-
-<p>``` php
-/<em>*
- * CartWrapper
- </em>/
-class cartWrapper
-{</p>
-
-<pre><code>/**
- * @var EntityManager
- *
- * Cart entity manager
- */
-protected $entityManager;
-
-/**
- * @var CartFactory
- *
- * Cart factory
- */
-protected $cartFactory;
-
-/**
- * @var CartRepository
- *
- * Cart repository
- */
-protected $cartRepository;
-
-/**
- * Construct
- *
- * @param EntityManager  $entityManager  Entity manager
- * @param CartFactory    $cartFactory    Cart factory
- * @param CartRepository $cartRepository Cart repository
- */
-public function __construct(
-    EntityManager $entityManager,
-    CartFactory $cartFactory,
-    CartRepository $cartRepository
-)
-{
-    $this-&gt;entityManager = $entityManager;
-    $this-&gt;cartFactory = $cartFactory;
-    $this-&gt;cartRepository = $cartRepository;
-}
-
-/**
- * Load cart
- *
- * @param UserInterface $user User
- *
- * @return CartInterface
- */
-public function loadCart($user)
-{
-    $userCart = $this
-        -&gt;cartRepository
-        -&gt;findOneBy([
-            'user' =&gt; $user
-        ]);
-
-    if (!($userCart instanceof CartInterface)) {
-
-        $newCart = $this
-            -&gt;cartFactory
-            -&gt;create($user);
-
-        $this
-            -&gt;entityManager
-            -&gt;persist($newCart);
-
-        $this
-            -&gt;entityManager
-            -&gt;flush($newCart);
-
-        $userCart = $newCart;
-    }
-
-    return $userCart;
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>As you can see, this services needs 3 dependencies, and would be difficult to
-reduce this number in order to reduce the complexity of the class. This service
-is intended to do one single thing.</p>
-
-<p>What is the strategy here? Do you know what the <em>Facade pattern</em> is, right?
-Well, the way for solving this amount of classes is creating a new facade called
-Director, intended to provide a small set of usable methods simplifying the
-management of the entities.</p>
-
-<p>Let&rsquo;s see the implementation of this class. You can find the real implementation
-in <a href="https://github.com/elcodi/elcodi">elcodi/core</a>.</p>
-
-<p>``` php
-namespace Elcodi\Component\Core\Services;</p>
-
-<p>use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
-use UnexpectedValueException;</p>
-
-<p>use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;</p>
-
-<p>/<em>*
- * Class ObjectDirector
- *
- * This object is a facade for these different persistence-related elements
- *
- * * Object Manager
- * * Repository
- * * Factory
- *
- * Allows final user to manage in a simple way an entity or a set of entities.
- * Provides a reduced (but useful) set of methods.
- </em>/
-class ObjectDirector
-{</p>
-
-<pre><code>/**
- * @var ObjectManager
- *
- * Manager
- */
-protected $manager;
-
-/**
- * @var ObjectRepository
- *
- * Repository
- */
-protected $repository;
-
-/**
- * @var AbstractFactory
- *
- * Factory
- */
-protected $factory;
-
-/**
- * Construct
- *
- * @param ObjectManager    $manager    Manager
- * @param ObjectRepository $repository Repository
- * @param AbstractFactory  $factory    Factory
- */
-public function __construct(
-    ObjectManager $manager,
-    ObjectRepository $repository,
-    AbstractFactory $factory
-) {
-    $this-&gt;manager = $manager;
-    $this-&gt;repository = $repository;
-    $this-&gt;factory = $factory;
-}
-
-/**
- * Finds an object by its primary key / identifier.
- *
- * @param mixed $id The identifier.
- *
- * @return object|null Fetched object
- */
-public function find($id)
-{
-    return $this
-        -&gt;repository
-        -&gt;find($id);
-}
-
-/**
- * Finds all objects in the repository.
- *
- * @return array Set of fetched objects
- */
-public function findAll()
-{
-    return $this
-        -&gt;repository
-        -&gt;findAll();
-}
-
-/**
- * Finds objects by a set of criteria.
- *
- * Optionally sorting and limiting details can be passed. An implementation may throw
- * an UnexpectedValueException if certain values of the sorting or limiting details are
- * not supported.
- *
- * @param array        $criteria
- * @param array|null   $orderBy
- * @param integer|null $limit
- * @param integer|null $offset
- *
- * @return array Set of fetched objects
- *
- * @throws UnexpectedValueException
- */
-public function findBy(
-    array $criteria,
-    array $orderBy = null,
-    $limit = null,
-    $offset = null)
-{
-    return $this
-        -&gt;repository
-        -&gt;findBy(
-            $criteria,
-            $orderBy,
-            $limit,
-            $offset
-        );
-}
-
-/**
- * Finds a single object given a criteria.
- *
- * @param array $criteria The criteria.
- *
- * @return object|null Fetched object
- */
-public function findOneBy(array $criteria)
-{
-    return $this
-        -&gt;repository
-        -&gt;findOneBy(
-            $criteria
-        );
-}
-
-/**
- * Create a new entity instance, result of the factory creation method
- *
- * @return Object new Instance
- */
-public function create()
-{
-    return $this
-        -&gt;factory
-        -&gt;create();
-}
-
-/**
- * Save the instance into database. Given data can be a single object or
- * an array of objects.
- *
- * This method will persist and flush given object/array of objects
- *
- * @param object|array $data Data to save into database
- *
- * @return object|array Saved data
- */
-public function save($data)
-{
-    if (is_array($data)) {
-        foreach ($data as $entity) {
-            $this
-                -&gt;manager
-                -&gt;persist($entity);
-        }
-    } else {
-        $this
-            -&gt;manager
-            -&gt;persist($data);
-    }
-
-    $this
-        -&gt;manager
-        -&gt;flush($data);
-
-    return $data;
-}
-
-/**
- * Remove the instance from the database. Given data can be a single object or
- * an array of objects.
- *
- * This method will remove and flush given object/array of objects
- *
- * @param object|array $data Data to remove from database
- *
- * @return object|array Removed data
- */
-public function remove($data)
-{
-    if (is_array($data)) {
-        foreach ($data as $entity) {
-            $this
-                -&gt;manager
-                -&gt;remove($entity);
-        }
-    } else {
-        $this
-            -&gt;manager
-            -&gt;remove($data);
-    }
-
-    $this
-        -&gt;manager
-        -&gt;flush($data);
-
-    return $data;
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>This implementation provides us a simple set of actions for our entities (maybe
-the most used).</p>
-
-<ul>
-<li>find(&hellip;)</li>
-<li>findAll()</li>
-<li>findBy(&hellip;)</li>
-<li>findOneBy(&hellip;)</li>
-<li>create()</li>
-<li>save()</li>
-<li>remove()</li>
-</ul>
-
-
-<p>This implementation is so useful for many scenarios, but in our case what we
-found is that using Directors, our tests are reduced in many ways (less lines of
-code, less complexity, more effectiveness), and the fixtures are totally
-improved, focusing on the most important thing: our business logic.</p>
-
-<h3>Directors as a service</h3>
-
-<p>To use a Director as a service you need to define your repository as a service
-as well, assuming that your factory is already a service called <code>cart_factory</code>
-and assuming as well that we will work with the default entity manager
-<code>doctrine.orm.default_entity_manager</code> (not a good practice, but let&rsquo;s suppose it
-is in this example).</p>
-
-<p>Let&rsquo;s see how to define your repository as a service.</p>
-
-<p>``` yml
-services:</p>
-
-<pre><code>#
-# Doctrine Repository
-#
-cart_repository:
-    class: Doctrine\Common\Persistence\ObjectRepository
-    factory:
-        - @elcodi.provider.repository
-        - getRepositoryByEntityNamespace
-    arguments:
-        - My\Cart\Namespace
-</code></pre>
-
-<p>```</p>
-
-<p>You will find the service <code>elcodi.provider.repository</code> inside the Bundle
-<code>elcodi/core-bundle</code>. This bundle is not coupled to any Elcodi functionality so
-you can use it in your own projects as a set of isolated features.</p>
-
-<p>Finally, let&rsquo;s create the Director definition by using the factory pattern.</p>
-
-<p>``` yml
-services:</p>
-
-<pre><code>#
-# Directors
-#
-elcodi.director.cart:
-    class: Elcodi\Component\Core\Services\ObjectDirector
-    arguments:
-        - @doctrine.orm.default_entity_manager
-        - @cart_repository
-        - @cart_factory
-</code></pre>
-
-<p>```</p>
-
-<p>Take in account that each entity will have it&rsquo;s own Director instance, so this
-is why we use the factory pattern here.</p>
-
-<p>How can we use the new Director service in our first <code>CartWrapper</code>
-implementation by changing and improving the services dependencies? Let&rsquo;s do
-that!</p>
-
-<p>``` php
-/<em>*
- * CartWrapper
- </em>/
-class cartWrapper
-{</p>
-
-<pre><code>/**
- * @var ObjectDirector
- *
- * Cart director
- */
-protected $cartDirector;
-
-/**
- * Construct
- *
- * @param ObjectDirector $cartDirector Cart Director
- */
-public function __construct(ObjectDirector $cartDirector)
-{
-    $this-&gt;cartDirector = $cartDirector;
-}
-
-/**
- * Load cart
- *
- * @param UserInterface $user User
- *
- * @return CartInterface
- */
-public function loadCart($user)
-{
-    $userCart = $this
-        -&gt;cartDirector
-        -&gt;findOneBy([
-            'user' =&gt; $user
-        ]);
-
-    if (!($userCart instanceof CartInterface)) {
-
-        $newCart = $this
-            -&gt;cartDirector
-            -&gt;create($user);
-
-        $this
-            -&gt;cartDirector
-            -&gt;save($newCart);
-
-        $userCart = $newCart;
-    }
-
-    return $userCart;
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p><a href="http://github.com/elcodi/elcodi">Elcodi</a> is fully based on the usage of
-Directors. This does <strong>not</strong> mean that we must use Directors everywhere.
-Sometimes you need to use only one of the wrapped objects, and in that case you
-must inject them one by one, so please, before using this new object think about
-it, think about the pros and the contras and be responsible about your
-implementation.</p>
-
-<p>Don&rsquo;t hesitate to comment about what do you think about this feature.</p>
-
-<p>Have a nice day!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First stable release]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/"/>
-    <updated>2015-04-04T19:51:28+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release</id>
-    <content type="html"><![CDATA[<p>Hi there everyone.</p>
-
-<p>The Elcodi core team is glad to announce that next June 1st, we will tag the
-first stable release of the project (Elcodi will be still based on Symfony, you
-know how much we like Symfony and its community&hellip;)</p>
-
-<h3>Elcodi v1.0</h3>
-
-<ul>
-<li>Until this day, we&rsquo;ll finish stabilization of all packages</li>
-<li>We will work so hard to finish a documentation for all of you</li>
-<li>All available features will be covered by unit, functional and behavioral
-tests, using PHPUnit and Behat 3.0</li>
-<li>After <code>v1.0</code> we will start working on <code>v3.0</code>. This new version will be
-released next November in order to be compatible with Symfony <code>v3.*</code>. It means
-as well that this new version will introduce some BC Break, of course.</li>
-</ul>
-
-
-<p>So, we have less than 2 months to stabilize Elcodi package, and we need your
-help.</p>
-
-<p>Some days ago, we announced the
-<a href="http://blog.elcodi.io/blog/2015/03/03/elcodi-bug-hunting/">Elcodi Bug Hunting</a>,
-remember? Well, initially this contest was during this past March, but we have
-decided to enlarge the period of the contest until June 1st, the day of the
-release.</p>
-
-<p>Until now, we have received some help from some people. Special thanks for them.</p>
-
-<ul>
-<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Acordoval">cordoval</a></li>
-<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ajaviereguiluz">javiereguiluz</a></li>
-<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ahacfi">hacfi</a></li>
-<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Amickaelandrieu">mickaelandrieu</a></li>
-<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed">And many more</a></li>
-</ul>
-
-
-<p>But we need some extra help in order to accomplish our goal.</p>
-
-<h3>Win the MacBookPro</h3>
-
-<p>Easy and super-fast. Do you want to win the MacBookPro? Easy, just help us with
-some fast actions and you will be able to win the
-<strong>Apple Macbook Pro 2014 Retina</strong> (of course, with an Android/Ubuntu/Windows
-alternative or any geeky stuff with same price)</p>
-
-<ul>
-<li>Follow us on twitter (@elcodi_dev)</li>
-<li>Give <a href="http://github.com/elcodi/elcodi">Elcodi repository</a> a star</li>
-<li>Give <a href="http://github.com/elcodi/bamboo">Bamboo repository</a> a star</li>
-<li>Give <a href="http://github.com/elcodi/docs">Elcodi docs repository</a> a star</li>
-<li>Make a funny tweet about it, for example, sharing this post or trolling us
-a little bit :)</li>
-</ul>
-
-
-<p>After that you will have 5 points, enough to access to the MacBookPro raffle.</p>
-
-<h3>A little bit more&hellip;</h3>
-
-<p>Are you interested in E-commerce and do you like Symfony? Well, there are some
-extra things you can do to help. You can win the battle and win the
-<strong>Ipad Air</strong></p>
-
-<ul>
-<li>[Download, install and try Bamboo)[<a href="http://elcodi.io/docs/quick-start.html">http://elcodi.io/docs/quick-start.html</a>)</li>
-<li>If you find any kind of issue, please open an Issue in our repository and
-report it to us.</li>
-<li>Oh, you know how to fix it? That&rsquo;s wonderful! Create a Pull Request and be a
-collaborator of the project!</li>
-<li>We are elaborating a documentation&hellip; maybe you could help us looking for some
-typo issues or creating new content&hellip;</li>
-<li>Have you tried Elcodi and you want to express the world how much excited you
-are? Great! Do a post in your blog and explain us what did you create with
-Elcodi!</li>
-<li>Elcodi is an international project, so we are looking for people able to
-translate Bamboo to all languages (even in Klingon and Esperanto!). Are you
-proud of your language? Well, help other people of your country for using this
-project :)</li>
-</ul>
-
-
-<p>All this actions will give you some extra points.</p>
-
-<p>Of course, if you need help, all Elcodi Core team will gladly help you. Just
-enter <a href="https://gitter.im/elcodi/elcodi">Elcodi Gitter room</a> and say hello :)</p>
-
-<p>Have a nice day!</p>
 ]]></content>
   </entry>
   
