@@ -4,7 +4,7 @@
   <title><![CDATA[Category: symfony | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/symfony/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-10-19T18:28:33+02:00</updated>
+  <updated>2015-10-19T18:30:08+02:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,18 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Roadmap for 2015]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2015/08/06/roadmap-for-2015/"/>
-    <updated>2015-08-06T11:58:10+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2015/08/06/roadmap-for-2015</id>
-    <content type="html"><![CDATA[<p>Open Source is hard. We strongly recommend people to start an Open Source
-project by itself. You will push the limits of your Software skills, you will
-gain an extra piece of humility and, for sure, you will find a new way of
-evolving as an engineer and as a human.</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Install Elcodi]]></title>
@@ -768,6 +756,104 @@ it, think about the pros and the contras and be responsible about your
 implementation.</p>
 
 <p>Don&rsquo;t hesitate to comment about what do you think about this feature.</p>
+
+<p>Have a nice day!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First stable release]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release/"/>
+    <updated>2015-04-04T19:51:28+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/04/04/first-stable-release</id>
+    <content type="html"><![CDATA[<p>Hi there everyone.</p>
+
+<p>The Elcodi core team is glad to announce that next June 1st, we will tag the
+first stable release of the project (Elcodi will be still based on Symfony, you
+know how much we like Symfony and its community&hellip;)</p>
+
+<h3>Elcodi v1.0</h3>
+
+<ul>
+<li>Until this day, we&rsquo;ll finish stabilization of all packages</li>
+<li>We will work so hard to finish a documentation for all of you</li>
+<li>All available features will be covered by unit, functional and behavioral
+tests, using PHPUnit and Behat 3.0</li>
+<li>After <code>v1.0</code> we will start working on <code>v3.0</code>. This new version will be
+released next November in order to be compatible with Symfony <code>v3.*</code>. It means
+as well that this new version will introduce some BC Break, of course.</li>
+</ul>
+
+
+<p>So, we have less than 2 months to stabilize Elcodi package, and we need your
+help.</p>
+
+<p>Some days ago, we announced the
+<a href="http://blog.elcodi.io/blog/2015/03/03/elcodi-bug-hunting/">Elcodi Bug Hunting</a>,
+remember? Well, initially this contest was during this past March, but we have
+decided to enlarge the period of the contest until June 1st, the day of the
+release.</p>
+
+<p>Until now, we have received some help from some people. Special thanks for them.</p>
+
+<ul>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Acordoval">cordoval</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ajaviereguiluz">javiereguiluz</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Ahacfi">hacfi</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed+author%3Amickaelandrieu">mickaelandrieu</a></li>
+<li><a href="https://github.com/elcodi/elcodi/pulls?q=is%3Apr+is%3Aclosed">And many more</a></li>
+</ul>
+
+
+<p>But we need some extra help in order to accomplish our goal.</p>
+
+<h3>Win the MacBookPro</h3>
+
+<p>Easy and super-fast. Do you want to win the MacBookPro? Easy, just help us with
+some fast actions and you will be able to win the
+<strong>Apple Macbook Pro 2014 Retina</strong> (of course, with an Android/Ubuntu/Windows
+alternative or any geeky stuff with same price)</p>
+
+<ul>
+<li>Follow us on twitter (@elcodi_dev)</li>
+<li>Give <a href="http://github.com/elcodi/elcodi">Elcodi repository</a> a star</li>
+<li>Give <a href="http://github.com/elcodi/bamboo">Bamboo repository</a> a star</li>
+<li>Give <a href="http://github.com/elcodi/docs">Elcodi docs repository</a> a star</li>
+<li>Make a funny tweet about it, for example, sharing this post or trolling us
+a little bit :)</li>
+</ul>
+
+
+<p>After that you will have 5 points, enough to access to the MacBookPro raffle.</p>
+
+<h3>A little bit more&hellip;</h3>
+
+<p>Are you interested in E-commerce and do you like Symfony? Well, there are some
+extra things you can do to help. You can win the battle and win the
+<strong>Ipad Air</strong></p>
+
+<ul>
+<li>[Download, install and try Bamboo)[<a href="http://elcodi.io/docs/quick-start.html">http://elcodi.io/docs/quick-start.html</a>)</li>
+<li>If you find any kind of issue, please open an Issue in our repository and
+report it to us.</li>
+<li>Oh, you know how to fix it? That&rsquo;s wonderful! Create a Pull Request and be a
+collaborator of the project!</li>
+<li>We are elaborating a documentation&hellip; maybe you could help us looking for some
+typo issues or creating new content&hellip;</li>
+<li>Have you tried Elcodi and you want to express the world how much excited you
+are? Great! Do a post in your blog and explain us what did you create with
+Elcodi!</li>
+<li>Elcodi is an international project, so we are looking for people able to
+translate Bamboo to all languages (even in Klingon and Esperanto!). Are you
+proud of your language? Well, help other people of your country for using this
+project :)</li>
+</ul>
+
+
+<p>All this actions will give you some extra points.</p>
+
+<p>Of course, if you need help, all Elcodi Core team will gladly help you. Just
+enter <a href="https://gitter.im/elcodi/elcodi">Elcodi Gitter room</a> and say hello :)</p>
 
 <p>Have a nice day!</p>
 ]]></content>
