@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: success | Elcodi blog]]></title>
+  <link href="http://elcodi-blog.github.io/blog/categories/success/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2015-10-20T13:14:27+02:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
+  <author>
+    <name><![CDATA[Elcodi Team]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Meet Deliberry]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/10/19/meet-deliberry/"/>
+    <updated>2015-10-19T17:53:22+02:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/10/19/meet-deliberry</id>
+    <content type="html"><![CDATA[<p>As an open source project, whenever a project touches success using our
+technology, our pride feelings are indescribable. Each project based on Elcodi
+means a different and unique story for us. Each one as much important as the
+best.</p>
+
+<p>But in this case, we want to talk about one of our first projects using Elcodi
+as the main technology. And we want to do that because we really love this
+company, and the way they want to really change the world. Like we want.</p>
+
+<p>The name of the project is <a href="http://deliberry.com">Deliberry</a>, and they are
+placed in Barcelona.</p>
+
+<p><img src="http://elcodi.io/img/showcase/deliberry.png" alt="Deliberry" /></p>
+
+<p>They deliver your supermarket purchases in less than one hour. This is great,
+right? They used Elcodi components as the main technology, and our Bamboo
+project as the basis for their front engine and their admin site.</p>
+
+<p>They started using Elcodi some months ago, when we were working on version
+<code>v0.5.0</code>. These days, Elcodi was very unstable, so day after day, we introduced
+new changes, affecting strongly the BC standard. Even with that scenario,
+Deliberry has been always our first tester for new versions, working side by
+side with us, and reporting us as many issues as possible.</p>
+
+<p>And believe us&hellip; For a new open source project&hellip; this is the best gift we&rsquo;ve
+had.</p>
+
+<h2>Changing the world with us</h2>
+
+<p>One of the biggest things that makes this project really awesome, is that they
+are really changing the world.</p>
+
+<p>We are very used of thinking that, for a company than simply delivers food,
+changing the world means delivering it faster and better. Of course, this is
+great, but your are only changing part of the world, and probably, the part than
+less need a change.</p>
+
+<p>Deliberry works side by side with an organization name
+<a href="http://www.caritas.es/">Cáritas</a>. This organization helps people suffering of
+social exclusion (yes, in Spain we have a lot of this, sadly). People without
+many resources, that cannot enjoy whether the purchase is fast or not: they
+cannot even buy anything.</p>
+
+<p>Deliberry help this organization by hiring people from this organization for
+buying people&rsquo;s food, or delivering it. And everything, in less than one hour.</p>
+
+<p>Isn&rsquo;t it fantastic?</p>
+
+<p><a href="http://www.youtube.com/watch?v=6sXPaFB93is" title="Deliberry TV1"><img src="http://img.youtube.com/vi/6sXPaFB93is/0.jpg" alt="Deliberry TV1" /></a></p>
+
+<p>Deliberry is our hero. Thanks for being part of the Elcodi history, and keep
+changing the world, we will try to do the same :)</p>
+
+<h2>Try Deliberry</h2>
+
+<p>At the moment, Deliberry is only working on Barcelona, but if you are living
+here, we encourage you to try it. And even better, we want to give you a nice
+discount for your next purchase.</p>
+
+<p>Use the discount code <strong><em>ELCODI</em></strong>, and with a minimum purchase of 40€ you will
+recieve 10€ of discount. And if is your first time, the delivery fees will be
+free!</p>
+
+<p>Hurry up! You can use this discount during this year :)</p>
+
+<h2>Change the world too</h2>
+
+<p>We are looking for projects that want to change the world, somehow, somewhere.
+If you have in mind one of them, consider the usage of Elcodi. Our biggest
+effort goes to providing happiness and joy between E-commerce developers,
+mastering amazing projects full of creativity and innovation.</p>
+
+<p>Only this scenario turns on the best projects ever, and only the best projects
+ever can change this world.</p>
+
+<p>So&hellip; we are looking for you.<br/>
+<a href="http://elcodi.io">Join us!</a></p>
+]]></content>
+  </entry>
+  
+</feed>
