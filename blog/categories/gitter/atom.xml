@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gitter | Elcodi blog]]></title>
+  <link href="http://elcodi-blog.github.io/blog/categories/gitter/atom.xml" rel="self"/>
+  <link href="http://elcodi-blog.github.io/"/>
+  <updated>2015-11-20T22:26:47+01:00</updated>
+  <id>http://elcodi-blog.github.io/</id>
+  <author>
+    <name><![CDATA[Elcodi Team]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Elcodi online meetup]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/11/20/elcodi-online-meetup/"/>
+    <updated>2015-11-20T21:50:00+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/11/20/elcodi-online-meetup</id>
+    <content type="html"><![CDATA[<p><a href="http://elcodi.io">Elcodi</a> is growing so fast.</p>
+
+<blockquote><p>Elcodi is an E-commerce platform based on Symfony components. Is composed by
+some PHP Components, by some Symfony Bundles and by a Full-stack project based
+on the Symfony Framework. A all-in-one E-commerce solution, splitted in
+several isolated parts.</p></blockquote>
+
+<p>We started this project two and a half years ago, and our community is getting
+bigger day after day. That&rsquo;s great because the project grows as well as long as
+more people start using it (more needs, more ideas, more contributions, more
+fun).</p>
+
+<p>We will start doing monthly meetings online in our
+<a href="http://gitter.im/elcodi/elcodi">Gitter channel</a>. Right now, some people is
+daily contributing to Elcodi and having some nice and constructive talks, but we
+want to make it even bigger.</p>
+
+<p>Our first monthly meeting will be next November 25th at 6:00pm GMT+1.
+This meeting will be hosted by the core team of the project,
+<a href="https://github.com/mmoreram">Marc Morera</a> and
+<a href="https://github.com/EmanueleMinotto">Emanuele Minotto</a>.</p>
+
+<h2>Agenda</h2>
+
+<p>This meeting will be focused on creating some working groups for the next weeks.
+Depending on the people attending at the meeting, we will create more or less
+groups, focused on some parts of the application.</p>
+
+<p>These are the points we will talk about.</p>
+
+<ul>
+<li>Tasks for next version <code>v1.1</code>.</li>
+<li>Documentation update and revision.</li>
+<li>Test coverage for <code>v1.1</code>.</li>
+<li>Community action. How to make as many people as possible involved.</li>
+</ul>
+
+
+<h2>Attendees</h2>
+
+<p>Maybe you&rsquo;re asking yourself if this meeting is for you.</p>
+
+<p>Well, it depends on your interests. If your job is all about E-commerce, even if
+your Symfony skills are no so good, then you should join us. You will have the
+opportunity to share some time with really skilled people and to know the way we
+have created this project.</p>
+
+<p>If your interest is open source, join us as well. Elcodi is a young project,
+focused on finding the right equilibrium between pragmatism and clean
+architecture. We use Event-Driven Architecture and annotations at the same time.
+Do you want to know why? What are our thoughts? Ask us :)</p>
+
+<p>In other words, if you want to have a nice time with some really good people,
+then you definitely should join us and say a big Hello!</p>
+
+<p>Remember, next November 25th at&hellip;</p>
+
+<ul>
+<li>Mexico City, La Havana &ndash; 11:00am</li>
+<li>London &ndash; 05:00pm</li>
+<li>Barcelona, Paris, Warsaw &ndash; 06:00pm</li>
+<li>Moscow &ndash; 08:00pm</li>
+</ul>
+
+
+<p>Looking forward to see you all there!</p>
+]]></content>
+  </entry>
+  
+</feed>

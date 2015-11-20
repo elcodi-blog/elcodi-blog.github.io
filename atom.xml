@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-10-20T13:14:27+02:00</updated>
+  <updated>2015-11-20T22:26:47+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,80 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Elcodi online meetup]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2015/11/20/elcodi-online-meetup/"/>
+    <updated>2015-11-20T21:50:00+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2015/11/20/elcodi-online-meetup</id>
+    <content type="html"><![CDATA[<p><a href="http://elcodi.io">Elcodi</a> is growing so fast.</p>
+
+<blockquote><p>Elcodi is an E-commerce platform based on Symfony components. Is composed by
+some PHP Components, by some Symfony Bundles and by a Full-stack project based
+on the Symfony Framework. A all-in-one E-commerce solution, splitted in
+several isolated parts.</p></blockquote>
+
+<p>We started this project two and a half years ago, and our community is getting
+bigger day after day. That&rsquo;s great because the project grows as well as long as
+more people start using it (more needs, more ideas, more contributions, more
+fun).</p>
+
+<p>We will start doing monthly meetings online in our
+<a href="http://gitter.im/elcodi/elcodi">Gitter channel</a>. Right now, some people is
+daily contributing to Elcodi and having some nice and constructive talks, but we
+want to make it even bigger.</p>
+
+<p>Our first monthly meeting will be next November 25th at 6:00pm GMT+1.
+This meeting will be hosted by the core team of the project,
+<a href="https://github.com/mmoreram">Marc Morera</a> and
+<a href="https://github.com/EmanueleMinotto">Emanuele Minotto</a>.</p>
+
+<h2>Agenda</h2>
+
+<p>This meeting will be focused on creating some working groups for the next weeks.
+Depending on the people attending at the meeting, we will create more or less
+groups, focused on some parts of the application.</p>
+
+<p>These are the points we will talk about.</p>
+
+<ul>
+<li>Tasks for next version <code>v1.1</code>.</li>
+<li>Documentation update and revision.</li>
+<li>Test coverage for <code>v1.1</code>.</li>
+<li>Community action. How to make as many people as possible involved.</li>
+</ul>
+
+
+<h2>Attendees</h2>
+
+<p>Maybe you&rsquo;re asking yourself if this meeting is for you.</p>
+
+<p>Well, it depends on your interests. If your job is all about E-commerce, even if
+your Symfony skills are no so good, then you should join us. You will have the
+opportunity to share some time with really skilled people and to know the way we
+have created this project.</p>
+
+<p>If your interest is open source, join us as well. Elcodi is a young project,
+focused on finding the right equilibrium between pragmatism and clean
+architecture. We use Event-Driven Architecture and annotations at the same time.
+Do you want to know why? What are our thoughts? Ask us :)</p>
+
+<p>In other words, if you want to have a nice time with some really good people,
+then you definitely should join us and say a big Hello!</p>
+
+<p>Remember, next November 25th at&hellip;</p>
+
+<ul>
+<li>Mexico City, La Havana &ndash; 11:00am</li>
+<li>London &ndash; 05:00pm</li>
+<li>Barcelona, Paris, Warsaw &ndash; 06:00pm</li>
+<li>Moscow &ndash; 08:00pm</li>
+</ul>
+
+
+<p>Looking forward to see you all there!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Meet Deliberry]]></title>
@@ -2200,69 +2274,6 @@ have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to v
 <p>As for now, the Elcodi team hopes that you&rsquo;ll get involved with the project and wishes you a great summer break.</p>
 
 <p>Stay tuned!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Our goals]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/13/our-goals/"/>
-    <updated>2014-08-13T10:26:56+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/13/our-goals</id>
-    <content type="html"><![CDATA[<h5>This is the follow-up of a series of posts</h5>
-
-<ul>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/11/a-short-break-for-meditation/">A short break for meditation</a></li>
-<li><a href="http://elcodi-blog.github.io/blog/2014/08/12/our-roadmap/">Our roadmap</a>.</li>
-</ul>
-
-
-<p>In the folowing weeks we would like to get to a first community stable version. Though last week we placed the initial milestone it is important to define a release plan for the following steps.</p>
-
-<p>We set up a list of <a href="https://github.com/elcodi/elcodi/milestones">milestones</a> to show a proposed roadmap:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Version 0.3
-</span><span class='line'>    - Closed 8 days ago
-</span><span class='line'>    - 100% complete  0 open  11 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.4
-</span><span class='line'>    - Due by August 15, 2014
-</span><span class='line'>    - 0% complete  0 open  0 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.5
-</span><span class='line'>    - Due by August 29, 2014
-</span><span class='line'>    - 17% complete  5 open  1 closed
-</span><span class='line'>
-</span><span class='line'>Version 0.6
-</span><span class='line'>    - Due by September 11, 2014
-</span><span class='line'>    - 0% complete  2 open  0 closed</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This means we will be working on fine-tune our general roadmap and on fixing and refining what we have &ndash; no new features will be developed until we improve stability &ndash; in the hope of clearing things up a bit for developers interested in working with Elcodi foundations.</p>
-
-<p>At this stage, it is possible for new commits to introduce <em>BC breaks</em>. There is an open <a href="https://github.com/elcodi/elcodi/issues/34">issue</a> regarding <code>@api</code> tagging in phpdoc but as suggests in the discussion it is not really needed in the absence of a frozen stable release.</p>
-
-<p>We won&rsquo;t be following strict <a href="http://semver.org/">semantic versioning</a> until we reach a stable release, though we are using <em>patch version</em> for small fixes that do not cause incompatibilities and <em>minor version</em> for changes that <em>could</em> cause BC.</p>
-
-<p>Of course this will change once we approach <code>v1.0</code>, when we will <code>@api</code> freeze core components and enforce full semantic versioning.</p>
-
-<p>Reaching the <code>stable</code> version also means we will release the <em>Market</em>, so that plugins and components can be developed with no fears of major version breaks.</p>
-
-<p>We are on our way there, things look good!</p>
 ]]></content>
   </entry>
   
