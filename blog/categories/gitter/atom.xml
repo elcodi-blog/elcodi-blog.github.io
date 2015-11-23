@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gitter | Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/blog/categories/gitter/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-11-23T17:32:32+01:00</updated>
+  <updated>2015-11-23T17:33:36+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -18,10 +18,11 @@
     <link href="http://elcodi-blog.github.io/blog/2015/11/23/suggest-our-next-features/"/>
     <updated>2015-11-23T17:13:35+01:00</updated>
     <id>http://elcodi-blog.github.io/blog/2015/11/23/suggest-our-next-features</id>
-    <content type="html"><![CDATA[<p>For sure some of you already know about Elcodi&rsquo;s first online meetup. It will be
-next November 25th at 6:00pm GMT+1, and for joining us, you only have to enter
-<a href="http://gitter.im/elcodi/elcodi">our gitter room</a>, say hello, and join our
-discussion about Elcodi, Symfony and E-commerce.</p>
+    <content type="html"><![CDATA[<p>For sure some of you already know about
+<a href="http://blog.elcodi.io/blog/2015/11/20/elcodi-online-meetup/">Elcodi&rsquo;s first online meetup</a>.
+It will be next November 25th at 6:00pm GMT+1, and for joining us, you only have
+to enter <a href="http://gitter.im/elcodi/elcodi">our gitter room</a>, say hello, and join
+our discussion about Elcodi, Symfony and E-commerce.</p>
 
 <p>One of the topics we&rsquo;ll talk about will be our roadmap. We&rsquo;ve configured it just
 by thinking what features would be nice to have in the <del>future</del> present, but
