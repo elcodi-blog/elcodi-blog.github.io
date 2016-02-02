@@ -4,7 +4,7 @@
   <title><![CDATA[Elcodi blog]]></title>
   <link href="http://elcodi-blog.github.io/atom.xml" rel="self"/>
   <link href="http://elcodi-blog.github.io/"/>
-  <updated>2015-11-23T17:48:10+01:00</updated>
+  <updated>2016-02-02T17:28:52+01:00</updated>
   <id>http://elcodi-blog.github.io/</id>
   <author>
     <name><![CDATA[Elcodi Team]]></name>
@@ -12,6 +12,135 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Purchasables]]></title>
+    <link href="http://elcodi-blog.github.io/blog/2016/02/02/purchasables/"/>
+    <updated>2016-02-02T16:20:49+01:00</updated>
+    <id>http://elcodi-blog.github.io/blog/2016/02/02/purchasables</id>
+    <content type="html"><![CDATA[<p>It&rsquo;s been a long time since our last blog post, but we have some very good news
+to share with you.</p>
+
+<p>During the last months we&rsquo;ve been working on new projects for Elcodi. Some of
+them are not available yet, but some of them have been merged recently. This
+post is basically to show you what has changed and improved in Elcodi and to
+spread the word about our new Roadmap for the next months. This roadmap is
+exactly the same one, but with different dates due to these new changes.</p>
+
+<h3>Purchasable</h3>
+
+<p>From almost the beginning of the life of our project, and because the entity
+product and related ones are one of the main topic of all e-commerce projects,
+we have tried to manage how abstract should be all this entity family. For
+example, should we create a Purchasable interface to be used in Cart and Order?
+Should we use only one entity to manage all kind of purchasable entities? Should
+we use traits for that? How many interfaces?</p>
+
+<p>Like all software projects, this is a question that can be solved in several
+ways. One of these ways is analyzing our needs and creating a software model
+from these needs. Of course, this is the right way if you have time, money and
+resources. Another way is just by trying one approach. Working with it, dealing
+with it as much as possible, and listening yourself, looking for your needs.
+This approach needs time, only time, and the capacity of refactoring, of action,
+of change.</p>
+
+<p>Well. This one, the last one, is the approach we&rsquo;ve used some time ago. At the
+beginning, using two entities, Product and Variant, to define both purchasable
+types has been a good choice. And it&rsquo;s been like this until now. Since some
+months ago, one of the most asked questions have been&hellip; <em>well, how can I create
+my own purchasable?</em>, and with this approach, was not simple, was not logical.</p>
+
+<p>Well. We have reacted and a new Purchasable implementation is here.</p>
+
+<p>Instead of dealing with products and variants, Elcodi&rsquo;s cart is going to deal
+only with purchasable implementations. We&rsquo;ve started using Doctrine CTI (Class
+Table Inheritance) to allow other implementation coexist with current ones, so
+if you need to work with your own purchasable implementation&hellip; just create it,
+implement this interface and it&rsquo;s done :)</p>
+
+<p>That simple!</p>
+
+<h3>Elcodi v2.0.0</h3>
+
+<p>Our Roadmap was clear. Elcodi <em>v1.1.0</em> had to be tagged the first of January,
+but we really wanted this feature to be available and in master as soon as
+possible.</p>
+
+<p>A change like that can needs a major version change, and even we know that is
+too soon to create a new major version, we think that this is the best for the
+project and the best for our evolution.</p>
+
+<p>We are not specialists in maintaining several branches at all, so we will not
+support versions <em>v1.0</em> actively. What we will do for sure is supporting somehow
+all projects that want to go from <em>v1.0</em> to <em>v2.0</em>. At this moment we don&rsquo;t have
+any tool for that but, if there are some requests, we will do it for sure.</p>
+
+<p>So, if you need us, just <a href="http://gitter.im/elcodi/elcodi">Ask for help</a></p>
+
+<h3>New Roadmap</h3>
+
+<p>Of course our roadmap has changed, but only with dates.<br/>
+Let&rsquo;s take a look at the new plan.</p>
+
+<h4>v2.1</h4>
+
+<ul>
+<li>Released the 1st of June, 2016</li>
+<li>Search engine using ElasticSearch will be introduced here</li>
+<li>Product API will be added</li>
+<li>User API will be added</li>
+<li>Cart API will be added</li>
+<li>Some Media improvements, like new media types</li>
+<li>New shop template will be added</li>
+<li>Back panel documentation</li>
+<li>Code Coverage of all components and bundles over 60%</li>
+<li>Templates documentation</li>
+</ul>
+
+
+<h4>v2.2</h4>
+
+<ul>
+<li>Released the 1st of September, 2016</li>
+<li>Multistore. Switch between stores in the same installation</li>
+<li>Shop API will be added</li>
+<li>New shop template will be added</li>
+<li>New tempates and plugins website with tons of cool new stuff for all Elcodi and Bamboo implementations</li>
+<li>Code Coverage of all components and bundles over 70%</li>
+</ul>
+
+
+<h4>v2.3</h4>
+
+<ul>
+<li>Released the 1st of January, 2017</li>
+<li>We will remove all deprecated code</li>
+<li>Bamboo will use Symfony3 and maybe new version of Doctrine</li>
+<li>Updated all dependencies</li>
+<li>Marketplace</li>
+<li>Elcodi community site will be created.</li>
+<li>Unknown bunch of new and cool stuff</li>
+<li>Code Coverage of all components and bundles over 80%</li>
+</ul>
+
+
+<h3>Try us</h3>
+
+<p>You can start using Elcodi in a very very fast way, just&hellip; DO IT!</p>
+
+<p><a href="http://elcodi.io/docs/quick-start/">Install Elcodi</a></p>
+
+<h3>Last thoughts</h3>
+
+<p>Well, Elcodi project is keep doing. Remember that we need a lot of help, and we
+really want you to test our project, take a small tour around what we offer and
+if you like, only if you like&hellip;</p>
+
+<p><a href="https://github.com/elcodi/elcodi">Star us</a>
+<a href="https://gitter.com/elcodi/elcodi">Join us</a>
+<a href="https://github.com/elcodi/elcodi/issues">Help us</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Suggest our next features]]></title>
@@ -2245,55 +2374,6 @@ their stamina the <em>hard way</em>, out of C/C++ development, before diving int
 <a href="https://www.linkedin.com/in/bernycantos">LinkedIn</a></p>
 
 <p>Welcome Berny!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[We have evolved]]></title>
-    <link href="http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved/"/>
-    <updated>2014-08-28T11:42:47+02:00</updated>
-    <id>http://elcodi-blog.github.io/blog/2014/08/28/we-have-evolved</id>
-    <content type="html"><![CDATA[<p>You might say that we&rsquo;ve evolved.</p>
-
-<p>An evolution ought to be seen as a positive thing, and ours is no exception.
-At first, we had serious doubts about the nature of our project. One of the
-questions we kept asking ourselves was what factors should we consider in
-choosing whether and when to engage external projects or libraries, and we
-believe we made the right decision. In fact, that decision brought us forward in
-a big way toward defining ourselves.</p>
-
-<p>Flexible e-commerce components for Symfony2</p>
-
-<p>Anyway, this phrase is actually very ambiguous, as we could be referring to
-Symfony as a set of PHP components or as the Framework (I&rsquo;ve always wondered
-why they have the same name&hellip; it causes a lot of confusion).</p>
-
-<p>That&rsquo;s why we wanted to reflect a bit, starting from the code itself. Do we want
-to use the Symfony Framework or the Symfony Components? The answer seemed to
-emerge spontaneously. We want to work with the Symfony components, but we also
-want to propose bundles that use the framework.</p>
-
-<p>This was the origin of this commit.</p>
-
-<p><a href="https://github.com/elcodi/elcodi/pull/239">https://github.com/elcodi/elcodi/pull/239</a></p>
-
-<p>We have only just planted the seed with this refactoring. We have realized, even
-more, the importance of having both functional testing and unit testing (unit
-tests are almost all for the components, while functional tests are for the
-bundles). This needs more work, but at least we have lifted this project to a
-level at which we truly feel comfortable. It&rsquo;s an excellent starting point for
-a long and exciting path ahead.</p>
-
-<p>This change has resulted in some collateral damage, as it has changed the path
-of our bundles, meaning that the &ldquo;subtree split&rdquo; has resulted in totally new
-repositories beginning with the first commit after refactoring. This means that
-all tags prior to version 0.3.0 have been lost, so we apologize to those who
-have started to tinkle with our new bundles. You&rsquo;ll now need to adapt to version
-~0.3 and check that everything&rsquo;s working.</p>
-
-<p>We are available for any questions or concerns.</p>
-
-<p>Happy coding!</p>
 ]]></content>
   </entry>
   

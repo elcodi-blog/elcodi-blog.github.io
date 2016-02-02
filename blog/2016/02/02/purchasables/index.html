@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Purchasables - Elcodi blog</title>
+  <meta name="author" content="Elcodi Team">
+
+  
+  <meta name="description" content="It&rsquo;s been a long time since our last blog post, but we have some very good news
+to share with you. During the last months we&rsquo;ve been &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://elcodi-blog.github.io/blog/2016/02/02/purchasables/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Elcodi blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50003565-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:elcodi-blog.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">
+        <span class="blue_light">
+            Elcodi blog
+        </span>
+       
+    </a></li>
+  <li><a href="http://elcodi.io">Website</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Purchasables</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-02-02T16:20:49+01:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>It&rsquo;s been a long time since our last blog post, but we have some very good news
+to share with you.</p>
+
+<p>During the last months we&rsquo;ve been working on new projects for Elcodi. Some of
+them are not available yet, but some of them have been merged recently. This
+post is basically to show you what has changed and improved in Elcodi and to
+spread the word about our new Roadmap for the next months. This roadmap is
+exactly the same one, but with different dates due to these new changes.</p>
+
+<h3>Purchasable</h3>
+
+<p>From almost the beginning of the life of our project, and because the entity
+product and related ones are one of the main topic of all e-commerce projects,
+we have tried to manage how abstract should be all this entity family. For
+example, should we create a Purchasable interface to be used in Cart and Order?
+Should we use only one entity to manage all kind of purchasable entities? Should
+we use traits for that? How many interfaces?</p>
+
+<p>Like all software projects, this is a question that can be solved in several
+ways. One of these ways is analyzing our needs and creating a software model
+from these needs. Of course, this is the right way if you have time, money and
+resources. Another way is just by trying one approach. Working with it, dealing
+with it as much as possible, and listening yourself, looking for your needs.
+This approach needs time, only time, and the capacity of refactoring, of action,
+of change.</p>
+
+<p>Well. This one, the last one, is the approach we&rsquo;ve used some time ago. At the
+beginning, using two entities, Product and Variant, to define both purchasable
+types has been a good choice. And it&rsquo;s been like this until now. Since some
+months ago, one of the most asked questions have been&hellip; <em>well, how can I create
+my own purchasable?</em>, and with this approach, was not simple, was not logical.</p>
+
+<p>Well. We have reacted and a new Purchasable implementation is here.</p>
+
+<p>Instead of dealing with products and variants, Elcodi&rsquo;s cart is going to deal
+only with purchasable implementations. We&rsquo;ve started using Doctrine CTI (Class
+Table Inheritance) to allow other implementation coexist with current ones, so
+if you need to work with your own purchasable implementation&hellip; just create it,
+implement this interface and it&rsquo;s done :)</p>
+
+<p>That simple!</p>
+
+<h3>Elcodi v2.0.0</h3>
+
+<p>Our Roadmap was clear. Elcodi <em>v1.1.0</em> had to be tagged the first of January,
+but we really wanted this feature to be available and in master as soon as
+possible.</p>
+
+<p>A change like that can needs a major version change, and even we know that is
+too soon to create a new major version, we think that this is the best for the
+project and the best for our evolution.</p>
+
+<p>We are not specialists in maintaining several branches at all, so we will not
+support versions <em>v1.0</em> actively. What we will do for sure is supporting somehow
+all projects that want to go from <em>v1.0</em> to <em>v2.0</em>. At this moment we don&rsquo;t have
+any tool for that but, if there are some requests, we will do it for sure.</p>
+
+<p>So, if you need us, just <a href="http://gitter.im/elcodi/elcodi">Ask for help</a></p>
+
+<h3>New Roadmap</h3>
+
+<p>Of course our roadmap has changed, but only with dates.<br/>
+Let&rsquo;s take a look at the new plan.</p>
+
+<h4>v2.1</h4>
+
+<ul>
+<li>Released the 1st of June, 2016</li>
+<li>Search engine using ElasticSearch will be introduced here</li>
+<li>Product API will be added</li>
+<li>User API will be added</li>
+<li>Cart API will be added</li>
+<li>Some Media improvements, like new media types</li>
+<li>New shop template will be added</li>
+<li>Back panel documentation</li>
+<li>Code Coverage of all components and bundles over 60%</li>
+<li>Templates documentation</li>
+</ul>
+
+
+<h4>v2.2</h4>
+
+<ul>
+<li>Released the 1st of September, 2016</li>
+<li>Multistore. Switch between stores in the same installation</li>
+<li>Shop API will be added</li>
+<li>New shop template will be added</li>
+<li>New tempates and plugins website with tons of cool new stuff for all Elcodi and Bamboo implementations</li>
+<li>Code Coverage of all components and bundles over 70%</li>
+</ul>
+
+
+<h4>v2.3</h4>
+
+<ul>
+<li>Released the 1st of January, 2017</li>
+<li>We will remove all deprecated code</li>
+<li>Bamboo will use Symfony3 and maybe new version of Doctrine</li>
+<li>Updated all dependencies</li>
+<li>Marketplace</li>
+<li>Elcodi community site will be created.</li>
+<li>Unknown bunch of new and cool stuff</li>
+<li>Code Coverage of all components and bundles over 80%</li>
+</ul>
+
+
+<h3>Try us</h3>
+
+<p>You can start using Elcodi in a very very fast way, just&hellip; DO IT!</p>
+
+<p><a href="http://elcodi.io/docs/quick-start/">Install Elcodi</a></p>
+
+<h3>Last thoughts</h3>
+
+<p>Well, Elcodi project is keep doing. Remember that we need a lot of help, and we
+really want you to test our project, take a small tour around what we offer and
+if you like, only if you like&hellip;</p>
+
+<p><a href="https://github.com/elcodi/elcodi">Star us</a>
+<a href="https://gitter.com/elcodi/elcodi">Join us</a>
+<a href="https://github.com/elcodi/elcodi/issues">Help us</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Marc Morera</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-02-02T16:20:49+01:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2016</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/elcodi/'>elcodi</a>, <a class='category' href='/blog/categories/purchasable/'>purchasable</a>, <a class='category' href='/blog/categories/roadmap/'>roadmap</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elcodi-blog.github.io/blog/2016/02/02/purchasables/" data-via="elcodi_dev" data-counturl="http://elcodi-blog.github.io/blog/2016/02/02/purchasables/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/11/23/suggest-our-next-features/" title="Previous Post: Suggest our next features">&laquo; Suggest our next features</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/02/02/purchasables/">Purchasables</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/23/suggest-our-next-features/">Suggest our next features</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/20/elcodi-online-meetup/">Elcodi online meetup</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/19/meet-deliberry/">Meet Deliberry</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/07/install-elcodi/">Install Elcodi</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/elcodi">@elcodi</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'elcodi',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Elcodi Team -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Elcodi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://elcodi-blog.github.io/blog/2016/02/02/purchasables/';
+        var disqus_url = 'http://elcodi-blog.github.io/blog/2016/02/02/purchasables/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
